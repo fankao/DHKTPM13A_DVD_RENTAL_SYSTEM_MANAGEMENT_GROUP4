@@ -1,4 +1,5 @@
 package com.group4.business;
+
 import static com.group4.Injection.chiTietDatGiuDAO;
 import static com.group4.Injection.chiTietThueTraDAO;
 import static com.group4.Injection.khachHangDAO;
@@ -11,7 +12,6 @@ import com.group4.entities.ChiTietThueTra;
 import com.group4.entities.KhachHang;
 
 public class KhachHangBUS {
-	
 
 	/**
 	 * Lấy danh sách khách hàng có phí trễ hạn
@@ -31,7 +31,7 @@ public class KhachHangBUS {
 	 * @return số đĩa thuê
 	 */
 	public int tinhSoDiaDaThue(KhachHang khachHang) {
-		return khachHang.getDsChiTietThueTra().size();
+		return chiTietThueTraDAO.demSoDiaDaThue(khachHang.getId());
 	}
 
 	/**
@@ -59,11 +59,12 @@ public class KhachHangBUS {
 
 	/**
 	 * lấy số đĩa chưa trả
+	 * 
 	 * @param khachHang
 	 * @return
 	 */
 	public List<ChiTietThueTra> getDSChiTietChuaTraDia(KhachHang khachHang) {
-		return khachHang.getDsChiTietThueTra().stream().filter(x -> x.getNgayTra() != null)
+		return khachHang.getDsChiTietThueTra().stream().filter(x -> x.getNgayTra() == null)
 				.collect(Collectors.toList());
 	}
 

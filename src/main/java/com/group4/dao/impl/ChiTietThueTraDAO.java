@@ -42,4 +42,16 @@ public class ChiTietThueTraDAO extends AbstractDAO<ChiTietThueTra, ChiTietThueTr
 		return results.size() == 0 ? new ArrayList<ChiTietThueTra>() : results;
 	}
 
+	@Override
+	public int demSoDiaDaThue(Long id) {
+		TypedQuery<ChiTietThueTra> query = em
+				.createQuery("select ct from ChiTietThueTra ct where ct.khachHang.id =:khId",
+						ChiTietThueTra.class)
+				.setParameter("khId", id);
+
+		List<ChiTietThueTra> results = query.getResultList();
+
+		return results.size();
+	}
+
 }

@@ -1,11 +1,9 @@
 package com.group4.business;
-import static com.group4.Injection.*;
+import static com.group4.Injection.chiTietDatGiuDAO;
+import static com.group4.Injection.diaDAO;
+
 import java.util.List;
 
-import com.group4.dao.IChiTietDatGiuDAO;
-import com.group4.dao.IDiaDAO;
-import com.group4.dao.impl.ChiTietDatGiuDAO;
-import com.group4.dao.impl.DiaDAO;
 import com.group4.entities.ChiTietDatGiu;
 import com.group4.entities.Dia;
 import com.group4.entities.KhachHang;
