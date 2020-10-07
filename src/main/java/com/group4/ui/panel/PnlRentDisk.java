@@ -1,5 +1,5 @@
 package com.group4.ui.panel;
-
+import static com.group4.Injection.*;
 import static com.group4.ui.panel.UtilsLayout.hienThongBao;
 import static com.group4.ui.panel.UtilsLayout.isInputFieldNotBlank;
 import static com.group4.ui.panel.UtilsLayout.kichHoatButton;
@@ -62,16 +62,6 @@ public class PnlRentDisk extends JPanel {
 
 	private List<Dia> dsDiaThue = new ArrayList<Dia>();
 	private KhachHang khachHangThueDia;
-
-	private static ThueTraDiaBUS thueTraDiaBUS;
-	private static ThanhToanPhiTreHanBUS thanhToanPhiTreHanBUS;
-	private static IDiaDAO diaDAO;
-
-	static {
-		thueTraDiaBUS = new ThueTraDiaBUS();
-		thanhToanPhiTreHanBUS = new ThanhToanPhiTreHanBUS();
-		diaDAO = new DiaDAO();
-	}
 
 	private JLabel lblDateRent;
 	private JTextField txtDiskID;

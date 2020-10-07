@@ -13,6 +13,7 @@ public class DVDRentalApplication {
 		//TODO: chạy màn hình Loading...
 		
 		System.out.println("Loading...");
+		 new Injection();
 
 		/*
 		 * dữ liệu test thuê đĩa

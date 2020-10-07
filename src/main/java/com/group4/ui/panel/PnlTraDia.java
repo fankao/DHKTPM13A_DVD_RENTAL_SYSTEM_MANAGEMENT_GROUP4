@@ -1,5 +1,5 @@
 package com.group4.ui.panel;
-
+import static com.group4.Injection.*;
 import static com.group4.ui.panel.UtilsLayout.isInputFieldNotBlank;
 import static com.group4.ui.panel.UtilsLayout.kichHoatButton;
 import static com.group4.ui.panel.UtilsLayout.voHieuHoaButton;
@@ -73,19 +73,6 @@ public class PnlTraDia extends JPanel {
 	private List<Dia> dsDiaTra = new ArrayList<Dia>();
 	private KhachHang khachHangTra;
 	
-	private static IKhachHangDAO khachHangDAO;
-	private static ThueTraDiaBUS thueTraDiaBUS;
-	private static ThanhToanPhiTreHanBUS thanhToanPhiTreHanBUS;
-	private static IDiaDAO diaDAO;
-	private static IChiTietThueTraDAO thuetraDAO;
-
-	static {
-		khachHangDAO = new KhachHangDAO();
-		thueTraDiaBUS = new ThueTraDiaBUS();
-		thanhToanPhiTreHanBUS = new ThanhToanPhiTreHanBUS();
-		diaDAO = new DiaDAO();
-		thuetraDAO = new ChiTietThueTraDAO();
-	}
 	
 	public PnlTraDia() {
 		setBorder(new EmptyBorder(10, 10, 10, 10));
@@ -258,7 +245,7 @@ public class PnlTraDia extends JPanel {
 						return;
 					}
 
-					List<ChiTietThueTra> dsTraDia = thuetraDAO.getDSChuaTraDiaTheoDia(diskId);
+					List<ChiTietThueTra> dsTraDia = chiTietThueTraDAO.getDSChuaTraDiaTheoDia(diskId);
 					Dia diaTra = diaDAO.findById(diskId);	
 					KhachHang kh = dsTraDia.get(0).getKhachHang();
 					System.out.println("dasdsa"+dsTraDia.get(0).getKhachHang());
@@ -287,7 +274,7 @@ public class PnlTraDia extends JPanel {
 					
 //					ChiTietThueTra ct = thuetraDAO.getDSChuaTraDiaTheoDiavaKH(diaTra.getId());
 					dsTraDia.get(0).setNgayTra(LocalDate.now());
-					thuetraDAO.update(dsTraDia.get(0));
+					chiTietThueTraDAO.update(dsTraDia.get(0));
 					
 					// ngay tra it hon ngay hien tai
 					System.out.println(dsTraDia.get(0).getNgayToiHan().toString());

@@ -1,5 +1,5 @@
 package com.group4.ui.panel;
-
+import static com.group4.Injection.*;
 import static com.group4.ui.panel.UtilsLayout.*;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -40,10 +40,6 @@ public class PnlManageDisk extends JPanel {
 	private static final long serialVersionUID = 1L;
 
 	private ICloseUIListener closeUIListener;
-	private static IDiaDAO diaDAO;
-	static {
-		diaDAO = new DiaDAO();
-	}
 	private Dia diaNeedDelete = null;
 
 	private JComboBox<LoaiDia> cmbDiskCategory;

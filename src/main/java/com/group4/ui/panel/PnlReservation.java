@@ -1,5 +1,5 @@
 package com.group4.ui.panel;
-
+import static com.group4.Injection.*;
 import static com.group4.ui.panel.UtilsLayout.*;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -42,10 +42,7 @@ import com.group4.ui.panel.PnlCustomerCommon.ItemClickListener;
 public class PnlReservation extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private ICloseUIListener closeUIListener;
-	private static DatTruocDiaBUS datTruocDiaBUS;
-	static {
-		datTruocDiaBUS = new DatTruocDiaBUS();
-	}
+
 	private KhachHang khachHangDatBanSao;
 
 	private JLabel lblReservationDate;

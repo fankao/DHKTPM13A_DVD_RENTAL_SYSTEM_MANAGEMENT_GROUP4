@@ -1,6 +1,7 @@
 package com.group4.test;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.HashSet;
 
@@ -30,6 +31,7 @@ import com.group4.entities.TuaDe;
 
 public class TestingThanhToanPhiTreHan {
 	public static void main() {
+
 		IKhachHangDAO khachHangDAO = new KhachHangDAO();
 		KhachHang kh1 = new KhachHang("Minh Chiến", "0852369741", "Bình Phước");
 		kh1 = khachHangDAO.create(kh1);
@@ -187,17 +189,17 @@ public class TestingThanhToanPhiTreHan {
 
 		IChiTietThueTraDAO chiTietThueTraDAO = new ChiTietThueTraDAO();
 
-		ChiTietThueTra chiTietThueTra1 = chiTietThueTraDAO.findById(new ChiTietThueTraID(1L, 1L));
-		chiTietThueTra1.setNgayTra(LocalDate.of(2020, 12, 20));
+		ChiTietThueTra chiTietThueTra1 = chiTietThueTraDAO.findById(new ChiTietThueTraID(kh1.getId(), dia1.getId()));
+		chiTietThueTra1.setNgayTra(LocalDate.of(2020, 12, chiTietThueTra1.getNgayToiHan().plusDays(3).getDayOfMonth()));
 
-		ChiTietThueTra chiTietThueTra2 = chiTietThueTraDAO.findById(new ChiTietThueTraID(1L, 2L));
-		chiTietThueTra2.setNgayTra(LocalDate.of(2020, 12, 20));
+		ChiTietThueTra chiTietThueTra2 = chiTietThueTraDAO.findById(new ChiTietThueTraID(kh1.getId(), dia2.getId()));
+		chiTietThueTra2.setNgayTra(LocalDate.of(2020, 12, chiTietThueTra1.getNgayToiHan().plusDays(3).getDayOfMonth()));
 
-		ChiTietThueTra chiTietThueTra3 = chiTietThueTraDAO.findById(new ChiTietThueTraID(1L, 3L));
-		chiTietThueTra3.setNgayTra(LocalDate.of(2020, 12, 20));
+		ChiTietThueTra chiTietThueTra3 = chiTietThueTraDAO.findById(new ChiTietThueTraID(kh1.getId(), dia3.getId()));
+		chiTietThueTra3.setNgayTra(LocalDate.of(2020, 12, chiTietThueTra1.getNgayToiHan().plusDays(3).getDayOfMonth()));
 
-		ChiTietThueTra chiTietThueTra4 = chiTietThueTraDAO.findById(new ChiTietThueTraID(1L, 4L));
-		chiTietThueTra4.setNgayTra(LocalDate.of(2020, 12, 20));
+		ChiTietThueTra chiTietThueTra4 = chiTietThueTraDAO.findById(new ChiTietThueTraID(kh1.getId(), dia4.getId()));
+		chiTietThueTra4.setNgayTra(LocalDate.of(2020, 12, chiTietThueTra1.getNgayToiHan().plusDays(3).getDayOfMonth()));
 
 		chiTietThueTraDAO.update(chiTietThueTra1);
 		chiTietThueTraDAO.update(chiTietThueTra2);
