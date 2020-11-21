@@ -9,7 +9,8 @@ import com.group4.ui.FrmMain;
 public class DVDRentalApplication {
 	public static void main(String[] args) {
 		try {
-			UIManager.setLookAndFeel("com.jtattoo.plaf.mint.MintLookAndFeel");
+			//UIManager.setLookAndFeel("com.jtattoo.plaf.mint.MintLookAndFeel");
+			UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
 				| UnsupportedLookAndFeelException e) {
 			// TODO Auto-generated catch block
@@ -18,7 +19,7 @@ public class DVDRentalApplication {
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
 			public void run() {
-				new FrmMain("Hệ thống quản lý cho thuê băng đĩa");
+				new FrmMain("Hệ thống quản lý cho thuê băng đĩa").setVisible(true);
 			}
 		});
 
