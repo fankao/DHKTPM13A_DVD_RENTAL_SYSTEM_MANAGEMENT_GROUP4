@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="dvd-rental-management">
+		<class>com.group4.entities.KhachHang</class>
+		<class>com.group4.entities.Dia</class>
+		<class>com.group4.entities.TuaDe</class>
+		<class>com.group4.entities.LoaiDia</class>
+		<class>com.group4.entities.ChiTietDatGiu</class>
+		<class>com.group4.entities.ChiTietThueTra</class>
+		<class>com.group4.entities.ChiTietThueTraID</class>
+		<class>com.group4.entities.LocalDateAttributeConverter</class>
+		<class>com.group4.entities.ChiTietDatGiuID</class>
+		<properties>
+			<property name="hibernate.dialect"
+				value="org.hibernate.dialect.SQLServerDialect" />
+			<property name="javax.persistence.jdbc.driver"
+				value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB" />
+			<property name="javax.persistence.jdbc.user" value="sa" />
+			<property name="javax.persistence.jdbc.password" value="123" />
+			<property name="hibernate.show_sql" value="true" />
+
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+
+			<!-- <property name="javax.persistence.schema-generation.database.action" 
+				value="drop-and-create" /> -->
+		</properties>
+	</persistence-unit>
+</persistence>
