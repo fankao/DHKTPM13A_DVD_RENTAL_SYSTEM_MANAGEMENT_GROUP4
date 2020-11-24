@@ -53,7 +53,7 @@ public abstract class AbstractDAO<T, ID> implements IGenericDAO<T, ID> {
 			return obj;
 		} catch (Exception e) {
 			tr.rollback();
-			logger.error("Thêm mới thất bại"+e.getMessage());
+			logger.error("Thêm mới thất bại: "+e.getMessage());
 			e.printStackTrace();
 		}
 		return null;

@@ -9,7 +9,7 @@ public class DBManager {
 
 	private EntityManager em;
 
-	public DBManager() {
+	private DBManager() {
 		em = Persistence.createEntityManagerFactory("dvd-rental-management").createEntityManager();
 	}
 

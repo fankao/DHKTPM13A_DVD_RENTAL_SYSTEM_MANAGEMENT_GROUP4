@@ -7,30 +7,32 @@ import java.util.Set;
 import javax.persistence.*;
 
 @Entity
-public class TuaDe implements Serializable{
+public class TuaDe implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private Long Id;
+	private Long id;
 
 	private String tenTuaDe;
 
 	@OneToMany(mappedBy = "tuaDe", fetch = FetchType.LAZY)
 	private Set<Dia> dsDia = new HashSet<Dia>();
-	
-	@OneToMany(mappedBy = "tuaDe",fetch = FetchType.LAZY)
+
+	@OneToMany(mappedBy = "tuaDe", fetch = FetchType.LAZY)
 	private Set<ChiTietDatGiu> dsChiTietDatGiu = new HashSet<ChiTietDatGiu>();
 
 	public TuaDe() {
 		super();
 	}
+	
+	
 
 	public Long getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(Long id) {
-		Id = id;
+		this.id = id;
 	}
 
 	public String getTenTuaDe() {
@@ -48,8 +50,6 @@ public class TuaDe implements Serializable{
 	public void setDsDia(Set<Dia> dsDia) {
 		this.dsDia = dsDia;
 	}
-	
-	
 
 	public Set<ChiTietDatGiu> getDsChiTietDatGiu() {
 		return dsChiTietDatGiu;
@@ -63,7 +63,7 @@ public class TuaDe implements Serializable{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((Id == null) ? 0 : Id.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
 
@@ -76,17 +76,17 @@ public class TuaDe implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		TuaDe other = (TuaDe) obj;
-		if (Id == null) {
-			if (other.Id != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!Id.equals(other.Id))
+		} else if (!id.equals(other.id))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "TuaDe [Id=" + Id + ", tenTuaDe=" + tenTuaDe + "]";
+		return "TuaDe [id=" + id + ", tenTuaDe=" + tenTuaDe + "]";
 	}
 
 }

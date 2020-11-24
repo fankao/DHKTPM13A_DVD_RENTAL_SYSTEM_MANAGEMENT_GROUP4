@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 
 import com.group4.ui.panel.PnlManageDisk;
 import com.group4.ui.panel.PnlRentDisk;
+import com.group4.ui.panel.PnlReservation;
 
 public class FrmMain extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -31,6 +32,13 @@ public class FrmMain extends JFrame {
 	private JMenuBar menuBar;
 	private JMenu mnReport;
 	private JMenu mnReservation;
+	private JMenuItem mntmProccessReservation;
+	private JMenuItem mntmCancelReservation;
+	private JMenuItem mntmProccessLateChargePayment;
+	private JMenuItem mntmCancelLateCharge;
+	private JMenuItem mntmLogin;
+	private JMenuItem mntmLogout;
+	private JMenu mnAdmin;
 
 	public FrmMain(String title) {
 		super(title);
@@ -57,13 +65,29 @@ public class FrmMain extends JFrame {
 		mnReturnDisk.setFont(new Font("Segoe UI", Font.PLAIN, 20));
 		menuBar.add(mnReturnDisk);
 
-		mnLateChargesPayment = new JMenu("Thanh toán phí trễ hạn");
+		mnLateChargesPayment = new JMenu("Phí trễ hạn");
 		mnLateChargesPayment.setFont(new Font("Segoe UI", Font.PLAIN, 20));
 		menuBar.add(mnLateChargesPayment);
 		
-		mnReservation = new JMenu("Đặt trước đĩa");
+		mntmProccessLateChargePayment = new JMenuItem("Thanh toán phí trễ hạn");
+		mntmProccessLateChargePayment.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		mnLateChargesPayment.add(mntmProccessLateChargePayment);
+		
+		mntmCancelLateCharge = new JMenuItem("Huỷ phí trễ hạn");
+		mntmCancelLateCharge.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		mnLateChargesPayment.add(mntmCancelLateCharge);
+		
+		mnReservation = new JMenu("Đặt đĩa");
 		mnReservation.setFont(new Font("Segoe UI", Font.PLAIN, 20));
 		menuBar.add(mnReservation);
+		
+		mntmProccessReservation = new JMenuItem("Tiến hành đặt đĩa");
+		mntmProccessReservation.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		mnReservation.add(mntmProccessReservation);
+		
+		mntmCancelReservation = new JMenuItem("Huỷ đặt đĩa");
+		mntmCancelReservation.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		mnReservation.add(mntmCancelReservation);
 
 		mnManage = new JMenu("Quản lý");
 		mnManage.setFont(new Font("Segoe UI", Font.PLAIN, 20));
@@ -101,9 +125,21 @@ public class FrmMain extends JFrame {
 		mntmReportCustomer.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 		mnReport.add(mntmReportCustomer);
 
-		mntmReportTitle = new JMenuItem("Tiêu đề");
+		mntmReportTitle = new JMenuItem("Tựa đề của đĩa");
 		mntmReportTitle.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 		mnReport.add(mntmReportTitle);
+		
+		mnAdmin = new JMenu("Tài khoản");
+		mnAdmin.setFont(new Font("Segoe UI", Font.PLAIN, 20));
+		menuBar.add(mnAdmin);
+		
+		mntmLogin = new JMenuItem("Đăng nhập");
+		mntmLogin.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		mnAdmin.add(mntmLogin);
+		
+		mntmLogout = new JMenuItem("Đăng xuất");
+		mntmLogout.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		mnAdmin.add(mntmLogout);
 
 		setEventForMenu();
 	}
@@ -127,6 +163,24 @@ public class FrmMain extends JFrame {
 			}
 		});
 		//TODO: hiện giao diện trả đĩa
+		
+		mntmProccessLateChargePayment.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				PnlReservation pnlReservation = new PnlReservation();
+				openWorkUI(pnlReservation);
+				pnlReservation.setCloseUIListener(new ICloseUIListener() {
+					
+					@Override
+					public void onCloseUI(ActionEvent e) {
+						closeWorkUI(pnlReservation);
+						
+					}
+				});
+				
+			}
+		});
 		
 		//hiện giao diện quản lý đĩa
 		mntmDisk.addActionListener(new ActionListener() {
@@ -168,9 +222,13 @@ public class FrmMain extends JFrame {
 	private void enableMenu(boolean isEnable) {
 		mnRentDisk.setEnabled(isEnable);
 		mnReturnDisk.setEnabled(isEnable);
+		mnReservation.setEnabled(isEnable);
 		mnManage.setEnabled(isEnable);
 		mnLateChargesPayment.setEnabled(isEnable);
 		mnReport.setEnabled(isEnable);
+		mnAdmin.setEnabled(isEnable);
+		
+		
 	}
 
 	/**

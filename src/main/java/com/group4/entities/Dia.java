@@ -17,7 +17,7 @@ public class Dia implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private Long Id;
+	private Long id;
 
 	@Enumerated(EnumType.STRING)
 	private TrangThaiDia trangThai;
@@ -39,16 +39,18 @@ public class Dia implements Serializable{
 
 	public Dia(Long id, TrangThaiDia trangThai) {
 		super();
-		Id = id;
+		this.id = id;
 		this.trangThai = trangThai;
 	}
 
+	
+
 	public Long getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(Long id) {
-		Id = id;
+		this.id = id;
 	}
 
 	public TrangThaiDia getTrangThai() {
@@ -88,7 +90,7 @@ public class Dia implements Serializable{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((Id == null) ? 0 : Id.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
 
@@ -101,12 +103,14 @@ public class Dia implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Dia other = (Dia) obj;
-		if (Id == null) {
-			if (other.Id != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!Id.equals(other.Id))
+		} else if (!id.equals(other.id))
 			return false;
 		return true;
 	}
+
+	
 
 }

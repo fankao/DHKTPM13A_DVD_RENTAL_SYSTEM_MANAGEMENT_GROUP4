@@ -13,6 +13,7 @@
 		<class>com.group4.entities.ChiTietThueTraID</class>
 		<class>com.group4.entities.LocalDateAttributeConverter</class>
 		<class>com.group4.entities.ChiTietDatGiuID</class>
+		<class>com.group4.entities.TaiKhoan</class>
 		<properties>
 			<property name="hibernate.dialect"
 				value="org.hibernate.dialect.SQLServerDialect" />
@@ -26,8 +27,8 @@
 
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 
-			<!-- <property name="javax.persistence.schema-generation.database.action" 
-				value="drop-and-create" /> -->
+			<property name="javax.persistence.schema-generation.database.action" 
+				value="drop-and-create" />
 		</properties>
 	</persistence-unit>
 </persistence>

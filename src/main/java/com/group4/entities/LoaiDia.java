@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -12,9 +14,13 @@ import javax.persistence.OneToMany;
 @Entity
 public class LoaiDia implements Serializable {
 	private static final long serialVersionUID = 1L;
+	
 	@Id
-	private Long Id;
-	private String tenLoaiDia;
+	private Long id;
+	
+	@Enumerated(EnumType.STRING)
+	private TenLoaiDia tenLoaiDia;
+	
 	private double phiThue;
 	private double phiTreHan;
 	private int soNgayThue;
@@ -26,21 +32,31 @@ public class LoaiDia implements Serializable {
 		super();
 	}
 
+	
+
 	public Long getId() {
-		return Id;
+		return id;
 	}
+
+
 
 	public void setId(Long id) {
-		Id = id;
+		this.id = id;
 	}
 
-	public String getTenLoaiDia() {
+
+
+	public TenLoaiDia getTenLoaiDia() {
 		return tenLoaiDia;
 	}
 
-	public void setTenLoaiDia(String tenLoaiDia) {
+
+
+	public void setTenLoaiDia(TenLoaiDia tenLoaiDia) {
 		this.tenLoaiDia = tenLoaiDia;
 	}
+
+
 
 	public double getPhiThue() {
 		return phiThue;
@@ -78,7 +94,7 @@ public class LoaiDia implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((Id == null) ? 0 : Id.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
 
@@ -91,10 +107,10 @@ public class LoaiDia implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		LoaiDia other = (LoaiDia) obj;
-		if (Id == null) {
-			if (other.Id != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!Id.equals(other.Id))
+		} else if (!id.equals(other.id))
 			return false;
 		return true;
 	}

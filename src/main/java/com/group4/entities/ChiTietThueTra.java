@@ -1,5 +1,6 @@
 package com.group4.entities;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import javax.persistence.EmbeddedId;
@@ -12,7 +13,8 @@ import javax.persistence.MapsId;
 import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
-public class ChiTietThueTra {
+public class ChiTietThueTra implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	@EmbeddedId
 	private ChiTietThueTraID id;
