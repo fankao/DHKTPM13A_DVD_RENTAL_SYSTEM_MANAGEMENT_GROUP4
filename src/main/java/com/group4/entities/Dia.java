@@ -1,22 +1,28 @@
 package com.group4.entities;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "Dia")
 public class Dia implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	@Enumerated(EnumType.STRING)
@@ -30,8 +36,8 @@ public class Dia implements Serializable{
 	@JoinColumn(name = "loaiDiaId")
 	private LoaiDia loaiDia;
 	
-	@OneToMany(mappedBy = "dia", fetch =  FetchType.LAZY)
-	private Set<ChiTietThueTra> dsChiTietThueTra;
+	@OneToMany(mappedBy = "dia")
+	private Set<ChiTietThueTra> dsChiTietThueTra = new HashSet<ChiTietThueTra>();
 
 	public Dia() {
 		super();
@@ -42,8 +48,17 @@ public class Dia implements Serializable{
 		this.id = id;
 		this.trangThai = trangThai;
 	}
-
 	
+	public Dia(TrangThaiDia trangThai, TuaDe tuaDe, LoaiDia loaiDia) {
+		super();
+		this.trangThai = trangThai;
+		this.tuaDe = tuaDe;
+		this.loaiDia = loaiDia;
+	}
+
+	public Dia(Long id) {
+		this.id = id;
+	}
 
 	public Long getId() {
 		return id;

@@ -10,7 +10,7 @@ import javax.persistence.MapsId;
 @Entity
 public class ChiTietDatGiu {
 	@EmbeddedId
-	private ChiTietDatGiuID id;
+	private ChiTietDatGiuID id = new ChiTietDatGiuID();
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@MapsId("khachHangId")
@@ -21,6 +21,8 @@ public class ChiTietDatGiu {
 	@MapsId("tuaDeId")
 	@JoinColumn(name = "tuaDeId")
 	private TuaDe tuaDe;
+	
+	private boolean daGanDia;
 
 	public ChiTietDatGiu() {
 		super();
@@ -49,6 +51,16 @@ public class ChiTietDatGiu {
 	public void setTuaDe(TuaDe tuaDe) {
 		this.tuaDe = tuaDe;
 	}
+
+	public boolean isDaGanDia() {
+		return daGanDia;
+	}
+
+	public void setDaGanDia(boolean daGanDia) {
+		this.daGanDia = daGanDia;
+	}
+	
+	
 	
 	
 

@@ -1,6 +1,5 @@
 package com.group4.entities;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 
 import javax.persistence.EmbeddedId;
@@ -13,11 +12,9 @@ import javax.persistence.MapsId;
 import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
-public class ChiTietThueTra implements Serializable {
-	private static final long serialVersionUID = 1L;
-
+public class ChiTietThueTra {
 	@EmbeddedId
-	private ChiTietThueTraID id;
+	private ChiTietThueTraID id = new ChiTietThueTraID();
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@MapsId("khachHangId")
@@ -33,9 +30,19 @@ public class ChiTietThueTra implements Serializable {
 	private LocalDate ngayThue;
 
 	private LocalDate ngayTra;
+	
+	private boolean daThanhToanPhiTreHan;
 
 	public ChiTietThueTra() {
+	}
+
+	public ChiTietThueTra(ChiTietThueTraID id, KhachHang khachHang, Dia dia, LocalDate ngayThue, LocalDate ngayTra) {
 		super();
+		this.id = id;
+		this.khachHang = khachHang;
+		this.dia = dia;
+		this.ngayThue = ngayThue;
+		this.ngayTra = ngayTra;
 	}
 
 	public ChiTietThueTraID getId() {
@@ -78,9 +85,43 @@ public class ChiTietThueTra implements Serializable {
 		this.ngayTra = ngayTra;
 	}
 
-	public void thueDia(KhachHang khachHang, Dia dia) {
+	public boolean isDaThanhToanPhiTreHan() {
+		return daThanhToanPhiTreHan;
+	}
+
+	public void setDaThanhToanPhiTreHan(boolean daThanhToanPhiTreHan) {
+		this.daThanhToanPhiTreHan = daThanhToanPhiTreHan;
+	}
+
+	public void thueDia(KhachHang khachHang, Dia diaThue) {
 		this.setKhachHang(khachHang);
-		this.setDia(dia);
+		diaThue.setTrangThai(TrangThaiDia.RENTED);
+		this.setDia(diaThue);
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ChiTietThueTra other = (ChiTietThueTra) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
 	}
 
 	@Override

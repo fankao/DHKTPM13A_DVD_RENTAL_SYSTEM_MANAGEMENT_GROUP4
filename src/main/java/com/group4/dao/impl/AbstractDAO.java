@@ -16,7 +16,7 @@ import com.group4.dao.IGenericDAO;
 
 public abstract class AbstractDAO<T, ID> implements IGenericDAO<T, ID> {
 	
-	private EntityManager em;
+	protected EntityManager em;
 
 	private Class<T> domainClass;
 	

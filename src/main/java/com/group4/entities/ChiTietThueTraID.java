@@ -9,7 +9,7 @@ import javax.persistence.Embeddable;
 public class ChiTietThueTraID implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
+	
 	@Column(name = "khachHangId")
 	private Long khachHangId;
 
@@ -17,8 +17,15 @@ public class ChiTietThueTraID implements Serializable {
 	private Long diaId;
 
 	public ChiTietThueTraID() {
-		super();
+
 	}
+	
+
+	public ChiTietThueTraID(Long khachHangId, Long diaId) {
+		this.khachHangId = khachHangId;
+		this.diaId = diaId;
+	}
+
 
 	public Long getKhachHangId() {
 		return khachHangId;
@@ -28,13 +35,16 @@ public class ChiTietThueTraID implements Serializable {
 		this.khachHangId = khachHangId;
 	}
 
+	
 	public Long getDiaId() {
 		return diaId;
 	}
 
+
 	public void setDiaId(Long diaId) {
 		this.diaId = diaId;
 	}
+
 
 	@Override
 	public int hashCode() {
@@ -66,5 +76,7 @@ public class ChiTietThueTraID implements Serializable {
 			return false;
 		return true;
 	}
+
+	
 
 }

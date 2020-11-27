@@ -11,21 +11,28 @@ public class TuaDe implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@Column(columnDefinition = "NVARCHAR(500)")
 	private String tenTuaDe;
 
 	@OneToMany(mappedBy = "tuaDe", fetch = FetchType.LAZY)
 	private Set<Dia> dsDia = new HashSet<Dia>();
 
-	@OneToMany(mappedBy = "tuaDe", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "tuaDe")
 	private Set<ChiTietDatGiu> dsChiTietDatGiu = new HashSet<ChiTietDatGiu>();
 
 	public TuaDe() {
 		super();
 	}
-	
-	
+
+
+	public TuaDe(String tenTuaDe) {
+		super();
+		this.tenTuaDe = tenTuaDe;
+	}
+
 
 	public Long getId() {
 		return id;

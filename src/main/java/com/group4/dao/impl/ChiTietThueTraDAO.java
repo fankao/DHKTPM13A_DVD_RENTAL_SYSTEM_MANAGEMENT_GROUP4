@@ -6,4 +6,5 @@ import com.group4.entities.ChiTietThueTraID;
 
 public class ChiTietThueTraDAO extends AbstractDAO<ChiTietThueTra, ChiTietThueTraID> implements IChiTietThueTraDAO {
 
+
 }

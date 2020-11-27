@@ -11,24 +11,45 @@ public class KhachHang implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@Column(columnDefinition = "NVARCHAR(255)")
 	private String hoVaTen;
+	
 	private String soDienThoai;
+	
+	@Column(columnDefinition = "NVARCHAR(500)")
 	private String diaChi;
 
-	@OneToMany(mappedBy = "khachHang", fetch = FetchType.LAZY)
-	private Set<ChiTietThueTra> dsChiTietThueTra;
+	@OneToMany(mappedBy = "khachHang")
+	private Set<ChiTietThueTra> dsChiTietThueTra = new HashSet<ChiTietThueTra>();
 
-	@OneToMany(mappedBy = "khachHang", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "khachHang")
 	private Set<ChiTietDatGiu> dsChiTietDatGiu = new HashSet<ChiTietDatGiu>();
 
 	public KhachHang() {
 		super();
 	}
 
-	public KhachHang(Long id, String hoVaTen) {
+
+	public KhachHang(Long id) {
 		super();
 		this.id = id;
+	}
+
+
+
+	public KhachHang(String hoVaTen, String soDienThoai, String diaChi) {
+		super();
+		this.hoVaTen = hoVaTen;
+		this.soDienThoai = soDienThoai;
+		this.diaChi = diaChi;
+	}
+
+
+
+	public KhachHang(String hoVaTen) {
 		this.hoVaTen = hoVaTen;
 	}
 
@@ -104,7 +125,5 @@ public class KhachHang implements Serializable {
 			return false;
 		return true;
 	}
-
-	
 
 }
