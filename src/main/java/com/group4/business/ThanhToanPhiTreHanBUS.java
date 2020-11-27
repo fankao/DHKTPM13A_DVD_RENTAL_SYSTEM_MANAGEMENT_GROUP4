@@ -1,6 +1,5 @@
 package com.group4.business;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,7 +22,7 @@ public class ThanhToanPhiTreHanBUS {
 	 * @return List<ChiTietThueTra>
 	 */
 	public List<ChiTietThueTra> getDSThueTraTraHanTheoKH(Long khachHangId) {
-		List<ChiTietThueTra> ds = chiTietThueTraDAO.findAll();
+		List<ChiTietThueTra> ds = chiTietThueTraDAO.getDSDaTraDiaTheoKH(khachHangId);
 		return ds.stream().filter(x -> daTreHanTraDia(x) == true).collect(Collectors.toList());
 
 	}
