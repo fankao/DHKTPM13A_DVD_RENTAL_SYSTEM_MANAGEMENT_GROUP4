@@ -13,6 +13,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
 import com.group4.ui.panel.PnlManageDisk;
+import com.group4.ui.panel.PnlQuanLyKhachHang;
 import com.group4.ui.panel.PnlRentDisk;
 import com.group4.ui.panel.PnlReservation;
 
@@ -197,6 +198,24 @@ public class FrmMain extends JFrame {
 						
 					}
 				});
+			}
+		});
+		
+		mntmCustomer.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				PnlQuanLyKhachHang pnlQuanLyKhachHang = new PnlQuanLyKhachHang();
+				openWorkUI(pnlQuanLyKhachHang);
+				pnlQuanLyKhachHang.setCloseUIListener(new ICloseUIListener() {
+					
+					@Override
+					public void onCloseUI(ActionEvent e) {
+						closeWorkUI(pnlQuanLyKhachHang);
+						
+					}
+				});
+				
 			}
 		});
 		
