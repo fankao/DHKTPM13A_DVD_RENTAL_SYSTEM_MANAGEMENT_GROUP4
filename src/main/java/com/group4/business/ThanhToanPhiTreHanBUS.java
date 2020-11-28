@@ -16,15 +16,24 @@ public class ThanhToanPhiTreHanBUS {
 	}
 
 	/**
-	 * Lấy danh sách chi tiết thuê trả đã trễ hạn trả đĩa theo id khách hàng
+	 * UC005b: Lấy danh sách chi tiết thuê trả đã trễ hạn trả đĩa theo id khách hàng
 	 * 
 	 * @param khachHangId: id khách hàng
 	 * @return List<ChiTietThueTra>
 	 */
-	public List<ChiTietThueTra> getDSThueTraTraHanTheoKH(Long khachHangId) {
+	public List<ChiTietThueTra> getDSThueTraTreHanTheoKH(Long khachHangId) {
 		List<ChiTietThueTra> ds = chiTietThueTraDAO.getDSDaTraDiaTheoKH(khachHangId);
 		return ds.stream().filter(x -> daTreHanTraDia(x) == true).collect(Collectors.toList());
 
+	}
+
+	/**
+	 * Tính tồng tiền trễ hạn
+	 * @param dsThueTraTreHan: danh sách trễ hạn
+	 * @return tổng tiền
+	 */
+	public double tinhTongTienPhiTreHan(List<ChiTietThueTra> dsThueTraTreHan) {
+		return 0.0;
 	}
 
 	/**

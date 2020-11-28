@@ -22,7 +22,7 @@ class ThanhToanPhiTreHanBUSTest {
 
 	@Test
 	void testGhiNhanThanhToanPhiTreHan() {
-		List<ChiTietThueTra> ds = thanhToanPhiTreHanBUS.getDSThueTraTraHanTheoKH(1L);
+		List<ChiTietThueTra> ds = thanhToanPhiTreHanBUS.getDSThueTraTreHanTheoKH(1L);
 		assertTrue(thanhToanPhiTreHanBUS.ghiNhanThanhToanPhiTreHan(ds));
 	}
 
