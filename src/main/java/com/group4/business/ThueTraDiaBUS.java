@@ -48,6 +48,8 @@ public class ThueTraDiaBUS {
 	}
 
 	public boolean traDia() {
+		//TODO: cập nhật chi tiết thuê trả
+		//TODO: cập nhật trạng thái đĩa
 		return false;
 	}
 

@@ -218,6 +218,25 @@ public class FrmMain extends JFrame {
 				
 			}
 		});
+		mntmProccessReservation.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				PnlReservation pnlReservation = new PnlReservation();
+				openWorkUI(pnlReservation);
+				pnlReservation.setCloseUIListener(new ICloseUIListener() {
+					
+					@Override
+					public void onCloseUI(ActionEvent e) {
+						closeWorkUI(pnlReservation);
+						
+					}
+				});
+				
+			}
+		});
+		
+		
 		
 
 	
