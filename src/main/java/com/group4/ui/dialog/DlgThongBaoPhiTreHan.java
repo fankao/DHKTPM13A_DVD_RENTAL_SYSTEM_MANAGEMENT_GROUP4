@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 
-public class Dialog_ThongBaoPhiTreHan extends JDialog {
+public class DlgThongBaoPhiTreHan extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 	private JTextField txtIDKH;
@@ -22,7 +22,7 @@ public class Dialog_ThongBaoPhiTreHan extends JDialog {
 	 */
 	public static void main(String[] args) {
 		try {
-			Dialog_ThongBaoPhiTreHan dialog = new Dialog_ThongBaoPhiTreHan();
+			DlgThongBaoPhiTreHan dialog = new DlgThongBaoPhiTreHan();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -33,7 +33,7 @@ public class Dialog_ThongBaoPhiTreHan extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public Dialog_ThongBaoPhiTreHan() {
+	public DlgThongBaoPhiTreHan() {
 		setTitle("Thông báo phí trễ hạn");
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
