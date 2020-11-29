@@ -1,38 +1,64 @@
 package com.group4.ui.panel;
 
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-
 import java.awt.BorderLayout;
-import javax.swing.JLabel;
 import java.awt.Color;
-import javax.swing.SwingConstants;
-import javax.swing.SwingUtilities;
-
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
-import javax.swing.border.TitledBorder;
-import javax.swing.UIManager;
-import javax.swing.JTextField;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
-import javax.swing.border.LineBorder;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.DefaultComboBoxModel;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
+import javax.swing.SwingConstants;
+import javax.swing.UIManager;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
+import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
+
+import com.group4.business.ThanhToanPhiTreHanBUS;
+import com.group4.entities.KhachHang;
 
 public class PnlLateChargePayment extends JPanel {
 	private static final long serialVersionUID = 1L;
-	private JTextField txt_timmakhachang;
-	private JTable table_trehen;
+	private static ThanhToanPhiTreHanBUS thanhToanPhiTreHanBUS;
+	static {
+		thanhToanPhiTreHanBUS = new ThanhToanPhiTreHanBUS();
+	}
+	
+	private KhachHang khachHangThanhToan;
+	
+	private JTextField txtCustomerId;
+	private JTable tblLateCharges;
+	private JLabel lblCustomerName;
+	private JLabel lblCustomerPhone;
+	private JLabel lblCustomerAddress;
+	private JLabel lblTotalPrice;
+	private JButton btnCancel;
+	private JButton btnConfirm;
+	private JButton btnSearchCusId;
+	private JPanel pnlCustomerInfo;
 
 	/**
 	 * Create the panel.
 	 */
-	public PnlLateChargePayment() {
+	public PnlLateChargePayment(KhachHang khachHang) {
 		setLayout(new BorderLayout(0, 0));
-		
+		setSize(1270, 600);
 		JLabel lbl_tieude = new JLabel("THANH TO\u00C1N PH\u00CD TR\u1EC4 H\u1EA0N");
 		lbl_tieude.setFont(new Font("Tahoma", Font.BOLD, 24));
 		lbl_tieude.setHorizontalAlignment(SwingConstants.CENTER);
@@ -42,80 +68,103 @@ public class PnlLateChargePayment extends JPanel {
 		
 		JPanel pnl_main = new JPanel();
 		add(pnl_main, BorderLayout.CENTER);
-		pnl_main.setLayout(null);
+		pnl_main.setLayout(new BorderLayout(0, 0));
 		
 		JPanel pnl_timkhachhang = new JPanel();
 		pnl_timkhachhang.setForeground(new Color(0, 0, 139));
 		pnl_timkhachhang.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Kh\u00E1ch H\u00E0ng", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 128)));
-		pnl_timkhachhang.setBounds(10, 11, 730, 110);
-		pnl_main.add(pnl_timkhachhang);
-		pnl_timkhachhang.setLayout(null);
+		pnl_main.add(pnl_timkhachhang, BorderLayout.NORTH);
+		pnl_timkhachhang.setLayout(new BoxLayout(pnl_timkhachhang, BoxLayout.Y_AXIS));
 		
-		txt_timmakhachang = new JTextField();
-		txt_timmakhachang.setBounds(10, 23, 127, 34);
-		pnl_timkhachhang.add(txt_timmakhachang);
-		txt_timmakhachang.setColumns(10);
+		JPanel panel = new JPanel();
+		FlowLayout flowLayout = (FlowLayout) panel.getLayout();
+		flowLayout.setAlignment(FlowLayout.LEFT);
+		pnl_timkhachhang.add(panel);
 		
-		JButton btn_timmakhachhang = new JButton("T\u00ECm");
-		btn_timmakhachhang.setBounds(153, 22, 55, 35);
-		pnl_timkhachhang.add(btn_timmakhachhang);
+		JLabel lblCustomerId = new JLabel("Nhập mã khách hàng");
+		lblCustomerId.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		panel.add(lblCustomerId);
 		
-		JLabel lbl_tieudehoten = new JLabel("H\u1ECD V\u00E0 T\u00EAn:");
-		lbl_tieudehoten.setBounds(10, 85, 70, 14);
-		pnl_timkhachhang.add(lbl_tieudehoten);
+		txtCustomerId = new JTextField();
+		txtCustomerId.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		panel.add(txtCustomerId);
+		txtCustomerId.setColumns(10);
+		
+		btnSearchCusId = new JButton("T\u00ECm");
+		btnSearchCusId.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		panel.add(btnSearchCusId);
+		
+		pnlCustomerInfo = new JPanel();
+		FlowLayout fl_pnlCustomerInfo = (FlowLayout) pnlCustomerInfo.getLayout();
+		fl_pnlCustomerInfo.setAlignment(FlowLayout.LEFT);
+		pnl_timkhachhang.add(pnlCustomerInfo);
+		
+		JLabel lblCustomerNameTit = new JLabel("H\u1ECD V\u00E0 T\u00EAn:");
+		lblCustomerNameTit.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		pnlCustomerInfo.add(lblCustomerNameTit);
+		
+		lblCustomerName = new JLabel("New label");
+		lblCustomerName.setFont(new Font("Tahoma", Font.BOLD, 20));
+		pnlCustomerInfo.add(lblCustomerName);
+		
+		Component horizontalGlue = Box.createHorizontalGlue();
+		horizontalGlue.setPreferredSize(new Dimension(20, 0));
+		pnlCustomerInfo.add(horizontalGlue);
 		
 		JLabel lbl_tieudesdt = new JLabel("S\u1ED1 \u0110i\u1EC7n Tho\u1EA1i:");
-		lbl_tieudesdt.setBounds(218, 85, 100, 14);
-		pnl_timkhachhang.add(lbl_tieudesdt);
+		lbl_tieudesdt.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		pnlCustomerInfo.add(lbl_tieudesdt);
 		
-		JLabel lbl_hienthitenkhachhang = new JLabel("R\u1ED7ng");
-		lbl_hienthitenkhachhang.setBounds(90, 85, 118, 14);
-		pnl_timkhachhang.add(lbl_hienthitenkhachhang);
+		lblCustomerPhone = new JLabel("R\u1ED7ng");
+		lblCustomerPhone.setFont(new Font("Tahoma", Font.BOLD, 20));
+		pnlCustomerInfo.add(lblCustomerPhone);
 		
-		JLabel lbl_hienthisdt = new JLabel("R\u1ED7ng");
-		lbl_hienthisdt.setBounds(328, 85, 150, 14);
-		pnl_timkhachhang.add(lbl_hienthisdt);
+		Component horizontalGlue_1 = Box.createHorizontalGlue();
+		horizontalGlue_1.setPreferredSize(new Dimension(20, 0));
+		pnlCustomerInfo.add(horizontalGlue_1);
 		
 		JLabel lbl_diachi = new JLabel("Địa Chỉ:");
-		lbl_diachi.setBounds(488, 85, 100, 14);
-		pnl_timkhachhang.add(lbl_diachi);
+		lbl_diachi.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		pnlCustomerInfo.add(lbl_diachi);
 		
-		JLabel lbl_hienthidiachi = new JLabel("Rỗng");
-		lbl_hienthidiachi.setBounds(593, 85, 127, 14);
-		pnl_timkhachhang.add(lbl_hienthidiachi);
+		lblCustomerAddress = new JLabel("Rỗng");
+		lblCustomerAddress.setFont(new Font("Tahoma", Font.BOLD, 20));
+		pnlCustomerInfo.add(lblCustomerAddress);
 		
 		JPanel pnl_phitrehen = new JPanel();
 		pnl_phitrehen.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Ph\u00ED Tr\u1EC5 H\u1EB9n", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(106, 90, 205)));
-		pnl_phitrehen.setBounds(10, 146, 730, 259);
 		pnl_main.add(pnl_phitrehen);
-		pnl_phitrehen.setLayout(null);
+		pnl_phitrehen.setLayout(new BorderLayout(0, 0));
 		
 		JPanel pnl_tablechiphitrehen = new JPanel();
-		pnl_tablechiphitrehen.setBorder(new LineBorder(new Color(0, 0, 0)));
-		pnl_tablechiphitrehen.setBounds(10, 25, 525, 223);
-		pnl_phitrehen.add(pnl_tablechiphitrehen);
+		pnl_tablechiphitrehen.setBorder(new CompoundBorder(new EmptyBorder(0, 0, 0, 20), new LineBorder(new Color(0, 0, 0), 2)));
+		pnl_phitrehen.add(pnl_tablechiphitrehen, BorderLayout.CENTER);
 		pnl_tablechiphitrehen.setLayout(null);
 		
-		JCheckBox chk_thanhtoantatca = new JCheckBox("Thanh to\u00E1n t\u1EA5t c\u1EA3");
-		chk_thanhtoantatca.setBounds(20, 182, 149, 23);
-		pnl_tablechiphitrehen.add(chk_thanhtoantatca);
+		JCheckBox chkSelectAll = new JCheckBox("Thanh to\u00E1n t\u1EA5t c\u1EA3");
+		chkSelectAll.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		chkSelectAll.setBounds(10, 399, 208, 31);
+		pnl_tablechiphitrehen.add(chkSelectAll);
 		
 		JLabel lbl_thanhtoanmotphan = new JLabel("Thanh to\u00E1n m\u1ED9t ph\u1EA7n:");
-		lbl_thanhtoanmotphan.setBounds(209, 186, 130, 14);
+		lbl_thanhtoanmotphan.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lbl_thanhtoanmotphan.setBounds(407, 399, 221, 31);
 		pnl_tablechiphitrehen.add(lbl_thanhtoanmotphan);
 		
 		JComboBox cmb_chonthanhtoan = new JComboBox();
+		cmb_chonthanhtoan.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		cmb_chonthanhtoan.setModel(new DefaultComboBoxModel(new String[] {"1"}));
-		cmb_chonthanhtoan.setBounds(330, 183, 52, 20);
+		cmb_chonthanhtoan.setBounds(640, 399, 47, 31);
 		pnl_tablechiphitrehen.add(cmb_chonthanhtoan);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 10, 505, 165);
+		scrollPane.setBounds(10, 10, 992, 380);
 		pnl_tablechiphitrehen.add(scrollPane);
 		
-		table_trehen = new JTable();
+		tblLateCharges = new JTable();
+		tblLateCharges.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 		
-		scrollPane.setViewportView(table_trehen);
+		scrollPane.setViewportView(tblLateCharges);
 		
 		DefaultTableModel model=new DefaultTableModel()
 	    {
@@ -140,70 +189,89 @@ public class PnlLateChargePayment extends JPanel {
 	      }
 	    };
 	    
-	    table_trehen.setModel(model);
+	    tblLateCharges.setModel(model);
 	    model.addColumn("Chọn");
 	    model.addColumn("Mã Đĩa");
 	    model.addColumn("Ngày thuê");
 	    model.addColumn("Ngày trả dự kiến");
 	    model.addColumn("Ngày trả thực tế");
 	    model.addColumn("Phí trể hẹn");
-	    for(int i=0;i<=12;i++)
-	    {
-	      model.addRow(new Object[0]);
-	      model.setValueAt(false,i,0);
-	      model.setValueAt("MD"+(i+1), i, 1);
-	      model.setValueAt("02/10/2020", i, 2);
-	      model.setValueAt("05/10/2020", i, 3);
-	      model.setValueAt("07/10/2020", i, 4);
-	      model.setValueAt("1000000", i, 5);
-	    }
-	    
-	    
 		JPanel pnl_tongchiphitrehen = new JPanel();
-		pnl_tongchiphitrehen.setBorder(new LineBorder(new Color(0, 0, 0)));
-		pnl_tongchiphitrehen.setBounds(545, 25, 175, 223);
-		pnl_phitrehen.add(pnl_tongchiphitrehen);
-		pnl_tongchiphitrehen.setLayout(null);
+		pnl_tongchiphitrehen.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		pnl_phitrehen.add(pnl_tongchiphitrehen, BorderLayout.EAST);
+		pnl_tongchiphitrehen.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JPanel pnl_tongtien = new JPanel();
-		pnl_tongtien.setBorder(new TitledBorder(null, "T\u1ED5ng Ph\u00ED", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		pnl_tongtien.setBounds(10, 11, 155, 110);
+		pnl_tongtien.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2), "T\u1ED5ng Ph\u00ED Tr\u1EC5 h\u1EA1n", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		pnl_tongchiphitrehen.add(pnl_tongtien);
 		pnl_tongtien.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lbl_tongtien = new JLabel("200000");
-		lbl_tongtien.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lbl_tongtien.setHorizontalAlignment(SwingConstants.CENTER);
-		pnl_tongtien.add(lbl_tongtien, BorderLayout.CENTER);
+		lblTotalPrice = new JLabel("0 đ");
+		lblTotalPrice.setForeground(Color.RED);
+		lblTotalPrice.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblTotalPrice.setHorizontalAlignment(SwingConstants.CENTER);
+		pnl_tongtien.add(lblTotalPrice);
 		
-		JButton btn_Xacnhan = new JButton("X\u00E1c Nh\u1EADn");
-		btn_Xacnhan.setBounds(44, 132, 89, 23);
-		pnl_tongchiphitrehen.add(btn_Xacnhan);
+		JPanel panel_2 = new JPanel();
+		panel_2.setBorder(new EmptyBorder(20, 20, 20, 20));
+		pnl_tongchiphitrehen.add(panel_2);
+		panel_2.setLayout(new GridLayout(3, 1, 10, 10));
 		
-		JButton btn_huy = new JButton("H\u1EE7y B\u1ECF");
-		btn_huy.setBounds(44, 177, 89, 23);
-		pnl_tongchiphitrehen.add(btn_huy);
+		btnConfirm = new JButton("X\u00E1c Nh\u1EADn");
+		panel_2.add(btnConfirm);
+		btnConfirm.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		
+		btnCancel = new JButton("H\u1EE7y B\u1ECF");
+		panel_2.add(btnCancel);
+		btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		
+		JButton btnClose = new JButton("Thoát");
+		btnClose.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		panel_2.add(btnClose);
+		
+		//hiện thông tin khách hàng
+		if(khachHang!=null) {
+			hienThongTinKhachHang(khachHang);
+		}
+		
+		//gán sự kiện cho Button
+		ganSuKienChoButton();
+		
 		
 		
 	
 	}
 	
-	public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndShowGUI(); 
-            }
-        });
-    }
+	/**
+	 * Gán sư kiện cho button
+	 */
+	private void ganSuKienChoButton() {
+		btnSearchCusId.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				
+			}
+		});
+		
+		
+	}
 
-    private static void createAndShowGUI() {
-        System.out.println("Created GUI on EDT? "+
-        SwingUtilities.isEventDispatchThread());
-        JFrame f = new JFrame("Swing Paint Demo");
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        f.getContentPane().add(new PnlLateChargePayment());
-        f.setSize(800, 600);
-        f.setLocationRelativeTo(null);
-        f.setVisible(true);
-    }
+	/**
+	 * Hiện thông tin khách hàng
+	 * @param khachHang: khach hàng cần hiện thông tin
+	 */
+	private void hienThongTinKhachHang(KhachHang khachHang) {
+		
+		
+	}
+	/*
+	 * private static void createAndShowGUI(KhachHang kh) {
+	 * System.out.println("Created GUI on EDT? "+
+	 * SwingUtilities.isEventDispatchThread()); JFrame f = new
+	 * JFrame("Swing Paint Demo"); f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	 * f.getContentPane().add(new PnlLateChargePayment(kh)); f.setSize(800, 600);
+	 * f.setLocationRelativeTo(null); f.setVisible(true); }
+	 */
 }

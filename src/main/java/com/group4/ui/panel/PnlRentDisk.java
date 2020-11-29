@@ -9,11 +9,13 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -26,11 +28,14 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 import com.group4.business.ThanhToanPhiTreHanBUS;
@@ -42,8 +47,8 @@ import com.group4.dao.impl.KhachHangDAO;
 import com.group4.entities.ChiTietThueTra;
 import com.group4.entities.Dia;
 import com.group4.entities.KhachHang;
+import com.group4.entities.TrangThaiDia;
 import com.group4.ui.ICloseUIListener;
-import javax.swing.ListSelectionModel;
 
 public class PnlRentDisk extends JPanel {
 
@@ -80,6 +85,7 @@ public class PnlRentDisk extends JPanel {
 	private JLabel lblCustomerPhone;
 	private JLabel lblCustomerAddress;
 	private JPanel pnlCustomerInfo;
+	private JButton btnDeleteDisk;
 
 	/**
 	 * Create the panel.
@@ -122,11 +128,15 @@ public class PnlRentDisk extends JPanel {
 		lblDateRent = new JLabel("20/10/2020");
 		lblDateRent.setFont(new Font("Dialog", Font.BOLD, 20));
 		pnlDateRent.add(lblDateRent);
+		
+		JPanel pnlCustomerCommon = new JPanel();
+		pnlCustomer.add(pnlCustomerCommon);
+		pnlCustomerCommon.setLayout(new BoxLayout(pnlCustomerCommon, BoxLayout.Y_AXIS));
 
 		JPanel pnlCustomerID = new JPanel();
+		pnlCustomerCommon.add(pnlCustomerID);
 		FlowLayout flowLayout = (FlowLayout) pnlCustomerID.getLayout();
 		flowLayout.setAlignment(FlowLayout.LEFT);
-		pnlCustomer.add(pnlCustomerID);
 
 		JLabel lblCustomerID = new JLabel("Mã khách hàng: ");
 		lblCustomerID.setFont(new Font("Dialog", Font.PLAIN, 20));
@@ -143,10 +153,10 @@ public class PnlRentDisk extends JPanel {
 		pnlCustomerID.add(btnSearchCusId);
 
 		pnlCustomerInfo = new JPanel();
+		pnlCustomerCommon.add(pnlCustomerInfo);
 		pnlCustomerInfo.setVisible(false);
 		FlowLayout fl_pnlCustomerInfo = (FlowLayout) pnlCustomerInfo.getLayout();
 		fl_pnlCustomerInfo.setAlignment(FlowLayout.LEFT);
-		pnlCustomer.add(pnlCustomerInfo);
 
 		JLabel lblCustomerNameTitle = new JLabel("Tên khách hàng:");
 		lblCustomerNameTitle.setFont(new Font("Dialog", Font.PLAIN, 20));
@@ -195,6 +205,7 @@ public class PnlRentDisk extends JPanel {
 		pnlButton.setLayout(new GridLayout(3, 1, 0, 0));
 
 		btnConfirm = new JButton("Xác nhận");
+		btnConfirm.setEnabled(false);
 		btnConfirm.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		pnlButton.add(btnConfirm);
 
@@ -202,7 +213,7 @@ public class PnlRentDisk extends JPanel {
 		btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		pnlButton.add(btnCancel);
 
-		btnClose = new JButton("Đóng");
+		btnClose = new JButton("Thoát");
 		btnClose.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		pnlButton.add(btnClose);
 
@@ -215,7 +226,8 @@ public class PnlRentDisk extends JPanel {
 		lblTotalPriceTitle.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTotalPriceTitle.setFont(new Font("Tahoma", Font.PLAIN, 20));
 
-		lblTotalPrice = new JLabel("200.000");
+		lblTotalPrice = new JLabel(" 0 đ");
+		lblTotalPrice.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTotalPrice.setForeground(Color.RED);
 		lblTotalPrice.setFont(new Font("Tahoma", Font.BOLD, 20));
 		GroupLayout gl_pnlTotalPrice = new GroupLayout(pnlTotalPrice);
@@ -245,7 +257,7 @@ public class PnlRentDisk extends JPanel {
 		pnlDiskID.add(lblDiskID);
 
 		txtDiskID = new JTextField();
-		txtDiskID.setEnabled(false);
+		txtDiskID.setEditable(false);
 		txtDiskID.setFont(new Font("Dialog", Font.PLAIN, 20));
 		pnlDiskID.add(txtDiskID);
 		txtDiskID.setColumns(15);
@@ -263,23 +275,61 @@ public class PnlRentDisk extends JPanel {
 		pnlListDisk.add(scrListDisk, BorderLayout.CENTER);
 
 		tblListDisk = new JTable();
+		tblListDisk.setRowHeight(20);
 		tblListDisk.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		tblListDisk.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		tblListDisk.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"M\u00E3 \u0111\u0129a", "Ti\u00EAu \u0111\u1EC1", "Lo\u1EA1i \u0111\u0129a", "Gi\u00E1 thu\u00EA", "Ng\u00E0y \u0111\u1EBFn h\u1EA1n"
+		tblListDisk.setModel(new DefaultTableModel(new Object[][] {},
+				new String[] { "M\u00E3 \u0111\u0129a", "Ti\u00EAu \u0111\u1EC1", "Lo\u1EA1i \u0111\u0129a",
+						"Gi\u00E1 thu\u00EA", "Ng\u00E0y \u0111\u1EBFn h\u1EA1n" }) {
+			Class[] columnTypes = new Class[] { Object.class, Object.class, Object.class, Double.class, Object.class };
+
+			public Class getColumnClass(int columnIndex) {
+				return columnTypes[columnIndex];
 			}
-		));
+
+			boolean[] columnEditables = new boolean[] { false, false, false, false, false };
+
+			public boolean isCellEditable(int row, int column) {
+				return columnEditables[column];
+			}
+		});
+		tblListDisk.getColumnModel().getColumn(0).setResizable(false);
 		tblListDisk.getColumnModel().getColumn(0).setPreferredWidth(60);
+		tblListDisk.getColumnModel().getColumn(1).setResizable(false);
 		tblListDisk.getColumnModel().getColumn(1).setPreferredWidth(300);
+		tblListDisk.getColumnModel().getColumn(2).setResizable(false);
+		tblListDisk.getColumnModel().getColumn(3).setResizable(false);
 		tblListDisk.getColumnModel().getColumn(3).setPreferredWidth(90);
+		tblListDisk.getColumnModel().getColumn(4).setResizable(false);
 		tblListDisk.getColumnModel().getColumn(4).setPreferredWidth(100);
 		scrListDisk.setViewportView(tblListDisk);
 
-		ganSuKienChoButton();
+		btnDeleteDisk = new JButton("Xoá khỏi danh sách");
+		btnDeleteDisk.setEnabled(false);
+		btnDeleteDisk.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		pnlListDisk.add(btnDeleteDisk, BorderLayout.SOUTH);
 
+		ganSuKienChoButton();
+		ganSuKienChoTable();
+
+	}
+
+	/**
+	 * Xử lý sự kiện cho bảng
+	 */
+	private void ganSuKienChoTable() {
+		tblListDisk.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+
+			@Override
+			public void valueChanged(ListSelectionEvent e) {
+				int selectedRow = tblListDisk.getSelectedRow();
+				if (selectedRow == -1)
+					return;
+
+				kichHoatButton(btnDeleteDisk);
+
+			}
+		});
 	}
 
 	/**
@@ -295,13 +345,25 @@ public class PnlRentDisk extends JPanel {
 					try {
 						cusId = Long.valueOf(txtCustomerID.getText());
 					} catch (NumberFormatException ex) {
-						hienThongBao("Mã khách hàng phải là số nguyên lớn hơn 0");
+						hienThongBao("Lỗi định dạng nhập liệu", "Mã khách hàng phải là số nguyên lớn hơn 0",
+								JOptionPane.ERROR_MESSAGE);
 						txtCustomerID.requestFocus();
 						return;
 					}
 
 					khachHangThueDia = khachHangDAO.findById(cusId);
+
 					hienThongTinKhachHang(khachHangThueDia);
+
+					visibleCustomeInfo(true);
+
+					kichHoatButton(btnRentDisk, btnCancel);
+
+					kichHoatTextField(txtDiskID);
+
+					voHieuHoaButton(btnSearchCusId, btnClose);
+
+					voHieuHoaTextField(txtCustomerID);
 
 				}
 
@@ -317,19 +379,34 @@ public class PnlRentDisk extends JPanel {
 					try {
 						diskId = Long.valueOf(txtDiskID.getText());
 					} catch (NumberFormatException ne) {
-						hienThongBao("Mã đĩa là số nguyên lớn hơn 0");
+						hienThongBao("Lỗi nhập liệu", "Mã đĩa là số nguyên lớn hơn 0", JOptionPane.ERROR_MESSAGE);
 						txtDiskID.requestFocus();
 						return;
 					}
 
 					Dia diaThue = diaDAO.findById(diskId);
 					if (diaThue == null) {
-						hienThongBao("Không tìm thấy đĩa trong hệ thống");
+						hienThongBao("Lỗi tìm kiếm", "Không tìm thấy đĩa trong hệ thống", JOptionPane.ERROR_MESSAGE);
 						txtDiskID.requestFocus();
 						return;
 					}
 
+					if (khongTheThueDia(diaThue)) {
+						hienThongBao("Lỗi thuê đĩa", "Đĩa đã được thuê hoặc đặt trước", JOptionPane.ERROR_MESSAGE);
+						txtDiskID.requestFocus();
+						txtDiskID.selectAll();
+						return;
+					}
+
 					themDiaVaoDSThue(diaThue);
+
+					hienTongTienThueDia(dsDiaThue);
+
+					xoaTrang(txtDiskID);
+
+					kichHoatButton(btnConfirm);
+
+					voHieuHoaButton(btnConfirm);
 
 				}
 
@@ -341,11 +418,41 @@ public class PnlRentDisk extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+
 				hienThongTinPhiTreHan(khachHangThueDia);
-				
-				thueTraDiaBUS.xuLyThueDia(khachHangThueDia, new HashSet<Dia>(dsDiaThue));
-				hienThongBao("Thuê đĩa thành công");
+
+				thueDia(khachHangThueDia, dsDiaThue);
+
+				resetDSDiaThue();
+			}
+
+		});
+
+		// huỷ thuê đĩa
+		btnCancel.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int select = hienThongBaoXacNhan("Huỷ thực hiện", "Xác nhận huỷ thực hiện thuê đĩa");
+				if (select != JOptionPane.YES_OPTION)
+					return;
+
+				resetDSDiaThue();
+
+				hienTongTienThueDia(dsDiaThue);
+
+				xoaTrang(txtCustomerID, txtDiskID);
+
+				visibleCustomeInfo(false);
+
+				kichHoatButton(btnSearchCusId, btnClose);
+
+				kichHoatTextField(txtCustomerID);
+
+				voHieuHoaTextField(txtDiskID);
+
+				voHieuHoaButton(btnConfirm, btnRentDisk, btnCancel);
+
 			}
 		});
 
@@ -354,10 +461,158 @@ public class PnlRentDisk extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				closeUIListener.onCloseUI(e);
+				int select = hienThongBaoXacNhan("Thoát chức năng", "Xác nhận thoát chức năng này?");
+				if (select == JOptionPane.YES_OPTION) {
+					closeUIListener.onCloseUI(e);
+				}
 
 			}
 		});
+
+		// Xoá đĩa khỏi danh sách muốn thuê
+		btnDeleteDisk.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				xoaDiaKhoiDSThue(dsDiaThue.get(tblListDisk.getSelectedRow()));
+				tblListDisk.clearSelection();
+				hienDSDiaThue(dsDiaThue);
+				hienTongTienThueDia(dsDiaThue);
+
+				if (dsDiaThue.isEmpty()) {
+					voHieuHoaButton(btnConfirm, btnDeleteDisk);
+					txtDiskID.requestFocus();
+				}
+
+			}
+		});
+
+	}
+
+	/**
+	 * Kiểm tra đĩa có thể thuê được không
+	 * 
+	 * @param diaThue: đĩa muốn thuê
+	 * @return true: nếu trạng thái đĩa là
+	 */
+	private boolean khongTheThueDia(Dia diaThue) {
+		return !(diaThue.getTrangThai() == TrangThaiDia.ON_SHEFT);
+	}
+
+	/**
+	 * Hiện tổng tiền thuê đĩa
+	 * 
+	 * @param diaThue: dsa
+	 */
+	private void hienTongTienThueDia(List<Dia> dsDiaThue) {
+
+		double totalPrice = thueTraDiaBUS.tinhTongTienThueDia(new HashSet<Dia>(dsDiaThue));
+
+		String totalPriceStr = NumberFormat.getCurrencyInstance(new Locale("vi", "VN")).format(totalPrice);
+
+		lblTotalPrice.setText(totalPriceStr);
+	}
+
+	/**
+	 * Xoá đĩa khỏi danh sách thuê
+	 * 
+	 * @param dia: đĩa muốn xoá, nếu dia = null thì xoá hết danh sách
+	 */
+	private void xoaDiaKhoiDSThue(Dia dia) {
+		dsDiaThue.remove(dia);
+	}
+
+	/**
+	 * Kích hoạt các textfield
+	 * 
+	 * @param fields: các field cần kích hoạt
+	 */
+	private void kichHoatTextField(JTextField... fields) {
+		for (JTextField txt : fields) {
+			txt.setEditable(true);
+		}
+
+	}
+
+	/**
+	 * Kích hoạt các button
+	 * 
+	 * @param buttons: các button cần kích hoạt
+	 */
+	private void kichHoatButton(JButton... buttons) {
+		for (JButton btn : buttons) {
+			btn.setEnabled(true);
+		}
+
+	}
+
+	/**
+	 * Vô hiệu hoá các textfeld
+	 * 
+	 * @param fields
+	 */
+	private void voHieuHoaTextField(JTextField... fields) {
+		for (JTextField txt : fields) {
+			txt.setEditable(false);
+		}
+	}
+
+	/**
+	 * vô hiệu hoá các button
+	 * 
+	 * @param buttons: các button cần vô hiệu hoá
+	 */
+	private void voHieuHoaButton(JButton... buttons) {
+		for (JButton btn : buttons) {
+			btn.setEnabled(false);
+		}
+
+	}
+
+	/**
+	 * Thông báo xác nhận thực hiện một công việc nào đó
+	 * 
+	 * @param title: tiêu đề thông báo
+	 * @param msg:   thông điệp
+	 * @return Yes: thực hiện / No: không thực hiện
+	 */
+	private int hienThongBaoXacNhan(String title, String msg) {
+		JLabel label = new JLabel(msg);
+		label.setFont(new Font("arial", Font.PLAIN, 18));
+		return JOptionPane.showConfirmDialog(PnlRentDisk.this, label, title, JOptionPane.YES_NO_OPTION);
+	}
+
+	/**
+	 * Chức năng thuê đĩa
+	 * 
+	 * @param kh:        khách hàng thuê đĩa
+	 * @param dsDiaThue: danh sách đĩa thuê
+	 */
+	private void thueDia(KhachHang kh, List<Dia> dsDiaThue) {
+		thueTraDiaBUS.xuLyThueDia(khachHangThueDia, new HashSet<Dia>(dsDiaThue));
+		hienThongBao("Thông báo", "Thuê đĩa thành công", JOptionPane.INFORMATION_MESSAGE);
+	}
+
+	/**
+	 * xoá sách danh sách đĩa thuê sau khi thuê thành công
+	 */
+	private void resetDSDiaThue() {
+		dsDiaThue.clear();
+		hienDSDiaThue(dsDiaThue);
+		xoaTrang(txtDiskID);
+
+	}
+
+	/**
+	 * Xoá trắng các textfield
+	 * 
+	 * @param fields: textfield cần xoá
+	 */
+	private void xoaTrang(JTextField... fields) {
+		for (JTextField txt : fields) {
+			txt.setText("");
+		}
+
 	}
 
 	/**
@@ -365,13 +620,12 @@ public class PnlRentDisk extends JPanel {
 	 * 
 	 * @param cusId: mã khách hàng
 	 */
-	protected void hienThongTinPhiTreHan(KhachHang khachHang) {
+	private void hienThongTinPhiTreHan(KhachHang khachHang) {
 		// hiện thông tin phí trễ hạn nếu có
-		List<ChiTietThueTra> dsTreHan = 
-				thanhToanPhiTreHanBUS.getDSThueTraTreHanTheoKH(khachHang.getId());
+		List<ChiTietThueTra> dsTreHan = thanhToanPhiTreHanBUS.getDSThueTraTreHanTheoKH(khachHang.getId());
 		if (dsTreHan.size() > 0) {
 			// TODO: hiện danh Thông báo phí trễ hạn
-			hienThongBao(khachHangThueDia.getHoVaTen() + " có phí trễ hạn");
+			hienThongBao("Thông báo", khachHangThueDia.getHoVaTen() + " có phí trễ hạn", JOptionPane.WARNING_MESSAGE);
 		}
 
 	}
@@ -381,7 +635,7 @@ public class PnlRentDisk extends JPanel {
 	 * 
 	 * @param diaThue: đĩa muốn thuê
 	 */
-	protected void themDiaVaoDSThue(Dia diaThue) {
+	private void themDiaVaoDSThue(Dia diaThue) {
 		dsDiaThue.add(diaThue);
 		hienDSDiaThue(dsDiaThue);
 	}
@@ -408,28 +662,16 @@ public class PnlRentDisk extends JPanel {
 	 * 
 	 * @param khachHang: khách hàng cần hiện thông tin
 	 */
-	protected void hienThongTinKhachHang(KhachHang khachHang) {
+	private void hienThongTinKhachHang(KhachHang khachHang) {
 		if (khachHang == null) {
 			visibleCustomeInfo(false);
-			hienThongBao("Không tìm thấy khách hàng trong hệ thống");
+			hienThongBao("Lỗi tìm kiếm", "Không tìm thấy khách hàng trong hệ thống", JOptionPane.ERROR_MESSAGE);
 			return;
 		}
 		lblCustomerName.setText(khachHang.getHoVaTen());
 		lblCustomerPhone.setText(khachHang.getSoDienThoai());
 		lblCustomerAddress.setText(khachHang.getDiaChi());
-		visibleCustomeInfo(true);
-		visibleRetalDiskOperation(true);
 
-	}
-
-	/**
-	 * Kích hoạt giao diện thuê đĩa
-	 * @param b
-	 */
-	private void visibleRetalDiskOperation(boolean isVisible) {
-		txtDiskID.setEnabled(isVisible);
-		btnRentDisk.setEnabled(isVisible);
-	
 	}
 
 	/**
@@ -439,7 +681,6 @@ public class PnlRentDisk extends JPanel {
 	 */
 	private void visibleCustomeInfo(boolean isVisible) {
 		pnlCustomerInfo.setVisible(isVisible);
-
 	}
 
 	/**
@@ -448,9 +689,9 @@ public class PnlRentDisk extends JPanel {
 	 * @param txt: trường nhập dữ liệu
 	 * @return true: đã nhập dữ liệu / false: chưa nhập dữ liệu
 	 */
-	protected boolean isValidInput(JTextField txt) {
+	private boolean isValidInput(JTextField txt) {
 		if (txt.getText().trim().isEmpty()) {
-			hienThongBao("Mời nhập dữ liệu!");
+			hienThongBao("Lỗi nhập liệu", "Mời nhập dữ liệu!", JOptionPane.ERROR_MESSAGE);
 			txt.requestFocus();
 			return false;
 		}
@@ -462,10 +703,10 @@ public class PnlRentDisk extends JPanel {
 	 * 
 	 * @param msg: thông báo cần hiển thị
 	 */
-	private void hienThongBao(String msg) {
+	private void hienThongBao(String title, String msg, int msgType) {
 		JLabel label = new JLabel(msg);
 		label.setFont(new Font("Arial", Font.BOLD, 18));
-		JOptionPane.showMessageDialog(this, label);
+		JOptionPane.showMessageDialog(this, label, title, msgType);
 
 	}
 
