@@ -174,6 +174,16 @@ public class PnlCustomerCommon extends JPanel {
 		return isVisible;
 
 	}
+	
+	
+
+	private JTextField getTxtCustomerID() {
+		return txtCustomerID;
+	}
+
+	private JButton getBtnSearchCusId() {
+		return btnSearchCusId;
+	}
 
 	private KhachHang getKhachHang() {
 		return khachHang;
