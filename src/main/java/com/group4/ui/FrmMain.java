@@ -17,6 +17,7 @@ import com.group4.ui.panel.PnlManageDisk;
 import com.group4.ui.panel.PnlQuanLyKhachHang;
 import com.group4.ui.panel.PnlRentDisk;
 import com.group4.ui.panel.PnlReservation;
+import com.group4.ui.panel.PnlThietLapGiaThueChoDia;
 
 public class FrmMain extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -239,6 +240,21 @@ public class FrmMain extends JFrame {
 		
 		
 		
+		mntmRentalRate.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				PnlThietLapGiaThueChoDia pnlThietLapGiaThueChoLoaiDia = new PnlThietLapGiaThueChoDia();
+				openWorkUI(pnlThietLapGiaThueChoLoaiDia);
+				pnlThietLapGiaThueChoLoaiDia.setCloseUIListener(new ICloseUIListener() {
+					
+					@Override
+					public void onCloseUI(ActionEvent e) {
+						closeWorkUI(pnlThietLapGiaThueChoLoaiDia);
+					}
+				});
+			}
+		});
 
 	
 	}

@@ -28,7 +28,13 @@ public class TestingThanhToanPhiTreHan {
 	public static void main() {
 		IKhachHangDAO khachHangDAO = new KhachHangDAO();
 		khachHangDAO.create(new KhachHang("Minh Chiến", "0852369741", "Bình Phước"));
-
+		khachHangDAO.create(new KhachHang("Gia Hưng", "0939221234", "Quảng Nam"));
+		khachHangDAO.create(new KhachHang("Thanh Trí","0987456322","Ninh Thuận"));
+		khachHangDAO.create(new KhachHang("Hồng Phúc", "0943223458", "Vĩnh Long"));
+		khachHangDAO.create(new KhachHang("Văn Chiến", "0674322133", "TP Hồ Chí Minh"));
+		khachHangDAO.create(new KhachHang("Thanh Tùng","0121653445","Hà Nội"));
+		
+		
 		ITuaDeDAO tuaDeDAO = new TuaDeDAO();
 		TuaDe tuaDe1 = new TuaDe("Chiến tranh giữa các vì sao");
 		tuaDeDAO.create(tuaDe1);
