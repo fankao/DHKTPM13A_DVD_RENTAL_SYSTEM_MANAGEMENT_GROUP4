@@ -5,8 +5,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.util.Set;
-import java.util.Vector;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
