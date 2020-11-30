@@ -7,10 +7,6 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 import java.text.NumberFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -18,18 +14,17 @@ import java.util.List;
 import java.util.Locale;
 
 import javax.swing.BoxLayout;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
-import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
@@ -45,10 +40,6 @@ import com.group4.business.ThanhToanPhiTreHanBUS;
 import com.group4.entities.ChiTietThueTra;
 import com.group4.entities.KhachHang;
 import com.group4.ui.panel.PnlCustomerCommon.ItemClickListener;
-import com.sun.xml.bind.v2.runtime.unmarshaller.LocatorEx.Snapshot;
-
-import javax.swing.JSpinner;
-import javax.swing.SpinnerNumberModel;
 
 public class PnlLateChargePayment extends JPanel {
 	private static final long serialVersionUID = 1L;

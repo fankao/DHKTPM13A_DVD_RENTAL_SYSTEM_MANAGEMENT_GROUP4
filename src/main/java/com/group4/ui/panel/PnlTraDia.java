@@ -20,9 +20,6 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
-import javax.swing.JTextArea;
-import javax.swing.JSpinner;
-import javax.swing.SpinnerNumberModel;
 
 public class PnlTraDia extends JPanel {
 	private static final long serialVersionUID = 1L;
