@@ -18,6 +18,7 @@ import com.group4.ui.panel.PnlQuanLyKhachHang;
 import com.group4.ui.panel.PnlRentDisk;
 import com.group4.ui.panel.PnlReservation;
 import com.group4.ui.panel.PnlThietLapGiaThueChoDia;
+import com.group4.ui.panel.PnlTraDia;
 
 public class FrmMain extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -166,6 +167,22 @@ public class FrmMain extends JFrame {
 			}
 		});
 		//TODO: hiện giao diện trả đĩa
+		mnReturnDisk.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				PnlTraDia pnlTraDia = new PnlTraDia()	;
+				openWorkUI(pnlTraDia);
+				pnlTraDia.setCloseUIListener(new ICloseUIListener() {
+					
+					@Override
+					public void onCloseUI(ActionEvent e) {
+						closeWorkUI(pnlTraDia);
+						
+					}
+				});
+				super.mouseClicked(e);
+			}
+		});
 		
 		mntmProccessLateChargePayment.addActionListener(new ActionListener() {
 			
