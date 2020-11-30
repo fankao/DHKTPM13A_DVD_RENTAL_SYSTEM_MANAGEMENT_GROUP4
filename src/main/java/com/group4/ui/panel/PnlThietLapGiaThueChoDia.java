@@ -13,7 +13,6 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
 import com.group4.dao.ILoaiDiaDAO;
 import com.group4.dao.impl.LoaiDiaDAO;
 import com.group4.entities.LoaiDia;
