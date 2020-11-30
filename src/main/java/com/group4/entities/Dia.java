@@ -101,6 +101,12 @@ public class Dia implements Serializable{
 		this.dsChiTietThueTra = dsChiTietThueTra;
 	}
 	
+	
+	
+	public double getPhiThue() {
+		return loaiDia.getPhiThue();
+	}
+
 	public double phiTreHan() {
 		return loaiDia.getPhiTreHan();
 	}

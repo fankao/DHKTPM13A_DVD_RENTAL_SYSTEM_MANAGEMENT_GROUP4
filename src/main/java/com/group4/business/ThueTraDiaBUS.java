@@ -44,7 +44,7 @@ public class ThueTraDiaBUS {
 	public double tinhTongTienThueDia(Set<Dia> dsDiaThue) {
 		double tongTien = 0.0;
 		for (Dia dia : dsDiaThue) {
-			tongTien += dia.getLoaiDia().getPhiThue();
+			tongTien += dia.getPhiThue();
 		}
 		return tongTien;
 	}

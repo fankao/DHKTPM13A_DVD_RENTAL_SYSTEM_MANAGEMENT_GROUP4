@@ -1,5 +1,6 @@
 package com.group4.ui.panel;
 
+import static com.group4.ui.panel.UtilsLayout.*;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -39,10 +40,12 @@ import javax.swing.table.DefaultTableModel;
 import com.group4.business.ThanhToanPhiTreHanBUS;
 import com.group4.entities.ChiTietThueTra;
 import com.group4.entities.KhachHang;
+import com.group4.ui.ICloseUIListener;
 import com.group4.ui.panel.PnlCustomerCommon.ItemClickListener;
 
 public class PnlLateChargePayment extends JPanel {
 	private static final long serialVersionUID = 1L;
+	private ICloseUIListener closeUIListener;
 	private static ThanhToanPhiTreHanBUS thanhToanPhiTreHanBUS;
 	static {
 		thanhToanPhiTreHanBUS = new ThanhToanPhiTreHanBUS();
@@ -57,6 +60,7 @@ public class PnlLateChargePayment extends JPanel {
 	private PnlCustomerCommon pnlCustomerCommon;
 	private JCheckBox chkSelectAll;
 	private JSpinner spnQuantity;
+	private JButton btnClose;
 
 	/**
 	 * Create the panel.
@@ -97,6 +101,7 @@ public class PnlLateChargePayment extends JPanel {
 		pnl_tablechiphitrehen.setLayout(null);
 
 		chkSelectAll = new JCheckBox("Thanh to\u00E1n t\u1EA5t c\u1EA3");
+		chkSelectAll.setEnabled(false);
 		chkSelectAll.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		chkSelectAll.setBounds(10, 399, 208, 31);
 		pnl_tablechiphitrehen.add(chkSelectAll);
@@ -107,7 +112,7 @@ public class PnlLateChargePayment extends JPanel {
 		pnl_tablechiphitrehen.add(lbl_thanhtoanmotphan);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 10, 992, 380);
+		scrollPane.setBounds(10, 10, 924, 380);
 		pnl_tablechiphitrehen.add(scrollPane);
 
 		tblLateCharges = new JTable();
@@ -139,6 +144,7 @@ public class PnlLateChargePayment extends JPanel {
 		tblLateCharges.setModel(model);
 
 		spnQuantity = new JSpinner();
+		spnQuantity.setEnabled(false);
 		spnQuantity.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		spnQuantity.setBounds(619, 399, 54, 31);
 		pnl_tablechiphitrehen.add(spnQuantity);
@@ -173,6 +179,7 @@ public class PnlLateChargePayment extends JPanel {
 		panel_2.setLayout(new GridLayout(3, 1, 10, 10));
 
 		btnConfirm = new JButton("X\u00E1c Nh\u1EADn");
+		btnConfirm.setEnabled(false);
 		panel_2.add(btnConfirm);
 		btnConfirm.setFont(new Font("Tahoma", Font.PLAIN, 20));
 
@@ -180,7 +187,7 @@ public class PnlLateChargePayment extends JPanel {
 		panel_2.add(btnCancel);
 		btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 20));
 
-		JButton btnClose = new JButton("Thoát");
+		btnClose = new JButton("Thoát");
 		btnClose.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		panel_2.add(btnClose);
 
@@ -245,19 +252,35 @@ public class PnlLateChargePayment extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (chkSelectAll.isSelected()) {
-					dsThanhToanTreHan = new ArrayList<ChiTietThueTra>(dsTreHan);
-					spnQuantity.setEnabled(false);
+					chonCheckBoxAll();
 
 				} else {
-					dsThanhToanTreHan.clear();
-					spnQuantity.setEnabled(true);
+					boChonCheckboxAll();
 				}
 				chonPhiTreHanCanThanhToan(dsThanhToanTreHan.size());
 				hienTongTienThanhToanPhiTreHan(dsThanhToanTreHan);
-
 			}
+
 		});
 
+	}
+
+	/**
+	 * Bỏ chọn checkbox thanh toán tất cả
+	 */
+	private void boChonCheckboxAll() {
+		dsThanhToanTreHan.clear();
+		spnQuantity.setEnabled(true);
+		voHieuHoaButton(btnConfirm);
+	}
+
+	/**
+	 * chọn checkbox thanh toán tất cả
+	 */
+	private void chonCheckBoxAll() {
+		dsThanhToanTreHan = new ArrayList<ChiTietThueTra>(dsTreHan);
+		spnQuantity.setEnabled(false);
+		kichHoatButton(btnConfirm);
 	}
 
 	/**
@@ -295,8 +318,14 @@ public class PnlLateChargePayment extends JPanel {
 				} else {
 					dsThanhToanTreHan.remove(select);
 				}
-
-				hienDanhSachPhiTreHan(dsThanhToanTreHan);
+				
+				if(dsThanhToanTreHan.isEmpty()) {
+					voHieuHoaButton(btnConfirm);
+					return;
+				}
+				
+				tblLateCharges.clearSelection();
+				kichHoatButton(btnConfirm);
 			}
 		});
 
@@ -313,7 +342,7 @@ public class PnlLateChargePayment extends JPanel {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		for (ChiTietThueTra ct : ds) {
 			tableModel.addRow(new Object[] { false, ct.getDia().getId(), formatter.format(ct.getNgayThue()),
-					formatter.format(ct.ngayTraDuKien()), formatter.format(ct.getNgayTra()), ct.getDia().phiTreHan() });
+					formatter.format(ct.getNgayToiHan()), formatter.format(ct.getNgayTra()), ct.getDia().phiTreHan() });
 		}
 	}
 
@@ -326,32 +355,119 @@ public class PnlLateChargePayment extends JPanel {
 			@Override
 			public void onClick(ActionEvent e, KhachHang khachHang) {
 				khachHangThanhToan = khachHang;
-				dsTreHan = thanhToanPhiTreHanBUS.getDSThueTraTreHanTheoKH(khachHangThanhToan.getId());
-				hienDanhSachPhiTreHan(dsTreHan);
-
-				spnQuantity.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0),
-						Integer.valueOf(dsTreHan.size()), new Integer(1)));
-
-				voHieuHoaTextFieldSpinner();
+				hienChiTietPhiTreHan(khachHang);
 
 			}
+
 		});
 
 		btnConfirm.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				boolean daThanhToanPhiTreHan = thanhToanPhiTreHanBUS.ghiNhanThanhToanPhiTreHan(dsThanhToanTreHan);
+				thucHienThanhToanPhiTreHan();
+			}
+		});
 
-				if (daThanhToanPhiTreHan) {
-					dsThanhToanTreHan.clear();
-					dsTreHan = thanhToanPhiTreHanBUS.getDSThueTraTreHanTheoKH(khachHangThanhToan.getId());
-					hienDanhSachPhiTreHan(dsTreHan);
+		btnCancel.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int confirm = hienThongBaoXacNhan(PnlLateChargePayment.this, "Xác nhận huỷ",
+						"Xác nhận huỷ việc thanh toán phí trễ hạn ?");
+				if (confirm == JOptionPane.YES_OPTION) {
+					huyThanhToanPhiTreHan();
 				}
 
 			}
 		});
 
+		btnClose.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int confirm = hienThongBaoXacNhan(PnlLateChargePayment.this, "Xác nhận thoát",
+						"Xác nhận thoát chức năng thanh toán phí trễ hạn ?");
+				if (confirm == JOptionPane.YES_OPTION) {
+					closeUIListener.onCloseUI(e);
+				}
+
+			}
+		});
+
+	}
+
+	/**
+	 * Huỷ thanh thanh toán phí trễ hạn
+	 */
+	private void huyThanhToanPhiTreHan() {
+		resetDSPhiTreHan(dsTreHan);
+
+		resetCacLuaChonThanhToan();
+
+		setVisibleCacLuaChonThanhToan(false);
+		
+		voHieuHoaButton(btnConfirm);
+		
+		
+
+	}
+
+	/**
+	 * đặt lại bảng phí trễ hạn
+	 * @param ds 
+	 */
+	private void resetDSPhiTreHan(List<ChiTietThueTra> ds) {
+		dsThanhToanTreHan.clear();
+		System.out.println(ds.size());
+		hienDanhSachPhiTreHan(ds);
+	}
+
+	/**
+	 * Thực hiện thanh toán phí trễ hạn
+	 */
+	private void thucHienThanhToanPhiTreHan() {
+		boolean daThanhToanPhiTreHan = thanhToanPhiTreHanBUS.ghiNhanThanhToanPhiTreHan(dsThanhToanTreHan);
+
+		if (daThanhToanPhiTreHan) {
+			dsTreHan = thanhToanPhiTreHanBUS.getDSThueTraTreHanTheoKH(khachHangThanhToan.getId());
+			resetDSPhiTreHan(dsTreHan);
+		}
+
+		resetCacLuaChonThanhToan();
+	}
+
+	/**
+	 * Đặt lại các lựa chọn thanh toán phí trễ hạn
+	 */
+	private void resetCacLuaChonThanhToan() {
+		if (chkSelectAll.isSelected()) {
+			chkSelectAll.setSelected(false);
+		}
+
+		spnQuantity.setValue(Integer.valueOf(1));
+	}
+
+	/**
+	 * Hiện thông tin về các phí trễ hạn của khách hàng
+	 * 
+	 * @param khachHang: khách hàng cần hiện thông tin
+	 */
+	private void hienChiTietPhiTreHan(KhachHang khachHang) {
+		dsTreHan = thanhToanPhiTreHanBUS.getDSThueTraTreHanTheoKH(khachHang.getId());
+		hienDanhSachPhiTreHan(dsTreHan);
+
+		spnQuantity.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), Integer.valueOf(dsTreHan.size()),
+				new Integer(1)));
+
+		setVisibleCacLuaChonThanhToan(true);
+		voHieuHoaTextFieldSpinner();
+
+	}
+
+	private void setVisibleCacLuaChonThanhToan(boolean isActive) {
+		chkSelectAll.setEnabled(isActive);
+		spnQuantity.setEnabled(isActive);
 	}
 
 	/**
@@ -366,6 +482,11 @@ public class PnlLateChargePayment extends JPanel {
 
 	}
 
+	/**
+	 * Hiện số phí trễ hạn muốn trả
+	 * 
+	 * @param obj: spps
+	 */
 	private void thietLapSoLuongPhiMuonTra(String obj) {
 		int quantity = 0;
 		try {
@@ -373,19 +494,20 @@ public class PnlLateChargePayment extends JPanel {
 		} catch (NumberFormatException e2) {
 			hienThongBao("Lỗi nhập liệu", "Số lượng phí trễ hạn muốn trả \n phải là số nguyên lớn hơn 0",
 					JOptionPane.ERROR_MESSAGE);
-			spnQuantity.setValue(new Integer(0));
+			spnQuantity.setValue(new Integer(1));
 		}
 		if (quantity == 0) {
 			hienThongBao("Cảnh báo", "Số lượng phí trễ hạn muốn trả \n phải là số nguyên lớn hơn 0",
 					JOptionPane.WARNING_MESSAGE);
+			spnQuantity.setValue(new Integer(1));
 			return;
 		}
 
 		spnQuantity.setValue(quantity);
 	}
 
-	private List<ChiTietThueTra> getDsTreHan() {
-		return dsTreHan;
+	public void setCloseUIListener(ICloseUIListener closeUIListener) {
+		this.closeUIListener = closeUIListener;
 	}
 
 }

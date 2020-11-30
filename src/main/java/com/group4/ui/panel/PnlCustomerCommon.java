@@ -1,5 +1,6 @@
 package com.group4.ui.panel;
 
+import static com.group4.ui.panel.UtilsLayout.*;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -51,7 +52,7 @@ public class PnlCustomerCommon extends JPanel {
 
 		if (khachHang == null)
 			return;
-		
+
 		hienThongTinKhachHang(khachHang);
 		btnSearchCusId.setEnabled(false);
 		txtCustomerID.setEditable(false);
@@ -126,13 +127,13 @@ public class PnlCustomerCommon extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (isValidInput(txtCustomerID)) {
+				if (isInputFieldNotBlank(PnlCustomerCommon.this, txtCustomerID)) {
 					Long cusId = null;
 					try {
 						cusId = Long.valueOf(txtCustomerID.getText());
 					} catch (NumberFormatException ex) {
-						hienThongBao("Lỗi định dạng nhập liệu", "Mã khách hàng phải là số nguyên lớn hơn 0",
-								JOptionPane.ERROR_MESSAGE);
+						hienThongBao(PnlCustomerCommon.this, "Lỗi định dạng nhập liệu",
+								"Mã khách hàng phải là số nguyên lớn hơn 0", JOptionPane.ERROR_MESSAGE);
 						txtCustomerID.requestFocus();
 						return;
 					}
@@ -140,14 +141,12 @@ public class PnlCustomerCommon extends JPanel {
 					khachHang = khachHangDAO.findById(cusId);
 
 					if (khachHang == null) {
-						hienThongBao("Lỗi tìm kiếm", "Khách hàng không tồn tại trong hệ thống",
+						hienThongBao(PnlCustomerCommon.this, "Lỗi tìm kiếm", "Khách hàng không tồn tại trong hệ thống",
 								JOptionPane.ERROR_MESSAGE);
 						return;
 					}
 
 					hienThongTinKhachHang(khachHang);
-
-					visibleCustomeInfo(true);
 
 					itemClickListener.onClick(e, khachHang);
 
@@ -156,22 +155,6 @@ public class PnlCustomerCommon extends JPanel {
 			}
 		});
 
-	}
-
-	private void hienThongBao(String title, String msg, int errorMessage) {
-		JLabel label = new JLabel(msg);
-		label.setFont(new Font("Arial", Font.BOLD, 18));
-		JOptionPane.showMessageDialog(this, label, title, errorMessage);
-
-	}
-
-	private boolean isValidInput(JTextField txt) {
-		if (txt.getText().trim().isEmpty()) {
-			hienThongBao("Lỗi nhập liệu", "Mời nhập dữ liệu!", JOptionPane.ERROR_MESSAGE);
-			txt.requestFocus();
-			return false;
-		}
-		return true;
 	}
 
 	/**
@@ -183,6 +166,13 @@ public class PnlCustomerCommon extends JPanel {
 		lblCustomerName.setText(khachHang.getHoVaTen());
 		lblCustomerPhone.setText(khachHang.getSoDienThoai());
 		lblCustomerAddress.setText(khachHang.getDiaChi());
+
+		voHieuHoaTextField(txtCustomerID);
+
+		voHieuHoaButton(btnSearchCusId);
+
+		visibleCustomeInfo(true);
+
 	}
 
 	public void visibleCustomeInfo(boolean isVisible) {

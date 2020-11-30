@@ -1,9 +1,14 @@
 package com.group4.ui.panel;
 
+import static com.group4.ui.panel.UtilsLayout.isInputFieldNotBlank;
+import static com.group4.ui.panel.UtilsLayout.kichHoatButton;
+import static com.group4.ui.panel.UtilsLayout.kichHoatTextField;
+import static com.group4.ui.panel.UtilsLayout.voHieuHoaButton;
+import static com.group4.ui.panel.UtilsLayout.voHieuHoaTextField;
+import static com.group4.ui.panel.UtilsLayout.xoaTrang;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -17,7 +22,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 
-import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -49,6 +53,7 @@ import com.group4.entities.Dia;
 import com.group4.entities.KhachHang;
 import com.group4.entities.TrangThaiDia;
 import com.group4.ui.ICloseUIListener;
+import com.group4.ui.dialog.DlgThongBaoPhiTreHan;
 
 public class PnlRentDisk extends JPanel {
 
@@ -247,9 +252,19 @@ public class PnlRentDisk extends JPanel {
 		btnDeleteDisk.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		pnlListDisk.add(btnDeleteDisk, BorderLayout.SOUTH);
 
+		hienNgayThueDia();
+		
 		ganSuKienChoButton();
 		ganSuKienChoTable();
 
+	}
+	
+	/**
+	 * Hiện ngày thuê đĩa
+	 */
+	private void hienNgayThueDia() {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		lblDateRent.setText(formatter.format(LocalDate.now()));
 	}
 
 	/**
@@ -291,7 +306,7 @@ public class PnlRentDisk extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (isValidInput(txtDiskID)) {
+				if (isInputFieldNotBlank(PnlRentDisk.this,txtDiskID)) {
 					Long diskId = null;
 					try {
 						diskId = Long.valueOf(txtDiskID.getText());
@@ -323,8 +338,6 @@ public class PnlRentDisk extends JPanel {
 
 					kichHoatButton(btnConfirm);
 
-					voHieuHoaButton(btnConfirm);
-
 				}
 
 			}
@@ -350,25 +363,17 @@ public class PnlRentDisk extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				if(btnDeleteDisk.isEnabled()) {
+					tblListDisk.clearSelection();
+					voHieuHoaButton(btnDeleteDisk);
+					return;
+				}
+				
 				int select = hienThongBaoXacNhan("Huỷ thực hiện", "Xác nhận huỷ thực hiện thuê đĩa");
 				if (select != JOptionPane.YES_OPTION)
 					return;
 
-				resetDSDiaThue();
-
-				hienTongTienThueDia(dsDiaThue);
-
-				xoaTrang(pnlCustomerCommon.getTxtCustomerID(), txtDiskID);
-
-				pnlCustomerCommon.visibleCustomeInfo(false);
-
-				kichHoatButton(pnlCustomerCommon.getBtnSearchCusId(), btnClose);
-
-				kichHoatTextField(pnlCustomerCommon.getTxtCustomerID());
-
-				voHieuHoaTextField(txtDiskID);
-
-				voHieuHoaButton(btnConfirm, btnRentDisk, btnCancel);
+				huyThueDia();
 
 			}
 		});
@@ -391,19 +396,47 @@ public class PnlRentDisk extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				xoaDiaKhoiDSThue(dsDiaThue.get(tblListDisk.getSelectedRow()));
-				tblListDisk.clearSelection();
-				hienDSDiaThue(dsDiaThue);
-				hienTongTienThueDia(dsDiaThue);
-
-				if (dsDiaThue.isEmpty()) {
-					voHieuHoaButton(btnConfirm, btnDeleteDisk);
-					txtDiskID.requestFocus();
-				}
+				xoaDiaKhoiDSThue();
 
 			}
 		});
 
+	}
+	
+	/**
+	 * Xoá đĩa khỏi danh sách thuê
+	 */
+	private void xoaDiaKhoiDSThue(){
+		xoaDiaKhoiDSThue(dsDiaThue.get(tblListDisk.getSelectedRow()));
+		tblListDisk.clearSelection();
+		hienDSDiaThue(dsDiaThue);
+		hienTongTienThueDia(dsDiaThue);
+
+		if (dsDiaThue.isEmpty()) {
+			voHieuHoaButton(btnConfirm, btnDeleteDisk);
+			txtDiskID.requestFocus();
+		}
+	}
+	
+	/**
+	 * huỷ thuê đĩa
+	 */
+	private void huyThueDia() {
+		resetDSDiaThue();
+
+		hienTongTienThueDia(dsDiaThue);
+
+		xoaTrang(pnlCustomerCommon.getTxtCustomerID(), txtDiskID);
+
+		pnlCustomerCommon.visibleCustomeInfo(false);
+
+		kichHoatButton(pnlCustomerCommon.getBtnSearchCusId(), btnClose);
+
+		kichHoatTextField(pnlCustomerCommon.getTxtCustomerID());
+
+		voHieuHoaTextField(txtDiskID);
+
+		voHieuHoaButton(btnConfirm, btnRentDisk, btnCancel);
 	}
 
 	/**
@@ -437,53 +470,6 @@ public class PnlRentDisk extends JPanel {
 	 */
 	private void xoaDiaKhoiDSThue(Dia dia) {
 		dsDiaThue.remove(dia);
-	}
-
-	/**
-	 * Kích hoạt các textfield
-	 * 
-	 * @param fields: các field cần kích hoạt
-	 */
-	private void kichHoatTextField(JTextField... fields) {
-		for (JTextField txt : fields) {
-			txt.setEditable(true);
-		}
-
-	}
-
-	/**
-	 * Kích hoạt các button
-	 * 
-	 * @param buttons: các button cần kích hoạt
-	 */
-	private void kichHoatButton(JButton... buttons) {
-		for (JButton btn : buttons) {
-			btn.setEnabled(true);
-		}
-
-	}
-
-	/**
-	 * Vô hiệu hoá các textfeld
-	 * 
-	 * @param fields
-	 */
-	private void voHieuHoaTextField(JTextField... fields) {
-		for (JTextField txt : fields) {
-			txt.setEditable(false);
-		}
-	}
-
-	/**
-	 * vô hiệu hoá các button
-	 * 
-	 * @param buttons: các button cần vô hiệu hoá
-	 */
-	private void voHieuHoaButton(JButton... buttons) {
-		for (JButton btn : buttons) {
-			btn.setEnabled(false);
-		}
-
 	}
 
 	/**
@@ -521,18 +507,6 @@ public class PnlRentDisk extends JPanel {
 	}
 
 	/**
-	 * Xoá trắng các textfield
-	 * 
-	 * @param fields: textfield cần xoá
-	 */
-	private void xoaTrang(JTextField... fields) {
-		for (JTextField txt : fields) {
-			txt.setText("");
-		}
-
-	}
-
-	/**
 	 * Hiện Thông tin phí trễ hạn của khách hàng (nếu khách hàng trả đĩa trễ hạn)
 	 * 
 	 * @param cusId: mã khách hàng
@@ -541,8 +515,7 @@ public class PnlRentDisk extends JPanel {
 		// hiện thông tin phí trễ hạn nếu có
 		List<ChiTietThueTra> dsTreHan = thanhToanPhiTreHanBUS.getDSThueTraTreHanTheoKH(khachHang.getId());
 		if (dsTreHan.size() > 0) {
-			// TODO: hiện danh Thông báo phí trễ hạn
-			hienThongBao("Thông báo", khachHangThueDia.getHoVaTen() + " có phí trễ hạn", JOptionPane.WARNING_MESSAGE);
+			new DlgThongBaoPhiTreHan(dsTreHan).setVisible(true);
 		}
 
 	}
@@ -574,23 +547,10 @@ public class PnlRentDisk extends JPanel {
 
 	}
 
-	/**
-	 * Kiểm tra trường nhập dữ liệu không bị trống
-	 * 
-	 * @param txt: trường nhập dữ liệu
-	 * @return true: đã nhập dữ liệu / false: chưa nhập dữ liệu
-	 */
-	private boolean isValidInput(JTextField txt) {
-		if (txt.getText().trim().isEmpty()) {
-			hienThongBao("Lỗi nhập liệu", "Mời nhập dữ liệu!", JOptionPane.ERROR_MESSAGE);
-			txt.requestFocus();
-			return false;
-		}
-		return true;
-	}
+	
 
 	/**
-	 * Hiện thông báo
+	 * Hiện thông báo	
 	 * 
 	 * @param msg: thông báo cần hiển thị
 	 */

@@ -170,8 +170,16 @@ public class FrmMain extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				PnlLateChargePayment pnlReservation = new PnlLateChargePayment(null);
-				openWorkUI(pnlReservation);
+				PnlLateChargePayment pnlLateChargePayment = new PnlLateChargePayment(null);
+				openWorkUI(pnlLateChargePayment);
+				pnlLateChargePayment.setCloseUIListener(new ICloseUIListener() {
+					
+					@Override
+					public void onCloseUI(ActionEvent e) {
+						closeWorkUI(pnlLateChargePayment);
+						
+					}
+				});
 				
 			}
 		});

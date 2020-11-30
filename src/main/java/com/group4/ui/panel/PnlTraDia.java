@@ -88,50 +88,6 @@ public class PnlTraDia extends JPanel {
 		pnlCenter.add(pnlTraDia, BorderLayout.CENTER);
 		pnlTraDia.setLayout(new BorderLayout(0, 0));
 		
-//		JPanel pnlKhachhangID = new JPanel();
-//		FlowLayout fl_pnlKhachhangID = (FlowLayout) pnlKhachhangID.getLayout();
-//		fl_pnlKhachhangID.setAlignment(FlowLayout.LEFT);
-//		pnlTraDia.add(pnlKhachhangID, BorderLayout.NORTH);
-//
-//		JLabel lblKHID = new JLabel("Nhập mã KH: ");
-//		lblKHID.setFont(new Font("Dialog", Font.PLAIN, 20));
-//		pnlKhachhangID.add(lblKHID);
-//
-//		txtKHID = new JTextField();
-//		txtKHID.setEnabled(false);
-//		txtKHID.setFont(new Font("Dialog", Font.PLAIN, 20));
-//		pnlKhachhangID.add(txtKHID);
-//		txtKHID.setColumns(15);
-//
-//		btnXacNhan = new JButton("Xác Nhận");
-//		btnXacNhan.setEnabled(false);
-//		btnXacNhan.setFont(new Font("Dialog", Font.PLAIN, 20));
-//		pnlKhachhangID.add(btnXacNhan);
-//
-//		JPanel pnlListKH = new JPanel();
-//		pnlTraDia.add(pnlListKH, BorderLayout.CENTER);
-//		pnlListKH.setLayout(new BorderLayout(0, 0));
-//
-//		JScrollPane scrListKH = new JScrollPane();
-//		pnlListKH.add(scrListKH, BorderLayout.CENTER);
-//
-//		tblListKH = new JTable();
-//		tblListKH.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-//		tblListKH.setFont(new Font("Tahoma", Font.PLAIN, 18));
-//		tblListKH.setModel(new DefaultTableModel(
-//			new Object[][] {
-//			},
-//			new String[] {
-//				"M\u00E3 KH", "T\u00EAn KH", "S\u1ED1 \u0111i\u1EC7n tho\u1EA1i", "\u0110\u1ECBa Ch\u1EC9", "Ng\u00E0y \u0111\u1EBFn h\u1EA1n"
-//			}
-//		));
-//		tblListKH.getColumnModel().getColumn(0).setPreferredWidth(60);
-//		tblListKH.getColumnModel().getColumn(1).setPreferredWidth(300);
-//		tblListKH.getColumnModel().getColumn(3).setPreferredWidth(90);
-//		tblListKH.getColumnModel().getColumn(4).setPreferredWidth(100);
-//		scrListKH.setViewportView(tblListKH);
-		
-		
 		JPanel pnlGandia = new JPanel();
 		pnlGandia.setBorder(
 				new TitledBorder(new CompoundBorder(new LineBorder(new Color(0, 0, 0), 2), new EmptyBorder(5, 5, 5, 5)), "G\u00E1n \u0110\u0129a", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
