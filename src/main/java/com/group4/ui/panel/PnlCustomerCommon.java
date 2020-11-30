@@ -27,6 +27,12 @@ public class PnlCustomerCommon extends JPanel {
 		khachHangDAO = new KhachHangDAO();
 	}
 
+	private ItemClickListener itemClickListener;
+
+	public interface ItemClickListener {
+		void onClick(ActionEvent e, KhachHang khachHang);
+	}
+
 	private KhachHang khachHang;
 
 	private JTextField txtCustomerID;
@@ -39,9 +45,17 @@ public class PnlCustomerCommon extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public PnlCustomerCommon() {
+	public PnlCustomerCommon(KhachHang khachHang) {
 		setLayout(new BorderLayout(0, 0));
 		createLayout();
+
+		if (khachHang == null)
+			return;
+		
+		hienThongTinKhachHang(khachHang);
+		btnSearchCusId.setEnabled(false);
+		txtCustomerID.setEditable(false);
+		visibleCustomeInfo(true);
 
 	}
 
@@ -135,6 +149,8 @@ public class PnlCustomerCommon extends JPanel {
 
 					visibleCustomeInfo(true);
 
+					itemClickListener.onClick(e, khachHang);
+
 				}
 
 			}
@@ -169,24 +185,25 @@ public class PnlCustomerCommon extends JPanel {
 		lblCustomerAddress.setText(khachHang.getDiaChi());
 	}
 
-	public boolean visibleCustomeInfo(boolean isVisible) {
+	public void visibleCustomeInfo(boolean isVisible) {
 		pnlCustomerInfo.setVisible(isVisible);
-		return isVisible;
 
 	}
-	
-	
 
-	private JTextField getTxtCustomerID() {
+	public JTextField getTxtCustomerID() {
 		return txtCustomerID;
 	}
 
-	private JButton getBtnSearchCusId() {
+	public JButton getBtnSearchCusId() {
 		return btnSearchCusId;
 	}
 
-	private KhachHang getKhachHang() {
+	public KhachHang getKhachHang() {
 		return khachHang;
+	}
+
+	public void setItemClickListener(ItemClickListener itemClickListener) {
+		this.itemClickListener = itemClickListener;
 	}
 
 }

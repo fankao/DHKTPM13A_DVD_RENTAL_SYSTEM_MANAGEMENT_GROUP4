@@ -98,6 +98,10 @@ public class ChiTietThueTra {
 		diaThue.setTrangThai(TrangThaiDia.RENTED);
 		this.setDia(diaThue);
 	}
+	
+	public LocalDate ngayTraDuKien() {
+		return ngayThue.plusDays(dia.getLoaiDia().getSoNgayThue());
+	}
 
 	@Override
 	public int hashCode() {

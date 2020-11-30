@@ -23,12 +23,14 @@ public class ThanhToanPhiTreHanBUS {
 	 */
 	public List<ChiTietThueTra> getDSThueTraTreHanTheoKH(Long khachHangId) {
 		List<ChiTietThueTra> ds = chiTietThueTraDAO.getDSDaTraDiaTheoKH(khachHangId);
-		return ds.stream().filter(x -> daTreHanTraDia(x) == true).collect(Collectors.toList());
+		return ds.stream().filter(x -> daTreHanTraDia(x) == true && x.isDaThanhToanPhiTreHan() == false)
+				.collect(Collectors.toList());
 
 	}
 
 	/**
 	 * Tính tồng tiền trễ hạn
+	 * 
 	 * @param dsThueTraTreHan: danh sách trễ hạn
 	 * @return tổng tiền
 	 */

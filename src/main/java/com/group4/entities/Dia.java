@@ -100,6 +100,10 @@ public class Dia implements Serializable{
 	public void setDsChiTietThueTra(Set<ChiTietThueTra> dsChiTietThueTra) {
 		this.dsChiTietThueTra = dsChiTietThueTra;
 	}
+	
+	public double phiTreHan() {
+		return loaiDia.getPhiTreHan();
+	}
 
 	@Override
 	public int hashCode() {
