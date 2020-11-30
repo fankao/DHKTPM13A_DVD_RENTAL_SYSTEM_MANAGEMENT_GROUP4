@@ -2,75 +2,192 @@ package com.group4.ui.panel;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
+import javax.swing.border.TitledBorder;
 
 public class PnlTraDia extends JPanel {
-	private JTable tbl_tradia;
-	private JTextField textField;
+	private static final long serialVersionUID = 1L;
+	private JTextField txtCustomerID;
+	private JButton btnSearchDiaId;
+	private JTextField txtKHID;
+	private JButton btnXacNhan;
+	private JTable tblListKH;
+	private JLabel lbltuade;
+	private JLabel lblhotenKH;
+	private JLabel lblhiendcKH;
+	private JButton btnGanDia;
+	private JButton btnHuy;
+	private JButton btnThoat;
+	private JLabel lblngaydatKH;
 
 	public PnlTraDia() {
+		setBorder(new EmptyBorder(10, 10, 10, 10));
+		setSize(1270, 600);
 		setLayout(new BorderLayout(0, 0));
-		
-		JPanel pnl_top = new JPanel();
-		add(pnl_top, BorderLayout.NORTH);
-		
-		JLabel lbl_tieude = new JLabel("TR\u1EA2 \u0110\u0128A");
-		lbl_tieude.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl_tieude.setForeground(Color.GRAY);
-		lbl_tieude.setFont(new Font("Tahoma", Font.BOLD, 24));
-		pnl_top.add(lbl_tieude);
-		
-		JPanel pnl_tradia = new JPanel();
-		add(pnl_tradia, BorderLayout.CENTER);
-		pnl_tradia.setLayout(null);
-		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 11, 680, 325);
-		pnl_tradia.add(scrollPane);
-		
-		tbl_tradia = new JTable();
-		tbl_tradia.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null, null, null},
-			},
-			new String[] {
-				"M\u00E3 Thu\u00EA \u0110\u0129a", "T\u00EAn Kh\u00E1ch H\u00E0ng", "Ng\u00E0y L\u1EADp H\u00F3a \u0110\u01A1n", "Tr\u1EA1ng Th\u00E1i"
-			}
-		));
-		scrollPane.setViewportView(tbl_tradia);
-		
-		JLabel lbl_timkiem = new JLabel("T\u00ECm Ki\u1EBFm:");
-		lbl_timkiem.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lbl_timkiem.setBounds(10, 361, 100, 30);
-		pnl_tradia.add(lbl_timkiem);
-		
-		textField = new JTextField();
-		textField.setBounds(141, 363, 229, 30);
-		pnl_tradia.add(textField);
-		textField.setColumns(10);
-		
-		JButton btn_tradia = new JButton("Tr\u1EA3 \u0110\u0129a");
-		btn_tradia.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btn_tradia.setBounds(404, 347, 108, 56);
-		pnl_tradia.add(btn_tradia);
-		
-		JButton btn_themphitrehen = new JButton("Th\u00EAm Ph\u00ED Tr\u1EC5 H\u1EB9n");
-		btn_themphitrehen.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btn_themphitrehen.setBounds(522, 347, 147, 56);
-		pnl_tradia.add(btn_themphitrehen);
+
+		JPanel pnlTitle = new JPanel();
+		FlowLayout fl_pnlTitle = (FlowLayout) pnlTitle.getLayout();
+		fl_pnlTitle.setVgap(20);
+		add(pnlTitle, BorderLayout.NORTH);
+
+		JLabel lblTitle = new JLabel("TRẢ ĐĨA");
+		lblTitle.setFont(new Font("Tahoma", Font.BOLD, 25));
+		pnlTitle.add(lblTitle);
 		
 		
+		JPanel pnlMain = new JPanel();
+		add(pnlMain, BorderLayout.CENTER);
+		pnlMain.setLayout(new BorderLayout(0, 0));
+		
+		JPanel pnl_dia = new JPanel();
+		pnl_dia.setBorder(
+				new TitledBorder(new CompoundBorder(new LineBorder(new Color(0, 0, 0), 2), new EmptyBorder(5, 5, 5, 5)), "Th\u00F4ng tin \u0111\u0129a", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		pnlMain.add(pnl_dia, BorderLayout.NORTH);
+		pnl_dia.setLayout(new BoxLayout(pnl_dia, BoxLayout.Y_AXIS));
+		
+		JPanel pnl_timkiemMa = new JPanel();
+		FlowLayout fl_pnl_timkiemMa = (FlowLayout) pnl_timkiemMa.getLayout();
+		fl_pnl_timkiemMa.setAlignment(FlowLayout.LEFT);
+		pnl_dia.add(pnl_timkiemMa);
+
+		JLabel lbl_maDia = new JLabel("Mã Đĩa Trả");
+		lbl_maDia.setFont(new Font("Dialog", Font.PLAIN, 20));
+		pnl_timkiemMa.add(lbl_maDia);
+
+		txtCustomerID = new JTextField();
+		txtCustomerID.setFont(new Font("Dialog", Font.PLAIN, 20));
+		pnl_timkiemMa.add(txtCustomerID);
+		txtCustomerID.setColumns(15);
+		
+		btnSearchDiaId = new JButton("Xác nhận");
+		btnSearchDiaId.setFont(new Font("Dialog", Font.PLAIN, 20));
+		pnl_timkiemMa.add(btnSearchDiaId);
+		
+		JPanel pnlCenter = new JPanel();
+		pnlMain.add(pnlCenter, BorderLayout.CENTER);
+		pnlCenter.setLayout(new BorderLayout(0, 0));
+		
+		JPanel pnlTraDia = new JPanel();
+		pnlTraDia.setBorder(new CompoundBorder(new EmptyBorder(10, 0, 0, 20), new LineBorder(new Color(0, 0, 0), 2)));
+		pnlCenter.add(pnlTraDia, BorderLayout.CENTER);
+		pnlTraDia.setLayout(new BorderLayout(0, 0));
+		
+		JPanel pnlGandia = new JPanel();
+		pnlGandia.setBorder(
+				new TitledBorder(new CompoundBorder(new LineBorder(new Color(0, 0, 0), 2), new EmptyBorder(5, 5, 5, 5)), "G\u00E1n \u0110\u0129a", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		pnlTraDia.add(pnlGandia, BorderLayout.CENTER);
+		pnlGandia.setLayout(new BoxLayout(pnlGandia, BoxLayout.Y_AXIS));
+
+		JPanel pnltuade = new JPanel();
+		FlowLayout fl_pnltuade = (FlowLayout) pnltuade.getLayout();
+		fl_pnltuade.setAlignment(FlowLayout.LEFT);
+		pnlGandia.add(pnltuade);
+
+		JLabel lblTuadeTitle = new JLabel("Tựa Đề: ");
+		lblTuadeTitle.setFont(new Font("Dialog", Font.PLAIN, 20));
+		pnltuade.add(lblTuadeTitle);
+
+		lbltuade = new JLabel("Con Bò Cười");
+		lbltuade.setFont(new Font("Dialog", Font.BOLD, 20));
+		pnltuade.add(lbltuade);
+
+		JPanel pnlthontinhKH = new JPanel();
+		FlowLayout fl_pnlthontinhKH = (FlowLayout) pnlthontinhKH.getLayout();
+		fl_pnlthontinhKH.setAlignment(FlowLayout.LEFT);
+		pnlGandia.add(pnlthontinhKH);
+
+		JLabel lblHoten = new JLabel("Họ Tên: ");
+		lblHoten.setFont(new Font("Dialog", Font.PLAIN, 20));
+		pnlthontinhKH.add(lblHoten);
+
+		
+		/* Ten KH*/
+		lblhotenKH = new JLabel("Nguyen Van Vy");
+		lblhotenKH.setFont(new Font("Dialog", Font.BOLD, 20));
+		pnlthontinhKH.add(lblhotenKH);
+		
+		Component horizontalGlue_2 = Box.createHorizontalGlue();
+		horizontalGlue_2.setPreferredSize(new Dimension(20, 0));
+		horizontalGlue_2.setMinimumSize(new Dimension(20, 0));
+		pnlthontinhKH.add(horizontalGlue_2);
+		
+		JLabel lblSDTKH = new JLabel("Số Điện Thoại: ");
+		lblSDTKH.setFont(new Font("Dialog", Font.PLAIN, 20));
+		pnlthontinhKH.add(lblSDTKH);
+
+		
+		/* SDT KH*/
+		lblSDTKH = new JLabel("0924444659");
+		lblSDTKH.setFont(new Font("Dialog", Font.BOLD, 20));
+		pnlthontinhKH.add(lblSDTKH);
+		
+		Component horizontalGlue_2_1 = Box.createHorizontalGlue();
+		horizontalGlue_2_1.setPreferredSize(new Dimension(20, 0));
+		horizontalGlue_2_1.setMinimumSize(new Dimension(20, 0));
+		pnlthontinhKH.add(horizontalGlue_2_1);
+		
+		JLabel lblDCKH = new JLabel("Địa chỉ: ");
+		lblDCKH.setFont(new Font("Dialog", Font.PLAIN, 20));
+		pnlthontinhKH.add(lblDCKH);
+
+		
+		/* SDT KH*/
+		lblhiendcKH = new JLabel("Gò Vấp");
+		lblhiendcKH.setFont(new Font("Dialog", Font.BOLD, 20));
+		pnlthontinhKH.add(lblhiendcKH);
+		
+		JPanel pnlNgayDatKH = new JPanel();
+		FlowLayout fl_pnlNgayDatKH = (FlowLayout) pnlNgayDatKH.getLayout();
+		fl_pnlNgayDatKH.setAlignment(FlowLayout.LEFT);
+		pnlGandia.add(pnlNgayDatKH);
+
+		JLabel lbl_ngaydat = new JLabel("Ngày Đặt Giữ: ");
+		lbl_ngaydat.setFont(new Font("Dialog", Font.PLAIN, 20));
+		pnlNgayDatKH.add(lbl_ngaydat);
+
+		
+		/* Ten KH*/
+		lblngaydatKH = new JLabel("15/05/2020");
+		lblngaydatKH.setFont(new Font("Dialog", Font.BOLD, 20));
+		pnlNgayDatKH.add(lblngaydatKH);
+		
+				
+		JPanel pnlButton = new JPanel();
+		FlowLayout fl_pnlbutton = (FlowLayout) pnlButton.getLayout();
+		fl_pnlbutton.setAlignment(FlowLayout.CENTER);
+		pnlGandia.add(pnlButton);
+		
+		btnGanDia = new JButton("Gán Đĩa");
+		btnGanDia.setFont(new Font("Dialog", Font.PLAIN, 20));
+		btnHuy = new JButton("Hủy Bỏ");
+		btnHuy.setFont(new Font("Dialog", Font.PLAIN, 20));
+		pnlButton.add(btnGanDia);
+		pnlButton.add(btnHuy);
+		
+		JPanel pnlThoat = new JPanel();
+		FlowLayout fl_pnlthoat = (FlowLayout) pnlThoat.getLayout();
+		fl_pnlthoat.setAlignment(FlowLayout.RIGHT);
+		pnlGandia.add(pnlThoat);
+		
+		btnThoat = new JButton("Thoát");
+		btnThoat.setFont(new Font("Dialog", Font.PLAIN, 20));
+		pnlThoat.add(btnThoat);
 	}
 		
 	 public static void main(String[] args) {
@@ -82,7 +199,7 @@ public class PnlTraDia extends JPanel {
 	    }
 
 	    private static void createAndShowGUI() {
-	        System.out.println("Created GUI on EDT? "+
+	        System.out.println("Created GUI on EDT "+
 	        SwingUtilities.isEventDispatchThread());
 	        JFrame f = new JFrame("Swing Paint Demo");
 	        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

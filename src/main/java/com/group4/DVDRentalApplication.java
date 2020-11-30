@@ -9,6 +9,21 @@ import com.group4.ui.FrmMain;
 
 public class DVDRentalApplication {
 	public static void main(String[] args) {
+		
+		//TODO: chạy màn hình Loading...
+		
+		System.out.println("Loading...");
+
+		/*
+		 * dữ liệu test thuê đĩa
+		 */
+		// Testing.main();
+
+		/*
+		 * dữ liệu test trong trường hợp có phí trễ han
+		 */
+		TestingThanhToanPhiTreHan.main();
+
 		try {
 			// UIManager.setLookAndFeel("com.jtattoo.plaf.mint.MintLookAndFeel");
 			UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
@@ -23,12 +38,6 @@ public class DVDRentalApplication {
 				new FrmMain("Hệ thống quản lý cho thuê băng đĩa").setVisible(true);
 			}
 		});
-
-		// dữ liệu test thuê đĩa
-		//Testing.main();
-		
-		//dữ liệu test trong trường hợp có phí trễ han
-		TestingThanhToanPhiTreHan.main();
 
 	}
 }
