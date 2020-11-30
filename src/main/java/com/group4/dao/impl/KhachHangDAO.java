@@ -5,5 +5,4 @@ import com.group4.entities.KhachHang;
 
 public class KhachHangDAO extends AbstractDAO<KhachHang, Long> implements IKhachHangDAO {
 
-
 }

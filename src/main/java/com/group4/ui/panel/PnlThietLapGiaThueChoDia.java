@@ -2,23 +2,43 @@ package com.group4.ui.panel;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.util.Set;
+import java.util.Vector;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import com.group4.dao.ILoaiDiaDAO;
+import com.group4.dao.impl.LoaiDiaDAO;
+import com.group4.entities.LoaiDia;
+import com.group4.ui.ICloseUIListener;
 
 public class PnlThietLapGiaThueChoDia extends JPanel {
 	private JTextField txtGiaThueHienTai;
 	private JTextField txtGiaThueMoi;
 
+	JComboBox<LoaiDia> cboLoaiDia;
+	
+	JList<LoaiDia> listLoaiDia;
+	
+	private ICloseUIListener closeUIListener;
 	/**
 	 * Create the panel.
 	 */
+	
+	private static ILoaiDiaDAO loaiDiaDAO;
+	
+	static {
+		loaiDiaDAO = new LoaiDiaDAO();
+	}
 	public PnlThietLapGiaThueChoDia() {
 		setLayout(new BorderLayout(0, 0));
 		
@@ -79,7 +99,7 @@ public class PnlThietLapGiaThueChoDia extends JPanel {
 		flowLayout_3.setAlignment(FlowLayout.LEFT);
 		pnRight.add(pnCBOLoaiDia);
 		
-		JComboBox cboLoaiDia = new JComboBox();
+		cboLoaiDia = new JComboBox();
 		cboLoaiDia.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		pnCBOLoaiDia.add(cboLoaiDia);
 		
@@ -107,18 +127,43 @@ public class PnlThietLapGiaThueChoDia extends JPanel {
 		
 		JPanel pnChucNang = new JPanel();
 		FlowLayout flowLayout_1 = (FlowLayout) pnChucNang.getLayout();
+		flowLayout_1.setHgap(30);
+		flowLayout_1.setVgap(30);
 		add(pnChucNang, BorderLayout.SOUTH);
 		
-		JButton btnNewButton = new JButton("Lưu");
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		pnChucNang.add(btnNewButton);
+		JButton btnLuu = new JButton("Lưu");
+		btnLuu.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		pnChucNang.add(btnLuu);
+		btnLuu.setPreferredSize(new Dimension(100, 50));
 		
-		JButton btnNewButton_1 = new JButton("Thoát");
-		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		pnChucNang.add(btnNewButton_1);
-	
+		JButton btnThoat = new JButton("Thoát");
+		btnThoat.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		pnChucNang.add(btnThoat);
+		btnThoat.setPreferredSize(new Dimension(100, 50));
+		
 		lblLoaiDia.setPreferredSize(lblGiaThueHienTai.getPreferredSize());
 		lblGiaThueMoi.setPreferredSize(lblGiaThueHienTai.getPreferredSize());
+	
+		txtGiaThueHienTai.setEditable(false);
+		ganSuKienChoButton();
+		
+		
+		hienLoaiDia();
+		
 	}
 
+	private void hienLoaiDia() {
+		LoaiDiaDAO loaiDiaDAO = new LoaiDiaDAO();
+		
+		
+	}
+
+	private void ganSuKienChoButton() {
+
+		
+	}
+
+	public void setCloseUIListener(ICloseUIListener closeUIListener) {
+		this.closeUIListener = closeUIListener;
+	}
 }
