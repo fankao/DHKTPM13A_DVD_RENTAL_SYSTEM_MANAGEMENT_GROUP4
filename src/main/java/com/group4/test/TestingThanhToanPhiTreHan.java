@@ -46,22 +46,32 @@ public class TestingThanhToanPhiTreHan {
 		diaDAO.create(dia1);
 		Dia dia2 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe2, l2);
 		diaDAO.create(dia2);
-
 		Dia dia3 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe2, l2);
 		diaDAO.create(dia3);
+		Dia dia4 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe1, l1);
+		diaDAO.create(dia4);
+		Dia dia5 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe1, l2);
+		diaDAO.create(dia5);
+		Dia dia6 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe2, l1);
+		diaDAO.create(dia6);
 
 		ThueTraDiaBUS thueTraDiaBUS = new ThueTraDiaBUS();
-		thueTraDiaBUS.xuLyThueDia(khachHangDAO.findById(1L), new HashSet<Dia>(Arrays.asList(dia1, dia2)));
+		thueTraDiaBUS.xuLyThueDia(khachHangDAO.findById(1L), new HashSet<Dia>(Arrays.asList(dia1, dia2,dia3)));
 
 		IChiTietThueTraDAO chiTietThueTraDAO = new ChiTietThueTraDAO();
+		
 		ChiTietThueTra chiTietThueTra1 = chiTietThueTraDAO.findById(new ChiTietThueTraID(1L, 1L));
-		chiTietThueTra1.setNgayTra(LocalDate.of(2020, 12, 10));
+		chiTietThueTra1.setNgayTra(LocalDate.of(2020, 12, 20));
 
 		ChiTietThueTra chiTietThueTra2 = chiTietThueTraDAO.findById(new ChiTietThueTraID(1L, 2L));
 		chiTietThueTra2.setNgayTra(LocalDate.of(2020, 12, 20));
+		
+		ChiTietThueTra chiTietThueTra3 = chiTietThueTraDAO.findById(new ChiTietThueTraID(1L, 3L));
+		chiTietThueTra3.setNgayTra(LocalDate.of(2020, 12, 20));
 
 		chiTietThueTraDAO.update(chiTietThueTra1);
 		chiTietThueTraDAO.update(chiTietThueTra2);
+		chiTietThueTraDAO.update(chiTietThueTra3);
 	}
 
 }

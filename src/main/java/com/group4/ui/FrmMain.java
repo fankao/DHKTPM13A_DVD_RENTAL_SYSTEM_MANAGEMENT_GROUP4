@@ -12,6 +12,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
+import com.group4.ui.panel.PnlLateChargePayment;
 import com.group4.ui.panel.PnlManageDisk;
 import com.group4.ui.panel.PnlQuanLyKhachHang;
 import com.group4.ui.panel.PnlRentDisk;
@@ -169,13 +170,13 @@ public class FrmMain extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				PnlReservation pnlReservation = new PnlReservation();
-				openWorkUI(pnlReservation);
-				pnlReservation.setCloseUIListener(new ICloseUIListener() {
+				PnlLateChargePayment pnlLateChargePayment = new PnlLateChargePayment(null);
+				openWorkUI(pnlLateChargePayment);
+				pnlLateChargePayment.setCloseUIListener(new ICloseUIListener() {
 					
 					@Override
 					public void onCloseUI(ActionEvent e) {
-						closeWorkUI(pnlReservation);
+						closeWorkUI(pnlLateChargePayment);
 						
 					}
 				});
