@@ -54,10 +54,6 @@ public class PnlCustomerCommon extends JPanel {
 			return;
 
 		hienThongTinKhachHang(khachHang);
-		btnSearchCusId.setEnabled(false);
-		txtCustomerID.setEditable(false);
-		visibleCustomeInfo(true);
-
 	}
 
 	private void createLayout() {

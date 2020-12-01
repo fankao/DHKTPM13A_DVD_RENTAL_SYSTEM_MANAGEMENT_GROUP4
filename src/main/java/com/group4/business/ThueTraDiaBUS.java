@@ -10,7 +10,9 @@ import com.group4.entities.KhachHang;
 
 public class ThueTraDiaBUS {
 	private static IChiTietThueTraDAO chiTietThueTraDAO;
+	private static ThanhToanPhiTreHanBUS thanhToanPhiTreHanBUS;
 	static {
+		thanhToanPhiTreHanBUS = new ThanhToanPhiTreHanBUS();
 		chiTietThueTraDAO = new ChiTietThueTraDAO();
 	}
 
@@ -21,7 +23,7 @@ public class ThueTraDiaBUS {
 	 * @param dsDiaThue: danh sách đĩa muốn thuê
 	 * @return: true nếu thuê thành công/ false nếu thất bại
 	 */
-	public boolean xuLyThueDia(KhachHang khachHang, Set<Dia> dsDiaThue){
+	public boolean xuLyThueDia(KhachHang khachHang, Set<Dia> dsDiaThue) {
 		int check = 0;
 		for (Dia dia : dsDiaThue) {
 			ChiTietThueTra chiTietThueTra = new ChiTietThueTra();
@@ -49,7 +51,9 @@ public class ThueTraDiaBUS {
 		return tongTien;
 	}
 
-	public boolean traDia() {
+	public boolean traDia(Long diaId) {
+		// TODO: tìm khách hàng
+		// TODO: thêm phí trễ hạn
 		// TODO: cập nhật chi tiết thuê trả
 		// TODO: cập nhật trạng thái đĩa
 		return false;
