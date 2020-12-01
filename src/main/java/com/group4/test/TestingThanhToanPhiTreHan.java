@@ -75,7 +75,7 @@ public class TestingThanhToanPhiTreHan {
 		diaDAO.create(dia10);
 
 		ThueTraDiaBUS thueTraDiaBUS = new ThueTraDiaBUS();
-		thueTraDiaBUS.xuLyThueDia(khachHangDAO.findById(1L), new HashSet<Dia>(Arrays.asList(dia1, dia2, dia3)));
+		thueTraDiaBUS.xuLyThueDia(khachHangDAO.findById(1L), new HashSet<Dia>(Arrays.asList(dia1, dia2, dia3,dia4)));
 
 		IChiTietThueTraDAO chiTietThueTraDAO = new ChiTietThueTraDAO();
 
