@@ -22059,3 +22059,1449 @@ Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: Cannot drop the tabl
 2020-11-30 13:58:58 INFO  ChiTietThueTra:69 - Cập nhật thành công
 2020-11-30 13:58:58 INFO  ChiTietThueTra:69 - Cập nhật thành công
 2020-11-30 13:58:58 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 10:11:06 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-01 10:11:06 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-01 10:11:07 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-01 10:11:08 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-01 10:11:08 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-01 10:11:08 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-01 10:11:08 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-01 10:11:08 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-01 10:11:09 WARN  JdbcEnvironmentInitiator:132 - HHH000342: Could not obtain connection to query metadata : null
+2020-12-01 10:11:09 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-01 10:11:09 WARN  SqlExceptionHelper:137 - SQL Error: 4060, SQLState: S0001
+2020-12-01 10:11:09 ERROR SqlExceptionHelper:142 - Cannot open database "Nhom04_VideoRentalSystemDB" requested by the login. The login failed. ClientConnectionId:83330e8d-416e-4f46-ba70-7da9f97a97ab
+2020-12-01 10:12:29 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-01 10:12:29 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-01 10:12:29 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-01 10:12:29 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-01 10:12:29 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-01 10:12:29 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-01 10:12:29 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-01 10:12:29 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-01 10:12:30 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-01 10:12:31 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@46d8f407] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 10:12:31 WARN  ExceptionHandlerLoggedImpl:27 - GenerationTarget encountered exception accepting command : Error executing DDL "alter table ChiTietDatGiu drop constraint FKcaiv88vrilivbya8cu5eoatwt" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table ChiTietDatGiu drop constraint FKcaiv88vrilivbya8cu5eoatwt" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:375)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:359)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:331)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:230)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:154)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:126)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:112)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:145)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:309)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:462)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:935)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:56)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at com.group4.dao.DBManager.<init>(DBManager.java:13)
+	at com.group4.dao.DBManager.getInstance(DBManager.java:18)
+	at com.group4.dao.impl.AbstractDAO.<init>(AbstractDAO.java:27)
+	at com.group4.dao.impl.KhachHangDAO.<init>(KhachHangDAO.java:6)
+	at com.group4.test.TestingThanhToanPhiTreHan.main(TestingThanhToanPhiTreHan.java:29)
+	at com.group4.DVDRentalApplication.main(DVDRentalApplication.java:25)
+Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: Cannot find the object "ChiTietDatGiu" because it does not exist or you do not have permissions.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:259)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1547)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.doExecuteStatement(SQLServerStatement.java:857)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement$StmtExecCmd.doExecute(SQLServerStatement.java:757)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7344)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:2713)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:224)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:204)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.execute(SQLServerStatement.java:734)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 21 more
+2020-12-01 10:12:32 WARN  ExceptionHandlerLoggedImpl:27 - GenerationTarget encountered exception accepting command : Error executing DDL "alter table ChiTietDatGiu drop constraint FKd46bqhd6lu077khh2dw36b6we" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table ChiTietDatGiu drop constraint FKd46bqhd6lu077khh2dw36b6we" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:375)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:359)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:331)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:230)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:154)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:126)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:112)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:145)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:309)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:462)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:935)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:56)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at com.group4.dao.DBManager.<init>(DBManager.java:13)
+	at com.group4.dao.DBManager.getInstance(DBManager.java:18)
+	at com.group4.dao.impl.AbstractDAO.<init>(AbstractDAO.java:27)
+	at com.group4.dao.impl.KhachHangDAO.<init>(KhachHangDAO.java:6)
+	at com.group4.test.TestingThanhToanPhiTreHan.main(TestingThanhToanPhiTreHan.java:29)
+	at com.group4.DVDRentalApplication.main(DVDRentalApplication.java:25)
+Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: Cannot find the object "ChiTietDatGiu" because it does not exist or you do not have permissions.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:259)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1547)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.doExecuteStatement(SQLServerStatement.java:857)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement$StmtExecCmd.doExecute(SQLServerStatement.java:757)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7344)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:2713)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:224)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:204)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.execute(SQLServerStatement.java:734)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 21 more
+2020-12-01 10:12:32 WARN  ExceptionHandlerLoggedImpl:27 - GenerationTarget encountered exception accepting command : Error executing DDL "alter table ChiTietThueTra drop constraint FK6rsbgddv4p8gi0xdfbakklail" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table ChiTietThueTra drop constraint FK6rsbgddv4p8gi0xdfbakklail" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:375)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:359)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:331)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:230)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:154)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:126)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:112)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:145)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:309)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:462)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:935)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:56)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at com.group4.dao.DBManager.<init>(DBManager.java:13)
+	at com.group4.dao.DBManager.getInstance(DBManager.java:18)
+	at com.group4.dao.impl.AbstractDAO.<init>(AbstractDAO.java:27)
+	at com.group4.dao.impl.KhachHangDAO.<init>(KhachHangDAO.java:6)
+	at com.group4.test.TestingThanhToanPhiTreHan.main(TestingThanhToanPhiTreHan.java:29)
+	at com.group4.DVDRentalApplication.main(DVDRentalApplication.java:25)
+Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: Cannot find the object "ChiTietThueTra" because it does not exist or you do not have permissions.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:259)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1547)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.doExecuteStatement(SQLServerStatement.java:857)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement$StmtExecCmd.doExecute(SQLServerStatement.java:757)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7344)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:2713)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:224)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:204)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.execute(SQLServerStatement.java:734)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 21 more
+2020-12-01 10:12:32 WARN  ExceptionHandlerLoggedImpl:27 - GenerationTarget encountered exception accepting command : Error executing DDL "alter table ChiTietThueTra drop constraint FKnklssgytym4l92fe8uoq73qms" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table ChiTietThueTra drop constraint FKnklssgytym4l92fe8uoq73qms" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:375)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:359)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:331)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:230)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:154)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:126)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:112)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:145)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:309)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:462)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:935)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:56)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at com.group4.dao.DBManager.<init>(DBManager.java:13)
+	at com.group4.dao.DBManager.getInstance(DBManager.java:18)
+	at com.group4.dao.impl.AbstractDAO.<init>(AbstractDAO.java:27)
+	at com.group4.dao.impl.KhachHangDAO.<init>(KhachHangDAO.java:6)
+	at com.group4.test.TestingThanhToanPhiTreHan.main(TestingThanhToanPhiTreHan.java:29)
+	at com.group4.DVDRentalApplication.main(DVDRentalApplication.java:25)
+Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: Cannot find the object "ChiTietThueTra" because it does not exist or you do not have permissions.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:259)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1547)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.doExecuteStatement(SQLServerStatement.java:857)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement$StmtExecCmd.doExecute(SQLServerStatement.java:757)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7344)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:2713)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:224)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:204)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.execute(SQLServerStatement.java:734)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 21 more
+2020-12-01 10:12:32 WARN  ExceptionHandlerLoggedImpl:27 - GenerationTarget encountered exception accepting command : Error executing DDL "alter table Dia drop constraint FKfqe56hice4v79f21jwhrh8owe" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table Dia drop constraint FKfqe56hice4v79f21jwhrh8owe" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:375)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:359)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:331)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:230)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:154)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:126)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:112)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:145)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:309)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:462)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:935)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:56)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at com.group4.dao.DBManager.<init>(DBManager.java:13)
+	at com.group4.dao.DBManager.getInstance(DBManager.java:18)
+	at com.group4.dao.impl.AbstractDAO.<init>(AbstractDAO.java:27)
+	at com.group4.dao.impl.KhachHangDAO.<init>(KhachHangDAO.java:6)
+	at com.group4.test.TestingThanhToanPhiTreHan.main(TestingThanhToanPhiTreHan.java:29)
+	at com.group4.DVDRentalApplication.main(DVDRentalApplication.java:25)
+Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: Cannot find the object "Dia" because it does not exist or you do not have permissions.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:259)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1547)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.doExecuteStatement(SQLServerStatement.java:857)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement$StmtExecCmd.doExecute(SQLServerStatement.java:757)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7344)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:2713)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:224)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:204)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.execute(SQLServerStatement.java:734)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 21 more
+2020-12-01 10:12:32 WARN  ExceptionHandlerLoggedImpl:27 - GenerationTarget encountered exception accepting command : Error executing DDL "alter table Dia drop constraint FKgpsgu28ufsi4ogvhyciw5cs0l" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table Dia drop constraint FKgpsgu28ufsi4ogvhyciw5cs0l" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:375)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:359)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:331)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:230)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:154)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:126)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:112)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:145)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:309)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:462)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:935)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:56)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at com.group4.dao.DBManager.<init>(DBManager.java:13)
+	at com.group4.dao.DBManager.getInstance(DBManager.java:18)
+	at com.group4.dao.impl.AbstractDAO.<init>(AbstractDAO.java:27)
+	at com.group4.dao.impl.KhachHangDAO.<init>(KhachHangDAO.java:6)
+	at com.group4.test.TestingThanhToanPhiTreHan.main(TestingThanhToanPhiTreHan.java:29)
+	at com.group4.DVDRentalApplication.main(DVDRentalApplication.java:25)
+Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: Cannot find the object "Dia" because it does not exist or you do not have permissions.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:259)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1547)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.doExecuteStatement(SQLServerStatement.java:857)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement$StmtExecCmd.doExecute(SQLServerStatement.java:757)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7344)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:2713)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:224)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:204)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.execute(SQLServerStatement.java:734)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 21 more
+2020-12-01 10:12:32 WARN  ExceptionHandlerLoggedImpl:27 - GenerationTarget encountered exception accepting command : Error executing DDL "drop table ChiTietDatGiu" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "drop table ChiTietDatGiu" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:375)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:359)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:241)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:154)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:126)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:112)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:145)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:309)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:462)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:935)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:56)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at com.group4.dao.DBManager.<init>(DBManager.java:13)
+	at com.group4.dao.DBManager.getInstance(DBManager.java:18)
+	at com.group4.dao.impl.AbstractDAO.<init>(AbstractDAO.java:27)
+	at com.group4.dao.impl.KhachHangDAO.<init>(KhachHangDAO.java:6)
+	at com.group4.test.TestingThanhToanPhiTreHan.main(TestingThanhToanPhiTreHan.java:29)
+	at com.group4.DVDRentalApplication.main(DVDRentalApplication.java:25)
+Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: Cannot drop the table 'ChiTietDatGiu', because it does not exist or you do not have permission.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:259)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1547)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.doExecuteStatement(SQLServerStatement.java:857)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement$StmtExecCmd.doExecute(SQLServerStatement.java:757)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7344)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:2713)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:224)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:204)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.execute(SQLServerStatement.java:734)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 20 more
+2020-12-01 10:12:32 WARN  ExceptionHandlerLoggedImpl:27 - GenerationTarget encountered exception accepting command : Error executing DDL "drop table ChiTietThueTra" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "drop table ChiTietThueTra" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:375)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:359)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:241)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:154)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:126)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:112)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:145)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:309)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:462)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:935)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:56)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at com.group4.dao.DBManager.<init>(DBManager.java:13)
+	at com.group4.dao.DBManager.getInstance(DBManager.java:18)
+	at com.group4.dao.impl.AbstractDAO.<init>(AbstractDAO.java:27)
+	at com.group4.dao.impl.KhachHangDAO.<init>(KhachHangDAO.java:6)
+	at com.group4.test.TestingThanhToanPhiTreHan.main(TestingThanhToanPhiTreHan.java:29)
+	at com.group4.DVDRentalApplication.main(DVDRentalApplication.java:25)
+Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: Cannot drop the table 'ChiTietThueTra', because it does not exist or you do not have permission.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:259)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1547)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.doExecuteStatement(SQLServerStatement.java:857)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement$StmtExecCmd.doExecute(SQLServerStatement.java:757)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7344)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:2713)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:224)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:204)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.execute(SQLServerStatement.java:734)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 20 more
+2020-12-01 10:12:32 WARN  ExceptionHandlerLoggedImpl:27 - GenerationTarget encountered exception accepting command : Error executing DDL "drop table Dia" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "drop table Dia" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:375)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:359)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:241)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:154)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:126)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:112)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:145)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:309)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:462)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:935)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:56)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at com.group4.dao.DBManager.<init>(DBManager.java:13)
+	at com.group4.dao.DBManager.getInstance(DBManager.java:18)
+	at com.group4.dao.impl.AbstractDAO.<init>(AbstractDAO.java:27)
+	at com.group4.dao.impl.KhachHangDAO.<init>(KhachHangDAO.java:6)
+	at com.group4.test.TestingThanhToanPhiTreHan.main(TestingThanhToanPhiTreHan.java:29)
+	at com.group4.DVDRentalApplication.main(DVDRentalApplication.java:25)
+Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: Cannot drop the table 'Dia', because it does not exist or you do not have permission.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:259)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1547)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.doExecuteStatement(SQLServerStatement.java:857)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement$StmtExecCmd.doExecute(SQLServerStatement.java:757)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7344)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:2713)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:224)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:204)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.execute(SQLServerStatement.java:734)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 20 more
+2020-12-01 10:12:32 WARN  ExceptionHandlerLoggedImpl:27 - GenerationTarget encountered exception accepting command : Error executing DDL "drop table KhachHang" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "drop table KhachHang" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:375)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:359)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:241)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:154)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:126)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:112)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:145)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:309)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:462)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:935)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:56)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at com.group4.dao.DBManager.<init>(DBManager.java:13)
+	at com.group4.dao.DBManager.getInstance(DBManager.java:18)
+	at com.group4.dao.impl.AbstractDAO.<init>(AbstractDAO.java:27)
+	at com.group4.dao.impl.KhachHangDAO.<init>(KhachHangDAO.java:6)
+	at com.group4.test.TestingThanhToanPhiTreHan.main(TestingThanhToanPhiTreHan.java:29)
+	at com.group4.DVDRentalApplication.main(DVDRentalApplication.java:25)
+Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: Cannot drop the table 'KhachHang', because it does not exist or you do not have permission.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:259)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1547)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.doExecuteStatement(SQLServerStatement.java:857)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement$StmtExecCmd.doExecute(SQLServerStatement.java:757)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7344)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:2713)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:224)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:204)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.execute(SQLServerStatement.java:734)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 20 more
+2020-12-01 10:12:32 WARN  ExceptionHandlerLoggedImpl:27 - GenerationTarget encountered exception accepting command : Error executing DDL "drop table LoaiDia" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "drop table LoaiDia" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:375)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:359)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:241)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:154)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:126)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:112)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:145)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:309)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:462)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:935)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:56)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at com.group4.dao.DBManager.<init>(DBManager.java:13)
+	at com.group4.dao.DBManager.getInstance(DBManager.java:18)
+	at com.group4.dao.impl.AbstractDAO.<init>(AbstractDAO.java:27)
+	at com.group4.dao.impl.KhachHangDAO.<init>(KhachHangDAO.java:6)
+	at com.group4.test.TestingThanhToanPhiTreHan.main(TestingThanhToanPhiTreHan.java:29)
+	at com.group4.DVDRentalApplication.main(DVDRentalApplication.java:25)
+Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: Cannot drop the table 'LoaiDia', because it does not exist or you do not have permission.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:259)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1547)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.doExecuteStatement(SQLServerStatement.java:857)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement$StmtExecCmd.doExecute(SQLServerStatement.java:757)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7344)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:2713)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:224)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:204)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.execute(SQLServerStatement.java:734)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 20 more
+2020-12-01 10:12:32 WARN  ExceptionHandlerLoggedImpl:27 - GenerationTarget encountered exception accepting command : Error executing DDL "drop table TaiKhoan" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "drop table TaiKhoan" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:375)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:359)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:241)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:154)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:126)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:112)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:145)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:309)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:462)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:935)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:56)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at com.group4.dao.DBManager.<init>(DBManager.java:13)
+	at com.group4.dao.DBManager.getInstance(DBManager.java:18)
+	at com.group4.dao.impl.AbstractDAO.<init>(AbstractDAO.java:27)
+	at com.group4.dao.impl.KhachHangDAO.<init>(KhachHangDAO.java:6)
+	at com.group4.test.TestingThanhToanPhiTreHan.main(TestingThanhToanPhiTreHan.java:29)
+	at com.group4.DVDRentalApplication.main(DVDRentalApplication.java:25)
+Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: Cannot drop the table 'TaiKhoan', because it does not exist or you do not have permission.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:259)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1547)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.doExecuteStatement(SQLServerStatement.java:857)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement$StmtExecCmd.doExecute(SQLServerStatement.java:757)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7344)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:2713)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:224)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:204)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.execute(SQLServerStatement.java:734)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 20 more
+2020-12-01 10:12:32 WARN  ExceptionHandlerLoggedImpl:27 - GenerationTarget encountered exception accepting command : Error executing DDL "drop table TuaDe" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "drop table TuaDe" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:375)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:359)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:241)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:154)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:126)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:112)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:145)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:309)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:462)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:935)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:56)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at com.group4.dao.DBManager.<init>(DBManager.java:13)
+	at com.group4.dao.DBManager.getInstance(DBManager.java:18)
+	at com.group4.dao.impl.AbstractDAO.<init>(AbstractDAO.java:27)
+	at com.group4.dao.impl.KhachHangDAO.<init>(KhachHangDAO.java:6)
+	at com.group4.test.TestingThanhToanPhiTreHan.main(TestingThanhToanPhiTreHan.java:29)
+	at com.group4.DVDRentalApplication.main(DVDRentalApplication.java:25)
+Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: Cannot drop the table 'TuaDe', because it does not exist or you do not have permission.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:259)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1547)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.doExecuteStatement(SQLServerStatement.java:857)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement$StmtExecCmd.doExecute(SQLServerStatement.java:757)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7344)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:2713)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:224)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:204)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.execute(SQLServerStatement.java:734)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 20 more
+2020-12-01 10:12:32 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5e4fa1da] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 10:12:32 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-01 10:12:32 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 10:12:32 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 10:12:32 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 10:12:32 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 10:12:32 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 10:12:32 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 10:12:32 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 10:12:32 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 10:12:32 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 10:12:32 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 10:12:32 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 10:12:32 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 10:12:32 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 10:12:32 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 10:12:32 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 10:12:32 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 10:12:32 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 10:12:32 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 10:12:32 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 10:12:32 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 10:12:32 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 10:12:32 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 11:03:23 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 13:52:34 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-01 13:52:34 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-01 13:52:35 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-01 13:52:35 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-01 13:52:35 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-01 13:52:35 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-01 13:52:35 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-01 13:52:35 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-01 13:52:35 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-01 13:52:36 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@46d8f407] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 13:52:36 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@522ba524] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 13:52:36 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-01 13:52:37 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 13:52:37 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 13:52:37 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 13:52:37 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 13:52:37 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 13:52:37 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 13:52:37 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 13:52:37 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 13:52:37 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 13:52:37 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 13:52:37 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 13:52:37 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 13:52:37 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 13:52:37 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 13:52:37 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 13:52:37 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 13:52:37 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 13:52:37 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 13:52:37 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 13:52:37 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 13:52:37 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 13:52:37 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 13:56:46 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 14:22:25 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-01 14:22:25 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-01 14:22:25 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-01 14:22:26 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-01 14:22:26 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-01 14:22:26 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-01 14:22:26 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-01 14:22:26 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-01 14:22:26 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-01 14:22:27 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@78e89bfe] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 14:22:27 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1e6cc850] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 14:22:27 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-01 14:22:28 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 14:22:28 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 14:22:28 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 14:22:28 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 14:22:28 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 14:22:28 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 14:22:28 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 14:22:28 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 14:22:28 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 14:22:28 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 14:22:28 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 14:22:28 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 14:22:28 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 14:22:28 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 14:22:28 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 14:22:28 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 14:22:28 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 14:22:28 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 14:22:28 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 14:22:28 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 14:22:28 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 14:22:28 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 14:25:57 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-01 14:25:57 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-01 14:25:58 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-01 14:25:58 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-01 14:25:58 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-01 14:25:58 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-01 14:25:58 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-01 14:25:58 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-01 14:25:58 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-01 14:26:00 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@78e89bfe] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 14:26:00 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1e6cc850] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 14:26:00 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-01 14:26:00 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 14:26:00 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 14:26:00 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 14:26:00 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 14:26:00 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 14:26:00 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 14:26:00 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 14:26:00 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 14:26:00 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 14:26:00 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 14:26:00 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 14:26:00 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 14:26:00 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 14:26:00 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 14:26:00 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 14:26:00 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 14:26:00 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 14:26:00 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 14:26:00 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 14:26:00 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 14:26:00 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 14:26:00 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 14:26:23 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 14:40:17 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-01 14:40:17 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-01 14:40:17 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-01 14:40:17 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-01 14:40:18 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-01 14:40:18 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-01 14:40:18 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-01 14:40:18 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-01 14:40:18 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-01 14:40:19 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@17d2ed1b] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 14:40:19 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@63ec445c] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 14:40:19 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-01 14:40:45 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-01 14:40:46 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-01 14:40:46 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-01 14:40:46 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-01 14:40:46 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-01 14:40:46 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-01 14:40:46 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-01 14:40:46 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-01 14:40:46 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-01 14:40:47 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@78e89bfe] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 14:40:47 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1e6cc850] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 14:40:47 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-01 14:40:48 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 14:40:48 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 14:40:48 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 14:40:48 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 14:40:48 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 14:40:48 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 14:40:48 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 14:40:48 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 14:40:48 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 14:40:48 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 14:40:48 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 14:40:48 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 14:40:48 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 14:40:48 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 14:40:48 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 14:40:48 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 14:40:48 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 14:40:48 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 14:40:48 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 14:40:48 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 14:40:48 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 14:40:48 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 14:41:02 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 14:41:13 ERROR ChiTietThueTra:73 - Cập nhật thất bại: A different object with the same identifier value was already associated with the session : [com.group4.entities.ChiTietThueTra#com.group4.entities.ChiTietThueTraID@3e1]
+2020-12-01 14:44:39 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-01 14:44:39 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-01 14:44:39 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-01 14:44:40 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-01 14:44:40 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-01 14:44:40 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-01 14:44:40 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-01 14:44:40 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-01 14:44:40 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-01 14:44:41 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@78e89bfe] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 14:44:41 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1e6cc850] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 14:44:41 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-01 14:44:41 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 14:44:41 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 14:44:41 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 14:44:41 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 14:44:41 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 14:44:41 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 14:44:41 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 14:44:41 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 14:44:41 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 14:44:41 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 14:44:41 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 14:44:41 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 14:44:41 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 14:44:41 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 14:44:41 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 14:44:41 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 14:44:41 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 14:44:41 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 14:44:41 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 14:44:41 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 14:44:41 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 14:44:41 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 14:45:12 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 14:45:25 ERROR ChiTietThueTra:56 - Thêm mới thất bại: A different object with the same identifier value was already associated with the session : [com.group4.entities.ChiTietThueTra#com.group4.entities.ChiTietThueTraID@3e1]
+2020-12-01 15:01:33 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-01 15:01:33 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-01 15:01:33 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-01 15:01:33 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-01 15:01:33 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-01 15:01:33 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-01 15:01:33 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-01 15:01:33 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-01 15:01:34 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-01 15:01:36 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@78e89bfe] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 15:01:36 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1e6cc850] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 15:01:36 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-01 15:01:36 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:01:36 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:01:36 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:01:36 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:01:36 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:01:36 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:01:36 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 15:01:36 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 15:01:36 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 15:01:36 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 15:01:36 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:01:36 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:01:36 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:01:36 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:01:36 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:01:36 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:01:36 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:01:36 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:01:36 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:01:36 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 15:01:36 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 15:01:36 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 15:01:49 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:02:00 ERROR ChiTietThueTra:73 - Cập nhật thất bại: A different object with the same identifier value was already associated with the session : [com.group4.entities.ChiTietThueTra#com.group4.entities.ChiTietThueTraID@3e1]
+2020-12-01 15:12:48 WARN  SqlExceptionHelper:137 - SQL Error: 2627, SQLState: 23000
+2020-12-01 15:12:48 ERROR SqlExceptionHelper:142 - Violation of PRIMARY KEY constraint 'PK__ChiTietT__485C228AD72A232B'. Cannot insert duplicate key in object 'dbo.ChiTietThueTra'. The duplicate key value is (1, 1).
+2020-12-01 15:12:48 ERROR ChiTietThueTra:73 - Cập nhật thất bại: Error while committing the transaction
+2020-12-01 15:12:48 WARN  SqlExceptionHelper:137 - SQL Error: 2627, SQLState: 23000
+2020-12-01 15:12:48 ERROR SqlExceptionHelper:142 - Violation of PRIMARY KEY constraint 'PK__ChiTietT__485C228AD72A232B'. Cannot insert duplicate key in object 'dbo.ChiTietThueTra'. The duplicate key value is (2, 1).
+2020-12-01 15:12:48 ERROR ChiTietThueTra:73 - Cập nhật thất bại: Error while committing the transaction
+2020-12-01 15:14:39 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-01 15:14:39 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-01 15:14:40 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-01 15:14:40 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-01 15:14:40 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-01 15:14:40 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-01 15:14:40 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-01 15:14:40 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-01 15:14:40 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-01 15:14:42 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@78e89bfe] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 15:14:42 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1e6cc850] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 15:14:42 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-01 15:14:42 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:14:42 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:14:42 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:14:42 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:14:42 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:14:42 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:14:42 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 15:14:42 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 15:14:42 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 15:14:42 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 15:14:42 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:14:42 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:14:42 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:14:42 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:14:42 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:14:42 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:14:42 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:14:42 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:14:42 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:14:42 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 15:14:42 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 15:14:42 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 15:14:58 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:15:10 ERROR ChiTietThueTra:73 - Cập nhật thất bại: A different object with the same identifier value was already associated with the session : [com.group4.entities.ChiTietThueTra#com.group4.entities.ChiTietThueTraID@3e1]
+2020-12-01 15:21:38 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-01 15:21:38 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-01 15:21:38 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-01 15:21:38 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-01 15:21:38 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-01 15:21:38 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-01 15:21:38 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-01 15:21:38 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-01 15:21:39 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-01 15:21:40 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@78e89bfe] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 15:21:40 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1e6cc850] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 15:21:41 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-01 15:21:41 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:21:41 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:21:41 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:21:41 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:21:41 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:21:41 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:21:41 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 15:21:41 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 15:21:41 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 15:21:41 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 15:21:41 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:21:41 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:21:41 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:21:41 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:21:41 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:21:41 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:21:41 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:21:41 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:21:41 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:21:41 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 15:21:41 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 15:21:41 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 15:21:53 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:22:03 ERROR ChiTietThueTra:73 - Cập nhật thất bại: A different object with the same identifier value was already associated with the session : [com.group4.entities.ChiTietThueTra#com.group4.entities.ChiTietThueTraID@3e1]
+2020-12-01 15:22:39 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-01 15:22:39 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-01 15:22:39 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-01 15:22:40 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-01 15:22:40 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-01 15:22:40 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-01 15:22:40 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-01 15:22:40 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-01 15:22:40 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-01 15:22:41 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@78e89bfe] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 15:22:41 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1e6cc850] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 15:22:41 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-01 15:22:42 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:22:42 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:22:42 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:22:42 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:22:42 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:22:42 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:22:42 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 15:22:42 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 15:22:42 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 15:22:42 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 15:22:42 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:22:42 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:22:42 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:22:42 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:22:42 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:22:42 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:22:42 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:22:42 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:22:42 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:22:42 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 15:22:42 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 15:22:42 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 15:22:54 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:23:45 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-01 15:23:45 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-01 15:23:45 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-01 15:23:45 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-01 15:23:46 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-01 15:23:46 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-01 15:23:46 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-01 15:23:46 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-01 15:23:46 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-01 15:23:48 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@78e89bfe] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 15:23:48 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1e6cc850] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 15:23:48 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-01 15:23:48 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:23:48 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:23:48 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:23:48 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:23:48 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:23:48 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:23:48 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 15:23:48 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 15:23:48 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 15:23:48 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 15:23:48 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:23:48 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:23:48 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:23:48 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:23:48 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:23:48 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:23:48 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:23:48 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:23:48 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:23:48 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 15:23:48 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 15:23:48 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 15:24:01 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:25:47 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-01 15:25:47 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-01 15:25:47 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-01 15:25:48 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-01 15:25:48 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-01 15:25:48 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-01 15:25:48 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-01 15:25:48 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-01 15:25:48 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-01 15:25:50 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@78e89bfe] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 15:25:50 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1e6cc850] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 15:25:50 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-01 15:25:50 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:25:50 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:25:50 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:25:50 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:25:50 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:25:50 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:25:50 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 15:25:50 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 15:25:50 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 15:25:50 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 15:25:50 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:25:50 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:25:50 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:25:50 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:25:50 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:25:50 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:25:50 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:25:50 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:25:50 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:25:50 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 15:25:50 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 15:25:50 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 15:26:06 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:27:45 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-01 15:27:45 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-01 15:27:45 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-01 15:27:45 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-01 15:27:45 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-01 15:27:45 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-01 15:27:45 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-01 15:27:45 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-01 15:27:46 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-01 15:27:46 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@78e89bfe] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 15:27:47 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1e6cc850] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 15:27:47 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-01 15:27:47 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:27:47 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:27:47 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:27:47 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:27:47 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:27:47 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:27:47 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 15:27:47 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 15:27:47 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 15:27:47 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 15:27:47 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:27:47 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:27:47 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:27:47 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:27:47 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:27:47 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:27:47 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:27:47 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:27:47 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:27:47 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 15:27:47 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 15:27:47 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 15:27:59 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:33:41 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-01 15:33:41 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-01 15:33:41 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-01 15:33:42 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-01 15:33:42 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-01 15:33:42 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-01 15:33:42 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-01 15:33:42 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-01 15:33:42 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-01 15:33:44 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@78e89bfe] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 15:33:44 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1e6cc850] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 15:33:44 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-01 15:33:45 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:33:45 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:33:45 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:33:45 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:33:45 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:33:45 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:33:45 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 15:33:45 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 15:33:45 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 15:33:45 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 15:33:45 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:33:45 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:33:45 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:33:45 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:33:45 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:33:45 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:33:45 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:33:45 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:33:45 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:33:45 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 15:33:45 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 15:33:45 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 15:34:20 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:38:52 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-01 15:38:52 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-01 15:38:52 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-01 15:38:52 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-01 15:38:52 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-01 15:38:52 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-01 15:38:52 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-01 15:38:52 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-01 15:38:53 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-01 15:38:54 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@78e89bfe] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 15:38:54 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1e6cc850] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 15:38:54 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-01 15:38:54 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:38:54 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:38:54 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:38:54 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:38:54 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:38:54 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:38:54 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 15:38:54 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 15:38:54 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 15:38:54 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 15:38:54 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:38:54 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:38:54 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:38:54 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:38:54 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:38:54 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:38:54 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:38:54 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:38:54 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:38:54 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 15:38:54 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 15:38:54 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 15:39:12 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:42:30 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-01 15:42:30 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-01 15:42:30 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-01 15:42:30 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-01 15:42:30 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-01 15:42:30 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-01 15:42:30 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-01 15:42:30 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-01 15:42:30 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-01 15:42:31 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@78e89bfe] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 15:42:31 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1e6cc850] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 15:42:32 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-01 15:42:32 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:42:32 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:42:32 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:42:32 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:42:32 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:42:32 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:42:32 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 15:42:32 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 15:42:32 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 15:42:32 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 15:42:32 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:42:32 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:42:32 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:42:32 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:42:32 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:42:32 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:42:32 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:42:32 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:42:32 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:42:32 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 15:42:32 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 15:42:32 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 15:42:43 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:43:59 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-01 15:43:59 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-01 15:43:59 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-01 15:44:00 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-01 15:44:00 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-01 15:44:00 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-01 15:44:00 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-01 15:44:00 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-01 15:44:00 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-01 15:44:01 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@78e89bfe] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 15:44:01 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1e6cc850] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 15:44:01 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-01 15:44:02 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:44:02 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:44:02 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:44:02 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:44:02 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:44:02 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 15:44:02 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 15:44:02 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 15:44:02 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 15:44:02 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 15:44:02 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:44:02 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:44:02 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:44:02 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:44:02 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:44:02 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 15:44:02 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:44:02 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:44:02 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 15:44:02 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 15:44:02 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 15:44:02 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 15:44:12 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 16:05:54 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-01 16:05:54 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-01 16:05:54 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-01 16:05:54 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-01 16:05:54 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-01 16:05:54 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-01 16:05:54 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-01 16:05:54 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-01 16:05:55 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-01 16:05:56 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@78e89bfe] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 16:05:57 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1e6cc850] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 16:05:57 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-01 16:05:57 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:05:57 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:05:57 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:05:57 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:05:57 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:05:57 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:05:57 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 16:05:57 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 16:05:57 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 16:05:57 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 16:05:57 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:05:57 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:05:57 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:05:57 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:05:57 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:05:57 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:05:57 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 16:05:57 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 16:05:57 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 16:05:57 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 16:05:57 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 16:05:57 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 16:06:08 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 16:06:21 ERROR ChiTietThueTra:73 - Cập nhật thất bại: null
+2020-12-01 16:09:18 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-01 16:09:18 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-01 16:09:18 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-01 16:09:18 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-01 16:09:18 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-01 16:09:18 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-01 16:09:18 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-01 16:09:18 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-01 16:09:19 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-01 16:09:21 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@78e89bfe] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 16:09:21 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1e6cc850] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 16:09:21 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-01 16:09:21 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:09:21 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:09:21 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:09:21 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:09:21 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:09:21 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:09:21 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 16:09:21 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 16:09:21 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 16:09:21 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 16:09:21 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:09:21 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:09:21 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:09:21 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:09:21 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:09:21 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:09:21 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 16:09:21 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 16:09:21 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 16:09:21 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 16:09:21 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 16:09:21 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 16:09:33 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 16:13:33 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-01 16:13:33 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-01 16:13:33 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-01 16:13:33 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-01 16:13:33 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-01 16:13:33 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-01 16:13:33 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-01 16:13:33 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-01 16:13:34 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-01 16:13:35 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@78e89bfe] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 16:13:35 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1e6cc850] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 16:13:35 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-01 16:13:35 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:13:35 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:13:35 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:13:35 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:13:35 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:13:35 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:13:35 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 16:13:35 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 16:13:35 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 16:13:35 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 16:13:35 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:13:35 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:13:35 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:13:35 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:13:35 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:13:35 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:13:35 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 16:13:35 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 16:13:35 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 16:13:35 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 16:13:35 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 16:13:35 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 16:13:45 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 16:42:29 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-01 16:42:29 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-01 16:42:29 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-01 16:42:30 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-01 16:42:30 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-01 16:42:30 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-01 16:42:30 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-01 16:42:30 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-01 16:42:30 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-01 16:42:32 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@78e89bfe] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 16:42:32 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1e6cc850] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 16:42:32 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-01 16:42:32 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:42:32 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:42:32 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:42:32 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:42:32 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:42:32 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:42:32 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 16:42:32 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 16:42:32 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 16:42:32 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 16:42:32 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:42:32 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:42:32 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:42:32 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:42:32 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:42:32 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:42:32 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 16:42:32 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 16:42:32 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 16:42:32 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 16:42:32 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 16:42:32 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 16:42:44 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 16:42:53 INFO  Dia:69 - Cập nhật thành công
+2020-12-01 16:46:43 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-01 16:46:44 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-01 16:46:44 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-01 16:46:44 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-01 16:46:44 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-01 16:46:44 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-01 16:46:44 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-01 16:46:44 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-01 16:46:44 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-01 16:46:45 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@78e89bfe] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 16:46:45 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1e6cc850] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 16:46:46 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-01 16:46:46 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:46:46 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:46:46 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:46:46 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:46:46 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:46:46 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:46:46 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 16:46:46 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 16:46:46 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 16:46:46 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 16:46:46 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:46:46 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:46:46 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:46:46 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:46:46 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:46:46 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:46:46 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 16:46:46 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 16:46:46 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 16:46:46 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 16:46:46 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 16:46:46 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 16:46:56 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 16:47:05 INFO  Dia:69 - Cập nhật thành công
+2020-12-01 16:47:07 INFO  Dia:69 - Cập nhật thành công
+2020-12-01 16:47:52 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-01 16:47:52 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-01 16:47:52 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-01 16:47:52 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-01 16:47:52 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-01 16:47:52 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-01 16:47:52 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-01 16:47:52 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-01 16:47:53 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-01 16:47:54 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@78e89bfe] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 16:47:54 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1e6cc850] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 16:47:54 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-01 16:47:54 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:47:54 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:47:54 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:47:54 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:47:54 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:47:54 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:47:54 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 16:47:54 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 16:47:54 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 16:47:54 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 16:47:54 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:47:54 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:47:54 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:47:54 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:47:54 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:47:54 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:47:54 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 16:47:54 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 16:47:54 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 16:47:54 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 16:47:54 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 16:47:54 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 16:52:13 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-01 16:52:13 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-01 16:52:13 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-01 16:52:13 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-01 16:52:14 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-01 16:52:14 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-01 16:52:14 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-01 16:52:14 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-01 16:52:14 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-01 16:52:16 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@78e89bfe] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 16:52:16 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1e6cc850] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 16:52:16 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-01 16:52:16 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:52:16 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:52:16 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:52:16 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:52:16 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:52:16 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 16:52:16 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 16:52:16 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 16:52:16 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 16:52:16 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 16:52:16 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:52:16 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:52:16 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:52:16 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:52:16 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:52:16 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 16:52:16 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 16:52:16 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 16:52:16 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 16:52:16 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 16:52:16 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 16:52:16 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 16:52:29 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 16:52:38 INFO  Dia:69 - Cập nhật thành công
+2020-12-01 16:52:38 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 19:50:07 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-01 19:50:07 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-01 19:50:07 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-01 19:50:08 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-01 19:50:08 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-01 19:50:08 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-01 19:50:08 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-01 19:50:08 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-01 19:50:09 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-01 19:50:11 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@78e89bfe] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 19:50:11 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1e6cc850] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 19:50:11 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-01 19:50:11 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 19:50:11 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 19:50:11 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 19:50:11 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 19:50:11 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 19:50:11 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 19:50:11 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 19:50:11 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 19:50:11 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 19:50:11 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 19:50:11 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 19:50:11 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 19:50:11 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 19:50:11 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 19:50:11 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 19:50:11 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 19:50:12 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 19:50:12 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 19:50:12 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 19:50:12 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 19:50:12 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 19:50:12 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 19:50:59 INFO  KhachHang:36 - Số phần tử: 6
+2020-12-01 19:52:46 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-01 19:52:46 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-01 19:52:46 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-01 19:52:47 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-01 19:52:47 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-01 19:52:47 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-01 19:52:47 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-01 19:52:47 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-01 19:52:47 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-01 19:52:48 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@78e89bfe] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 19:52:48 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1e6cc850] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 19:52:48 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-01 19:52:48 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 19:52:48 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 19:52:48 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 19:52:48 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 19:52:48 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 19:52:48 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 19:52:48 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 19:52:48 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 19:52:48 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 19:52:48 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 19:52:48 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 19:52:48 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 19:52:48 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 19:52:48 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 19:52:48 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 19:52:48 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 19:52:48 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 19:52:49 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 19:52:49 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 19:52:49 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 19:52:49 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 19:52:49 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 19:53:03 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 19:53:31 INFO  Dia:69 - Cập nhật thành công
+2020-12-01 19:53:31 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 19:57:39 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-01 19:57:40 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-01 19:57:40 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-01 19:57:40 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-01 19:57:40 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-01 19:57:40 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-01 19:57:40 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-01 19:57:40 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-01 19:57:41 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-01 19:57:42 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@78e89bfe] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 19:57:42 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1e6cc850] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-01 19:57:42 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-01 19:57:43 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 19:57:43 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 19:57:43 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 19:57:43 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 19:57:43 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 19:57:43 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-01 19:57:43 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 19:57:43 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-01 19:57:43 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 19:57:43 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-01 19:57:43 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 19:57:43 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 19:57:43 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 19:57:43 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 19:57:43 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 19:57:43 INFO  Dia:52 - Thêm mới thành công
+2020-12-01 19:57:43 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 19:57:43 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 19:57:43 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-01 19:57:43 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 19:57:43 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-01 19:57:43 INFO  ChiTietThueTra:69 - Cập nhật thành công

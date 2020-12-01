@@ -503,7 +503,6 @@ public class PnlRentDisk extends JPanel {
 		dsDiaThue.clear();
 		hienDSDiaThue(dsDiaThue);
 		xoaTrang(txtDiskID);
-
 	}
 
 	/**
@@ -546,7 +545,6 @@ public class PnlRentDisk extends JPanel {
 		}
 
 	}
-
 	
 
 	/**
