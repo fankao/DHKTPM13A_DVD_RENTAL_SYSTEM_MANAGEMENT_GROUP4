@@ -35,9 +35,9 @@ public class ThanhToanPhiTreHanBUS {
 	 * @return tổng tiền
 	 */
 	public double tinhTongTienPhiTreHan(List<ChiTietThueTra> dsThueTraTreHan) {
-		double tongTien = 0;
+		double tongTien = 0.0;
 		for (ChiTietThueTra ct : dsThueTraTreHan) {
-			tongTien+=ct.getPhiThueHienTai();
+			tongTien+=ct.getDia().phiTreHan();
 		}
 		return tongTien;
 	}

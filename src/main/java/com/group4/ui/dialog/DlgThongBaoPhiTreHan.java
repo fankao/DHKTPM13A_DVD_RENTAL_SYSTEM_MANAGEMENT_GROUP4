@@ -31,6 +31,7 @@ public class DlgThongBaoPhiTreHan extends JDialog {
 		thanhToanPhiTreHanBUS = new ThanhToanPhiTreHanBUS();
 	}
 
+	private List<ChiTietThueTra> dsPhiTreHan;
 	private final JPanel contentPanel = new JPanel();
 	private JTextField txtIDKH;
 	private JTextField txtTongPhiTreHan;
@@ -47,6 +48,7 @@ public class DlgThongBaoPhiTreHan extends JDialog {
 	 * @param dsTreHan
 	 */
 	public DlgThongBaoPhiTreHan(List<ChiTietThueTra> dsTreHan) {
+		this.dsPhiTreHan = dsTreHan;
 		setTitle("Thông báo phí trễ hạn");
 		setSize(502, 300);
 		setModal(true);
@@ -119,7 +121,7 @@ public class DlgThongBaoPhiTreHan extends JDialog {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				PnlLateChargePayment pnlLateChargePayment = new PnlLateChargePayment(null);
+				PnlLateChargePayment pnlLateChargePayment = new PnlLateChargePayment(dsPhiTreHan);
 				hienDiaLog(pnlLateChargePayment);
 
 			}

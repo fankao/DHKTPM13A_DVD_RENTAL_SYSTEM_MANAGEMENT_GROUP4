@@ -159,6 +159,7 @@ public class PnlCustomerCommon extends JPanel {
 	 * @param khachHang: khách hàng cần hiện thông tin
 	 */
 	private void hienThongTinKhachHang(KhachHang khachHang) {
+		txtCustomerID.setText(khachHang.getId()+"");
 		lblCustomerName.setText(khachHang.getHoVaTen());
 		lblCustomerPhone.setText(khachHang.getSoDienThoai());
 		lblCustomerAddress.setText(khachHang.getDiaChi());

@@ -11,10 +11,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.PrePersist;
 
-import org.hibernate.annotations.CreationTimestamp;
-
-import net.bytebuddy.asm.Advice.ArgumentHandler.Factory;
-
 @Entity
 public class ChiTietThueTra {
 	@EmbeddedId
