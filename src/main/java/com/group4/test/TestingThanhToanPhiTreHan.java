@@ -29,17 +29,22 @@ public class TestingThanhToanPhiTreHan {
 		IKhachHangDAO khachHangDAO = new KhachHangDAO();
 		khachHangDAO.create(new KhachHang("Minh Chiến", "0852369741", "Bình Phước"));
 		khachHangDAO.create(new KhachHang("Gia Hưng", "0939221234", "Quảng Nam"));
-		khachHangDAO.create(new KhachHang("Thanh Trí","0987456322","Ninh Thuận"));
+		khachHangDAO.create(new KhachHang("Thanh Trí", "0987456322", "Ninh Thuận"));
 		khachHangDAO.create(new KhachHang("Hồng Phúc", "0943223458", "Vĩnh Long"));
 		khachHangDAO.create(new KhachHang("Văn Chiến", "0674322133", "TP Hồ Chí Minh"));
-		khachHangDAO.create(new KhachHang("Thanh Tùng","0121653445","Hà Nội"));
-		
-		
+		khachHangDAO.create(new KhachHang("Thanh Tùng", "0121653445", "Hà Nội"));
+
 		ITuaDeDAO tuaDeDAO = new TuaDeDAO();
 		TuaDe tuaDe1 = new TuaDe("Chiến tranh giữa các vì sao");
 		tuaDeDAO.create(tuaDe1);
 		TuaDe tuaDe2 = new TuaDe("Pokemon");
 		tuaDeDAO.create(tuaDe2);
+		TuaDe tuaDe3 = new TuaDe("Du Hành Giữa các Vì Sao");
+		tuaDeDAO.create(tuaDe3);
+		TuaDe tuaDe4 = new TuaDe("Liên Minh Huyền Diệu");
+		tuaDeDAO.create(tuaDe4);
+		TuaDe tuaDe5 = new TuaDe("Transformer");
+		tuaDeDAO.create(tuaDe5);
 
 		ILoaiDiaDAO loaiDiaDAO = new LoaiDiaDAO();
 		LoaiDia l1 = new LoaiDia(TenLoaiDia.DVD, 100, 10, 10);
@@ -60,24 +65,36 @@ public class TestingThanhToanPhiTreHan {
 		diaDAO.create(dia5);
 		Dia dia6 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe2, l1);
 		diaDAO.create(dia6);
+		Dia dia7 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe2, l1);
+		diaDAO.create(dia7);
+		Dia dia8 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe3, l1);
+		diaDAO.create(dia8);
+		Dia dia9 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe4, l2);
+		diaDAO.create(dia9);
+		Dia dia10 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe5, l1);
+		diaDAO.create(dia10);
 
 		ThueTraDiaBUS thueTraDiaBUS = new ThueTraDiaBUS();
-		thueTraDiaBUS.xuLyThueDia(khachHangDAO.findById(1L), new HashSet<Dia>(Arrays.asList(dia1, dia2,dia3)));
+		thueTraDiaBUS.xuLyThueDia(khachHangDAO.findById(1L), new HashSet<Dia>(Arrays.asList(dia1, dia2, dia3)));
 
 		IChiTietThueTraDAO chiTietThueTraDAO = new ChiTietThueTraDAO();
-		
+
 		ChiTietThueTra chiTietThueTra1 = chiTietThueTraDAO.findById(new ChiTietThueTraID(1L, 1L));
 		chiTietThueTra1.setNgayTra(LocalDate.of(2020, 12, 20));
 
 		ChiTietThueTra chiTietThueTra2 = chiTietThueTraDAO.findById(new ChiTietThueTraID(1L, 2L));
 		chiTietThueTra2.setNgayTra(LocalDate.of(2020, 12, 20));
-		
+
 		ChiTietThueTra chiTietThueTra3 = chiTietThueTraDAO.findById(new ChiTietThueTraID(1L, 3L));
 		chiTietThueTra3.setNgayTra(LocalDate.of(2020, 12, 20));
+		
+		ChiTietThueTra chiTietThueTra4 = chiTietThueTraDAO.findById(new ChiTietThueTraID(1L, 4L));
+		chiTietThueTra4.setNgayTra(LocalDate.of(2020, 12, 20));
 
 		chiTietThueTraDAO.update(chiTietThueTra1);
 		chiTietThueTraDAO.update(chiTietThueTra2);
 		chiTietThueTraDAO.update(chiTietThueTra3);
+		chiTietThueTraDAO.update(chiTietThueTra4);
 	}
 
 }

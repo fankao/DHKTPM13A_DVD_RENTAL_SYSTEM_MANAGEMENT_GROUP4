@@ -156,7 +156,7 @@ public class PnlLateChargePayment extends JPanel {
 		model.addColumn("Ngày thuê");
 		model.addColumn("Ngày trả dự kiến");
 		model.addColumn("Ngày trả thực tế");
-		model.addColumn("Phí trể hạn");
+		model.addColumn("Phí trễ hạn");
 		JPanel pnl_tongchiphitrehen = new JPanel();
 		pnl_tongchiphitrehen.setPreferredSize(new Dimension(200, 10));
 		pnl_tongchiphitrehen.setBorder(new LineBorder(new Color(0, 0, 0), 2));
@@ -239,10 +239,10 @@ public class PnlLateChargePayment extends JPanel {
 				chonPhiTreHanCanThanhToan((int) spnQuantity.getValue());
 				System.out.println("Số phí trễ hạn muốn trả: " + spnQuantity.getValue().toString());
 				hienTongTienThanhToanPhiTreHan(dsThanhToanTreHan);
-				
-				if(dsThanhToanTreHan.size() > 0) {
+
+				if (dsThanhToanTreHan.size() > 0) {
 					kichHoatButton(btnConfirm);
-				}else {
+				} else {
 					voHieuHoaButton(btnConfirm);
 				}
 			}
@@ -318,7 +318,7 @@ public class PnlLateChargePayment extends JPanel {
 				tblLateCharges.getModel().setValueAt(true, i, 0);
 				dsThanhToanTreHan.add(dsTreHan.get(i));
 			}
-		}else {
+		} else {
 			for (int i = 0; i < dsTreHan.size(); i++) {
 				tblLateCharges.getModel().setValueAt(false, i, 0);
 			}
@@ -443,13 +443,12 @@ public class PnlLateChargePayment extends JPanel {
 	 * Huỷ thanh thanh toán phí trễ hạn
 	 */
 	private void huyThanhToanPhiTreHan() {
-		resetDSPhiTreHan(dsTreHan);
 
 		resetCacLuaChonThanhToan();
 
-		setVisibleCacLuaChonThanhToan(false);
-
 		voHieuHoaButton(btnConfirm);
+		
+		resetDSPhiTreHan(dsTreHan);
 
 	}
 
@@ -469,9 +468,9 @@ public class PnlLateChargePayment extends JPanel {
 	 */
 	private void thucHienThanhToanPhiTreHan() {
 		boolean daThanhToanPhiTreHan = thanhToanPhiTreHanBUS.ghiNhanThanhToanPhiTreHan(dsThanhToanTreHan);
-
 		if (daThanhToanPhiTreHan) {
 			dsTreHan = thanhToanPhiTreHanBUS.getDSThueTraTreHanTheoKH(khachHangThanhToan.getId());
+			hienThongBao(this, "Thông báo", "Thanh toán phí trễ hạn thành công", JOptionPane.INFORMATION_MESSAGE);
 			resetDSPhiTreHan(dsTreHan);
 		}
 		resetCacLuaChonThanhToan();
@@ -481,11 +480,11 @@ public class PnlLateChargePayment extends JPanel {
 	 * Đặt lại các lựa chọn thanh toán phí trễ hạn
 	 */
 	private void resetCacLuaChonThanhToan() {
-		if (chkSelectAll.isSelected()) {
-			chkSelectAll.setSelected(false);
-		}
-
-		spnQuantity.setValue(Integer.valueOf(1));
+		setVisibleCacLuaChonThanhToan(false);
+		spnQuantity.setEnabled(true);
+		chkSelectAll.setEnabled(true);
+		chonPhiTreHanCanThanhToan(0);
+	
 	}
 
 	/**
@@ -506,6 +505,10 @@ public class PnlLateChargePayment extends JPanel {
 	}
 
 	private void setVisibleCacLuaChonThanhToan(boolean isActive) {
+		if (isActive == false) {
+			chkSelectAll.setSelected(false);
+			setSpinnerSoLuong(0, dsTreHan.size());
+		}
 		chkSelectAll.setEnabled(isActive);
 		spnQuantity.setEnabled(isActive);
 	}
