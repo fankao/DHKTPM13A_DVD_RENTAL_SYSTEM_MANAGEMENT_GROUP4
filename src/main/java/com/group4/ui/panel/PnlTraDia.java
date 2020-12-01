@@ -1,5 +1,11 @@
 package com.group4.ui.panel;
 
+import static com.group4.ui.panel.UtilsLayout.isInputFieldNotBlank;
+import static com.group4.ui.panel.UtilsLayout.kichHoatButton;
+import static com.group4.ui.panel.UtilsLayout.voHieuHoaButton;
+import static com.group4.ui.panel.UtilsLayout.voHieuHoaTextField;
+import static com.group4.ui.panel.UtilsLayout.xoaTrang;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -8,12 +14,20 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.NumberFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Locale;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -23,6 +37,18 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
+import com.group4.business.ThanhToanPhiTreHanBUS;
+import com.group4.business.ThueTraDiaBUS;
+import com.group4.dao.IChiTietThueTraDAO;
+import com.group4.dao.IDiaDAO;
+import com.group4.dao.IKhachHangDAO;
+import com.group4.dao.impl.ChiTietThueTraDAO;
+import com.group4.dao.impl.DiaDAO;
+import com.group4.dao.impl.KhachHangDAO;
+import com.group4.entities.ChiTietThueTra;
+import com.group4.entities.Dia;
+import com.group4.entities.KhachHang;
+import com.group4.entities.TrangThaiDia;
 import com.group4.ui.ICloseUIListener;
 
 public class PnlTraDia extends JPanel {
@@ -41,6 +67,26 @@ public class PnlTraDia extends JPanel {
 	private JButton btnThoat;
 	private JLabel lblngaydatKH;
 
+	
+	private JLabel lblhienSDTKH;
+	
+	private List<Dia> dsDiaTra = new ArrayList<Dia>();
+	private KhachHang khachHangTra;
+	
+	private static IKhachHangDAO khachHangDAO;
+	private static ThueTraDiaBUS thueTraDiaBUS;
+	private static ThanhToanPhiTreHanBUS thanhToanPhiTreHanBUS;
+	private static IDiaDAO diaDAO;
+	private static IChiTietThueTraDAO thuetraDAO;
+
+	static {
+		khachHangDAO = new KhachHangDAO();
+		thueTraDiaBUS = new ThueTraDiaBUS();
+		thanhToanPhiTreHanBUS = new ThanhToanPhiTreHanBUS();
+		diaDAO = new DiaDAO();
+		thuetraDAO = new ChiTietThueTraDAO();
+	}
+	
 	public PnlTraDia() {
 		setBorder(new EmptyBorder(10, 10, 10, 10));
 		setSize(1270, 600);
@@ -137,9 +183,9 @@ public class PnlTraDia extends JPanel {
 		pnlthontinhKH.add(lblSDTKH);
 
 		/* SDT KH */
-		lblSDTKH = new JLabel("0924444659");
-		lblSDTKH.setFont(new Font("Dialog", Font.BOLD, 20));
-		pnlthontinhKH.add(lblSDTKH);
+		lblhienSDTKH = new JLabel("0924444659");
+		lblhienSDTKH.setFont(new Font("Dialog", Font.BOLD, 20));
+		pnlthontinhKH.add(lblhienSDTKH);
 
 		Component horizontalGlue_2_1 = Box.createHorizontalGlue();
 		horizontalGlue_2_1.setPreferredSize(new Dimension(20, 0));
@@ -192,38 +238,143 @@ public class PnlTraDia extends JPanel {
 
 		ganSuKienButton();
 	}
-
+	
+	/**
+	 * Thiết lập sự kiện cho button
+	 */
 	private void ganSuKienButton() {
+		
+		btnSearchDiaId.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (isInputFieldNotBlank(PnlTraDia.this,txtCustomerID)) {
+					Long diskId = null;
+					try {
+						diskId = Long.valueOf(txtCustomerID.getText());
+					} catch (NumberFormatException ne) {
+						hienThongBao("Lỗi nhập liệu", "Mã đĩa là số nguyên lớn hơn 0", JOptionPane.ERROR_MESSAGE);
+						txtCustomerID.requestFocus();
+						return;
+					}
+
+					List<ChiTietThueTra> dsTraDia = thuetraDAO.getDSChuaTraDiaTheoDia(diskId);
+					Dia diaTra = diaDAO.findById(diskId);	
+					KhachHang kh = dsTraDia.get(0).getKhachHang();
+					System.out.println("dasdsa"+dsTraDia.get(0).getKhachHang());
+					System.out.println("Day la Khach Hang"+kh.toString());
+					khachHangTra = kh;
+					
+					System.out.println("dasdasds+"+ khachHangTra);
+					if (dsTraDia == null) {
+						hienThongBao("Lỗi tìm kiếm", "Không Tìm Thấy Đĩa", JOptionPane.ERROR_MESSAGE);
+						txtCustomerID.requestFocus();
+						return;
+					}
+					
+					themDiaVaoDSTra(diaTra);
+					hienDSDiaTra(dsTraDia);
+					// Tra Dia
+//					returnDia(khachHangTra,dsDiaTra,LocalDate.now());
+//					diaTra.setTrangThai(TrangThaiDia.ON_SHEFT);
+//					System.out.println("Trag Thai"+diaTra.getTrangThai());
+//					dsTraDia.get(0).setNgayTra(LocalDate.now());
+//					System.out.println("DS Tra Dia"+dsTraDia.get(0).getNgayTra());
+//					
+					
+					diaTra.setTrangThai(TrangThaiDia.ON_SHEFT);
+					diaDAO.update(diaTra);
+					
+//					ChiTietThueTra ct = thuetraDAO.getDSChuaTraDiaTheoDiavaKH(diaTra.getId());
+					dsTraDia.get(0).setNgayTra(LocalDate.now());
+					thuetraDAO.update(dsTraDia.get(0));
+					
+					// ngay tra it hon ngay hien tai
+					System.out.println(dsTraDia.get(0).getNgayToiHan().toString());
+					if(dsTraDia.get(0).getNgayToiHan().compareTo(LocalDate.now())>0){
+						themPhiTreHen(dsDiaTra);
+					}
+				}
+			}
+			
+		});
+		
 		btnThoat.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
 				closeUIListener.onCloseUI(e);
 			}
 		});
 
 	}
 
+	/**
+	 * Hiện thông tin khách hàng theo mã Đĩa Trả
+	 * 
+	 * @param khachHang: khách hàng cần hiện thông tin
+	 */
+	private void hienDSDiaTra(List<ChiTietThueTra> dsTraDia) {
+		// TODO Auto-generated method stub
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		
+		for(ChiTietThueTra ct : dsTraDia)
+		{
+			lbltuade.setText(ct.getDia().getTuaDe().getTenTuaDe().toString());
+			lblhotenKH.setText(ct.getKhachHang().getHoVaTen().toString());
+			lblhienSDTKH.setText(ct.getKhachHang().getSoDienThoai().toString());			
+			lblhiendcKH.setText(ct.getKhachHang().getDiaChi().toString());			
+			lblngaydatKH.setText(formatter.format(ct.getNgayToiHan()));
+		}		
+	}
+	
+	/**
+	 * Hiện thông báo	
+	 * 
+	 * @param msg: thông báo cần hiển thị
+	 */
+	private void hienThongBao(String title, String msg, int msgType) {
+		JLabel label = new JLabel(msg);
+		label.setFont(new Font("Arial", Font.BOLD, 18));
+		JOptionPane.showMessageDialog(this, label, title, msgType);
+
+	}
+	/**
+	 * Thêm Phí Trễ Hẹn	
+	 * 
+	 * @param 
+	 */
+	private void themPhiTreHen(List<Dia> dsDiaTra) {
+		// TODO Auto-generated method stub
+		
+		double totalPrice = thueTraDiaBUS.tinhTongTienThueDia(new HashSet<Dia>(dsDiaTra));
+		
+		double phitrehen = 100;
+		
+		double tongTien = totalPrice + phitrehen;
+		
+		String tongTienString = NumberFormat.getCurrencyInstance(new Locale("vi", "VN")).format(tongTien);
+
+		hienThongBao("Thêm Phí Trễ Hẹn","Phí Trễ Hẹn Lần Trước Là"+String.valueOf(totalPrice)+"Và Lần Này Là "+String.valueOf(phitrehen)+"-Tổng:"+tongTienString, JOptionPane.INFORMATION_MESSAGE);
+	}
+	
+	
+	private void returnDia(KhachHang kh, List<Dia> dsDiaThue,LocalDate ngaytra) {
+		thueTraDiaBUS.traDia(kh, new HashSet<Dia>(dsDiaThue),ngaytra);
+		hienThongBao("Thông báo", "Trả đĩa thành công", JOptionPane.INFORMATION_MESSAGE);
+	}
+	
+	/**
+	 * Đưa đĩa vào danh sách muốn thuê
+	 * 
+	 * @param diaThue: đĩa muốn thuê
+	 */
+	private void themDiaVaoDSTra(Dia diaTra) {
+		dsDiaTra.add(diaTra);
+	}
+	
 	public void setCloseUIListener(ICloseUIListener closeUIListener) {
 		this.closeUIListener = closeUIListener;
 	}
 
-	public static void main(String[] args) {
-		SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				createAndShowGUI();
-			}
-		});
-	}
-
-	private static void createAndShowGUI() {
-		System.out.println("Created GUI on EDT " + SwingUtilities.isEventDispatchThread());
-		JFrame f = new JFrame("Swing Paint Demo");
-		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		f.getContentPane().add(new PnlTraDia());
-		f.setSize(800, 600);
-		f.setLocationRelativeTo(null);
-		f.setVisible(true);
-	}
 }
