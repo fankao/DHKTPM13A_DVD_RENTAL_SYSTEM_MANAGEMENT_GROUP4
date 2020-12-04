@@ -11,10 +11,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.PrePersist;
 
-import org.hibernate.annotations.CreationTimestamp;
-
-import net.bytebuddy.asm.Advice.ArgumentHandler.Factory;
-
 @Entity
 public class ChiTietThueTra {
 	@EmbeddedId
@@ -124,6 +120,13 @@ public class ChiTietThueTra {
 		this.setDia(diaThue);
 	}
 
+	public void traDia(KhachHang khachHang, Dia diaTra,LocalDate ngaytra) {
+//		this.setKhachHang(khachHang);
+		diaTra.setTrangThai(TrangThaiDia.ON_SHEFT);
+//		this.setDia(diaTra);
+		this.setNgayTra(ngaytra);
+	}
+	
 	public LocalDate ngayTraDuKien() {
 		return ngayThue.plusDays(dia.getLoaiDia().getSoNgayThue());
 	}

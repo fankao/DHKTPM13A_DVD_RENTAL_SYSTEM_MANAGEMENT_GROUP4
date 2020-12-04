@@ -54,10 +54,6 @@ public class PnlCustomerCommon extends JPanel {
 			return;
 
 		hienThongTinKhachHang(khachHang);
-		btnSearchCusId.setEnabled(false);
-		txtCustomerID.setEditable(false);
-		visibleCustomeInfo(true);
-
 	}
 
 	private void createLayout() {
@@ -163,6 +159,7 @@ public class PnlCustomerCommon extends JPanel {
 	 * @param khachHang: khách hàng cần hiện thông tin
 	 */
 	private void hienThongTinKhachHang(KhachHang khachHang) {
+		txtCustomerID.setText(khachHang.getId()+"");
 		lblCustomerName.setText(khachHang.getHoVaTen());
 		lblCustomerPhone.setText(khachHang.getSoDienThoai());
 		lblCustomerAddress.setText(khachHang.getDiaChi());

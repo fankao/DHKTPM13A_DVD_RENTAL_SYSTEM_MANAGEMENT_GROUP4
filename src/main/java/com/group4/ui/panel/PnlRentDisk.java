@@ -503,7 +503,6 @@ public class PnlRentDisk extends JPanel {
 		dsDiaThue.clear();
 		hienDSDiaThue(dsDiaThue);
 		xoaTrang(txtDiskID);
-
 	}
 
 	/**
@@ -513,7 +512,8 @@ public class PnlRentDisk extends JPanel {
 	 */
 	private void hienThongTinPhiTreHan(KhachHang khachHang) {
 		// hiện thông tin phí trễ hạn nếu có
-		List<ChiTietThueTra> dsTreHan = thanhToanPhiTreHanBUS.getDSThueTraTreHanTheoKH(khachHang.getId());
+		List<ChiTietThueTra> dsTreHan = 
+				thanhToanPhiTreHanBUS.getDSThueTraTreHanTheoKH(khachHang.getId());
 		if (dsTreHan.size() > 0) {
 			new DlgThongBaoPhiTreHan(dsTreHan).setVisible(true);
 		}
@@ -546,7 +546,6 @@ public class PnlRentDisk extends JPanel {
 		}
 
 	}
-
 	
 
 	/**

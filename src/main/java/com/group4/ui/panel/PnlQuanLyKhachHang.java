@@ -1,14 +1,12 @@
 package com.group4.ui.panel;
-
+import static com.group4.ui.panel.UtilsLayout.*;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.BoxLayout;
@@ -19,21 +17,16 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.UIManager;
+import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
-import org.hibernate.type.YesNoType;
-
 import com.group4.dao.IKhachHangDAO;
 import com.group4.dao.impl.KhachHangDAO;
 import com.group4.entities.KhachHang;
 import com.group4.ui.ICloseUIListener;
-import javax.swing.SwingConstants;
-import java.awt.FlowLayout;
-import javax.swing.border.LineBorder;
 
 public class PnlQuanLyKhachHang extends JPanel {
 	/**
@@ -268,16 +261,7 @@ public class PnlQuanLyKhachHang extends JPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				btnLuuKhachHang.setEnabled(true);
-				btnSuaKhachHang.setEnabled(false);
-				btnXoaKhachHang.setEnabled(false);
-				txtTenKhachHang.setEditable(true);
-				txtDiaChi.setEditable(true);
-				txtSoDienThoai.setEditable(true);
-				txtTenKhachHang.setText("");
-				txtDiaChi.setText("");
-				txtSoDienThoai.setText("");
-				txtTenKhachHang.requestFocus();
+				xuLyThemKhachHang();
 			}
 		});
 		
@@ -350,6 +334,19 @@ public class PnlQuanLyKhachHang extends JPanel {
 				}
 			}
 		});
+	}
+	
+	protected void xuLyThemKhachHang() {
+		xoaTrangInput();
+		voHieuHoaButton(btnLuuKhachHang,btnSuaKhachHang,btnXoaKhachHang);
+		kichHoatTextField(txtTenKhachHang,txtDiaChi,txtSoDienThoai);
+	}
+	protected void xoaTrangInput() {
+		txtTenKhachHang.setText("");
+		txtDiaChi.setText("");
+		txtSoDienThoai.setText("");
+		txtTenKhachHang.requestFocus();
+		
 	}
 	protected boolean checkKhachHangDangThueDia() {
 		
