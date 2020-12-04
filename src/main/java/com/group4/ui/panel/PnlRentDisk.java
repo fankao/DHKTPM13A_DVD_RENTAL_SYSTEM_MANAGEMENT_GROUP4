@@ -1,6 +1,6 @@
 package com.group4.ui.panel;
 
-import static com.group4.ui.panel.UtilsLayout.isInputFieldNotBlank;
+import static com.group4.ui.panel.UtilsLayout.*;
 import static com.group4.ui.panel.UtilsLayout.kichHoatButton;
 import static com.group4.ui.panel.UtilsLayout.kichHoatTextField;
 import static com.group4.ui.panel.UtilsLayout.voHieuHoaButton;
@@ -64,13 +64,11 @@ public class PnlRentDisk extends JPanel {
 	private List<Dia> dsDiaThue = new ArrayList<Dia>();
 	private KhachHang khachHangThueDia;
 
-	private static IKhachHangDAO khachHangDAO;
 	private static ThueTraDiaBUS thueTraDiaBUS;
 	private static ThanhToanPhiTreHanBUS thanhToanPhiTreHanBUS;
 	private static IDiaDAO diaDAO;
 
 	static {
-		khachHangDAO = new KhachHangDAO();
 		thueTraDiaBUS = new ThueTraDiaBUS();
 		thanhToanPhiTreHanBUS = new ThanhToanPhiTreHanBUS();
 		diaDAO = new DiaDAO();
@@ -311,20 +309,20 @@ public class PnlRentDisk extends JPanel {
 					try {
 						diskId = Long.valueOf(txtDiskID.getText());
 					} catch (NumberFormatException ne) {
-						hienThongBao("Lỗi nhập liệu", "Mã đĩa là số nguyên lớn hơn 0", JOptionPane.ERROR_MESSAGE);
+						hienThongBao(PnlRentDisk.this,"Lỗi nhập liệu", "Mã đĩa là số nguyên lớn hơn 0", JOptionPane.ERROR_MESSAGE);
 						txtDiskID.requestFocus();
 						return;
 					}
 
 					Dia diaThue = diaDAO.findById(diskId);
 					if (diaThue == null) {
-						hienThongBao("Lỗi tìm kiếm", "Không tìm thấy đĩa trong hệ thống", JOptionPane.ERROR_MESSAGE);
+						hienThongBao(PnlRentDisk.this,"Lỗi tìm kiếm", "Không tìm thấy đĩa trong hệ thống", JOptionPane.ERROR_MESSAGE);
 						txtDiskID.requestFocus();
 						return;
 					}
 
 					if (khongTheThueDia(diaThue)) {
-						hienThongBao("Lỗi thuê đĩa", "Đĩa đã được thuê hoặc đặt trước", JOptionPane.ERROR_MESSAGE);
+						hienThongBao(PnlRentDisk.this,"Lỗi thuê đĩa", "Đĩa đã được thuê hoặc đặt trước", JOptionPane.ERROR_MESSAGE);
 						txtDiskID.requestFocus();
 						txtDiskID.selectAll();
 						return;
@@ -493,7 +491,7 @@ public class PnlRentDisk extends JPanel {
 	 */
 	private void thueDia(KhachHang kh, List<Dia> dsDiaThue) {
 		thueTraDiaBUS.xuLyThueDia(khachHangThueDia, new HashSet<Dia>(dsDiaThue));
-		hienThongBao("Thông báo", "Thuê đĩa thành công", JOptionPane.INFORMATION_MESSAGE);
+		hienThongBao(this,"Thông báo", "Thuê đĩa thành công", JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	/**
@@ -548,17 +546,6 @@ public class PnlRentDisk extends JPanel {
 	}
 	
 
-	/**
-	 * Hiện thông báo	
-	 * 
-	 * @param msg: thông báo cần hiển thị
-	 */
-	private void hienThongBao(String title, String msg, int msgType) {
-		JLabel label = new JLabel(msg);
-		label.setFont(new Font("Arial", Font.BOLD, 18));
-		JOptionPane.showMessageDialog(this, label, title, msgType);
-
-	}
 
 	public void setCloseUIListener(ICloseUIListener closeUIListener) {
 		this.closeUIListener = closeUIListener;
