@@ -5,6 +5,8 @@ import com.group4.entities.Dia;
 public interface IDiaDAO extends IGenericDAO<Dia, Long> {
 	
 	boolean checkDiaCoTrenKe(Long diaId);
+	boolean diaDaDuocThue(Long diaId);
+	boolean diaDaDuocDat(Long diaId);
 
 
 }

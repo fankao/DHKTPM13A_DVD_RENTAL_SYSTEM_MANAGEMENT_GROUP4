@@ -22,10 +22,10 @@ public class KhachHang implements Serializable {
 	@Column(columnDefinition = "NVARCHAR(500)")
 	private String diaChi;
 
-	@OneToMany(mappedBy = "khachHang")
+	@OneToMany(mappedBy = "khachHang",cascade = {CascadeType.MERGE})
 	private Set<ChiTietThueTra> dsChiTietThueTra = new HashSet<ChiTietThueTra>();
 
-	@OneToMany(mappedBy = "khachHang")
+	@OneToMany(mappedBy = "khachHang",cascade = {CascadeType.MERGE})
 	private Set<ChiTietDatGiu> dsChiTietDatGiu = new HashSet<ChiTietDatGiu>();
 
 	public KhachHang() {

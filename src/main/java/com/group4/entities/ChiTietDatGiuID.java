@@ -20,6 +20,12 @@ public class ChiTietDatGiuID implements Serializable {
 		super();
 	}
 
+	public ChiTietDatGiuID(Long khachHangId, Long tuaDeId) {
+		super();
+		this.khachHangId = khachHangId;
+		this.tuaDeId = tuaDeId;
+	}
+
 	public Long getKhachHangId() {
 		return khachHangId;
 	}

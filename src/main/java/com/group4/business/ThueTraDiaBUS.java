@@ -1,7 +1,5 @@
 package com.group4.business;
 
-import static com.group4.ui.panel.UtilsLayout.isInputFieldNotBlank;
-
 import java.time.LocalDate;
 import java.util.Set;
 
@@ -12,8 +10,6 @@ import com.group4.dao.impl.DiaDAO;
 import com.group4.entities.ChiTietThueTra;
 import com.group4.entities.Dia;
 import com.group4.entities.KhachHang;
-import com.group4.ui.panel.PnlRentDisk;
-import com.group4.ui.panel.PnlTraDia;
 
 public class ThueTraDiaBUS {
 	private static IChiTietThueTraDAO chiTietThueTraDAO;
