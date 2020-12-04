@@ -59,6 +59,12 @@ public class ChiTietDatGiu {
 	public void setDaGanDia(boolean daGanDia) {
 		this.daGanDia = daGanDia;
 	}
+
+	public void datGiuDia(KhachHang kh, TuaDe tuaDe) {
+		this.setKhachHang(kh);
+		this.setTuaDe(tuaDe);
+		
+	}
 	
 	
 	

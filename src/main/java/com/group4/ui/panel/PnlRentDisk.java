@@ -64,11 +64,13 @@ public class PnlRentDisk extends JPanel {
 	private List<Dia> dsDiaThue = new ArrayList<Dia>();
 	private KhachHang khachHangThueDia;
 
+	private static IKhachHangDAO khachHangDAO;
 	private static ThueTraDiaBUS thueTraDiaBUS;
 	private static ThanhToanPhiTreHanBUS thanhToanPhiTreHanBUS;
 	private static IDiaDAO diaDAO;
 
 	static {
+		khachHangDAO = new KhachHangDAO();
 		thueTraDiaBUS = new ThueTraDiaBUS();
 		thanhToanPhiTreHanBUS = new ThanhToanPhiTreHanBUS();
 		diaDAO = new DiaDAO();
@@ -251,12 +253,12 @@ public class PnlRentDisk extends JPanel {
 		pnlListDisk.add(btnDeleteDisk, BorderLayout.SOUTH);
 
 		hienNgayThueDia();
-
+		
 		ganSuKienChoButton();
 		ganSuKienChoTable();
 
 	}
-
+	
 	/**
 	 * Hiện ngày thuê đĩa
 	 */
@@ -304,7 +306,7 @@ public class PnlRentDisk extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (isInputFieldNotBlank(PnlRentDisk.this, txtDiskID)) {
+				if (isInputFieldNotBlank(PnlRentDisk.this,txtDiskID)) {
 					Long diskId = null;
 					try {
 						diskId = Long.valueOf(txtDiskID.getText());
@@ -361,12 +363,12 @@ public class PnlRentDisk extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (btnDeleteDisk.isEnabled()) {
+				if(btnDeleteDisk.isEnabled()) {
 					tblListDisk.clearSelection();
 					voHieuHoaButton(btnDeleteDisk);
 					return;
 				}
-
+				
 				int select = hienThongBaoXacNhan("Huỷ thực hiện", "Xác nhận huỷ thực hiện thuê đĩa");
 				if (select != JOptionPane.YES_OPTION)
 					return;
@@ -400,11 +402,11 @@ public class PnlRentDisk extends JPanel {
 		});
 
 	}
-
+	
 	/**
 	 * Xoá đĩa khỏi danh sách thuê
 	 */
-	private void xoaDiaKhoiDSThue() {
+	private void xoaDiaKhoiDSThue(){
 		xoaDiaKhoiDSThue(dsDiaThue.get(tblListDisk.getSelectedRow()));
 		tblListDisk.clearSelection();
 		hienDSDiaThue(dsDiaThue);
@@ -415,7 +417,7 @@ public class PnlRentDisk extends JPanel {
 			txtDiskID.requestFocus();
 		}
 	}
-
+	
 	/**
 	 * huỷ thuê đĩa
 	 */
@@ -510,7 +512,8 @@ public class PnlRentDisk extends JPanel {
 	 */
 	private void hienThongTinPhiTreHan(KhachHang khachHang) {
 		// hiện thông tin phí trễ hạn nếu có
-		List<ChiTietThueTra> dsTreHan = thanhToanPhiTreHanBUS.getDSThueTraTreHanTheoKH(khachHang.getId());
+		List<ChiTietThueTra> dsTreHan = 
+				thanhToanPhiTreHanBUS.getDSThueTraTreHanTheoKH(khachHang.getId());
 		if (dsTreHan.size() > 0) {
 			new DlgThongBaoPhiTreHan(dsTreHan).setVisible(true);
 		}
@@ -543,9 +546,10 @@ public class PnlRentDisk extends JPanel {
 		}
 
 	}
+	
 
 	/**
-	 * Hiện thông báo
+	 * Hiện thông báo	
 	 * 
 	 * @param msg: thông báo cần hiển thị
 	 */

@@ -187,7 +187,6 @@ public class PnlLateChargePayment extends JPanel {
 		btnConfirm.setFont(new Font("Tahoma", Font.PLAIN, 20));
 
 		btnCancel = new JButton("H\u1EE7y B\u1ECF");
-		btnCancel.setEnabled(false);
 		panel_2.add(btnCancel);
 		btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 20));
 
@@ -242,9 +241,9 @@ public class PnlLateChargePayment extends JPanel {
 				hienTongTienThanhToanPhiTreHan(dsThanhToanTreHan);
 
 				if (dsThanhToanTreHan.size() > 0) {
-					kichHoatButton(btnConfirm,btnCancel);
+					kichHoatButton(btnConfirm);
 				} else {
-					voHieuHoaButton(btnConfirm,btnCancel);
+					voHieuHoaButton(btnConfirm);
 				}
 			}
 		});
@@ -294,7 +293,7 @@ public class PnlLateChargePayment extends JPanel {
 	private void boChonCheckboxAll() {
 		dsThanhToanTreHan.clear();
 		spnQuantity.setEnabled(true);
-		voHieuHoaButton(btnConfirm,btnCancel);
+		voHieuHoaButton(btnConfirm);
 	}
 
 	/**
@@ -303,7 +302,7 @@ public class PnlLateChargePayment extends JPanel {
 	private void chonCheckBoxAll() {
 		dsThanhToanTreHan = new ArrayList<ChiTietThueTra>(dsTreHan);
 		spnQuantity.setEnabled(false);
-		kichHoatButton(btnConfirm,btnCancel);
+		kichHoatButton(btnConfirm);
 	}
 
 	/**
@@ -347,9 +346,9 @@ public class PnlLateChargePayment extends JPanel {
 				}
 
 				if (dsThanhToanTreHan.size() == 0) {
-					voHieuHoaButton(btnConfirm,btnCancel);
+					voHieuHoaButton(btnConfirm);
 				} else {
-					kichHoatButton(btnConfirm,btnCancel);
+					kichHoatButton(btnConfirm);
 				}
 
 				thietLapSoLuongPhiMuonTra(dsThanhToanTreHan.size());

@@ -14,7 +14,6 @@
 		<class>com.group4.entities.LocalDateAttributeConverter</class>
 		<class>com.group4.entities.ChiTietDatGiuID</class>
 		<class>com.group4.entities.TaiKhoan</class>
-		<class>com.group4.entities.LocalDateTimeAttributeConverter</class>
 		<properties>
 			<property name="hibernate.dialect"
 				value="org.hibernate.dialect.SQLServerDialect" />
