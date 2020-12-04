@@ -447,8 +447,16 @@ public class PnlLateChargePayment extends JPanel {
 
 		resetCacLuaChonThanhToan();
 
+		chkSelectAll.setSelected(false);
+
 		voHieuHoaButton(btnConfirm);
-		
+
+		if (dsThanhToanTreHan.size() == 0) {
+			dsTreHan.clear();
+			pnlCustomerCommon.visibleCustomeInfo(false);
+			setVisibleCacLuaChonThanhToan(false);
+		}
+
 		resetDSPhiTreHan(dsTreHan);
 
 	}
@@ -485,7 +493,7 @@ public class PnlLateChargePayment extends JPanel {
 		spnQuantity.setEnabled(true);
 		chkSelectAll.setEnabled(true);
 		chonPhiTreHanCanThanhToan(0);
-	
+
 	}
 
 	/**

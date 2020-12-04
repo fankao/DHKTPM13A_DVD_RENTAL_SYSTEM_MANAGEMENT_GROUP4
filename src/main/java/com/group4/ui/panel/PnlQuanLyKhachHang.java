@@ -36,6 +36,17 @@ public class PnlQuanLyKhachHang extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 	private ICloseUIListener closeUIListener;
+	private KhachHang khachHang = null;
+	private List<KhachHang> dsKH;
+
+	private static IKhachHangDAO khachHangDAO;
+
+
+	static {
+		khachHangDAO = new KhachHangDAO();
+	}
+	
+	
 	private JTextField txtTenKhachHang;
 	private JTextField txtDiaChi;
 	private JTextField txtSoDienThoai;
@@ -47,19 +58,12 @@ public class PnlQuanLyKhachHang extends JPanel {
 	private JButton btnXoaKhachHang;
 	private JButton btnDong;
 	private JButton btnTimKH;
+	private JButton btnHuy;
 
 	DefaultTableModel dtmKhachHang;
 	JTable tblKhachHang;
 
-	private KhachHang khachHang;
-	private List<KhachHang> dsKH;
-
-	private static IKhachHangDAO khachHangDAO;
-	private JButton btnHuy;
-
-	static {
-		khachHangDAO = new KhachHangDAO();
-	}
+	
 
 	/**
 	 * Create the panel.
@@ -229,7 +233,7 @@ public class PnlQuanLyKhachHang extends JPanel {
 
 		voHieuHoaButton(btnSuaKhachHang, btnXoaKhachHang, btnLuuKhachHang, btnHuy);
 
-		voHieuHoaTextField(txtSoDienThoai, txtSoDienThoai, txtTenKhachHang);
+		voHieuHoaTextField(txtSoDienThoai, txtDiaChi, txtTenKhachHang);
 
 		dsKH = khachHangDAO.findAll();
 		hienDanhSachKhachHang(dsKH);
@@ -298,14 +302,42 @@ public class PnlQuanLyKhachHang extends JPanel {
 			}
 		});
 
+		btnLuuKhachHang.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (isValidInput()) {
+					String name = txtDiaChi.getText();
+					String phone = txtSoDienThoai.getText();
+					String address = txtDiaChi.getText();
+					if (khachHang != null) {
+						khachHang.setHoVaTen(name);
+						khachHang.setSoDienThoai(phone);
+						khachHang.setDiaChi(address);
+					} else {
+						khachHang = new KhachHang(name, phone, address);
+					}
+
+					luuThongTinKhachHang(khachHang);
+					xoaTrangInput();
+				}
+			}
+		});
+
 		btnSuaKhachHang.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				btnLuuKhachHang.setEnabled(true);
-				txtTenKhachHang.setEditable(true);
-				txtDiaChi.setEditable(true);
-				txtSoDienThoai.setEditable(true);
+				kichHoatButton(btnLuuKhachHang, btnHuy);
+				kichHoatTextField(txtTenKhachHang, txtDiaChi, txtSoDienThoai);
+			}
+		});
+		btnHuy.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				xuLyHuyThaoTac();
+
 			}
 		});
 
@@ -337,41 +369,79 @@ public class PnlQuanLyKhachHang extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (isValidInput()) {
+				if (isInputFieldNotBlank(PnlQuanLyKhachHang.this, txtNhapId)) {
 					Long cusId = null;
 					try {
 						cusId = Long.valueOf(txtNhapId.getText());
 					} catch (NumberFormatException e2) {
-						hienThongBao("Mã khách hàng là số nguyên lớn hơn 0");
+						hienThongBao(PnlQuanLyKhachHang.this, "Thông báo lỗi", "Mã khách hàng là số nguyên lớn hơn 0",
+								JOptionPane.ERROR_MESSAGE);
 						txtNhapId.requestFocus();
+						txtNhapId.selectAll();
 						return;
 					}
 
 					khachHang = khachHangDAO.findById(cusId);
 					hienThongTinKhachHang(khachHang);
-					btnSuaKhachHang.setEnabled(true);
-					btnXoaKhachHang.setEnabled(true);
+
+					kichHoatButton(btnSuaKhachHang, btnXoaKhachHang, btnHuy);
 				}
 			}
 		});
 
-		btnXoaKhachHang.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (checkKhachHangDangThueDia()) {
-
-				}
-			}
-		});
 	}
 
+	/**
+	 * Xử lý huỷ thao tác
+	 */
+	private void xuLyHuyThaoTac() {
+		tblKhachHang.clearSelection();
+		xoaTrangInput();
+		voHieuHoaButton(btnXoaKhachHang, btnSuaKhachHang, btnLuuKhachHang, btnHuy);
+		kichHoatButton(btnThemKhachHang);
+		voHieuHoaTextField(txtDiaChi, txtTenKhachHang, txtSoDienThoai);
+
+	}
+
+	/**
+	 * Lưu thông tin cập nhập khách hàng
+	 * 
+	 * @param kh khách hàng cần lưu
+	 */
+	private void luuThongTinKhachHang(KhachHang kh) {
+		if (kh.getId() != null && kh.getId() > 0) {
+			// cập nhật khách hàng
+			kh = khachHangDAO.update(khachHang);
+			if (kh != null) {
+				hienThongBao(this, "Thông báo", "Câp nhật khách hàng (mã số: " + kh.getId() + ") thành công",
+						JOptionPane.INFORMATION_MESSAGE);
+			}
+
+		} else {
+			// thêm mới khách hàng
+			kh = khachHangDAO.create(khachHang);
+			if (kh != null) {
+				hienThongBao(this, "Thông báo", "Thêm mới khách hàng (mã số: " + kh.getId() + ") thành công",
+						JOptionPane.INFORMATION_MESSAGE);
+			}
+
+		}
+
+	}
+
+	/**
+	 * Tiền xử lý trước khi tiến hành thêm khách hàng
+	 */
 	private void xuLyThemKhachHang() {
 		xoaTrangInput();
-		voHieuHoaButton(btnLuuKhachHang, btnSuaKhachHang, btnXoaKhachHang);
+		voHieuHoaButton(btnThemKhachHang);
+		kichHoatButton(btnLuuKhachHang,btnHuy);
 		kichHoatTextField(txtTenKhachHang, txtDiaChi, txtSoDienThoai);
 	}
 
+	/**
+	 * Xoá trắng các trường nhập dữ liệu
+	 */
 	private void xoaTrangInput() {
 		txtTenKhachHang.setText("");
 		txtDiaChi.setText("");
@@ -387,21 +457,16 @@ public class PnlQuanLyKhachHang extends JPanel {
 
 	/**
 	 * Kiểm tra trường nhập hợp lệ
+	 * 
 	 * @return
 	 */
 	private boolean isValidInput() {
-		if (isInputFieldNotBlank(this, txtTenKhachHang) || isInputFieldNotBlank(this, txtSoDienThoai)
-				|| isInputFieldNotBlank(this, txtDiaChi)) {
+		if (!isInputFieldNotBlank(this, txtTenKhachHang) || !isInputFieldNotBlank(this, txtSoDienThoai)
+				|| !isInputFieldNotBlank(this, txtDiaChi)) {
 			return false;
 		}
 		return true;
 
-	}
-
-	private void hienThongBao(String string) {
-		JLabel label = new JLabel(string);
-		label.setFont(new Font("Arial", Font.BOLD, 18));
-		JOptionPane.showMessageDialog(this, label);
 	}
 
 	private void hienThongTinKhachHang(KhachHang khachHang) {
