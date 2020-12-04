@@ -323,6 +323,10 @@ public class PnlQuanLyKhachHang extends JPanel {
 					Long cusId = null;
 					try {
 						cusId = Long.valueOf(txtNhapId.getText());
+						if(cusId <=0) {
+							hienThongBao("mã khách hàng phải là số nguyên lớn hơn 0!");
+							return;
+						}
 					} catch (NumberFormatException e2) {
 						hienThongBao("Mã khách hàng là số nguyên lớn hơn 0");
 						txtNhapId.requestFocus();

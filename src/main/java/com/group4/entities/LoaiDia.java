@@ -93,6 +93,12 @@ public class LoaiDia implements Serializable {
 		this.dsDia = dsDia;
 	}
 
+	
+	@Override
+	public String toString() {
+		return "" + tenLoaiDia + "";
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

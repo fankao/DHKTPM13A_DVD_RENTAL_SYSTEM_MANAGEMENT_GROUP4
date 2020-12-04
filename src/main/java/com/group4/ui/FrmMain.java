@@ -12,6 +12,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
+import com.group4.ui.dialog.DlgLogin;
 import com.group4.ui.panel.PnlLateChargePayment;
 import com.group4.ui.panel.PnlManageDisk;
 import com.group4.ui.panel.PnlQuanLyKhachHang;
@@ -255,7 +256,7 @@ public class FrmMain extends JFrame {
 				});
 			}
 		});
-
+		
 	
 	}
 

@@ -5,16 +5,22 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import com.group4.dao.ILoaiDiaDAO;
 import com.group4.dao.impl.LoaiDiaDAO;
+import com.group4.entities.KhachHang;
 import com.group4.entities.LoaiDia;
 import com.group4.ui.ICloseUIListener;
 
@@ -22,9 +28,10 @@ public class PnlThietLapGiaThueChoDia extends JPanel {
 	private JTextField txtGiaThueHienTai;
 	private JTextField txtGiaThueMoi;
 
-	JComboBox<LoaiDia> cboLoaiDia;
+	private JButton btnLuu,btnThoat;
 	
-	JList<LoaiDia> listLoaiDia;
+	private JComboBox<LoaiDia> cboLoaiDia;
+	private List<LoaiDia> dsLoaiDia;
 	
 	private ICloseUIListener closeUIListener;
 	/**
@@ -40,10 +47,12 @@ public class PnlThietLapGiaThueChoDia extends JPanel {
 		setLayout(new BorderLayout(0, 0));
 		
 		JPanel pnTitle = new JPanel();
+		FlowLayout flowLayout_7 = (FlowLayout) pnTitle.getLayout();
+		flowLayout_7.setVgap(30);
 		add(pnTitle, BorderLayout.NORTH);
 		
 		JLabel lblTitle = new JLabel("THIẾT LẬP GIÁ THUÊ CHO 1 LOẠI ĐĨA");
-		lblTitle.setForeground(Color.BLUE);
+		lblTitle.setForeground(Color.BLACK);
 		lblTitle.setFont(new Font("Arial", Font.BOLD, 32));
 		pnTitle.add(lblTitle);
 		
@@ -56,6 +65,11 @@ public class PnlThietLapGiaThueChoDia extends JPanel {
 		pnThietLapGiaThue.add(pnLeft);
 		pnLeft.setLayout(new BoxLayout(pnLeft, BoxLayout.Y_AXIS));
 		
+		JPanel panel = new JPanel();
+		FlowLayout flowLayout_4 = (FlowLayout) panel.getLayout();
+		flowLayout_4.setVgap(30);
+		pnLeft.add(panel);
+		
 		JPanel pnLBLLoaiDia = new JPanel();
 		FlowLayout flowLayout = (FlowLayout) pnLBLLoaiDia.getLayout();
 		flowLayout.setVgap(50);
@@ -63,7 +77,7 @@ public class PnlThietLapGiaThueChoDia extends JPanel {
 		pnLeft.add(pnLBLLoaiDia);
 		
 		JLabel lblLoaiDia = new JLabel("Loại đĩa:");
-		lblLoaiDia.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblLoaiDia.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		pnLBLLoaiDia.add(lblLoaiDia);
 		
 		JPanel pnLBLGiaThueHienTai = new JPanel();
@@ -73,7 +87,7 @@ public class PnlThietLapGiaThueChoDia extends JPanel {
 		pnLeft.add(pnLBLGiaThueHienTai);
 		
 		JLabel lblGiaThueHienTai = new JLabel("Giá thuê hiện tại:");
-		lblGiaThueHienTai.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblGiaThueHienTai.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		pnLBLGiaThueHienTai.add(lblGiaThueHienTai);
 		
 		JPanel pnLBLGiaThueMoi = new JPanel();
@@ -83,12 +97,17 @@ public class PnlThietLapGiaThueChoDia extends JPanel {
 		pnLeft.add(pnLBLGiaThueMoi);
 		
 		JLabel lblGiaThueMoi = new JLabel("Giá thuê mới:");
-		lblGiaThueMoi.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblGiaThueMoi.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		pnLBLGiaThueMoi.add(lblGiaThueMoi);
 		
 		JPanel pnRight = new JPanel();
 		pnThietLapGiaThue.add(pnRight);
 		pnRight.setLayout(new BoxLayout(pnRight, BoxLayout.Y_AXIS));
+		
+		JPanel panel_1 = new JPanel();
+		FlowLayout flowLayout_6 = (FlowLayout) panel_1.getLayout();
+		flowLayout_6.setVgap(30);
+		pnRight.add(panel_1);
 		
 		JPanel pnCBOLoaiDia = new JPanel();
 		FlowLayout flowLayout_3 = (FlowLayout) pnCBOLoaiDia.getLayout();
@@ -97,7 +116,7 @@ public class PnlThietLapGiaThueChoDia extends JPanel {
 		pnRight.add(pnCBOLoaiDia);
 		
 		cboLoaiDia = new JComboBox();
-		cboLoaiDia.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		cboLoaiDia.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		pnCBOLoaiDia.add(cboLoaiDia);
 		
 		JPanel pnTXTGiaThueHienTai = new JPanel();
@@ -107,7 +126,7 @@ public class PnlThietLapGiaThueChoDia extends JPanel {
 		pnRight.add(pnTXTGiaThueHienTai);
 		
 		txtGiaThueHienTai = new JTextField();
-		txtGiaThueHienTai.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		txtGiaThueHienTai.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		txtGiaThueHienTai.setColumns(10);
 		pnTXTGiaThueHienTai.add(txtGiaThueHienTai);
 		
@@ -118,7 +137,7 @@ public class PnlThietLapGiaThueChoDia extends JPanel {
 		pnRight.add(pnTXTGiaThueMoi);
 		
 		txtGiaThueMoi = new JTextField();
-		txtGiaThueMoi.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		txtGiaThueMoi.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		txtGiaThueMoi.setColumns(10);
 		pnTXTGiaThueMoi.add(txtGiaThueMoi);
 		
@@ -128,12 +147,12 @@ public class PnlThietLapGiaThueChoDia extends JPanel {
 		flowLayout_1.setVgap(30);
 		add(pnChucNang, BorderLayout.SOUTH);
 		
-		JButton btnLuu = new JButton("Lưu");
+		btnLuu = new JButton("Lưu");
 		btnLuu.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		pnChucNang.add(btnLuu);
 		btnLuu.setPreferredSize(new Dimension(100, 50));
 		
-		JButton btnThoat = new JButton("Thoát");
+		btnThoat = new JButton("Thoát");
 		btnThoat.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		pnChucNang.add(btnThoat);
 		btnThoat.setPreferredSize(new Dimension(100, 50));
@@ -144,22 +163,91 @@ public class PnlThietLapGiaThueChoDia extends JPanel {
 		txtGiaThueHienTai.setEditable(false);
 		ganSuKienChoButton();
 		
-		
-		hienLoaiDia();
+		hienLoaiDiaLenComBoBox();
 		
 	}
 
-	private void hienLoaiDia() {
-		LoaiDiaDAO loaiDiaDAO = new LoaiDiaDAO();
+	private void hienLoaiDiaLenComBoBox() {
 		
+		dsLoaiDia = loaiDiaDAO.findAll();
+		
+		for(LoaiDia ld: dsLoaiDia) {
+			cboLoaiDia.addItem(ld);
+		}
 		
 	}
 
 	private void ganSuKienChoButton() {
-
+		btnThoat.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				closeUIListener.onCloseUI(e);
+			}
+		});
 		
+		cboLoaiDia.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(cboLoaiDia.getSelectedIndex()==-1)return;
+				
+				LoaiDia loaiDia = (LoaiDia) cboLoaiDia.getSelectedItem();
+				
+				String giaThue = Double.toString(loaiDia.getPhiThue());
+				
+				txtGiaThueHienTai.setText(giaThue);
+				txtGiaThueMoi.setText("");
+				
+			}
+		});
+		
+		btnLuu.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(isValidInput(txtGiaThueMoi)) {
+					Double giaThueMoi = null;
+					try {
+						giaThueMoi = Double.valueOf(txtGiaThueMoi.getText());
+						if(giaThueMoi <= 0) {
+							hienThongBao("Giá thuê mới phải là số nguyên lớn hơn 0!");
+							return;
+						}
+					} catch (NumberFormatException e2) {
+						hienThongBao("Giá thuê mới phải là số nguyên lớn hơn hoặc 0!");
+						txtGiaThueMoi.requestFocus();
+						return;
+					}
+					
+					LoaiDia loaiDia = (LoaiDia) cboLoaiDia.getSelectedItem();
+					loaiDia.setPhiThue(giaThueMoi);
+					loaiDiaDAO.update(loaiDia);
+					
+					String giaThueUpdate = Double.toString(giaThueMoi);
+					txtGiaThueHienTai.setText(giaThueUpdate);
+					
+				}
+			}
+		});
+	}
+	
+	protected boolean isValidInput(JTextField txt) {
+		
+		if(txt.getText().trim().isEmpty()) {
+			hienThongBao("Mời nhập dữ liệu!");
+			txtGiaThueMoi.requestFocus();
+			return false;
+		}
+		
+		return true;
 	}
 
+	private void hienThongBao(String string) {
+		JLabel label = new JLabel(string);
+		label.setFont(new Font("Arial", Font.BOLD, 18));
+		JOptionPane.showMessageDialog(this, label);
+	}
 	public void setCloseUIListener(ICloseUIListener closeUIListener) {
 		this.closeUIListener = closeUIListener;
 	}
