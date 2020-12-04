@@ -196,6 +196,7 @@ public class PnlLateChargePayment extends JPanel {
 
 		if (ds != null) {
 			dsTreHan = thanhToanPhiTreHanBUS.getDSThueTraTreHanTheoKH(getKhachHang(ds).getId());
+			khachHangThanhToan = getKhachHang(dsTreHan);
 			hienDanhSachPhiTreHan(dsTreHan);
 		}
 
