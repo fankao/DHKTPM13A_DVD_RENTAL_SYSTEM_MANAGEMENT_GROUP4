@@ -22,28 +22,4 @@ public class DiaDAO extends AbstractDAO<Dia, Long> implements IDiaDAO {
 		return query != null && query.getResultList().size() > 0;
 	}
 
-	@Override
-	public boolean diaDaDuocThue(Long diaId) {
-		TypedQuery<Dia> query = null;
-		try {
-			query = em.createQuery("select dia from Dia dia JOIN ChiTietThueTra ct ON ct.diaId = dia.id where dia.id =:diaId", Dia.class)
-					.setParameter("diaId", diaId);
-		} catch (Exception e) {
-			logger.error("Truy vấn thất bại: " + e.getMessage());
-		}
-		return query != null && query.getResultList().size() > 0;
-	}
-
-	@Override
-	public boolean diaDaDuocDat(Long diaId) {
-		TypedQuery<Dia> query = null;
-		try {
-			query = em.createQuery("select dia from Dia dia JOIN ChiTietDatGiu ct ON ct.diaId = dia.id where dia.id =:diaId", Dia.class)
-					.setParameter("diaId", diaId);
-		} catch (Exception e) {
-			logger.error("Truy vấn thất bại: " + e.getMessage());
-		}
-		return query != null && query.getResultList().size() > 0;
-	}
-
 }
