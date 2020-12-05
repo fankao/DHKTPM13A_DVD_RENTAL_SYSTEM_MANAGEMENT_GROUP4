@@ -215,7 +215,7 @@ public class PnlThietLapGiaThueChoDia extends JPanel {
 							return;
 						}
 					} catch (NumberFormatException e2) {
-						hienThongBao("Giá thuê mới phải là số nguyên lớn hơn hoặc 0!");
+						hienThongBao("Giá thuê mới phải là số nguyên lớn hơn 0!");
 						txtGiaThueMoi.requestFocus();
 						return;
 					}

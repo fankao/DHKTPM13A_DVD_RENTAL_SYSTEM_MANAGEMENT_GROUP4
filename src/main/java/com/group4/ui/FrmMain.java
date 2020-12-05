@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import com.group4.ui.dialog.DlgLogin;
 import com.group4.ui.panel.PnlLateChargePayment;
 import com.group4.ui.panel.PnlManageDisk;
+import com.group4.ui.panel.PnlManagerTitle;
 import com.group4.ui.panel.PnlQuanLyKhachHang;
 import com.group4.ui.panel.PnlRentDisk;
 import com.group4.ui.panel.PnlReservation;
@@ -43,6 +44,7 @@ public class FrmMain extends JFrame {
 	private JMenuItem mntmCancelLateCharge;
 	private JMenuItem mntmLogin;
 	private JMenuItem mntmLogout;
+	private JMenuItem mntmManagerTitle;
 	private JMenu mnAdmin;
 
 	public FrmMain(String title) {
@@ -274,6 +276,21 @@ public class FrmMain extends JFrame {
 			}
 		});
 		
+		mntmTitleDisk.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				PnlManagerTitle pnlManagerTitle = new PnlManagerTitle();
+				openWorkUI(pnlManagerTitle);
+				pnlManagerTitle.setCloseUIListener(new ICloseUIListener() {
+					
+					@Override
+					public void onCloseUI(ActionEvent e) {
+						closeWorkUI(pnlManagerTitle);
+					}
+				});
+			}
+		});
 	
 	}
 
