@@ -4,12 +4,21 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 
-import javax.swing.JButton;
+import javax.swing.JButton;import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.group4.dao.ITaiKhoanDAO;
+import com.group4.dao.impl.TaiKhoanDAO;
+import com.group4.entities.TaiKhoan;
+import com.group4.model.TaiKhoanModel;
+
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.BoxLayout;
 import javax.swing.JTextField;
 import javax.swing.GroupLayout;
@@ -20,8 +29,16 @@ import javax.swing.JPasswordField;
 public class DlgLogin extends JDialog {
 
 	private final JPanel pnMain = new JPanel();
+	private static ITaiKhoanDAO taiKhoanDAO;
+	static {
+		taiKhoanDAO = new TaiKhoanDAO();
+	}
+	
 	private JTextField txtTenTK;
 	private JPasswordField passwordField;
+	private JButton btnDangNhap;
+	private JButton btnThoat;
+	
 
 	/**
 	 * Launch the application.
@@ -104,7 +121,7 @@ public class DlgLogin extends JDialog {
 			pnButton.setLayout(fl_pnButton);
 			getContentPane().add(pnButton, BorderLayout.SOUTH);
 			{
-				JButton btnDangNhap = new JButton("Đăng nhập");
+				btnDangNhap = new JButton("Đăng nhập");
 				btnDangNhap.setFont(new Font("Tahoma", Font.PLAIN, 20));
 				btnDangNhap.setActionCommand("OK");
 				pnButton.add(btnDangNhap);
@@ -112,7 +129,7 @@ public class DlgLogin extends JDialog {
 				getRootPane().setDefaultButton(btnDangNhap);
 			}
 			{
-				JButton btnThoat = new JButton("Thoát");
+				btnThoat = new JButton("Thoát");
 				btnThoat.setFont(new Font("Tahoma", Font.PLAIN, 20));
 				btnThoat.setActionCommand("Cancel");
 				pnButton.add(btnThoat);
@@ -120,5 +137,33 @@ public class DlgLogin extends JDialog {
 			}
 		}
 		
+		btnDangNhap.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				if(isValidInput()) {
+					String username = txtTenTK.getText();
+					String password = passwordField.getText();
+					
+					dangNhap(username,password);
+				}
+				
+			}
+		});
+		
+		
+		
+	}
+
+	protected void dangNhap(String username, String password) {
+		TaiKhoan taiKhoan = taiKhoanDAO.dangNhap(username, password);
+		//nêu đang nhập thành công
+		TaiKhoanModel.admin = taiKhoan;
+		
+	}
+
+	protected boolean isValidInput() {
+		
+		return true;
 	}
 }

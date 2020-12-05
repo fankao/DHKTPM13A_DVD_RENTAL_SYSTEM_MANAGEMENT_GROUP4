@@ -294,6 +294,8 @@ public class PnlTraDia extends JPanel {
 					if(dsTraDia.get(0).getNgayToiHan().compareTo(LocalDate.now())>0){
 						themPhiTreHen(dsDiaTra);
 					}
+					
+				
 				}
 			}
 			

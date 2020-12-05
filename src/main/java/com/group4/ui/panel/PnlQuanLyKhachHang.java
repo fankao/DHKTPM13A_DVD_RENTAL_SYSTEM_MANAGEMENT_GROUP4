@@ -258,7 +258,7 @@ public class PnlQuanLyKhachHang extends JPanel {
 
 				hienThongTinKhachHang(dsKH.get(select));
 
-				kichHoatButton(btnSuaKhachHang, btnXoaKhachHang, btnXoaKhachHang);
+				kichHoatButton(btnSuaKhachHang, btnXoaKhachHang, btnHuy);
 				voHieuHoaTextField(txtTenKhachHang, txtSoDienThoai, txtDiaChi);
 			}
 
@@ -348,14 +348,21 @@ public class PnlQuanLyKhachHang extends JPanel {
 				if (selectIndex >= 0) {
 					KhachHang kh = dsKH.get(selectIndex);
 
-					int option = JOptionPane.showConfirmDialog(null, "Bạn có muốn xóa khách hàng này?",
-							"Xác nhận yêu cầu", JOptionPane.YES_NO_OPTION);
+					int option = hienThongBaoXacNhan(PnlQuanLyKhachHang.this, "Thông báo xác nhận",
+							"Bạn có muốn xóa khách hàng này?");
 
 					if (option == JOptionPane.YES_OPTION) {
 
-						khachHangDAO.deleteById(kh.getId());
+						if (khachHangBUS.xoaKhachHang(kh) == false) {
+							hienThongBao(PnlQuanLyKhachHang.this, "Thông báo lỗi",
+									"Không thể xoá khách hàng do khách hàng đang thực hiện việc thuê hoặc đặt đĩa",
+									JOptionPane.ERROR_MESSAGE);
+							return;
+						}
 						hienDanhSachKhachHang(khachHangDAO.findAll());
-						JOptionPane.showMessageDialog(null, "Xóa khách hàng thành công!!!");
+						hienThongBao(PnlQuanLyKhachHang.this, "Thông báo",
+								"Xoá khách hàng (mã số: " + kh.getId() + ") thành công",
+								JOptionPane.INFORMATION_MESSAGE);
 					}
 
 				}
@@ -370,9 +377,9 @@ public class PnlQuanLyKhachHang extends JPanel {
 					Long cusId = null;
 					try {
 						cusId = Long.valueOf(txtNhapId.getText());
-						if(cusId <=0) {
-							hienThongBao(PnlQuanLyKhachHang.this, "Thông báo lỗi", "Mã khách hàng là số nguyên lớn hơn 0",
-									JOptionPane.ERROR_MESSAGE);
+						if (cusId <= 0) {
+							hienThongBao(PnlQuanLyKhachHang.this, "Thông báo lỗi",
+									"Mã khách hàng là số nguyên lớn hơn 0", JOptionPane.ERROR_MESSAGE);
 							txtNhapId.requestFocus();
 							txtNhapId.selectAll();
 						}
@@ -454,15 +461,6 @@ public class PnlQuanLyKhachHang extends JPanel {
 	}
 
 	/**
-	 * Kiểm tra khách hàng đã thuê hoặc đặt đĩa hay chưa
-	 * 
-	 * @return true: khác hàng đã thuê hoặc đặt đĩa/ false: ngược lại
-	 */
-	private boolean checkKhachHangDangThueHoacDat(KhachHang khachHang) {
-		return khachHangBUS.khachHangDaDatDia(khachHang.getId()) || khachHangBUS.khachHangDaThueDia(khachHang.getId());
-	}
-
-	/**
 	 * Kiểm tra trường nhập hợp lệ
 	 * 
 	 * @return
@@ -478,7 +476,9 @@ public class PnlQuanLyKhachHang extends JPanel {
 		String phoneNumber = txtSoDienThoai.getText();
 
 		if (!Pattern.matches(regex, phoneNumber)) {
-			hienThongBao(this, "Thông báo lỗi", "Số điện thoại phải bao gồm 10 chữ số (bắt đầu bởi 03|07|08|09|01[2|6|8|9]) ", JOptionPane.ERROR_MESSAGE);
+			hienThongBao(this, "Thông báo lỗi",
+					"Số điện thoại phải bao gồm 10 chữ số (bắt đầu bởi 03|07|08|09|01[2|6|8|9]) ",
+					JOptionPane.ERROR_MESSAGE);
 			txtSoDienThoai.requestFocus();
 			txtSoDienThoai.selectAll();
 			return false;

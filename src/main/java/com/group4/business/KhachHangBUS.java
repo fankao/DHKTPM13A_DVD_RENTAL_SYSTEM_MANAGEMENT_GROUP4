@@ -24,7 +24,7 @@ public class KhachHangBUS {
 	 * @return true: nếu xoá thành công/ false: nếu khách hàng đã thuê đĩa, đặt đĩa
 	 */
 	public boolean xoaKhachHang(KhachHang khachHang) {
-		if(khachHangDaDatDia(khachHang.getId()) == false || khachHangDaThueDia(khachHang.getId()) == false) {
+		if(khachHangDaDatDia(khachHang.getId()) == true || khachHangDaThueDia(khachHang.getId()) == true) {
 			return false;
 		}
 		return khachHangDAO.delete(khachHang);
