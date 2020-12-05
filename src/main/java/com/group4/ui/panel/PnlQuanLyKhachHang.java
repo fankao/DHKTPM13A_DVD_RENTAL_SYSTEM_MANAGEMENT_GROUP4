@@ -467,15 +467,16 @@ public class PnlQuanLyKhachHang extends JPanel {
 			return false;
 		}
 
-		String regex = "^\\+(?:[0-9] ?){6,14}[0-9]$";
+		String regex = "^(03|07|08|09|01[2|6|8|9])+([0-9]{8})+";
 
 		String phoneNumber = txtSoDienThoai.getText();
 
 		if (!Pattern.matches(regex, phoneNumber)) {
-			hienThongBao(this, "Thông báo lỗi", "Số điện thoại phải bao gồm 10 chữ số", JOptionPane.ERROR_MESSAGE);
+			hienThongBao(this, "Thông báo lỗi", "Số điện thoại phải bao gồm 10 chữ số (bắt đầu bởi 03|07|08|09|01[2|6|8|9]) ", JOptionPane.ERROR_MESSAGE);
+			txtSoDienThoai.requestFocus();
+			txtSoDienThoai.selectAll();
 			return false;
 		}
-
 		return true;
 
 	}
