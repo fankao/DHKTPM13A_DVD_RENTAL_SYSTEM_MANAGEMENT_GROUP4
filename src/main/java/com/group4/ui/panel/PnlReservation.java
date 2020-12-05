@@ -28,6 +28,8 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import com.group4.business.DatTruocDiaBUS;
 import com.group4.entities.ChiTietDatGiu;
@@ -45,7 +47,6 @@ public class PnlReservation extends JPanel {
 		datTruocDiaBUS = new DatTruocDiaBUS();
 	}
 	private KhachHang khachHangDatBanSao;
-	private List<ChiTietDatGiu> dsMuonDat = new ArrayList<ChiTietDatGiu>();
 
 	private JLabel lblReservationDate;
 	private JButton btnClose;
@@ -58,6 +59,10 @@ public class PnlReservation extends JPanel {
 	private JButton btnAccept;
 	private JList<ChiTietDatGiu> lstReservation;
 
+	public void setCloseUIListener(ICloseUIListener closeUIListener) {
+		this.closeUIListener = closeUIListener;
+	}
+
 	public PnlReservation() {
 		setBorder(new EmptyBorder(10, 10, 10, 10));
 		setSize(1270, 600);
@@ -67,7 +72,7 @@ public class PnlReservation extends JPanel {
 		add(pnlTitle, BorderLayout.NORTH);
 
 		JLabel lblTitle = new JLabel("ĐẶT TRƯỚC ĐĨA");
-		lblTitle.setFont(new Font("Tahoma", Font.BOLD, 25));
+		lblTitle.setFont(new Font("Dialog", Font.BOLD, 26));
 		pnlTitle.add(lblTitle);
 
 		JPanel panel = new JPanel();
@@ -136,6 +141,7 @@ public class PnlReservation extends JPanel {
 		btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 20));
 
 		btnClose = new JButton("Thoát");
+		btnClose.setEnabled(false);
 		pnlOprAbove.add(btnClose);
 		btnClose.setFont(new Font("Tahoma", Font.PLAIN, 20));
 
@@ -169,19 +175,38 @@ public class PnlReservation extends JPanel {
 		pnlCustomer.add(pnlCustomerCommon);
 		pnlCustomerCommon.setLayout(new BoxLayout(pnlCustomerCommon, BoxLayout.Y_AXIS));
 
-		setEventForButton();
+		ganSuKienChoButton();
+		ganSuKienChoList();
+
+	}
+
+	private void ganSuKienChoList() {
+		lstReservation.addListSelectionListener(new ListSelectionListener() {
+
+			@Override
+			public void valueChanged(ListSelectionEvent e) {
+				kichHoatButton(btnCancelReservation);
+
+			}
+		});
 
 	}
 
 	/**
 	 * Xử lý sự kiện cho button
 	 */
-	private void setEventForButton() {
+	private void ganSuKienChoButton() {
 
 		btnClose.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				int select = hienThongBaoXacNhan(PnlReservation.this, "Thông báo thoát chức năng",
+						"Xác nhận thoát chức năng Đặt đĩa ?");
+				if (select == JOptionPane.NO_OPTION) {
+					return;
+				}
+
 				closeUIListener.onCloseUI(e);
 
 			}
@@ -191,11 +216,14 @@ public class PnlReservation extends JPanel {
 
 			@Override
 			public void onClick(ActionEvent e, KhachHang khachHang) {
+				hienNgayDatBanSao();
 				khachHangDatBanSao = khachHang;
 				List<TuaDe> dsTuaDeKHChuaDat = datTruocDiaBUS.getDSTuaDeKhachHangChuaDat(khachHangDatBanSao.getId());
 				hienDanhSachTuaDe(dsTuaDeKHChuaDat);
-				hienNgayDatBanSao();
+				hienDanhSachDatGiu(datTruocDiaBUS.getDSDatBanSaoTheoKH(khachHangDatBanSao.getId()));
 
+				voHieuHoaButton(btnClose);
+				kichHoatButton(btnAccept,btnCancel);
 			}
 		});
 
@@ -216,7 +244,21 @@ public class PnlReservation extends JPanel {
 
 			}
 		});
-		
+
+		btnCancel.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				int confirm = hienThongBaoXacNhan(PnlReservation.this, "Thông báo xác nhận",
+						"Xác nhận huỷ thực hiện chức năng này ?");
+				if (confirm == JOptionPane.NO_OPTION) {
+					return;
+				}
+
+				xuLyHuy();
+			}
+		});
 
 		btnSearchTitle.addActionListener(new ActionListener() {
 
@@ -227,7 +269,7 @@ public class PnlReservation extends JPanel {
 				searchTitleDlg.setVisible(true);
 
 				if (searchTitleDlg.getTuaDe() != null) {
-					System.out.println(searchTitleDlg.getTuaDe());
+					cmbTitleOfDisk.setSelectedItem(searchTitleDlg.getTuaDe());
 				}
 
 			}
@@ -293,8 +335,16 @@ public class PnlReservation extends JPanel {
 
 	}
 
-	public void setCloseUIListener(ICloseUIListener closeUIListener) {
-		this.closeUIListener = closeUIListener;
+	/**
+	 * Huỷ thực hiện chức năng
+	 */
+
+	private void xuLyHuy() {
+		pnlCustomerCommon.visibleCustomeInfo(false);
+		pnlTitleOfDisk.setVisible(false);
+		hienDanhSachDatGiu(new ArrayList<ChiTietDatGiu>());
+		kichHoatButton(btnClose);
+		voHieuHoaButton(btnAccept, btnCancel);
 	}
 
 }

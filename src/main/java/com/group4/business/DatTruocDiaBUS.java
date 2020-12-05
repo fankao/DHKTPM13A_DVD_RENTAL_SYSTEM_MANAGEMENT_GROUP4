@@ -30,13 +30,12 @@ public class DatTruocDiaBUS {
 	}
 
 	public ChiTietDatGiu layChiTietDatGiuSomNhat(Dia dia) {
-
-		return null;
+		return chiTietDatGiuDAO.getCTDatGiuDauTien(dia);
 	}
 
 	public boolean ganDia(ChiTietDatGiu chiTietDatGiu) {
-
-		return true;
+		chiTietDatGiu.setDaGanDia(true);
+		return chiTietDatGiuDAO.update(chiTietDatGiu) != null;
 	}
 
 }

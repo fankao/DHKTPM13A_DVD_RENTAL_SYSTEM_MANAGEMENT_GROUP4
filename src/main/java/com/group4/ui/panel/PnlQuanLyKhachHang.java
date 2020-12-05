@@ -9,6 +9,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -24,6 +25,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
+import com.group4.business.KhachHangBUS;
 import com.group4.dao.IKhachHangDAO;
 import com.group4.dao.impl.KhachHangDAO;
 import com.group4.entities.KhachHang;
@@ -40,13 +42,13 @@ public class PnlQuanLyKhachHang extends JPanel {
 	private List<KhachHang> dsKH;
 
 	private static IKhachHangDAO khachHangDAO;
-
+	private static KhachHangBUS khachHangBUS;
 
 	static {
 		khachHangDAO = new KhachHangDAO();
+		khachHangBUS = new KhachHangBUS();
 	}
-	
-	
+
 	private JTextField txtTenKhachHang;
 	private JTextField txtDiaChi;
 	private JTextField txtSoDienThoai;
@@ -62,8 +64,6 @@ public class PnlQuanLyKhachHang extends JPanel {
 
 	DefaultTableModel dtmKhachHang;
 	JTable tblKhachHang;
-
-	
 
 	/**
 	 * Create the panel.
@@ -257,12 +257,9 @@ public class PnlQuanLyKhachHang extends JPanel {
 					return;
 
 				hienThongTinKhachHang(dsKH.get(select));
-				btnSuaKhachHang.setEnabled(true);
-				btnXoaKhachHang.setEnabled(true);
 
-				txtTenKhachHang.setEditable(false);
-				txtDiaChi.setEditable(false);
-				txtSoDienThoai.setEditable(false);
+				kichHoatButton(btnSuaKhachHang, btnXoaKhachHang, btnXoaKhachHang);
+				voHieuHoaTextField(txtTenKhachHang, txtSoDienThoai, txtDiaChi);
 			}
 
 		});
@@ -435,7 +432,7 @@ public class PnlQuanLyKhachHang extends JPanel {
 	private void xuLyThemKhachHang() {
 		xoaTrangInput();
 		voHieuHoaButton(btnThemKhachHang);
-		kichHoatButton(btnLuuKhachHang,btnHuy);
+		kichHoatButton(btnLuuKhachHang, btnHuy);
 		kichHoatTextField(txtTenKhachHang, txtDiaChi, txtSoDienThoai);
 	}
 
@@ -450,9 +447,13 @@ public class PnlQuanLyKhachHang extends JPanel {
 
 	}
 
-	private boolean checkKhachHangDangThueDia() {
-
-		return false;
+	/**
+	 * Kiểm tra khách hàng đã thuê hoặc đặt đĩa hay chưa
+	 * 
+	 * @return true: khác hàng đã thuê hoặc đặt đĩa/ false: ngược lại
+	 */
+	private boolean checkKhachHangDangThueHoacDat(KhachHang khachHang) {
+		return khachHangBUS.khachHangDaDatDia(khachHang.getId()) || khachHangBUS.khachHangDaThueDia(khachHang.getId());
 	}
 
 	/**
@@ -465,6 +466,16 @@ public class PnlQuanLyKhachHang extends JPanel {
 				|| !isInputFieldNotBlank(this, txtDiaChi)) {
 			return false;
 		}
+
+		String regex = "^\\+(?:[0-9] ?){6,14}[0-9]$";
+
+		String phoneNumber = txtSoDienThoai.getText();
+
+		if (!Pattern.matches(regex, phoneNumber)) {
+			hienThongBao(this, "Thông báo lỗi", "Số điện thoại phải bao gồm 10 chữ số", JOptionPane.ERROR_MESSAGE);
+			return false;
+		}
+
 		return true;
 
 	}

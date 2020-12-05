@@ -1,6 +1,7 @@
 package com.group4.ui.panel;
 
-import static com.group4.ui.panel.UtilsLayout.*;
+import static com.group4.ui.panel.UtilsLayout.hienThongBao;
+import static com.group4.ui.panel.UtilsLayout.isInputFieldNotBlank;
 import static com.group4.ui.panel.UtilsLayout.kichHoatButton;
 import static com.group4.ui.panel.UtilsLayout.kichHoatTextField;
 import static com.group4.ui.panel.UtilsLayout.voHieuHoaButton;
@@ -45,17 +46,13 @@ import javax.swing.table.DefaultTableModel;
 import com.group4.business.ThanhToanPhiTreHanBUS;
 import com.group4.business.ThueTraDiaBUS;
 import com.group4.dao.IDiaDAO;
-import com.group4.dao.IKhachHangDAO;
 import com.group4.dao.impl.DiaDAO;
-import com.group4.dao.impl.KhachHangDAO;
 import com.group4.entities.ChiTietThueTra;
 import com.group4.entities.Dia;
 import com.group4.entities.KhachHang;
 import com.group4.entities.TrangThaiDia;
 import com.group4.ui.ICloseUIListener;
 import com.group4.ui.dialog.DlgThongBaoPhiTreHan;
-
-import javafx.scene.control.Tab;
 
 public class PnlRentDisk extends JPanel {
 
@@ -315,10 +312,10 @@ public class PnlRentDisk extends JPanel {
 						thongBaoLoiMaDia("Đĩa này đã được thuê hoặc đặt giữ");
 						return;
 					}
-
-					hienThongTinPhiTreHan(khachHangThueDia);
-
+					
 					themDia(diaThue);
+					
+					kichHoatButton(btnConfirm);
 
 				} catch (NumberFormatException e2) {
 					thongBaoLoiMaDia("Mã đĩa phải là số nguyên lớn hơn 0");
@@ -332,9 +329,9 @@ public class PnlRentDisk extends JPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				dsDiaThue.remove(tblListDisk.getSelectedRow());
+				Dia dia = dsDiaThue.get(tblListDisk.getSelectedRow());
 				tblListDisk.clearSelection();
-				hienDSDiaThue(dsDiaThue);
+				xoaDiaKhoiDSThue(dia);
 				
 			}
 		});
@@ -344,6 +341,7 @@ public class PnlRentDisk extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				hienThongTinPhiTreHan(khachHangThueDia);
 				thueDia(khachHangThueDia, dsDiaThue);
 				resetDSDiaThue();
 
@@ -442,7 +440,13 @@ public class PnlRentDisk extends JPanel {
 	 * @param dia: đĩa muốn xoá, nếu dia = null thì xoá hết danh sách
 	 */
 	private void xoaDiaKhoiDSThue(Dia dia) {
+		if(dia == null) {
+			dsDiaThue.clear();
+			voHieuHoaButton(btnConfirm);
+		}
 		dsDiaThue.remove(dia);
+		
+		hienDSDiaThue(dsDiaThue);
 	}
 
 	/**
