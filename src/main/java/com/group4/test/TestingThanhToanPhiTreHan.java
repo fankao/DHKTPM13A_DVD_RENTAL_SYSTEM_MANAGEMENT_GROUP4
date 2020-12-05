@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.HashSet;
 
+import com.group4.business.DatTruocDiaBUS;
 import com.group4.business.ThueTraDiaBUS;
 import com.group4.dao.IChiTietThueTraDAO;
 import com.group4.dao.IDiaDAO;
@@ -27,12 +28,18 @@ import com.group4.entities.TuaDe;
 public class TestingThanhToanPhiTreHan {
 	public static void main() {
 		IKhachHangDAO khachHangDAO = new KhachHangDAO();
-		khachHangDAO.create(new KhachHang("Minh Chiến", "0852369741", "Bình Phước"));
-		khachHangDAO.create(new KhachHang("Gia Hưng", "0939221234", "Quảng Nam"));
-		khachHangDAO.create(new KhachHang("Thanh Trí", "0987456322", "Ninh Thuận"));
-		khachHangDAO.create(new KhachHang("Hồng Phúc", "0943223458", "Vĩnh Long"));
-		khachHangDAO.create(new KhachHang("Văn Chiến", "0674322133", "TP Hồ Chí Minh"));
-		khachHangDAO.create(new KhachHang("Thanh Tùng", "0121653445", "Hà Nội"));
+		KhachHang kh1 = new KhachHang("Minh Chiến", "0852369741", "Bình Phước");
+		kh1 = khachHangDAO.create(kh1);
+		KhachHang kh2 = new KhachHang("Gia Hưng", "0939221234", "Quảng Nam");
+		kh2 = khachHangDAO.create(kh2);
+		KhachHang kh3 = new KhachHang("Thanh Trí", "0987456322", "Ninh Thuận");
+		kh3 = khachHangDAO.create(kh3);
+		KhachHang kh4 = new KhachHang("Hồng Phúc", "0943223458", "Vĩnh Long");
+		kh4 = khachHangDAO.create(kh4);
+		KhachHang kh5 = new KhachHang("Văn Chiến", "0674322133", "TP Hồ Chí Minh");
+		kh5 = khachHangDAO.create(kh5);
+		KhachHang kh6 = new KhachHang("Thanh Tùng", "0121653445", "Hà Nội");
+		kh5 = khachHangDAO.create(kh6);
 
 		ITuaDeDAO tuaDeDAO = new TuaDeDAO();
 		TuaDe tuaDe1 = new TuaDe("Chiến tranh giữa các vì sao");
@@ -75,7 +82,11 @@ public class TestingThanhToanPhiTreHan {
 		diaDAO.create(dia10);
 
 		ThueTraDiaBUS thueTraDiaBUS = new ThueTraDiaBUS();
-		thueTraDiaBUS.xuLyThueDia(khachHangDAO.findById(1L), new HashSet<Dia>(Arrays.asList(dia1, dia2, dia3,dia4)));
+		thueTraDiaBUS.xuLyThueDia(kh1, new HashSet<Dia>(Arrays.asList(dia1, dia2, dia3, dia4)));
+		thueTraDiaBUS.xuLyThueDia(kh2, new HashSet<Dia>(Arrays.asList(dia10, dia6)));
+		thueTraDiaBUS.xuLyThueDia(kh3, new HashSet<Dia>(Arrays.asList(dia7, dia9)));
+
+		// dữ liệu test thanh toán phí trễ hạn
 
 		IChiTietThueTraDAO chiTietThueTraDAO = new ChiTietThueTraDAO();
 
@@ -87,7 +98,7 @@ public class TestingThanhToanPhiTreHan {
 
 		ChiTietThueTra chiTietThueTra3 = chiTietThueTraDAO.findById(new ChiTietThueTraID(1L, 3L));
 		chiTietThueTra3.setNgayTra(LocalDate.of(2020, 12, 20));
-		
+
 		ChiTietThueTra chiTietThueTra4 = chiTietThueTraDAO.findById(new ChiTietThueTraID(1L, 4L));
 		chiTietThueTra4.setNgayTra(LocalDate.of(2020, 12, 20));
 
@@ -95,6 +106,17 @@ public class TestingThanhToanPhiTreHan {
 		chiTietThueTraDAO.update(chiTietThueTra2);
 		chiTietThueTraDAO.update(chiTietThueTra3);
 		chiTietThueTraDAO.update(chiTietThueTra4);
+
+		// Dữ liệu test gán đĩa
+		ChiTietThueTra chiTietThueTra5 = chiTietThueTraDAO.findById(new ChiTietThueTraID(kh2.getId(), dia10.getId()));
+		chiTietThueTra5.setNgayTra(LocalDate.now());
+		chiTietThueTraDAO.update(chiTietThueTra5);
+		
+		DatTruocDiaBUS datTruocDiaBUS = new DatTruocDiaBUS();
+		datTruocDiaBUS.datGiuBanSao(kh1, tuaDe5);
+		datTruocDiaBUS.datGiuBanSao(kh3, tuaDe5);
+		datTruocDiaBUS.datGiuBanSao(kh4, tuaDe5);
+		datTruocDiaBUS.datGiuBanSao(kh5, tuaDe5);
 	}
 
 }

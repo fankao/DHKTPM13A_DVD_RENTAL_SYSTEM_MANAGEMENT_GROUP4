@@ -1,48 +1,67 @@
 package com.group4.ui.panel;
 
+import static com.group4.ui.panel.UtilsLayout.*;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
-import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
+import com.group4.business.DatTruocDiaBUS;
+import com.group4.entities.ChiTietDatGiu;
+import com.group4.entities.KhachHang;
 import com.group4.entities.TuaDe;
 import com.group4.ui.ICloseUIListener;
 import com.group4.ui.dialog.DlgSearchTitle;
+import com.group4.ui.panel.PnlCustomerCommon.ItemClickListener;
 
 public class PnlReservation extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private ICloseUIListener closeUIListener;
+	private static DatTruocDiaBUS datTruocDiaBUS;
+	static {
+		datTruocDiaBUS = new DatTruocDiaBUS();
+	}
+	private KhachHang khachHangDatBanSao;
 
-	private JTextField textField;
-	private JLabel lblCustomerName;
-	private JButton btnConfirmCustomer;
 	private JLabel lblReservationDate;
-	private JLabel lblCustomerPhone;
-	private JButton btnAccept;
 	private JButton btnClose;
 	private JButton btnCancel;
 	private JButton btnSearchTitle;
-	private JButton btnRemove;
 	private JComboBox<TuaDe> cmbTitleOfDisk;
+	private JPanel pnlTitleOfDisk;
+	private PnlCustomerCommon pnlCustomerCommon;
+	private JButton btnCancelReservation;
+	private JButton btnAccept;
+	private JList<ChiTietDatGiu> lstReservation;
+
+	public void setCloseUIListener(ICloseUIListener closeUIListener) {
+		this.closeUIListener = closeUIListener;
+	}
 
 	public PnlReservation() {
 		setBorder(new EmptyBorder(10, 10, 10, 10));
@@ -53,7 +72,7 @@ public class PnlReservation extends JPanel {
 		add(pnlTitle, BorderLayout.NORTH);
 
 		JLabel lblTitle = new JLabel("ĐẶT TRƯỚC ĐĨA");
-		lblTitle.setFont(new Font("Tahoma", Font.BOLD, 25));
+		lblTitle.setFont(new Font("Dialog", Font.BOLD, 26));
 		pnlTitle.add(lblTitle);
 
 		JPanel panel = new JPanel();
@@ -73,66 +92,13 @@ public class PnlReservation extends JPanel {
 		pnlCustomer.add(pnlReservationDate);
 
 		JLabel lblReservationDateTitle = new JLabel("Ngày đặt đĩa: ");
-		lblReservationDateTitle.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblReservationDateTitle.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		pnlReservationDate.add(lblReservationDateTitle);
 
-		lblReservationDate = new JLabel("20/10/2020");
-		lblReservationDate.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblReservationDate = new JLabel("");
+		lblReservationDate.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblReservationDate.setToolTipText("");
 		pnlReservationDate.add(lblReservationDate);
-
-		JPanel pnlCustomerID = new JPanel();
-		FlowLayout flowLayout_1 = (FlowLayout) pnlCustomerID.getLayout();
-		flowLayout_1.setAlignment(FlowLayout.LEFT);
-		pnlCustomer.add(pnlCustomerID);
-
-		JLabel lblCustomerIDTitle = new JLabel("Mã khách hàng: ");
-		lblCustomerIDTitle.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		pnlCustomerID.add(lblCustomerIDTitle);
-
-		textField = new JTextField();
-		textField.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		pnlCustomerID.add(textField);
-		textField.setColumns(15);
-
-		btnConfirmCustomer = new JButton("Xác nhận");
-		btnConfirmCustomer.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		pnlCustomerID.add(btnConfirmCustomer);
-
-		JPanel pnlCustomerInfo = new JPanel();
-		FlowLayout flowLayout_2 = (FlowLayout) pnlCustomerInfo.getLayout();
-		flowLayout_2.setAlignment(FlowLayout.LEFT);
-		pnlCustomer.add(pnlCustomerInfo);
-
-		JLabel lblCustomerNameTitle = new JLabel("Tên khách hàng: ");
-		lblCustomerNameTitle.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		pnlCustomerInfo.add(lblCustomerNameTitle);
-
-		lblCustomerName = new JLabel("Nguyễn Minh Chiến");
-		lblCustomerName.setFont(new Font("Tahoma", Font.BOLD, 15));
-		pnlCustomerInfo.add(lblCustomerName);
-
-		Component horizontalGlue = Box.createHorizontalGlue();
-		pnlCustomerInfo.add(horizontalGlue);
-
-		JLabel lblCustomerPhoneTitle = new JLabel("Số điện thoại: ");
-		lblCustomerPhoneTitle.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		pnlCustomerInfo.add(lblCustomerPhoneTitle);
-
-		lblCustomerPhone = new JLabel("0852369741");
-		lblCustomerPhone.setFont(new Font("Tahoma", Font.BOLD, 15));
-		pnlCustomerInfo.add(lblCustomerPhone);
-
-		Component horizontalGlue_1 = Box.createHorizontalGlue();
-		pnlCustomerInfo.add(horizontalGlue_1);
-
-		JLabel lblCustomerAddressTitle = new JLabel("Địa chỉ: ");
-		lblCustomerAddressTitle.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		pnlCustomerInfo.add(lblCustomerAddressTitle);
-
-		JLabel lblCustomerAddress = new JLabel("Bình Phước");
-		lblCustomerAddress.setFont(new Font("Tahoma", Font.BOLD, 15));
-		pnlCustomerInfo.add(lblCustomerAddress);
 
 		JPanel pnlReservation = new JPanel();
 		pnlReservation.setBorder(new CompoundBorder(new EmptyBorder(0, 0, 0, 0),
@@ -141,9 +107,10 @@ public class PnlReservation extends JPanel {
 		panel.add(pnlReservation, BorderLayout.CENTER);
 		pnlReservation.setLayout(new BorderLayout(0, 0));
 
-		JPanel pnlTitleOfDisk = new JPanel();
-		FlowLayout flowLayout_3 = (FlowLayout) pnlTitleOfDisk.getLayout();
-		flowLayout_3.setAlignment(FlowLayout.LEFT);
+		pnlTitleOfDisk = new JPanel();
+		pnlTitleOfDisk.setVisible(false);
+		FlowLayout fl_pnlTitleOfDisk = (FlowLayout) pnlTitleOfDisk.getLayout();
+		fl_pnlTitleOfDisk.setAlignment(FlowLayout.LEFT);
 		pnlReservation.add(pnlTitleOfDisk, BorderLayout.NORTH);
 
 		JLabel lblTitleID = new JLabel("Tựa đề: ");
@@ -155,9 +122,9 @@ public class PnlReservation extends JPanel {
 		cmbTitleOfDisk.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		pnlTitleOfDisk.add(cmbTitleOfDisk);
 
-		JButton btnConfirmTitle = new JButton("Xác nhận");
-		btnConfirmTitle.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		pnlTitleOfDisk.add(btnConfirmTitle);
+		btnAccept = new JButton("Xác nhận đặt");
+		btnAccept.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		pnlTitleOfDisk.add(btnAccept);
 
 		JPanel pnlOperation = new JPanel();
 		pnlOperation
@@ -169,15 +136,12 @@ public class PnlReservation extends JPanel {
 		pnlOperation.add(pnlOprAbove);
 		pnlOprAbove.setLayout(new GridLayout(3, 1, 0, 0));
 
-		btnAccept = new JButton("Xác nhận đặt");
-		pnlOprAbove.add(btnAccept);
-		btnAccept.setFont(new Font("Tahoma", Font.PLAIN, 20));
-
 		btnCancel = new JButton("Huỷ");
 		pnlOprAbove.add(btnCancel);
 		btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 20));
 
-		btnClose = new JButton("Đóng");
+		btnClose = new JButton("Thoát");
+		btnClose.setEnabled(false);
 		pnlOprAbove.add(btnClose);
 		btnClose.setFont(new Font("Tahoma", Font.PLAIN, 20));
 
@@ -193,28 +157,106 @@ public class PnlReservation extends JPanel {
 		JScrollPane scrollPane = new JScrollPane();
 		pnlCenter.add(scrollPane, BorderLayout.CENTER);
 
-		JList lstReservation = new JList();
+		lstReservation = new JList<ChiTietDatGiu>(new DefaultListModel<ChiTietDatGiu>());
 		lstReservation.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		lstReservation.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		scrollPane.setViewportView(lstReservation);
 
-		btnRemove = new JButton("Xoá bỏ");
-		btnRemove.setEnabled(false);
-		btnRemove.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		pnlCenter.add(btnRemove, BorderLayout.SOUTH);
+		JPanel panel_1 = new JPanel();
+		pnlCenter.add(panel_1, BorderLayout.SOUTH);
+		panel_1.setLayout(new GridLayout(0, 1, 0, 0));
 
-		setEventForButton();
+		btnCancelReservation = new JButton("Huỷ đặt đĩa");
+		btnCancelReservation.setEnabled(false);
+		btnCancelReservation.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		panel_1.add(btnCancelReservation);
+
+		pnlCustomerCommon = new PnlCustomerCommon(null);
+		pnlCustomer.add(pnlCustomerCommon);
+		pnlCustomerCommon.setLayout(new BoxLayout(pnlCustomerCommon, BoxLayout.Y_AXIS));
+
+		ganSuKienChoButton();
+		ganSuKienChoList();
 
 	}
 
-	private void setEventForButton() {
+	private void ganSuKienChoList() {
+		lstReservation.addListSelectionListener(new ListSelectionListener() {
+
+			@Override
+			public void valueChanged(ListSelectionEvent e) {
+				kichHoatButton(btnCancelReservation);
+
+			}
+		});
+
+	}
+
+	/**
+	 * Xử lý sự kiện cho button
+	 */
+	private void ganSuKienChoButton() {
 
 		btnClose.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				int select = hienThongBaoXacNhan(PnlReservation.this, "Thông báo thoát chức năng",
+						"Xác nhận thoát chức năng Đặt đĩa ?");
+				if (select == JOptionPane.NO_OPTION) {
+					return;
+				}
+
 				closeUIListener.onCloseUI(e);
 
+			}
+		});
+
+		pnlCustomerCommon.setItemClickListener(new ItemClickListener() {
+
+			@Override
+			public void onClick(ActionEvent e, KhachHang khachHang) {
+				hienNgayDatBanSao();
+				khachHangDatBanSao = khachHang;
+				List<TuaDe> dsTuaDeKHChuaDat = datTruocDiaBUS.getDSTuaDeKhachHangChuaDat(khachHangDatBanSao.getId());
+				hienDanhSachTuaDe(dsTuaDeKHChuaDat);
+				hienDanhSachDatGiu(datTruocDiaBUS.getDSDatBanSaoTheoKH(khachHangDatBanSao.getId()));
+
+				voHieuHoaButton(btnClose);
+				kichHoatButton(btnAccept,btnCancel);
+			}
+		});
+
+		btnAccept.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				TuaDe tuaDe = (TuaDe) cmbTitleOfDisk.getModel().getSelectedItem();
+
+				int confirm = hienThongBaoXacNhan(PnlReservation.this, "Thông báo xác nhận",
+						"Xác nhận đặt bản sao cho tựa đề " + tuaDe.getTenTuaDe() + " ?");
+
+				if (confirm == JOptionPane.NO_OPTION) {
+					return;
+				}
+
+				xacNhanDatGiuDia(khachHangDatBanSao, tuaDe);
+
+			}
+		});
+
+		btnCancel.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				int confirm = hienThongBaoXacNhan(PnlReservation.this, "Thông báo xác nhận",
+						"Xác nhận huỷ thực hiện chức năng này ?");
+				if (confirm == JOptionPane.NO_OPTION) {
+					return;
+				}
+
+				xuLyHuy();
 			}
 		});
 
@@ -227,7 +269,7 @@ public class PnlReservation extends JPanel {
 				searchTitleDlg.setVisible(true);
 
 				if (searchTitleDlg.getTuaDe() != null) {
-					System.out.println(searchTitleDlg.getTuaDe());
+					cmbTitleOfDisk.setSelectedItem(searchTitleDlg.getTuaDe());
 				}
 
 			}
@@ -235,8 +277,74 @@ public class PnlReservation extends JPanel {
 
 	}
 
-	public void setCloseUIListener(ICloseUIListener closeUIListener) {
-		this.closeUIListener = closeUIListener;
+	/**
+	 * Hiện ngày đặt bản sao
+	 */
+	private void hienNgayDatBanSao() {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		lblReservationDate.setText(formatter.format(LocalDate.now()));
+
+	}
+
+	/**
+	 * Thêm tựa đề vào danh sách muốn đặt
+	 * 
+	 * @param tuaDe tựa đề
+	 */
+	private void xacNhanDatGiuDia(KhachHang kh, TuaDe tuaDe) {
+		if (datTruocDiaBUS.datGiuBanSao(kh, tuaDe) == false) {
+			hienThongBao(this, "Thông báo lỗi", "Đặt giữ bản sao không thành công", JOptionPane.ERROR_MESSAGE);
+			return;
+		}
+		hienThongBao(this, "Thông báo", "Đặt giữ bản sao cho tựa đề " + tuaDe.getTenTuaDe() + "thành công",
+				JOptionPane.INFORMATION_MESSAGE);
+
+		hienDanhSachTuaDe(datTruocDiaBUS.getDSTuaDeKhachHangChuaDat(khachHangDatBanSao.getId()));
+
+		hienDanhSachDatGiu(datTruocDiaBUS.getDSDatBanSaoTheoKH(khachHangDatBanSao.getId()));
+
+	}
+
+	/**
+	 * hiện danh sách muốn đặt và đã được gán đĩa
+	 * 
+	 * @param dsDatGiu
+	 */
+	private void hienDanhSachDatGiu(List<ChiTietDatGiu> dsDatGiu) {
+		DefaultListModel<ChiTietDatGiu> listModel = (DefaultListModel<ChiTietDatGiu>) lstReservation.getModel();
+		listModel.removeAllElements();
+		for (ChiTietDatGiu chiTietDatGiu : dsDatGiu) {
+			listModel.addElement(chiTietDatGiu);
+		}
+
+	}
+
+	/**
+	 * Lấy danh sách tựa đề mà khách hàng chưa đặt
+	 * 
+	 * @param dsTuaDeKHChuaDat danh sách tựa đề
+	 */
+	private void hienDanhSachTuaDe(List<TuaDe> dsTuaDeKHChuaDat) {
+		DefaultComboBoxModel<TuaDe> comboBoxModel = (DefaultComboBoxModel<TuaDe>) cmbTitleOfDisk.getModel();
+		comboBoxModel.removeAllElements();
+		for (TuaDe tuaDe : dsTuaDeKHChuaDat) {
+			comboBoxModel.addElement(tuaDe);
+		}
+
+		pnlTitleOfDisk.setVisible(true);
+
+	}
+
+	/**
+	 * Huỷ thực hiện chức năng
+	 */
+
+	private void xuLyHuy() {
+		pnlCustomerCommon.visibleCustomeInfo(false);
+		pnlTitleOfDisk.setVisible(false);
+		hienDanhSachDatGiu(new ArrayList<ChiTietDatGiu>());
+		kichHoatButton(btnClose);
+		voHieuHoaButton(btnAccept, btnCancel);
 	}
 
 }
