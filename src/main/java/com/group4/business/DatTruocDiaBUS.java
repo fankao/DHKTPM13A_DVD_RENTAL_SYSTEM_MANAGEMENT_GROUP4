@@ -15,16 +15,20 @@ public class DatTruocDiaBUS {
 		chiTietDatGiuDAO = new ChiTietDatGiuDAO();
 	}
 
+	public List<TuaDe> getDSTuaDeKhachHangChuaDat(Long khachHangId) {
+		return chiTietDatGiuDAO.getDSTuaDeMaKhacHangChuaDat(khachHangId);
+	}
+
 	public boolean datGiuBanSao(KhachHang khachHang, List<TuaDe> dsTuaDe) {
 		int check = 0;
 		for (TuaDe tuaDe : dsTuaDe) {
 			ChiTietDatGiu chiTietDatGiu = new ChiTietDatGiu();
-			chiTietDatGiu.datGiuDia(khachHang,tuaDe);
-			if(chiTietDatGiuDAO.create(chiTietDatGiu)!=null) {
+			chiTietDatGiu.datGiuDia(khachHang, tuaDe);
+			if (chiTietDatGiuDAO.create(chiTietDatGiu) != null) {
 				check++;
 			}
 		}
-		return check>0;
+		return check > 0;
 	}
 
 	public ChiTietDatGiu layChiTietDatGiuSomNhat(Dia dia) {

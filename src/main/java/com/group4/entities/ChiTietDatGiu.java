@@ -80,6 +80,15 @@ public class ChiTietDatGiu {
 		this.setTuaDe(tuaDe);
 		
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder(tuaDe.getTenTuaDe());
+		if(daGanDia) {
+			builder.append(" (Đã gán đĩa)");
+		}
+		return builder.toString();
+	}
 	
 	
 	

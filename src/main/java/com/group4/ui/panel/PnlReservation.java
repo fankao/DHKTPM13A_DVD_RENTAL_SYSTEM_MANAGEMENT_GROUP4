@@ -2,47 +2,58 @@ package com.group4.ui.panel;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
-import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
+import com.group4.business.DatTruocDiaBUS;
+import com.group4.entities.ChiTietDatGiu;
+import com.group4.entities.KhachHang;
 import com.group4.entities.TuaDe;
 import com.group4.ui.ICloseUIListener;
 import com.group4.ui.dialog.DlgSearchTitle;
+import com.group4.ui.panel.PnlCustomerCommon.ItemClickListener;
 
 public class PnlReservation extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private ICloseUIListener closeUIListener;
+	private static DatTruocDiaBUS datTruocDiaBUS;
+	static {
+		datTruocDiaBUS = new DatTruocDiaBUS();
+	}
+	private KhachHang khachHangDatBanSao;
+	private List<ChiTietDatGiu> dsMuonDat = new ArrayList<ChiTietDatGiu>();
 
-	private JTextField textField;
-	private JLabel lblCustomerName;
-	private JButton btnConfirmCustomer;
 	private JLabel lblReservationDate;
-	private JLabel lblCustomerPhone;
 	private JButton btnAccept;
 	private JButton btnClose;
 	private JButton btnCancel;
 	private JButton btnSearchTitle;
-	private JButton btnRemove;
 	private JComboBox<TuaDe> cmbTitleOfDisk;
+	private JPanel pnlTitleOfDisk;
+	private PnlCustomerCommon pnlCustomerCommon;
+	private JButton btnCancelReservation;
+	private JButton btnConfirmTitle;
+	private JList<ChiTietDatGiu> lstReservation;
 
 	public PnlReservation() {
 		setBorder(new EmptyBorder(10, 10, 10, 10));
@@ -73,66 +84,13 @@ public class PnlReservation extends JPanel {
 		pnlCustomer.add(pnlReservationDate);
 
 		JLabel lblReservationDateTitle = new JLabel("Ngày đặt đĩa: ");
-		lblReservationDateTitle.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblReservationDateTitle.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		pnlReservationDate.add(lblReservationDateTitle);
 
 		lblReservationDate = new JLabel("20/10/2020");
-		lblReservationDate.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblReservationDate.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblReservationDate.setToolTipText("");
 		pnlReservationDate.add(lblReservationDate);
-
-		JPanel pnlCustomerID = new JPanel();
-		FlowLayout flowLayout_1 = (FlowLayout) pnlCustomerID.getLayout();
-		flowLayout_1.setAlignment(FlowLayout.LEFT);
-		pnlCustomer.add(pnlCustomerID);
-
-		JLabel lblCustomerIDTitle = new JLabel("Mã khách hàng: ");
-		lblCustomerIDTitle.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		pnlCustomerID.add(lblCustomerIDTitle);
-
-		textField = new JTextField();
-		textField.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		pnlCustomerID.add(textField);
-		textField.setColumns(15);
-
-		btnConfirmCustomer = new JButton("Xác nhận");
-		btnConfirmCustomer.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		pnlCustomerID.add(btnConfirmCustomer);
-
-		JPanel pnlCustomerInfo = new JPanel();
-		FlowLayout flowLayout_2 = (FlowLayout) pnlCustomerInfo.getLayout();
-		flowLayout_2.setAlignment(FlowLayout.LEFT);
-		pnlCustomer.add(pnlCustomerInfo);
-
-		JLabel lblCustomerNameTitle = new JLabel("Tên khách hàng: ");
-		lblCustomerNameTitle.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		pnlCustomerInfo.add(lblCustomerNameTitle);
-
-		lblCustomerName = new JLabel("Nguyễn Minh Chiến");
-		lblCustomerName.setFont(new Font("Tahoma", Font.BOLD, 15));
-		pnlCustomerInfo.add(lblCustomerName);
-
-		Component horizontalGlue = Box.createHorizontalGlue();
-		pnlCustomerInfo.add(horizontalGlue);
-
-		JLabel lblCustomerPhoneTitle = new JLabel("Số điện thoại: ");
-		lblCustomerPhoneTitle.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		pnlCustomerInfo.add(lblCustomerPhoneTitle);
-
-		lblCustomerPhone = new JLabel("0852369741");
-		lblCustomerPhone.setFont(new Font("Tahoma", Font.BOLD, 15));
-		pnlCustomerInfo.add(lblCustomerPhone);
-
-		Component horizontalGlue_1 = Box.createHorizontalGlue();
-		pnlCustomerInfo.add(horizontalGlue_1);
-
-		JLabel lblCustomerAddressTitle = new JLabel("Địa chỉ: ");
-		lblCustomerAddressTitle.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		pnlCustomerInfo.add(lblCustomerAddressTitle);
-
-		JLabel lblCustomerAddress = new JLabel("Bình Phước");
-		lblCustomerAddress.setFont(new Font("Tahoma", Font.BOLD, 15));
-		pnlCustomerInfo.add(lblCustomerAddress);
 
 		JPanel pnlReservation = new JPanel();
 		pnlReservation.setBorder(new CompoundBorder(new EmptyBorder(0, 0, 0, 0),
@@ -141,9 +99,10 @@ public class PnlReservation extends JPanel {
 		panel.add(pnlReservation, BorderLayout.CENTER);
 		pnlReservation.setLayout(new BorderLayout(0, 0));
 
-		JPanel pnlTitleOfDisk = new JPanel();
-		FlowLayout flowLayout_3 = (FlowLayout) pnlTitleOfDisk.getLayout();
-		flowLayout_3.setAlignment(FlowLayout.LEFT);
+		pnlTitleOfDisk = new JPanel();
+		pnlTitleOfDisk.setVisible(false);
+		FlowLayout fl_pnlTitleOfDisk = (FlowLayout) pnlTitleOfDisk.getLayout();
+		fl_pnlTitleOfDisk.setAlignment(FlowLayout.LEFT);
 		pnlReservation.add(pnlTitleOfDisk, BorderLayout.NORTH);
 
 		JLabel lblTitleID = new JLabel("Tựa đề: ");
@@ -155,7 +114,7 @@ public class PnlReservation extends JPanel {
 		cmbTitleOfDisk.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		pnlTitleOfDisk.add(cmbTitleOfDisk);
 
-		JButton btnConfirmTitle = new JButton("Xác nhận");
+		btnConfirmTitle = new JButton("Xác nhận");
 		btnConfirmTitle.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		pnlTitleOfDisk.add(btnConfirmTitle);
 
@@ -193,15 +152,27 @@ public class PnlReservation extends JPanel {
 		JScrollPane scrollPane = new JScrollPane();
 		pnlCenter.add(scrollPane, BorderLayout.CENTER);
 
-		JList lstReservation = new JList();
+		lstReservation = new JList<ChiTietDatGiu>(new DefaultListModel<ChiTietDatGiu>());
 		lstReservation.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		lstReservation.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		scrollPane.setViewportView(lstReservation);
 
-		btnRemove = new JButton("Xoá bỏ");
-		btnRemove.setEnabled(false);
+		JPanel panel_1 = new JPanel();
+		pnlCenter.add(panel_1, BorderLayout.SOUTH);
+		panel_1.setLayout(new GridLayout(0, 2, 0, 0));
+
+		JButton btnRemove = new JButton("Xoá bỏ");
 		btnRemove.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		pnlCenter.add(btnRemove, BorderLayout.SOUTH);
+		btnRemove.setEnabled(false);
+		panel_1.add(btnRemove);
+
+		btnCancelReservation = new JButton("Huỷ đặt đĩa");
+		btnCancelReservation.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		panel_1.add(btnCancelReservation);
+
+		pnlCustomerCommon = new PnlCustomerCommon(null);
+		pnlCustomer.add(pnlCustomerCommon);
+		pnlCustomerCommon.setLayout(new BoxLayout(pnlCustomerCommon, BoxLayout.Y_AXIS));
 
 		setEventForButton();
 
@@ -215,6 +186,38 @@ public class PnlReservation extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				closeUIListener.onCloseUI(e);
 
+			}
+		});
+
+		pnlCustomerCommon.setItemClickListener(new ItemClickListener() {
+
+			@Override
+			public void onClick(ActionEvent e, KhachHang khachHang) {
+				khachHangDatBanSao = khachHang;
+				List<TuaDe> dsTuaDeKHChuaDat = datTruocDiaBUS.getDSTuaDeKhachHangChuaDat(khachHangDatBanSao.getId());
+				System.out.println("Số lượng tựa đề: " + dsTuaDeKHChuaDat.size());
+				hienDanhSachTuaDe(dsTuaDeKHChuaDat);
+
+			}
+		});
+
+		btnConfirmTitle.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				TuaDe tuaDe = (TuaDe) cmbTitleOfDisk.getModel().getSelectedItem();
+				themTuaDeVaoDSMuonDat(tuaDe);
+				xoaTuaDeKhoiCombox(tuaDe);
+
+			}
+		});
+		
+		btnAccept.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				xacNhanDatDia(dsMuonDat);
+				
 			}
 		});
 
@@ -232,6 +235,69 @@ public class PnlReservation extends JPanel {
 
 			}
 		});
+
+	}
+
+	/**
+	 * Xác nhận đặt bản sao của tựa đề
+	 * @param ds
+	 */
+	private void xacNhanDatDia(List<ChiTietDatGiu> ds) {
+		
+		
+	}
+
+	/**
+	 * Xoá tựa đề khỏi combobox sau khi thêm
+	 * 
+	 * @param tuaDe
+	 */
+	private void xoaTuaDeKhoiCombox(TuaDe tuaDe) {
+		((DefaultComboBoxModel<TuaDe>) cmbTitleOfDisk.getModel()).removeElement(tuaDe);
+
+	}
+
+	/**
+	 * Thêm tựa đề vào danh sách muốn đặt
+	 * 
+	 * @param tuaDe tựa đề
+	 */
+	private void themTuaDeVaoDSMuonDat(TuaDe tuaDe) {
+		ChiTietDatGiu chiTietDatGiu = new ChiTietDatGiu();
+		chiTietDatGiu.datGiuDia(khachHangDatBanSao, tuaDe);
+		dsMuonDat.add(chiTietDatGiu);
+
+		hienDanhSachDatGiu(dsMuonDat);
+
+	}
+
+	/**
+	 * hiện danh sách muốn đặt và đã được gán đĩa
+	 * 
+	 * @param dsDatGiu
+	 */
+	private void hienDanhSachDatGiu(List<ChiTietDatGiu> dsDatGiu) {
+		DefaultListModel<ChiTietDatGiu> listModel = (DefaultListModel<ChiTietDatGiu>) lstReservation.getModel();
+		listModel.removeAllElements();
+		for (ChiTietDatGiu chiTietDatGiu : dsDatGiu) {
+			listModel.addElement(chiTietDatGiu);
+		}
+
+	}
+
+	/**
+	 * Lấy danh sách tựa đề mà khách hàng chưa đặt
+	 * 
+	 * @param dsTuaDeKHChuaDat danh sách tựa đề
+	 */
+	private void hienDanhSachTuaDe(List<TuaDe> dsTuaDeKHChuaDat) {
+		DefaultComboBoxModel<TuaDe> comboBoxModel = (DefaultComboBoxModel<TuaDe>) cmbTitleOfDisk.getModel();
+		comboBoxModel.removeAllElements();
+		for (TuaDe tuaDe : dsTuaDeKHChuaDat) {
+			comboBoxModel.addElement(tuaDe);
+		}
+
+		pnlTitleOfDisk.setVisible(true);
 
 	}
 
