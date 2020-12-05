@@ -31,4 +31,23 @@ public class ChiTietDatGiuDAO extends AbstractDAO<ChiTietDatGiu, ChiTietDatGiuID
 		return query.getResultList();
 	}
 
+	@Override
+	public List<ChiTietDatGiu> getDSDatBanSaoTheoKH(Long khachHangId) {
+		TypedQuery<ChiTietDatGiu> query = null;
+		try {
+			query = em.createQuery(
+					"select ct from ChiTietDatGiu ct where ct.khachHang.id = :khachHangId",
+					ChiTietDatGiu.class).setParameter("khachHangId", khachHangId);
+		} catch (Exception e) {
+			logger.error("Lỗi truy vấn: " + e.getMessage());
+			logger.info("Nguyên nhân: " + e.getCause());
+		}
+
+		if (query == null || query.getResultList().size() == 0) {
+			return new ArrayList<ChiTietDatGiu>();
+		}
+
+		return query.getResultList();
+	}
+
 }
