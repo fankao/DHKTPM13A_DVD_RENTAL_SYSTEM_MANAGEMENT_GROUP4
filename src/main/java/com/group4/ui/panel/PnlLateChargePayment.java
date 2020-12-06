@@ -237,7 +237,14 @@ public class PnlLateChargePayment extends JPanel {
 
 			@Override
 			public void stateChanged(ChangeEvent e) {
-				chonPhiTreHanCanThanhToan((int) spnQuantity.getValue());
+				int soLuong = (int) spnQuantity.getValue();
+				if (soLuong < dsThanhToanTreHan.size()) {
+					tblLateCharges.setValueAt(false, dsThanhToanTreHan.size() - 1, 0);
+					dsThanhToanTreHan.remove(dsThanhToanTreHan.size() - 1);
+				} else {
+					chonPhiTreHanCanThanhToan(soLuong);
+				}
+
 				System.out.println("Số phí trễ hạn muốn trả: " + spnQuantity.getValue().toString());
 				hienTongTienThanhToanPhiTreHan(dsThanhToanTreHan);
 
@@ -387,7 +394,8 @@ public class PnlLateChargePayment extends JPanel {
 			@Override
 			public void onClick(ActionEvent e, KhachHang khachHang) {
 				khachHangThanhToan = khachHang;
-				hienChiTietPhiTreHan(khachHang);
+				System.out.println(khachHangThanhToan.getId());
+				hienChiTietPhiTreHan(khachHangThanhToan);
 
 			}
 
@@ -444,20 +452,20 @@ public class PnlLateChargePayment extends JPanel {
 	 * Huỷ thanh thanh toán phí trễ hạn
 	 */
 	private void huyThanhToanPhiTreHan() {
-
-		resetCacLuaChonThanhToan();
-
-		chkSelectAll.setSelected(false);
-
 		voHieuHoaButton(btnConfirm);
 
 		if (dsThanhToanTreHan.size() == 0) {
 			dsTreHan.clear();
+			hienDanhSachPhiTreHan(dsTreHan);
 			pnlCustomerCommon.visibleCustomeInfo(false);
 			setVisibleCacLuaChonThanhToan(false);
-		}
+			voHieuHoaButton(btnCancel);
+			khachHangThanhToan = null;
 
-		resetDSPhiTreHan(dsTreHan);
+		} else {
+			resetCacLuaChonThanhToan();
+			resetDSPhiTreHan(dsTreHan);
+		}
 
 	}
 
@@ -483,6 +491,12 @@ public class PnlLateChargePayment extends JPanel {
 			resetDSPhiTreHan(dsTreHan);
 		}
 		resetCacLuaChonThanhToan();
+
+		voHieuHoaButton(btnConfirm);
+
+		if (dsTreHan.size() == 0) {
+			huyThanhToanPhiTreHan();
+		}
 	}
 
 	/**
@@ -503,6 +517,14 @@ public class PnlLateChargePayment extends JPanel {
 	 */
 	private void hienChiTietPhiTreHan(KhachHang khachHang) {
 		dsTreHan = thanhToanPhiTreHanBUS.getDSThueTraTreHanTheoKH(khachHang.getId());
+
+		if (dsTreHan.size() == 0) {
+			hienThongBao(this, "Thông báo", "Khách hàng " + khachHang.getHoVaTen() + " chưa có phí trễ hạn",
+					JOptionPane.INFORMATION_MESSAGE);
+			pnlCustomerCommon.visibleCustomeInfo(false);
+			return;
+		}
+
 		hienDanhSachPhiTreHan(dsTreHan);
 
 		spnQuantity.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), Integer.valueOf(dsTreHan.size()),

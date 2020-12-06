@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import com.group4.ui.dialog.DlgLogin;
+import com.group4.ui.panel.PnlCustomerReportUI;
 import com.group4.ui.panel.PnlLateChargePayment;
 import com.group4.ui.panel.PnlManageDisk;
 import com.group4.ui.panel.PnlManagerTitle;
@@ -317,6 +318,24 @@ public class FrmMain extends JFrame {
 						closeWorkUI(pnlManagerTitle);
 					}
 				});
+			}
+		});
+		
+		mntmReportCustomer.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				PnlCustomerReportUI customerReportUI = new PnlCustomerReportUI();
+				openWorkUI(customerReportUI);
+				customerReportUI.setCloseUIListener(new ICloseUIListener() {
+					
+					@Override
+					public void onCloseUI(ActionEvent e) {
+						closeWorkUI(customerReportUI);
+						
+					}
+				});
+				
 			}
 		});
 	}
