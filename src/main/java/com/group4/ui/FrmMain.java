@@ -4,9 +4,6 @@ import static com.group4.ui.panel.UtilsLayout.*;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -15,8 +12,8 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 
+<<<<<<< dev-chien
 import com.group4.ui.dialog.DlgLogin;
 import com.group4.ui.panel.PnlLateChargePayment;
 import com.group4.ui.panel.PnlManageDisk;
@@ -26,6 +23,9 @@ import com.group4.ui.panel.PnlRentDisk;
 import com.group4.ui.panel.PnlReservation;
 import com.group4.ui.panel.PnlThietLapGiaThueChoDia;
 import com.group4.ui.panel.PnlTraDia;
+=======
+import com.group4.ui.panel.PnlCustomerReportUI;
+>>>>>>> 1710478 upate
 
 public class FrmMain extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -319,6 +319,7 @@ public class FrmMain extends JFrame {
 				});
 			}
 		});
+<<<<<<< dev-chien
 	}
 
 	private void closeWorkUI(JPanel panel) {
@@ -333,8 +334,38 @@ public class FrmMain extends JFrame {
 		getContentPane().repaint();
 		getContentPane().validate();
 		enableMenu(false);
+=======
+		
+		mntmLogin.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				DlgLogin dlgLogin = new DlgLogin();
+				hienDialog(dlgLogin);
+
+			}
+		});
+
+		
+		mntmReportCustomer.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				PnlCustomerReportUI customerReportUI = new PnlCustomerReportUI();
+				openWorkUI(customerReportUI);
+				customerReportUI.setCloseUIListener(new ICloseUIListener() {
+					
+					@Override
+					public void onCloseUI(ActionEvent e) {
+						closeWorkUI(customerReportUI);
+						
+					}
+				});}
+>>>>>>> 1710478 upate
 
 	}
+<<<<<<< dev-chien
 
 	private void enableMenu(boolean isEnable) {
 		mnRentDisk.setEnabled(isEnable);
@@ -362,3 +393,5 @@ public class FrmMain extends JFrame {
 	}
 
 }
+=======
+>>>>>>> 1710478 upate
