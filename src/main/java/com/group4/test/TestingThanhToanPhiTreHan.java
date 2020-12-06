@@ -100,7 +100,6 @@ public class TestingThanhToanPhiTreHan {
 		tuaDeDAO.create(tuaDe4);
 		TuaDe tuaDe5 = new TuaDe("Transformer");
 		tuaDeDAO.create(tuaDe5);
-<<<<<<< master
 		TuaDe tuaDe6 = new TuaDe("Siêu nhân GAO");
 		tuaDeDAO.create(tuaDe6);
 		TuaDe tuaDe7 = new TuaDe("Tom and Jerry");
@@ -111,8 +110,6 @@ public class TestingThanhToanPhiTreHan {
 		tuaDeDAO.create(tuaDe9);
 		TuaDe tuaDe10 = new TuaDe("Gia đình hạnh phúc");
 		tuaDeDAO.create(tuaDe10);
-=======
->>>>>>> e316079 Update
 
 		ILoaiDiaDAO loaiDiaDAO = new LoaiDiaDAO();
 		LoaiDia l1 = new LoaiDia(TenLoaiDia.DVD, 100, 10, 10);

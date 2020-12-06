@@ -1,7 +1,6 @@
 package com.group4.ui;
 
-import static com.group4.ui.panel.UtilsLayout.hienThongBao;
-import static com.group4.ui.panel.UtilsLayout.hienThongBaoXacNhan;
+import static com.group4.ui.panel.UtilsLayout.*;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -11,7 +10,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -20,7 +18,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import com.group4.ui.dialog.DlgLogin;
-import com.group4.ui.panel.PnlCustomerReportUI;
 import com.group4.ui.panel.PnlLateChargePayment;
 import com.group4.ui.panel.PnlManageDisk;
 import com.group4.ui.panel.PnlManagerTitle;
@@ -56,8 +53,6 @@ public class FrmMain extends JFrame {
 	private JMenuItem mntmLogout;
 	private JMenuItem mntmManagerTitle;
 	private JMenu mnAdmin;
-
-	private JDialog dlgDangNhap;
 
 	public FrmMain(String title) {
 		super(title);
@@ -324,34 +319,6 @@ public class FrmMain extends JFrame {
 				});
 			}
 		});
-
-		
-		mntmLogin.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-				DlgLogin dlgLogin = new DlgLogin();
-				hienDialog(dlgLogin);
-
-			}
-		});
-
-		
-		mntmReportCustomer.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				PnlCustomerReportUI customerReportUI = new PnlCustomerReportUI();
-				openWorkUI(customerReportUI);
-				customerReportUI.setCloseUIListener(new ICloseUIListener() {
-					
-					@Override
-					public void onCloseUI(ActionEvent e) {
-						closeWorkUI(customerReportUI);
-						
-					}
-				});}
 	}
 
 	private void closeWorkUI(JPanel panel) {
@@ -368,4 +335,30 @@ public class FrmMain extends JFrame {
 		enableMenu(false);
 
 	}
+
+	private void enableMenu(boolean isEnable) {
+		mnRentDisk.setEnabled(isEnable);
+		mnReturnDisk.setEnabled(isEnable);
+		mnReservation.setEnabled(isEnable);
+		mnManage.setEnabled(isEnable);
+		mnLateChargesPayment.setEnabled(isEnable);
+		mnReport.setEnabled(isEnable);
+		mnAdmin.setEnabled(isEnable);
+
+		if (isEnable == false) {
+			isProcessingBusiness = true;
+		}else {
+			isProcessingBusiness = false;
+		}
+	}
+
+	/**
+	 * Tạo khung giao diện chính
+	 */
+	private void buildFrame() {
+		this.setSize(1280, 768);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		this.setLocationRelativeTo(null);
+	}
+
 }
