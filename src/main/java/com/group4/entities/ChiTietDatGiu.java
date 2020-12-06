@@ -16,12 +16,12 @@ public class ChiTietDatGiu {
 	@EmbeddedId
 	private ChiTietDatGiuID id = new ChiTietDatGiuID();
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@MapsId("khachHangId")
 	@JoinColumn(name = "khachHangId")
 	private KhachHang khachHang;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@MapsId("tuaDeId")
 	@JoinColumn(name = "tuaDeId")
 	private TuaDe tuaDe;

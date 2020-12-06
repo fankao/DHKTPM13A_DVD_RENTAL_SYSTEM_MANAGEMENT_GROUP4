@@ -187,17 +187,17 @@ public class TestingThanhToanPhiTreHan {
 
 		IChiTietThueTraDAO chiTietThueTraDAO = new ChiTietThueTraDAO();
 
-		ChiTietThueTra chiTietThueTra1 = chiTietThueTraDAO.findById(new ChiTietThueTraID(1L, 1L));
-		chiTietThueTra1.setNgayTra(LocalDate.of(2020, 12, 20));
+		ChiTietThueTra chiTietThueTra1 = chiTietThueTraDAO.findById(new ChiTietThueTraID(kh1.getId(), dia1.getId()));
+		chiTietThueTra1.setNgayTra(LocalDate.of(2020, 12, LocalDate.now().getDayOfMonth()));
 
-		ChiTietThueTra chiTietThueTra2 = chiTietThueTraDAO.findById(new ChiTietThueTraID(1L, 2L));
-		chiTietThueTra2.setNgayTra(LocalDate.of(2020, 12, 20));
+		ChiTietThueTra chiTietThueTra2 = chiTietThueTraDAO.findById(new ChiTietThueTraID(kh1.getId(), dia2.getId()));
+		chiTietThueTra2.setNgayTra(LocalDate.of(2020, 12, LocalDate.now().getDayOfMonth()));
 
-		ChiTietThueTra chiTietThueTra3 = chiTietThueTraDAO.findById(new ChiTietThueTraID(1L, 3L));
-		chiTietThueTra3.setNgayTra(LocalDate.of(2020, 12, 20));
+		ChiTietThueTra chiTietThueTra3 = chiTietThueTraDAO.findById(new ChiTietThueTraID(kh1.getId(), dia3.getId()));
+		chiTietThueTra3.setNgayTra(LocalDate.of(2020, 12, LocalDate.now().getDayOfMonth()));
 
-		ChiTietThueTra chiTietThueTra4 = chiTietThueTraDAO.findById(new ChiTietThueTraID(1L, 4L));
-		chiTietThueTra4.setNgayTra(LocalDate.of(2020, 12, 20));
+		ChiTietThueTra chiTietThueTra4 = chiTietThueTraDAO.findById(new ChiTietThueTraID(kh1.getId(), dia4.getId()));
+		chiTietThueTra4.setNgayTra(LocalDate.of(2020, 12, LocalDate.now().getDayOfMonth()));
 
 		chiTietThueTraDAO.update(chiTietThueTra1);
 		chiTietThueTraDAO.update(chiTietThueTra2);

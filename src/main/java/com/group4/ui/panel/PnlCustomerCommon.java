@@ -1,5 +1,5 @@
 package com.group4.ui.panel;
-
+import static com.group4.Injection.*;
 import static com.group4.ui.panel.UtilsLayout.*;
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -23,10 +23,6 @@ import com.group4.entities.KhachHang;
 
 public class PnlCustomerCommon extends JPanel {
 	private static final long serialVersionUID = 1L;
-	private static IKhachHangDAO khachHangDAO;
-	static {
-		khachHangDAO = new KhachHangDAO();
-	}
 
 	private ItemClickListener itemClickListener;
 

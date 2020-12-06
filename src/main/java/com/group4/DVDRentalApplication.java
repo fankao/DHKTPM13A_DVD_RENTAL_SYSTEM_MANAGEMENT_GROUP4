@@ -4,7 +4,6 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-import com.group4.test.TestingThanhToanPhiTreHan;
 import com.group4.ui.FrmMain;
 
 public class DVDRentalApplication {
@@ -13,6 +12,7 @@ public class DVDRentalApplication {
 		//TODO: chạy màn hình Loading...
 		
 		System.out.println("Loading...");
+		 new Injection();
 
 		/*
 		 * dữ liệu test thuê đĩa
@@ -22,7 +22,7 @@ public class DVDRentalApplication {
 		/*
 		 * dữ liệu test trong trường hợp có phí trễ han
 		 */
-		TestingThanhToanPhiTreHan.main();
+		//TestingThanhToanPhiTreHan.main();
 
 		try {
 			// UIManager.setLookAndFeel("com.jtattoo.plaf.mint.MintLookAndFeel");

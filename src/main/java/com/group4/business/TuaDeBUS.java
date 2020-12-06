@@ -1,5 +1,5 @@
 package com.group4.business;
-
+import static com.group4.Injection.*;
 import com.group4.dao.IChiTietDatGiuDAO;
 import com.group4.dao.IDiaDAO;
 import com.group4.dao.ITuaDeDAO;
@@ -9,14 +9,6 @@ import com.group4.dao.impl.TuaDeDAO;
 import com.group4.entities.TuaDe;
 
 public class TuaDeBUS {
-	private static ITuaDeDAO tuaDeDAO;
-	private static IChiTietDatGiuDAO chiTietDatGiuDAO;
-	private static IDiaDAO diaDAO;
-	static {
-		tuaDeDAO = new TuaDeDAO();
-		chiTietDatGiuDAO = new ChiTietDatGiuDAO();
-		diaDAO = new DiaDAO();
-	}
 	/**
 	 * Xóa tựa đề
 	 * @param tuaDe: Tựa đề cần xóa

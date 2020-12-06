@@ -1,5 +1,5 @@
 package com.group4.ui.panel;
-
+import static com.group4.Injection.*;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.Font;

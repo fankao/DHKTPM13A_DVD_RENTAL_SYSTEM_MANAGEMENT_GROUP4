@@ -1,5 +1,5 @@
 package com.group4.ui.dialog;
-
+import static com.group4.Injection.*;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -33,11 +33,7 @@ public class DlgGanDia extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private ICloseUIListener closeUIListener;
 	private static DatTruocDiaBUS datTruocDiaBUS;
-	private static IDiaDAO diaDAO;
-	static {
-		datTruocDiaBUS = new DatTruocDiaBUS();
-		diaDAO = new DiaDAO();
-	}
+
 
 	private JLabel lblDiskId;
 	private JLabel lblNewLabel_2;

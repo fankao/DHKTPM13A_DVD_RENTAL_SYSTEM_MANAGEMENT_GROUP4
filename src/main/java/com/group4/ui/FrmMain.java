@@ -17,6 +17,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import com.group4.model.TaiKhoanModel;
 import com.group4.ui.dialog.DlgLogin;
 import com.group4.ui.panel.PnlLateChargePayment;
 import com.group4.ui.panel.PnlManageDisk;
@@ -165,6 +166,7 @@ public class FrmMain extends JFrame {
 		mntmLogout = new JMenuItem("Đăng xuất");
 		mntmLogout.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 		mnAdmin.add(mntmLogout);
+	
 
 		setEventForMenu();
 		setEventWhenClickClose();

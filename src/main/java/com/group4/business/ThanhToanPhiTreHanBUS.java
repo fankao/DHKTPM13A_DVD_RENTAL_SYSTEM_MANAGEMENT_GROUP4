@@ -1,20 +1,14 @@
 package com.group4.business;
+import static com.group4.Injection.chiTietThueTraDAO;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.group4.dao.IChiTietThueTraDAO;
-import com.group4.dao.impl.ChiTietThueTraDAO;
 import com.group4.entities.ChiTietThueTra;
 
 public class ThanhToanPhiTreHanBUS {
 
-	private static IChiTietThueTraDAO chiTietThueTraDAO;
-
-	static {
-		chiTietThueTraDAO = new ChiTietThueTraDAO();
-	}
 
 	/**
 	 * UC005b: Lấy danh sách chi tiết thuê trả đã trễ hạn trả đĩa theo id khách hàng

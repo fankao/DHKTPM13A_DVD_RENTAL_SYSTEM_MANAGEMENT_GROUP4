@@ -1,5 +1,5 @@
 package com.group4.business;
-
+import static com.group4.Injection.*;
 import java.util.List;
 
 import com.group4.dao.IChiTietDatGiuDAO;
@@ -13,12 +13,7 @@ import com.group4.entities.TrangThaiDia;
 import com.group4.entities.TuaDe;
 
 public class DatTruocDiaBUS {
-	private static IChiTietDatGiuDAO chiTietDatGiuDAO;
-	private static IDiaDAO diaDAO;
-	static {
-		chiTietDatGiuDAO = new ChiTietDatGiuDAO();
-		diaDAO = new DiaDAO();
-	}
+	
 
 	public List<ChiTietDatGiu> getDSDatBanSaoTheoKH(Long khachHangId) {
 		return chiTietDatGiuDAO.getDSDatBanSaoTheoKH(khachHangId);

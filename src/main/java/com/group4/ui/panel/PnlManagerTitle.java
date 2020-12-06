@@ -1,5 +1,5 @@
 package com.group4.ui.panel;
-
+import static com.group4.Injection.*;
 import static com.group4.ui.panel.UtilsLayout.*;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
@@ -52,15 +52,8 @@ public class PnlManagerTitle extends JPanel {
 	DefaultListModel modelListTuaDe;
 	List dsTuaDe;
 
-	private static ITuaDeDAO tuaDeDAO;
-	private static TuaDeBUS tuaDeBUS;
-
 	private ICloseUIListener closeUIListener;
 
-	static {
-		tuaDeDAO = new TuaDeDAO();
-		tuaDeBUS = new TuaDeBUS();
-	}
 
 	/**
 	 * Create the panel.

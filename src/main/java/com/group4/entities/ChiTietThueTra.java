@@ -16,12 +16,12 @@ public class ChiTietThueTra {
 	@EmbeddedId
 	private ChiTietThueTraID id = new ChiTietThueTraID();
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@MapsId("khachHangId")
 	@JoinColumn(name = "khachHangId")
 	private KhachHang khachHang;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@MapsId("diaId")
 	@JoinColumn(name = "diaId")
 	private Dia dia;

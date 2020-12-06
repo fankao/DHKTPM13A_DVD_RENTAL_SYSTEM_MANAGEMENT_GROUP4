@@ -1,5 +1,5 @@
 package com.group4.ui.panel;
-
+import static com.group4.Injection.*;
 import static com.group4.ui.panel.UtilsLayout.*;
 
 import java.awt.BorderLayout;
@@ -47,10 +47,6 @@ import com.group4.ui.panel.PnlCustomerCommon.ItemClickListener;
 public class PnlLateChargePayment extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private ICloseUIListener closeUIListener;
-	private static ThanhToanPhiTreHanBUS thanhToanPhiTreHanBUS;
-	static {
-		thanhToanPhiTreHanBUS = new ThanhToanPhiTreHanBUS();
-	}
 	private List<ChiTietThueTra> dsTreHan;
 	private List<ChiTietThueTra> dsThanhToanTreHan = new ArrayList<ChiTietThueTra>();
 	private KhachHang khachHangThanhToan;
