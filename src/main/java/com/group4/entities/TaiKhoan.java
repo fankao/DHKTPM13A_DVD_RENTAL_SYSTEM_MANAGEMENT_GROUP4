@@ -51,5 +51,10 @@ public class TaiKhoan implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return username;
+	}
 
 }

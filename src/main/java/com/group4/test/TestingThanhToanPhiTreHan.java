@@ -10,17 +10,20 @@ import com.group4.dao.IChiTietThueTraDAO;
 import com.group4.dao.IDiaDAO;
 import com.group4.dao.IKhachHangDAO;
 import com.group4.dao.ILoaiDiaDAO;
+import com.group4.dao.ITaiKhoanDAO;
 import com.group4.dao.ITuaDeDAO;
 import com.group4.dao.impl.ChiTietThueTraDAO;
 import com.group4.dao.impl.DiaDAO;
 import com.group4.dao.impl.KhachHangDAO;
 import com.group4.dao.impl.LoaiDiaDAO;
+import com.group4.dao.impl.TaiKhoanDAO;
 import com.group4.dao.impl.TuaDeDAO;
 import com.group4.entities.ChiTietThueTra;
 import com.group4.entities.ChiTietThueTraID;
 import com.group4.entities.Dia;
 import com.group4.entities.KhachHang;
 import com.group4.entities.LoaiDia;
+import com.group4.entities.TaiKhoan;
 import com.group4.entities.TenLoaiDia;
 import com.group4.entities.TrangThaiDia;
 import com.group4.entities.TuaDe;
@@ -97,6 +100,16 @@ public class TestingThanhToanPhiTreHan {
 		tuaDeDAO.create(tuaDe4);
 		TuaDe tuaDe5 = new TuaDe("Transformer");
 		tuaDeDAO.create(tuaDe5);
+		TuaDe tuaDe6 = new TuaDe("Siêu nhân GAO");
+		tuaDeDAO.create(tuaDe6);
+		TuaDe tuaDe7 = new TuaDe("Tom and Jerry");
+		tuaDeDAO.create(tuaDe7);
+		TuaDe tuaDe8 = new TuaDe("Cuộc chiến sống còn");
+		tuaDeDAO.create(tuaDe8);
+		TuaDe tuaDe9 = new TuaDe("Người cha báo thù");
+		tuaDeDAO.create(tuaDe9);
+		TuaDe tuaDe10 = new TuaDe("Gia đình hạnh phúc");
+		tuaDeDAO.create(tuaDe10);
 
 		ILoaiDiaDAO loaiDiaDAO = new LoaiDiaDAO();
 		LoaiDia l1 = new LoaiDia(TenLoaiDia.DVD, 100, 10, 10);
@@ -202,6 +215,10 @@ public class TestingThanhToanPhiTreHan {
 		datTruocDiaBUS.datGiuBanSao(kh3, tuaDe5);
 		datTruocDiaBUS.datGiuBanSao(kh4, tuaDe5);
 		datTruocDiaBUS.datGiuBanSao(kh5, tuaDe5);
+		
+		ITaiKhoanDAO taiKhoanDAO = new TaiKhoanDAO();
+		TaiKhoan tk1 = new TaiKhoan("admin", "123456");
+		taiKhoanDAO.create(tk1);
 	}
 
 }
