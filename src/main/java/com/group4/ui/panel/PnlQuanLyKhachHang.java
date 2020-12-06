@@ -437,7 +437,6 @@ public class PnlQuanLyKhachHang extends JPanel {
 			}
 
 		}
-		khachHang = null;
 
 	}
 

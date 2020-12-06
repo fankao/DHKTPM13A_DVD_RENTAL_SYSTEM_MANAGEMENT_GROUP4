@@ -87,18 +87,20 @@ public class TestingThanhToanPhiTreHan {
 		kh27 = khachHangDAO.create(kh27);
 		KhachHang kh28 = new KhachHang("Quý Phước", "0989333746", "Quảng Bình");
 		kh28 = khachHangDAO.create(kh28);
-
+		
+		
 		ITuaDeDAO tuaDeDAO = new TuaDeDAO();
 		TuaDe tuaDe1 = new TuaDe("Chiến tranh giữa các vì sao");
-		tuaDe1 = tuaDeDAO.create(tuaDe1);
+		tuaDeDAO.create(tuaDe1);
 		TuaDe tuaDe2 = new TuaDe("Pokemon");
-		tuaDe2 = tuaDeDAO.create(tuaDe2);
+		tuaDeDAO.create(tuaDe2);
 		TuaDe tuaDe3 = new TuaDe("Du Hành Giữa các Vì Sao");
-		tuaDe3 = tuaDeDAO.create(tuaDe3);
+		tuaDeDAO.create(tuaDe3);
 		TuaDe tuaDe4 = new TuaDe("Liên Minh Huyền Diệu");
-		tuaDe4 = tuaDeDAO.create(tuaDe4);
+		tuaDeDAO.create(tuaDe4);
 		TuaDe tuaDe5 = new TuaDe("Transformer");
 		tuaDeDAO.create(tuaDe5);
+<<<<<<< master
 		TuaDe tuaDe6 = new TuaDe("Siêu nhân GAO");
 		tuaDeDAO.create(tuaDe6);
 		TuaDe tuaDe7 = new TuaDe("Tom and Jerry");
@@ -109,74 +111,76 @@ public class TestingThanhToanPhiTreHan {
 		tuaDeDAO.create(tuaDe9);
 		TuaDe tuaDe10 = new TuaDe("Gia đình hạnh phúc");
 		tuaDeDAO.create(tuaDe10);
+=======
+>>>>>>> e316079 Update
 
 		ILoaiDiaDAO loaiDiaDAO = new LoaiDiaDAO();
 		LoaiDia l1 = new LoaiDia(TenLoaiDia.DVD, 100, 10, 10);
-		l1 = loaiDiaDAO.create(l1);
+		loaiDiaDAO.create(l1);
 		LoaiDia l2 = new LoaiDia(TenLoaiDia.GAME, 150, 15, 15);
-		l2 = loaiDiaDAO.create(l2);
+		loaiDiaDAO.create(l2);
 
 		IDiaDAO diaDAO = new DiaDAO();
 		Dia dia1 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe1, l1);
-		dia1 = diaDAO.create(dia1);
+		diaDAO.create(dia1);
 		Dia dia2 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe2, l2);
-		dia2 = diaDAO.create(dia2);
+		diaDAO.create(dia2);
 		Dia dia3 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe2, l2);
-		dia3 = diaDAO.create(dia3);
+		diaDAO.create(dia3);
 		Dia dia4 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe1, l1);
-		dia4 = diaDAO.create(dia4);
+		diaDAO.create(dia4);
 		Dia dia5 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe1, l2);
-		dia5 = diaDAO.create(dia5);
+		diaDAO.create(dia5);
 		Dia dia6 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe2, l1);
-		dia6 = diaDAO.create(dia6);
+		diaDAO.create(dia6);
 		Dia dia7 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe2, l1);
-		dia7 = diaDAO.create(dia7);
+		diaDAO.create(dia7);
 		Dia dia8 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe3, l1);
-		dia8 = diaDAO.create(dia8);
+		diaDAO.create(dia8);
 		Dia dia9 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe4, l2);
-		dia9 = diaDAO.create(dia9);
+		diaDAO.create(dia9);
 		Dia dia10 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe5, l1);
-		dia10 = diaDAO.create(dia10);
+		diaDAO.create(dia10);
 		Dia dia11 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe1, l1);
-		dia11 = diaDAO.create(dia11);
+		diaDAO.create(dia11);
 		Dia dia12 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe2, l2);
-		dia12 = diaDAO.create(dia12);
+		diaDAO.create(dia12);
 		Dia dia13 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe2, l2);
-		dia13 = diaDAO.create(dia13);
+		diaDAO.create(dia13);
 		Dia dia14 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe1, l1);
-		dia14 = diaDAO.create(dia14);
+		diaDAO.create(dia14);
 		Dia dia15 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe1, l2);
-		dia15 = diaDAO.create(dia15);
+		diaDAO.create(dia15);
 		Dia dia16 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe2, l1);
-		dia16 = diaDAO.create(dia16);
+		diaDAO.create(dia16);
 		Dia dia17 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe2, l1);
-		dia17 = diaDAO.create(dia17);
+		diaDAO.create(dia17);
 		Dia dia18 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe3, l1);
-		dia18 = diaDAO.create(dia18);
+		diaDAO.create(dia18);
 		Dia dia19 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe4, l2);
-		dia19 = diaDAO.create(dia19);
+		diaDAO.create(dia19);
 		Dia dia20 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe5, l1);
-		dia20 = diaDAO.create(dia20);
+		diaDAO.create(dia20);
 		Dia dia21 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe1, l1);
-		dia21 = diaDAO.create(dia21);
+		diaDAO.create(dia21);
 		Dia dia22 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe2, l2);
-		dia22 = diaDAO.create(dia22);
+		diaDAO.create(dia22);
 		Dia dia23 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe2, l2);
-		dia23 = diaDAO.create(dia23);
+		diaDAO.create(dia23);
 		Dia dia24 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe1, l1);
-		dia24 = diaDAO.create(dia24);
+		diaDAO.create(dia24);
 		Dia dia25 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe1, l2);
-		dia25 = diaDAO.create(dia25);
+		diaDAO.create(dia25);
 		Dia dia26 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe2, l1);
-		dia26 = diaDAO.create(dia26);
+		diaDAO.create(dia26);
 		Dia dia27 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe2, l1);
-		dia27 = diaDAO.create(dia27);
+		diaDAO.create(dia27);
 		Dia dia28 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe3, l1);
-		dia28 = diaDAO.create(dia28);
+		diaDAO.create(dia28);
 		Dia dia29 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe4, l2);
-		dia29 = diaDAO.create(dia29);
+		diaDAO.create(dia29);
 		Dia dia30 = new Dia(TrangThaiDia.ON_SHEFT, tuaDe5, l1);
-		dia30 = diaDAO.create(dia30);
+		diaDAO.create(dia30);
 
 		ThueTraDiaBUS thueTraDiaBUS = new ThueTraDiaBUS();
 		thueTraDiaBUS.xuLyThueDia(kh1, new HashSet<Dia>(Arrays.asList(dia1, dia2, dia3, dia4)));
@@ -208,7 +212,7 @@ public class TestingThanhToanPhiTreHan {
 		ChiTietThueTra chiTietThueTra5 = chiTietThueTraDAO.findById(new ChiTietThueTraID(kh2.getId(), dia10.getId()));
 		chiTietThueTra5.setNgayTra(LocalDate.now());
 		chiTietThueTraDAO.update(chiTietThueTra5);
-
+		
 		DatTruocDiaBUS datTruocDiaBUS = new DatTruocDiaBUS();
 		datTruocDiaBUS.datGiuBanSao(kh1, tuaDe5);
 		datTruocDiaBUS.datGiuBanSao(kh3, tuaDe5);

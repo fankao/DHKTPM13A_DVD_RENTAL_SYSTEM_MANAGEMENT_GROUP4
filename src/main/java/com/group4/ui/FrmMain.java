@@ -5,6 +5,9 @@ import static com.group4.ui.panel.UtilsLayout.hienThongBaoXacNhan;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -14,8 +17,18 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
+import com.group4.ui.dialog.DlgLogin;
 import com.group4.ui.panel.PnlCustomerReportUI;
+import com.group4.ui.panel.PnlLateChargePayment;
+import com.group4.ui.panel.PnlManageDisk;
+import com.group4.ui.panel.PnlManagerTitle;
+import com.group4.ui.panel.PnlQuanLyKhachHang;
+import com.group4.ui.panel.PnlRentDisk;
+import com.group4.ui.panel.PnlReservation;
+import com.group4.ui.panel.PnlThietLapGiaThueChoDia;
+import com.group4.ui.panel.PnlTraDia;
 
 public class FrmMain extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -311,6 +324,7 @@ public class FrmMain extends JFrame {
 				});
 			}
 		});
+
 		
 		mntmLogin.addActionListener(new ActionListener() {
 			
@@ -338,5 +352,20 @@ public class FrmMain extends JFrame {
 						
 					}
 				});}
+	}
+
+	private void closeWorkUI(JPanel panel) {
+		getContentPane().remove(panel);
+		getContentPane().repaint();
+		getContentPane().validate();
+		enableMenu(true);
+	}
+
+	private void openWorkUI(JPanel panel) {
+		getContentPane().add(panel);
+		getContentPane().repaint();
+		getContentPane().validate();
+		enableMenu(false);
 
 	}
+}
