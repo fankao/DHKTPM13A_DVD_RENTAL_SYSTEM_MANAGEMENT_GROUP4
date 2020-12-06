@@ -257,7 +257,7 @@ public class PnlQuanLyKhachHang extends JPanel {
 					return;
 
 				hienThongTinKhachHang(dsKH.get(select));
-
+				voHieuHoaButton(btnThemKhachHang);
 				kichHoatButton(btnSuaKhachHang, btnXoaKhachHang, btnHuy);
 				voHieuHoaTextField(txtTenKhachHang, txtSoDienThoai, txtDiaChi);
 			}

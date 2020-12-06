@@ -1,32 +1,18 @@
 package com.group4.ui;
 
-import static com.group4.ui.panel.UtilsLayout.*;
+import static com.group4.ui.panel.UtilsLayout.hienThongBao;
+import static com.group4.ui.panel.UtilsLayout.hienThongBaoXacNhan;
 
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-
-import com.group4.ui.dialog.DlgLogin;
-import com.group4.ui.panel.PnlCustomerReportUI;
-import com.group4.ui.panel.PnlLateChargePayment;
-import com.group4.ui.panel.PnlManageDisk;
-import com.group4.ui.panel.PnlManagerTitle;
-import com.group4.ui.panel.PnlQuanLyKhachHang;
-import com.group4.ui.panel.PnlRentDisk;
-import com.group4.ui.panel.PnlReservation;
-import com.group4.ui.panel.PnlThietLapGiaThueChoDia;
-import com.group4.ui.panel.PnlTraDia;
 
 public class FrmMain extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -54,6 +40,8 @@ public class FrmMain extends JFrame {
 	private JMenuItem mntmLogout;
 	private JMenuItem mntmManagerTitle;
 	private JMenu mnAdmin;
+
+	private JDialog dlgDangNhap;
 
 	public FrmMain(String title) {
 		super(title);
@@ -320,6 +308,7 @@ public class FrmMain extends JFrame {
 				});
 			}
 		});
+
 		
 		mntmReportCustomer.addActionListener(new ActionListener() {
 			
@@ -336,10 +325,22 @@ public class FrmMain extends JFrame {
 					}
 				});
 				
+
+		mntmLogin.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				DlgLogin dlgLogin = new DlgLogin();
+				hienDialog(dlgLogin);
+
 			}
 		});
 	}
-
+	
+	private void hienDialog(DlgLogin dlgLogin) {
+		dlgLogin.setVisible(true);
+	}
 	private void closeWorkUI(JPanel panel) {
 		getContentPane().remove(panel);
 		getContentPane().repaint();

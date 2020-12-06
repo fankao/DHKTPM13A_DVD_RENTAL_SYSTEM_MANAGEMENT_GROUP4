@@ -1,11 +1,14 @@
 package com.group4.ui.panel;
 
+import static com.group4.ui.panel.UtilsLayout.*;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
@@ -21,15 +24,19 @@ import java.awt.FlowLayout;
 
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import org.hibernate.internal.util.ValueHolder.DeferredInitializer;
 
+import com.group4.business.TuaDeBUS;
 import com.group4.dao.ITuaDeDAO;
 import com.group4.dao.impl.TuaDeDAO;
 import com.group4.entities.TuaDe;
 import com.group4.ui.ICloseUIListener;
 
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 
 public class PnlManagerTitle extends JPanel {
 	private JTextField txtTenTuaDe;
@@ -38,6 +45,7 @@ public class PnlManagerTitle extends JPanel {
 	private JButton btnSua;
 	private JButton btnLuu;
 	private JButton btnThoat;
+	private JButton btnHuy;
 	private JList<TuaDe> listTuaDe;
 
 	private TuaDe tuaDe;
@@ -45,11 +53,13 @@ public class PnlManagerTitle extends JPanel {
 	List dsTuaDe;
 
 	private static ITuaDeDAO tuaDeDAO;
+	private static TuaDeBUS tuaDeBUS;
 
 	private ICloseUIListener closeUIListener;
 
 	static {
 		tuaDeDAO = new TuaDeDAO();
+		tuaDeBUS = new TuaDeBUS();
 	}
 
 	/**
@@ -96,7 +106,7 @@ public class PnlManagerTitle extends JPanel {
 		txtTenTuaDe = new JTextField();
 		txtTenTuaDe.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		panel_1.add(txtTenTuaDe);
-		txtTenTuaDe.setColumns(10);
+		txtTenTuaDe.setColumns(20);
 
 		JPanel panel_2 = new JPanel();
 		FlowLayout flowLayout_2 = (FlowLayout) panel_2.getLayout();
@@ -146,6 +156,11 @@ public class PnlManagerTitle extends JPanel {
 		btnLuu.setPreferredSize(new Dimension(100, 50));
 		btnSua.setPreferredSize(new Dimension(100, 50));
 		btnXoa.setPreferredSize(new Dimension(100, 50));
+
+		btnHuy = new JButton("Hủy");
+		btnHuy.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		panel_3.add(btnHuy);
+		btnHuy.setPreferredSize(new Dimension(100, 50));
 		btnThoat.setPreferredSize(new Dimension(100, 50));
 
 		// Tạo list tựa đề
@@ -155,8 +170,159 @@ public class PnlManagerTitle extends JPanel {
 		listTuaDe.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		pnRight.add(listTuaDe);
 
+		voHieuHoaButton(btnSua, btnXoa, btnHuy, btnLuu);
+		voHieuHoaTextField(txtTenTuaDe);
 		dsTuaDe = tuaDeDAO.findAll();
 		hienDanhSachTuaDe(dsTuaDe);
+		ganSuKienChoButton();
+		ganSuKienChoJList();
+
+	}
+
+	private void ganSuKienChoJList() {
+		listTuaDe.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+
+			@Override
+			public void valueChanged(ListSelectionEvent arg0) {
+				int select = listTuaDe.getSelectedIndex();
+				if (select == -1) {
+					return;
+				}
+				tuaDe = (TuaDe) dsTuaDe.get(select);
+				hienThongTinTuaDe(tuaDe);
+				voHieuHoaTextField(txtTenTuaDe);
+				kichHoatButton(btnSua, btnXoa,btnHuy);
+				voHieuHoaButton(btnThem);
+			}
+		});
+	}
+
+	private void hienThongTinTuaDe(TuaDe tuaDe) {
+		txtTenTuaDe.setText(tuaDe.getTenTuaDe());
+	}
+
+	private void ganSuKienChoButton() {
+		btnThoat.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				closeUIListener.onCloseUI(e);
+			}
+		});
+		btnThem.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				listTuaDe.clearSelection();
+				kichHoatButton(btnLuu, btnHuy);
+				voHieuHoaButton(btnThem);
+				kichHoatTextField(txtTenTuaDe);
+				xoaTrangInput();
+
+			}
+		});
+		btnHuy.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				xuLyHuyThaoTac();
+				voHieuHoaTextField(txtTenTuaDe);
+				voHieuHoaButton(btnSua,btnXoa);
+				listTuaDe.clearSelection();
+			}
+		});
+		btnXoa.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				int selectIndex = -1;
+				selectIndex = listTuaDe.getSelectedIndex();
+				if (selectIndex >= 0) {
+					TuaDe td = (TuaDe) dsTuaDe.get(selectIndex);
+
+					int option = hienThongBaoXacNhan(PnlManagerTitle.this, "Thông báo xác nhận",
+							"Bạn có muốn xóa tựa đề này?");
+
+					if (option == JOptionPane.YES_OPTION) {
+						if (tuaDeBUS.xoaTuaDe(td) == false) {
+							hienThongBao(PnlManagerTitle.this, "Thông báo lỗi",
+									"Không thể xóa tựa đề do tựa đề đang có đĩa hoặc được đặt giữ",
+									JOptionPane.ERROR_MESSAGE);
+							return;
+						}
+						dsTuaDe = tuaDeDAO.findAll();
+						listTuaDe.clearSelection();
+						hienDanhSachTuaDe(dsTuaDe);
+						hienThongBao(PnlManagerTitle.this, "Thông báo", "Xóa tựa đề thành công",
+								JOptionPane.INFORMATION_MESSAGE);
+						xoaTrangInput();
+						voHieuHoaButton(btnSua,btnXoa);
+						kichHoatButton(btnThem);
+					}
+				}
+			}
+		});
+		btnLuu.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				if(isValidInput()) {
+					String name = txtTenTuaDe.getText();
+					if(tuaDe == null) {
+						tuaDe = new TuaDe();
+					}
+					tuaDe.setTenTuaDe(name);
+					
+					xuLyLuuTuaDe(tuaDe);
+					listTuaDe.clearSelection();
+					dsTuaDe = tuaDeDAO.findAll();
+					hienDanhSachTuaDe(dsTuaDe);
+					
+					xoaTrangInput();
+					voHieuHoaButton(btnLuu,btnHuy);
+					kichHoatButton(btnThem);
+					voHieuHoaTextField(txtTenTuaDe);
+				}
+			}
+		});
+	}
+	
+	private void xuLyLuuTuaDe(TuaDe td) {
+		if(td.getId()!=null && td.getId() > 0) {
+			//cập nhật
+			td = tuaDeDAO.update(tuaDe);
+			if(td!=null) {
+				hienThongBao(this, "Thông báo", "Cập nhật tựa đề thành công", JOptionPane.INFORMATION_MESSAGE);
+			}
+		}else {
+			//Thêm mới
+			td = tuaDeDAO.create(tuaDe);
+			if(td != null) {
+				hienThongBao(this, "Thông báo", 
+						"Thêm mới tựa đề thành công", 
+						JOptionPane.INFORMATION_MESSAGE);
+			}
+		}
+		tuaDe = null;
+	}
+	
+	private boolean isValidInput() {
+		if(!isInputFieldNotBlank(this,txtTenTuaDe)) {
+			return false;
+		}
+		return true;
+	}
+
+	private void xuLyHuyThaoTac() {
+		listTuaDe.clearSelection();
+		txtTenTuaDe.setText("");
+		voHieuHoaButton(btnLuu, btnHuy);
+		kichHoatButton(btnThem);
+	}
+
+	private void xoaTrangInput() {
+		txtTenTuaDe.setText("");
+		txtTenTuaDe.requestFocus();
 
 	}
 
