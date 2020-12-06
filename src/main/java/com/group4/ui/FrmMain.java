@@ -10,7 +10,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -54,8 +53,6 @@ public class FrmMain extends JFrame {
 	private JMenuItem mntmLogout;
 	private JMenuItem mntmManagerTitle;
 	private JMenu mnAdmin;
-
-	private JDialog dlgDangNhap;
 
 	public FrmMain(String title) {
 		super(title);
@@ -308,13 +305,13 @@ public class FrmMain extends JFrame {
 			}
 		});
 		mntmTitleDisk.addActionListener(new ActionListener() {
-
+			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				PnlManagerTitle pnlManagerTitle = new PnlManagerTitle();
 				openWorkUI(pnlManagerTitle);
 				pnlManagerTitle.setCloseUIListener(new ICloseUIListener() {
-
+					
 					@Override
 					public void onCloseUI(ActionEvent e) {
 						closeWorkUI(pnlManagerTitle);
@@ -322,19 +319,6 @@ public class FrmMain extends JFrame {
 				});
 			}
 		});
-		mntmLogin.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-				DlgLogin dlgLogin = new DlgLogin();
-				hienDialog(dlgLogin);
-			}
-		});
-	}
-
-	private void hienDialog(DlgLogin dlgLogin) {
-		dlgLogin.setVisible(true);
 	}
 
 	private void closeWorkUI(JPanel panel) {
@@ -363,7 +347,7 @@ public class FrmMain extends JFrame {
 
 		if (isEnable == false) {
 			isProcessingBusiness = true;
-		} else {
+		}else {
 			isProcessingBusiness = false;
 		}
 	}
