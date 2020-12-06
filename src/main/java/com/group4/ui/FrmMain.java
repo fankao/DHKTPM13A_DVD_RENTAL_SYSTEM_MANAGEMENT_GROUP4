@@ -4,6 +4,7 @@ import static com.group4.ui.panel.UtilsLayout.hienThongBao;
 import static com.group4.ui.panel.UtilsLayout.hienThongBaoXacNhan;
 
 import java.awt.Font;
+import java.awt.event.ActionEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -13,6 +14,8 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+
+import com.group4.ui.panel.PnlCustomerReportUI;
 
 public class FrmMain extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -308,6 +311,17 @@ public class FrmMain extends JFrame {
 				});
 			}
 		});
+		
+		mntmLogin.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				DlgLogin dlgLogin = new DlgLogin();
+				hienDialog(dlgLogin);
+
+			}
+		});
 
 		
 		mntmReportCustomer.addActionListener(new ActionListener() {
@@ -323,62 +337,6 @@ public class FrmMain extends JFrame {
 						closeWorkUI(customerReportUI);
 						
 					}
-				});
-				
-
-		mntmLogin.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-				DlgLogin dlgLogin = new DlgLogin();
-				hienDialog(dlgLogin);
-
-			}
-		});
-	}
-	
-	private void hienDialog(DlgLogin dlgLogin) {
-		dlgLogin.setVisible(true);
-	}
-	private void closeWorkUI(JPanel panel) {
-		getContentPane().remove(panel);
-		getContentPane().repaint();
-		getContentPane().validate();
-		enableMenu(true);
-	}
-
-	private void openWorkUI(JPanel panel) {
-		getContentPane().add(panel);
-		getContentPane().repaint();
-		getContentPane().validate();
-		enableMenu(false);
+				});}
 
 	}
-
-	private void enableMenu(boolean isEnable) {
-		mnRentDisk.setEnabled(isEnable);
-		mnReturnDisk.setEnabled(isEnable);
-		mnReservation.setEnabled(isEnable);
-		mnManage.setEnabled(isEnable);
-		mnLateChargesPayment.setEnabled(isEnable);
-		mnReport.setEnabled(isEnable);
-		mnAdmin.setEnabled(isEnable);
-
-		if (isEnable == false) {
-			isProcessingBusiness = true;
-		}else {
-			isProcessingBusiness = false;
-		}
-	}
-
-	/**
-	 * Tạo khung giao diện chính
-	 */
-	private void buildFrame() {
-		this.setSize(1280, 768);
-		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		this.setLocationRelativeTo(null);
-	}
-
-}
