@@ -29,12 +29,12 @@ public class KhachHangBUS {
 		}
 		return khachHangDAO.delete(khachHang);
 	}
-
+	//Kiểm tra khách hàng có trong danh sách đang thuê đĩa hay không
 	public boolean khachHangDaThueDia(Long khachHangId) {
 		return chiTietThueTraDAO.findAll()
 				.stream().filter(x -> x.getKhachHang().getId() == khachHangId).count() > 0;
 	}
-
+	//Kiểm tra khách hàng có trong danh sách đặt đĩa trước hay không
 	public boolean khachHangDaDatDia(Long khachHangId) {
 		return chiTietDatGiuDAO.findAll()
 				.stream().filter(x -> x.getKhachHang().getId() == khachHangId).count() > 0;

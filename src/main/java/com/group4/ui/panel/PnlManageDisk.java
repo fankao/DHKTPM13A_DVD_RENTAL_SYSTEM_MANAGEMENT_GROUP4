@@ -346,8 +346,7 @@ public class PnlManageDisk extends JPanel {
 			return;
 		}
 
-		int select = hienThongBaoXacNhan(this, "Thông báo xác nhận",
-				"Xác nhận xoá đĩa (mã đĩa: " + dia.getId() + ") ?");
+		int select = hienThongBaoXacNhan(this, "Thông báo xác nhận", "Xác nhận xoá đĩa (mã đĩa: " + dia.getId() + ") ?");
 
 		if (select == JOptionPane.NO_OPTION) {
 			return;

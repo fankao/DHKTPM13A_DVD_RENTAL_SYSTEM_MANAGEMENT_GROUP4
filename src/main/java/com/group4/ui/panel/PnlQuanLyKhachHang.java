@@ -316,6 +316,7 @@ public class PnlQuanLyKhachHang extends JPanel {
 					}
 
 					luuThongTinKhachHang(khachHang);
+					hienDanhSachKhachHang(khachHangDAO.findAll());
 					xoaTrangInput();
 				}
 			}

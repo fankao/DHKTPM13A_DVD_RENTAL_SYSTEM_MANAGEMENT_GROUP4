@@ -32888,3 +32888,1623 @@ line 1:12: unexpected token: Dia
 2020-12-05 14:31:06 INFO  KhachHang:86 - Xoá thành công
 2020-12-05 14:31:06 INFO  KhachHang:36 - Số phần tử: 5
 2020-12-05 14:31:10 INFO  ChiTietDatGiu:36 - Số phần tử: 4
+2020-12-05 17:01:06 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-05 17:01:06 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-05 17:01:06 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-05 17:01:06 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-05 17:01:07 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-05 17:01:07 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-05 17:01:07 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-05 17:01:07 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-05 17:01:07 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-05 17:01:08 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@511505e7] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-05 17:01:08 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@213860b8] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-05 17:01:08 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-05 17:01:08 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:01:08 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:01:08 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:01:08 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:01:08 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:01:08 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:01:08 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:01:08 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:01:08 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:01:08 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:01:08 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:01:08 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:01:08 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:01:08 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:01:09 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:01:09 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:01:09 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:01:09 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:01:09 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:01:09 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:01:09 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:01:09 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-05 17:01:09 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-05 17:01:09 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-05 17:01:09 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-05 17:01:09 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-05 17:01:09 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-05 17:01:09 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-05 17:01:09 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:01:09 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:01:09 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:01:09 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:01:09 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:01:09 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:01:09 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:01:09 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:01:09 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:01:09 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:01:09 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 17:01:09 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 17:01:09 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 17:01:09 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 17:01:09 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 17:01:09 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 17:01:09 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 17:01:09 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 17:01:09 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-05 17:01:09 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-05 17:01:09 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-05 17:01:09 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-05 17:01:09 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-05 17:01:09 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-05 17:01:09 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-05 17:01:09 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-05 17:01:09 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-05 17:01:12 INFO  KhachHang:36 - Số phần tử: 21
+2020-12-05 17:01:24 INFO  ChiTietDatGiu:36 - Số phần tử: 4
+2020-12-05 17:01:24 INFO  ChiTietThueTra:36 - Số phần tử: 8
+2020-12-05 17:01:24 INFO  KhachHang:86 - Xoá thành công
+2020-12-05 17:01:24 INFO  KhachHang:36 - Số phần tử: 20
+2020-12-05 17:05:21 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-05 17:05:21 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-05 17:05:21 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-05 17:05:21 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-05 17:05:22 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-05 17:05:22 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-05 17:05:22 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-05 17:05:22 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-05 17:05:22 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-05 17:05:23 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@511505e7] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-05 17:05:23 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@213860b8] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-05 17:05:23 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-05 17:05:24 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-05 17:05:24 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-05 17:05:24 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-05 17:05:24 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-05 17:05:24 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-05 17:05:24 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-05 17:05:24 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-05 17:05:26 INFO  KhachHang:36 - Số phần tử: 28
+2020-12-05 17:08:59 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-05 17:08:59 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-05 17:08:59 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-05 17:09:01 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-05 17:09:01 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-05 17:09:01 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-05 17:09:01 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-05 17:09:01 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-05 17:09:02 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-05 17:09:03 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@511505e7] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-05 17:09:03 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@213860b8] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-05 17:09:03 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-05 17:09:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:09:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:09:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:09:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:09:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:09:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:09:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:09:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:09:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:09:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:09:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:09:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:09:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:09:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:09:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:09:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:09:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:09:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:09:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:09:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:09:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:09:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:09:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:09:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:09:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-05 17:09:04 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-05 17:09:04 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-05 17:09:04 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-05 17:09:04 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-05 17:09:04 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-05 17:09:04 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-05 17:09:06 INFO  KhachHang:36 - Số phần tử: 28
+2020-12-05 17:09:58 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:10:18 INFO  KhachHang:36 - Số phần tử: 29
+2020-12-05 17:10:25 INFO  KhachHang:36 - Số phần tử: 29
+2020-12-05 17:10:37 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:10:53 INFO  KhachHang:36 - Số phần tử: 30
+2020-12-05 17:13:35 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-05 17:13:35 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-05 17:13:36 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-05 17:13:36 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-05 17:13:36 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-05 17:13:36 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-05 17:13:36 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-05 17:13:36 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-05 17:13:37 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-05 17:13:38 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@511505e7] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-05 17:13:38 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@213860b8] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-05 17:13:38 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-05 17:13:38 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-05 17:13:38 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-05 17:13:38 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-05 17:13:38 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-05 17:13:38 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-05 17:13:38 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-05 17:13:38 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-05 17:13:40 INFO  KhachHang:36 - Số phần tử: 28
+2020-12-05 17:13:49 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 17:13:51 INFO  KhachHang:36 - Số phần tử: 29
+2020-12-05 21:43:35 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-05 21:43:35 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-05 21:43:35 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-05 21:43:36 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-05 21:43:36 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-05 21:43:36 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-05 21:43:36 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-05 21:43:36 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-05 21:43:36 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-05 21:43:37 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@51b1a8f6] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-05 21:43:38 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@141e879d] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-05 21:43:38 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-05 21:43:51 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-05 21:43:52 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-05 21:43:52 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-05 21:43:52 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-05 21:43:52 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-05 21:43:52 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-05 21:43:52 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-05 21:43:52 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-05 21:43:53 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-05 21:43:54 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@51b1a8f6] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-05 21:43:54 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@141e879d] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-05 21:43:54 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-05 22:45:48 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-05 22:45:49 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-05 22:45:49 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-05 22:45:50 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-05 22:45:50 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-05 22:45:50 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-05 22:45:50 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-05 22:45:50 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-05 22:45:51 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-05 22:45:52 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@51b1a8f6] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-05 22:45:52 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@141e879d] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-05 22:45:52 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-05 22:45:58 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-05 22:45:58 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-05 22:45:59 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-05 22:45:59 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-05 22:45:59 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-05 22:45:59 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-05 22:45:59 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-05 22:45:59 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-05 22:46:00 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-05 22:46:02 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@511505e7] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-05 22:46:02 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@213860b8] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-05 22:46:02 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-05 22:46:02 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 22:46:02 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 22:46:02 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 22:46:02 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 22:46:02 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 22:46:02 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 22:46:02 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 22:46:02 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 22:46:02 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 22:46:02 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 22:46:02 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 22:46:02 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 22:46:02 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 22:46:02 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 22:46:02 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 22:46:02 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 22:46:02 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-05 22:46:03 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-05 22:46:03 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-05 22:46:03 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-05 22:46:03 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-05 22:46:03 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-05 22:46:03 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 00:21:50 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-06 00:21:50 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-06 00:21:50 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-06 00:21:50 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-06 00:21:50 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-06 00:21:50 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-06 00:21:50 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-06 00:21:50 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-06 00:21:51 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-06 00:21:52 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@511505e7] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-06 00:21:52 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@213860b8] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-06 00:21:52 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-06 00:21:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:21:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:21:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:21:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:21:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:21:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:21:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:21:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:21:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:21:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:21:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:21:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:21:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:21:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:21:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:21:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:21:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:21:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:21:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:21:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:21:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:21:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:21:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:21:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:21:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:21:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:21:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 00:21:53 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 00:21:53 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 00:21:53 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 00:21:53 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 00:21:53 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 00:21:53 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 00:22:37 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-06 00:22:37 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-06 00:22:37 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-06 00:22:38 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-06 00:22:38 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-06 00:22:38 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-06 00:22:38 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-06 00:22:38 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-06 00:22:38 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-06 00:22:39 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@511505e7] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-06 00:22:39 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@213860b8] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-06 00:22:39 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-06 00:22:40 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 00:22:40 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 00:22:40 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 00:22:40 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 00:22:40 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 00:22:40 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 00:22:40 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 00:28:48 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-06 00:28:48 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-06 00:28:49 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-06 00:28:49 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-06 00:28:49 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-06 00:28:49 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-06 00:28:49 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-06 00:28:49 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-06 00:28:50 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-06 00:28:51 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@511505e7] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-06 00:28:51 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@213860b8] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-06 00:28:52 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-06 00:28:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 00:28:52 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 00:28:52 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 00:28:52 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 00:28:52 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 00:28:52 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 00:28:52 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 00:28:55 INFO  TuaDe:36 - Số phần tử: 5
+2020-12-06 00:30:17 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-06 00:30:18 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-06 00:30:18 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-06 00:30:18 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-06 00:30:18 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-06 00:30:18 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-06 00:30:18 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-06 00:30:18 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-06 00:30:19 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-06 00:30:20 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@511505e7] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-06 00:30:20 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@213860b8] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-06 00:30:20 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-06 00:30:20 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:30:20 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:30:21 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:30:21 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:30:21 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:30:21 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:30:21 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:30:21 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:30:21 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:30:21 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 00:30:21 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 00:30:21 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 00:30:21 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 00:30:21 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 00:30:21 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 00:30:21 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 00:30:21 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 00:30:21 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 00:30:23 INFO  TuaDe:36 - Số phần tử: 5
+2020-12-06 00:32:20 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-06 00:32:21 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-06 00:32:21 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-06 00:32:21 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-06 00:32:21 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-06 00:32:21 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-06 00:32:21 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-06 00:32:21 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-06 00:32:22 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-06 00:32:23 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@511505e7] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-06 00:32:23 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@213860b8] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-06 00:32:23 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-06 00:32:23 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:32:23 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:32:24 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:32:24 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:32:24 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 00:32:24 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 00:32:24 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 00:32:24 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 00:32:24 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 00:32:24 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 00:32:24 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 00:32:24 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 00:32:24 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 00:32:26 INFO  TuaDe:36 - Số phần tử: 5
+2020-12-06 00:33:46 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-06 00:33:46 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-06 00:33:47 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-06 00:33:47 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-06 00:33:47 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-06 00:33:47 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-06 00:33:47 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-06 00:33:47 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-06 00:33:48 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-06 00:33:49 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@511505e7] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-06 00:33:49 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@213860b8] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-06 00:33:49 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-06 00:33:49 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 00:33:49 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 00:33:49 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 00:33:49 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 00:33:49 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 00:33:49 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 00:33:49 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 00:33:52 INFO  TuaDe:36 - Số phần tử: 5
+2020-12-06 11:06:30 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-06 11:06:30 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-06 11:06:30 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-06 11:06:32 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-06 11:06:32 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-06 11:06:32 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-06 11:06:32 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-06 11:06:32 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-06 11:06:32 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-06 11:06:34 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@511505e7] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-06 11:06:34 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@213860b8] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-06 11:06:34 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-06 11:06:34 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:06:34 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 11:06:34 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 11:06:34 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 11:06:34 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 11:06:34 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 11:06:35 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 11:06:35 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 11:06:35 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 11:06:35 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 11:07:27 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-06 11:07:28 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-06 11:07:28 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-06 11:07:28 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-06 11:07:28 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-06 11:07:28 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-06 11:07:28 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-06 11:07:28 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-06 11:07:29 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-06 11:07:30 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@511505e7] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-06 11:07:30 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@213860b8] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-06 11:07:30 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-06 11:07:30 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:07:30 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:07:30 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:07:30 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:07:30 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:07:30 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:07:30 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:07:30 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:07:30 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:07:30 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:07:30 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:07:30 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:07:30 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:07:30 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:07:30 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:07:30 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:07:30 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:07:30 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:07:30 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:07:30 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:07:30 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:07:30 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:07:30 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:07:30 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:07:30 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:07:30 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:07:30 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:07:30 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:07:30 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 11:07:30 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 11:07:30 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 11:07:31 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 11:07:31 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 11:07:31 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 11:07:31 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 11:07:31 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 11:07:31 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 11:07:34 INFO  TuaDe:36 - Số phần tử: 5
+2020-12-06 11:08:06 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-06 11:08:07 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-06 11:08:07 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-06 11:08:07 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-06 11:08:08 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-06 11:08:08 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-06 11:08:08 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-06 11:08:08 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-06 11:08:08 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-06 11:08:10 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@511505e7] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-06 11:08:10 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@213860b8] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-06 11:08:10 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-06 11:08:10 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:10 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:11 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:11 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:11 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:11 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:11 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:11 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:11 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:11 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:11 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:11 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:11 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:11 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:11 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:11 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:11 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:11 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:11 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:08:11 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:08:11 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:08:11 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:08:11 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:08:11 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:08:11 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:08:11 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:08:11 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 11:08:11 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 11:08:11 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 11:08:11 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 11:08:11 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 11:08:11 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 11:08:11 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 11:08:11 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 11:08:11 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 11:08:13 INFO  TuaDe:36 - Số phần tử: 5
+2020-12-06 11:08:53 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-06 11:08:54 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-06 11:08:54 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-06 11:08:54 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-06 11:08:54 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-06 11:08:54 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-06 11:08:54 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-06 11:08:54 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-06 11:08:55 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-06 11:08:56 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@511505e7] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-06 11:08:56 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@213860b8] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-06 11:08:56 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-06 11:08:57 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 11:08:57 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 11:08:57 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 11:08:57 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 11:08:57 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 11:08:57 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 11:08:57 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 11:08:59 INFO  TuaDe:36 - Số phần tử: 5
+2020-12-06 11:10:51 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-06 11:10:51 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-06 11:10:51 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-06 11:10:52 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-06 11:10:52 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-06 11:10:52 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-06 11:10:52 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-06 11:10:52 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-06 11:10:52 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-06 11:11:17 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-06 11:11:17 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-06 11:11:18 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-06 11:11:18 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-06 11:11:18 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-06 11:11:18 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-06 11:11:18 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-06 11:11:18 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-06 11:11:19 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-06 11:11:20 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@511505e7] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-06 11:11:20 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@213860b8] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-06 11:11:20 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-06 11:11:21 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 11:11:21 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 11:11:21 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 11:11:21 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 11:11:21 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 11:11:21 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 11:11:21 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 11:11:24 INFO  TuaDe:36 - Số phần tử: 5
+2020-12-06 11:12:00 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-06 11:12:00 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-06 11:12:00 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-06 11:12:01 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-06 11:12:01 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-06 11:12:01 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-06 11:12:01 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-06 11:12:01 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-06 11:12:01 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-06 11:12:03 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@511505e7] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-06 11:12:03 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@213860b8] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-06 11:12:03 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-06 11:12:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  KhachHang:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  TuaDe:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  LoaiDia:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  Dia:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  ChiTietThueTra:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 11:12:03 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 11:12:03 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 11:12:03 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 11:12:03 INFO  ChiTietThueTra:69 - Cập nhật thành công
+2020-12-06 11:12:03 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 11:12:03 INFO  ChiTietDatGiu:52 - Thêm mới thành công
+2020-12-06 11:12:06 INFO  TuaDe:36 - Số phần tử: 5
