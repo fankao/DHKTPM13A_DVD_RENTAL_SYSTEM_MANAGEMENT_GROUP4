@@ -1,4 +1,5 @@
 package com.group4.ui.panel;
+
 import static com.group4.Injection.*;
 import static com.group4.ui.panel.UtilsLayout.*;
 import java.awt.BorderLayout;
@@ -220,7 +221,7 @@ public class PnlReservation extends JPanel {
 				hienDanhSachDatGiu(datTruocDiaBUS.getDSDatBanSaoTheoKH(khachHangDatBanSao.getId()));
 
 				voHieuHoaButton(btnClose);
-				kichHoatButton(btnAccept,btnCancel);
+				kichHoatButton(btnAccept, btnCancel);
 			}
 		});
 
@@ -269,6 +270,20 @@ public class PnlReservation extends JPanel {
 					cmbTitleOfDisk.setSelectedItem(searchTitleDlg.getTuaDe());
 				}
 
+			}
+		});
+
+		btnCancelReservation.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChiTietDatGiu ct = lstReservation.getSelectedValue();
+				DatTruocDiaBUS bus = new DatTruocDiaBUS();
+				boolean result = bus.xoaChiTietDatGiu(ct);
+				if (result) {
+					((DefaultListModel<ChiTietDatGiu>) lstReservation.getModel()).removeElement(ct);
+					hienDanhSachTuaDe(datTruocDiaBUS.getDSTuaDeKhachHangChuaDat(khachHangDatBanSao.getId()));
+				}
 			}
 		});
 

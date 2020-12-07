@@ -4,6 +4,7 @@ import static com.group4.Injection.diaDAO;
 
 import java.util.List;
 
+import com.group4.dao.impl.ChiTietDatGiuDAO;
 import com.group4.entities.ChiTietDatGiu;
 import com.group4.entities.Dia;
 import com.group4.entities.KhachHang;
@@ -48,5 +49,8 @@ public class DatTruocDiaBUS {
 		
 		return chiTietDatGiu;
 	}
-
+	public boolean xoaChiTietDatGiu(ChiTietDatGiu ct) {
+		ChiTietDatGiuDAO dao = new ChiTietDatGiuDAO();
+		return dao.delete(ct);
+	}
 }
