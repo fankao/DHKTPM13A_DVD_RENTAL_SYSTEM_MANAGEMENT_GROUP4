@@ -54,8 +54,10 @@ public class ChiTietDatGiuDAO extends AbstractDAO<ChiTietDatGiu, ChiTietDatGiuID
 	public ChiTietDatGiu getCTDatGiuDauTien(Dia dia) {
 		TypedQuery<ChiTietDatGiu> query = null;
 		try {
-			query = em.createQuery("select ct from ChiTietDatGiu ct where ct.tuaDe.id =: tuaDeId order by ct.ngayDat asc",
-					ChiTietDatGiu.class).setParameter("tuaDeId", dia.getTuaDe().getId());
+			query = em.createQuery(
+					"select ct from ChiTietDatGiu ct where ct.tuaDe.id =: tuaDeId and ct.daGanDia =: daGanDia order by ct.ngayDat asc",
+					ChiTietDatGiu.class).setParameter("tuaDeId", dia.getTuaDe().getId())
+					.setParameter("daGanDia", false);
 		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
 			logger.error("Lỗi truy vấn: " + e.getMessage());

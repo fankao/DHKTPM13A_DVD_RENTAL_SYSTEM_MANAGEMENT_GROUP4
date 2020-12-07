@@ -1,4 +1,5 @@
 package com.group4.ui.panel;
+
 import static com.group4.Injection.*;
 import static com.group4.ui.panel.UtilsLayout.*;
 import javax.swing.JPanel;
@@ -10,8 +11,10 @@ import javax.swing.JOptionPane;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.FlowLayout;
 import javax.swing.BoxLayout;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
@@ -19,9 +22,15 @@ import javax.swing.JButton;
 import javax.swing.border.TitledBorder;
 
 import com.group4.dao.IDiaDAO;
+import com.group4.dao.ILoaiDiaDAO;
+import com.group4.dao.ITuaDeDAO;
 import com.group4.dao.impl.DiaDAO;
+import com.group4.dao.impl.LoaiDiaDAO;
+import com.group4.dao.impl.TuaDeDAO;
 import com.group4.entities.Dia;
 import com.group4.entities.LoaiDia;
+import com.group4.entities.TrangThaiDia;
+import com.group4.entities.TuaDe;
 import com.group4.ui.ICloseUIListener;
 
 import javax.swing.border.LineBorder;
@@ -49,7 +58,7 @@ public class PnlManageDisk extends JPanel {
 	private JButton btnCancel;
 	private JButton btnClose;
 	private JTextField txtDiskId;
-	private JSpinner spnQuantity;
+	private JTextField txtQuantity;
 	private JLabel lblDiskTitle;
 	private JButton btnDelete;
 	private JLabel lblDiskStatus;
@@ -58,6 +67,8 @@ public class PnlManageDisk extends JPanel {
 	private JPanel pnlDeleteDisk;
 	private JButton btnSearchDiskId;
 	private JButton btnCancelDelete;
+
+	private JComboBox cmbTitleOfDisk;
 
 	public PnlManageDisk() {
 		setBorder(new EmptyBorder(10, 10, 10, 10));
@@ -107,7 +118,7 @@ public class PnlManageDisk extends JPanel {
 		lblTitleDiskTitle.setFont(new Font("Dialog", Font.PLAIN, 20));
 		pnlTitleOfDisk.add(lblTitleDiskTitle);
 
-		JComboBox cmbTitleOfDisk = new JComboBox();
+		cmbTitleOfDisk = new JComboBox();
 		cmbTitleOfDisk.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		pnlTitleOfDisk.add(cmbTitleOfDisk);
 
@@ -142,10 +153,10 @@ public class PnlManageDisk extends JPanel {
 		lblDiskQuantityTitle.setFont(new Font("Dialog", Font.PLAIN, 20));
 		panel.add(lblDiskQuantityTitle);
 
-		spnQuantity = new JSpinner();
-		spnQuantity.setModel(new SpinnerNumberModel(1, 1, 100, 1));
-		spnQuantity.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		panel.add(spnQuantity);
+		txtQuantity = new JTextField();
+		txtQuantity.setColumns(5);
+		txtQuantity.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		panel.add(txtQuantity);
 
 		JPanel pnlOperation = new JPanel();
 		FlowLayout flowLayout_3 = (FlowLayout) pnlOperation.getLayout();
@@ -270,7 +281,8 @@ public class PnlManageDisk extends JPanel {
 		btnClose.setPreferredSize(btnAdd.getPreferredSize());
 
 		setEventForButton();
-
+		loadComboboxLoaiDia(getLoaiDia());
+		loadComboboxTuaDe(getTuaDe());
 	}
 
 	private void setEventForButton() {
@@ -326,7 +338,41 @@ public class PnlManageDisk extends JPanel {
 
 			}
 		});
+		btnAdd.addActionListener(new ActionListener() {
 
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(cmbDiskCategory != null && cmbTitleOfDisk != null) {
+					Dia dia = new Dia();
+					int indexLoaiDia = cmbDiskCategory.getSelectedIndex();
+					dia.setLoaiDia(cmbDiskCategory.getItemAt(indexLoaiDia));
+					int indexTuade = cmbTitleOfDisk.getSelectedIndex();
+					dia.setTuaDe((TuaDe) cmbTitleOfDisk.getItemAt(indexTuade));
+					dia.setTrangThai(TrangThaiDia.ON_SHEFT);
+					if(txtQuantity.getText().isEmpty()) {
+						hienThongBao(PnlManageDisk.this, "Thông báo lỗi", "Số lượng đĩa trống", JOptionPane.ERROR_MESSAGE);
+					}else if(txtQuantity.getText().matches("[a-zA-Z]")){
+						hienThongBao(PnlManageDisk.this, "Thông báo lỗi", "Vui lòng nhập số lượng đĩa là số", JOptionPane.ERROR_MESSAGE);
+						txtQuantity.setText("");
+					}else if(Integer.parseInt(txtQuantity.getText())<=0){
+						hienThongBao(PnlManageDisk.this, "Thông báo lỗi", "Vui lòng nhập số lượng đĩa lớn hơn 0", JOptionPane.ERROR_MESSAGE);
+						txtQuantity.setText("");
+					}else {
+						int soLuongDia = Integer.parseInt(txtQuantity.getText());
+						for(int i=0; i< soLuongDia; i++) {
+							DiaDAO dao = new DiaDAO();
+							dao.create(dia);
+						}
+						hienThongBao(PnlManageDisk.this, "Thêm đĩa thành công", 
+														"Tựa đề: " + dia.getTuaDe() + ",\n Loại đĩa: " + dia.getLoaiDia() + "\n Số lượng đĩa:" + soLuongDia,
+														JOptionPane.INFORMATION_MESSAGE);
+					}
+				}else {
+					hienThongBao(PnlManageDisk.this, "Thông báo lỗi", "Chưa chọn tưa đề hoặc loại đĩa", JOptionPane.ERROR_MESSAGE);
+				}
+
+			}
+		});
 	}
 
 	/**
@@ -387,4 +433,27 @@ public class PnlManageDisk extends JPanel {
 		this.closeUIListener = closeUIListener;
 	}
 
+	public void loadComboboxTuaDe(List<TuaDe> tuaDes) {
+		DefaultComboBoxModel<TuaDe> comboBoxModel = (DefaultComboBoxModel<TuaDe>) cmbTitleOfDisk.getModel();
+		comboBoxModel.removeAllElements();
+		for (TuaDe tuaDe : tuaDes) {
+			comboBoxModel.addElement(tuaDe);
+		}
+	}
+
+	public void loadComboboxLoaiDia(List<LoaiDia> loaiDias) {
+		DefaultComboBoxModel<LoaiDia> comboBoxModel = (DefaultComboBoxModel<LoaiDia>) cmbDiskCategory.getModel();
+		comboBoxModel.removeAllElements();
+		for (LoaiDia loaiDia : loaiDias) {
+			comboBoxModel.addElement(loaiDia);
+		}
+	}
+	private List<TuaDe> getTuaDe(){
+		ITuaDeDAO dao = new TuaDeDAO();
+		return dao.findAll();
+	}
+	private List<LoaiDia> getLoaiDia(){
+		ILoaiDiaDAO dao = new LoaiDiaDAO();
+		return dao.findAll();
+	}
 }
