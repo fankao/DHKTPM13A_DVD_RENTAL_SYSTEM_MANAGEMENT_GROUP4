@@ -18,7 +18,7 @@ public class ChiTietDatGiuDAO extends AbstractDAO<ChiTietDatGiu, ChiTietDatGiuID
 		TypedQuery<TuaDe> query = null;
 		try {
 			query = em.createQuery(
-					"select tuaDe from TuaDe tuaDe left join ChiTietDatGiu ct on ct.tuaDe.id = tuaDe.id where ct.tuaDe.id is null or ct.khachHang.id !=:khachHangId",
+					"select distinct tuaDe from TuaDe tuaDe left join ChiTietDatGiu ct on ct.tuaDe.id != tuaDe.id where ct.khachHang.id !=: khachHangId",
 					TuaDe.class).setParameter("khachHangId", khachHangId);
 		} catch (Exception e) {
 			logger.error("Lỗi truy vấn: " + e.getMessage());

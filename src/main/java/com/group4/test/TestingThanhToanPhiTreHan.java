@@ -1,7 +1,6 @@
 package com.group4.test;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.HashSet;
 
@@ -100,17 +99,17 @@ public class TestingThanhToanPhiTreHan {
 		TuaDe tuaDe4 = new TuaDe("Liên Minh Huyền Diệu");
 		tuaDe4 = tuaDeDAO.create(tuaDe4);
 		TuaDe tuaDe5 = new TuaDe("Transformer");
-		tuaDeDAO.create(tuaDe5);
+		tuaDe5 = tuaDeDAO.create(tuaDe5);
 		TuaDe tuaDe6 = new TuaDe("Siêu nhân GAO");
-		tuaDeDAO.create(tuaDe6);
+		tuaDe6 = tuaDeDAO.create(tuaDe6);
 		TuaDe tuaDe7 = new TuaDe("Tom and Jerry");
-		tuaDeDAO.create(tuaDe7);
+		tuaDe7 = tuaDeDAO.create(tuaDe7);
 		TuaDe tuaDe8 = new TuaDe("Cuộc chiến sống còn");
-		tuaDeDAO.create(tuaDe8);
+		tuaDe8 = tuaDeDAO.create(tuaDe8);
 		TuaDe tuaDe9 = new TuaDe("Người cha báo thù");
-		tuaDeDAO.create(tuaDe9);
+		tuaDe9 = tuaDeDAO.create(tuaDe9);
 		TuaDe tuaDe10 = new TuaDe("Gia đình hạnh phúc");
-		tuaDeDAO.create(tuaDe10);
+		tuaDe10 = tuaDeDAO.create(tuaDe10);
 
 		ILoaiDiaDAO loaiDiaDAO = new LoaiDiaDAO();
 		LoaiDia l1 = new LoaiDia(TenLoaiDia.DVD, 100, 10, 10);

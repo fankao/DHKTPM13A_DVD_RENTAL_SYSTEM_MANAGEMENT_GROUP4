@@ -10,6 +10,8 @@ public interface IChiTietThueTraDAO extends IGenericDAO<ChiTietThueTra, ChiTietT
 	List<ChiTietThueTra> getDSDaTraDiaTheoKH(Long khId);
 
 	List<ChiTietThueTra> getDSChuaTraDiaTheoDia(Long khId);
+	
+	List<ChiTietThueTra> getDSNoPhiTreHan(Long khId);
 
 	int demSoDiaDaThue(Long id);
 

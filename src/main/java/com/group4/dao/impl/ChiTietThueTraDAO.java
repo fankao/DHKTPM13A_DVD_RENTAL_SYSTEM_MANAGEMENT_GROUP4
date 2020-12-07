@@ -54,4 +54,16 @@ public class ChiTietThueTraDAO extends AbstractDAO<ChiTietThueTra, ChiTietThueTr
 		return results.size();
 	}
 
+	@Override
+	public List<ChiTietThueTra> getDSNoPhiTreHan(Long khId) {
+		TypedQuery<ChiTietThueTra> query = em
+				.createQuery("select ct from ChiTietThueTra ct where ct.ngayTra is null and  and ct.khachHang.id =:khId",
+						ChiTietThueTra.class)
+				.setParameter("khId", khId);
+
+		List<ChiTietThueTra> results = query.getResultList();
+
+		return results.size() == 0 ? new ArrayList<ChiTietThueTra>() : results;
+	}
+
 }
