@@ -17,6 +17,6 @@ public interface IChiTietThueTraDAO extends IGenericDAO<ChiTietThueTra, ChiTietT
 	
 	ChiTietThueTra getmotCTTTChuaTraDiaTheoDia(Long diaID);
 	
-//	ChiTietThueTra getDSChuaTraDiaTheoDiavaKH(Long khId);
-	
+	ChiTietThueTra getmotCTTTDeXoa(Long khId);
+
 }

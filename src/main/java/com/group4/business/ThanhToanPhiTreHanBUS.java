@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.group4.dao.impl.ChiTietDatGiuDAO;
+import com.group4.dao.impl.ChiTietThueTraDAO;
+import com.group4.entities.ChiTietDatGiu;
 import com.group4.entities.ChiTietThueTra;
 
 public class ThanhToanPhiTreHanBUS {
@@ -25,7 +28,6 @@ public class ThanhToanPhiTreHanBUS {
 		}
 		return ds.stream().filter(x -> daTreHanTraDia(x) == true && x.isDaThanhToanPhiTreHan() == false)
 				.collect(Collectors.toList());
-
 	}
 
 	/**
@@ -80,6 +82,11 @@ public class ThanhToanPhiTreHanBUS {
 		chiTietThueTra.setDaThanhToanPhiTreHan(true);
 		return chiTietThueTraDAO.update(chiTietThueTra);
 
+	}
+	
+	public boolean xoaChiTietThueTra(ChiTietThueTra ct) {
+		ChiTietThueTraDAO dao = new ChiTietThueTraDAO();
+		return dao.delete(ct);
 	}
 
 }
