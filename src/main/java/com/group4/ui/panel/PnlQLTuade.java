@@ -3,147 +3,376 @@ package com.group4.ui.panel;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
+import javax.swing.border.LineBorder;
+import javax.swing.border.TitledBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
+import static com.group4.ui.panel.UtilsLayout.kichHoatTextField;
+import static com.group4.ui.panel.UtilsLayout.voHieuHoaButton;
+
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
+
 import javax.swing.JTextField;
 import javax.swing.JRadioButton;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-public class PnlQLTuade extends JPanel {
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTable tbl_qlTua;
+import com.group4.dao.IKhachHangDAO;
+import com.group4.dao.ITuaDeDAO;
+import com.group4.dao.impl.KhachHangDAO;
+import com.group4.dao.impl.TuaDeDAO;
+import com.group4.entities.KhachHang;
+import com.group4.entities.TuaDe;
+import com.group4.ui.ICloseUIListener;
 
+public class PnlQLTuade extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private ICloseUIListener closeUIListener;
+	private JTextField txtTenTuaDe;
+//	private JTextField txtDiaChi;
+//	private JTextField txtSoDienThoai;
+	private JTextField txtNhapId;
+	
+	private JButton btnThemTuaDe;
+	private JButton btnSuaTuaDe;
+	private JButton btnLuuTuaDe;
+	private JButton btnXoaTuaDe;
+	private JButton btnDong;
+	private JButton btnTimTuaDe;
+	
+	DefaultTableModel dtmTuaDe;
+	JTable tblTuaDe;
+	
+	private TuaDe tuaDe;
+	private List<TuaDe> dsTuaDe;
+	
+	private static ITuaDeDAO tuaDeDAO;
+	
+	static {
+		tuaDeDAO = new TuaDeDAO();
+	}
+	
 	/**
 	 * Create the panel.
 	 */
 	public PnlQLTuade() {
+		setForeground(Color.BLUE);
 		setLayout(new BorderLayout(0, 0));
+		setSize(1270,600);
 		
-		JPanel pnl_Tieude = new JPanel();
-		add(pnl_Tieude, BorderLayout.NORTH);
+		JPanel pnTitle = new JPanel();
+		add(pnTitle, BorderLayout.NORTH);
 		
-		JLabel lbl_Tieude = new JLabel("Qu\u1EA3n L\u00FD T\u1EF1a \u0110\u1EC1");
-		lbl_Tieude.setFont(new Font("Tahoma", Font.BOLD, 24));
-		pnl_Tieude.add(lbl_Tieude);
+		JLabel lblTitle = new JLabel("QU\u1EA2N L\u00DD TỰA ĐỀ");
+		lblTitle.setForeground(Color.BLACK);
+		lblTitle.setFont(new Font("Arial", Font.BOLD, 32));
+		pnTitle.add(lblTitle);
 		
-		JPanel pnl_quanlytuade = new JPanel();
-		add(pnl_quanlytuade, BorderLayout.CENTER);
-		pnl_quanlytuade.setLayout(null);
+		JPanel pnDanhSachThongTinTuaDe = new JPanel();
+		add(pnDanhSachThongTinTuaDe, BorderLayout.CENTER);
+		pnDanhSachThongTinTuaDe.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblNewLabel = new JLabel("file1");
-		lblNewLabel.setBounds(24, 21, 116, 14);
-		pnl_quanlytuade.add(lblNewLabel);
+		JPanel pnThongTinTuaDe = new JPanel();
+		pnDanhSachThongTinTuaDe.add(pnThongTinTuaDe, BorderLayout.NORTH);
+		pnThongTinTuaDe.setLayout(new BoxLayout(pnThongTinTuaDe, BoxLayout.X_AXIS));
 		
-		textField = new JTextField();
-		textField.setBounds(150, 18, 86, 20);
-		pnl_quanlytuade.add(textField);
-		textField.setColumns(10);
+		JPanel pnThongTin = new JPanel();
+		pnThongTin.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0)), "Th\u00F4ng tin tựa đề", TitledBorder.LEFT, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		pnThongTinTuaDe.add(pnThongTin);
+		pnThongTin.setLayout(new BoxLayout(pnThongTin, BoxLayout.Y_AXIS));
 		
-		JLabel lblNewLabel_1 = new JLabel("file2");
-		lblNewLabel_1.setBounds(24, 64, 89, 14);
-		pnl_quanlytuade.add(lblNewLabel_1);
+		JPanel pnTenTuaDe = new JPanel();
+		pnThongTin.add(pnTenTuaDe);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(150, 61, 86, 20);
-		pnl_quanlytuade.add(textField_1);
-		textField_1.setColumns(10);
+		JLabel lblTenTuaDe = new JLabel("Tên khách hàng:");
+		lblTenTuaDe.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		pnTenTuaDe.add(lblTenTuaDe);
 		
-		JLabel lblNewLabel_2 = new JLabel("file3");
-		lblNewLabel_2.setBounds(24, 108, 116, 14);
-		pnl_quanlytuade.add(lblNewLabel_2);
+		txtTenTuaDe = new JTextField();
+		txtTenTuaDe.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		pnTenTuaDe.add(txtTenTuaDe);
+		txtTenTuaDe.setColumns(30);
 		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("New radio button");
-		rdbtnNewRadioButton.setBounds(174, 104, 109, 23);
-		pnl_quanlytuade.add(rdbtnNewRadioButton);
+//		JPanel pnDiaChi = new JPanel();
+//		pnThongTin.add(pnDiaChi);
+//		
+//		JLabel lblDiaChi = new JLabel("Địa chỉ:");
+//		lblDiaChi.setFont(new Font("Tahoma", Font.PLAIN, 20));
+//		pnDiaChi.add(lblDiaChi);
+//		
+//		txtDiaChi = new JTextField();
+//		txtDiaChi.setFont(new Font("Tahoma", Font.PLAIN, 20));
+//		pnDiaChi.add(txtDiaChi);
+//		txtDiaChi.setColumns(30);
 		
-		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("New radio button");
-		rdbtnNewRadioButton_1.setBounds(285, 104, 109, 23);
-		pnl_quanlytuade.add(rdbtnNewRadioButton_1);
+		JPanel pnChucNang = new JPanel();
+		FlowLayout flowLayout_1 = (FlowLayout) pnChucNang.getLayout();
+		flowLayout_1.setVgap(25);
+		flowLayout_1.setHgap(10);
+		pnChucNang.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0)), "Ch\u1EE9c n\u0103ng", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		pnThongTinTuaDe.add(pnChucNang);
 		
-		JLabel lblNewLabel_3 = new JLabel("file4");
-		lblNewLabel_3.setBounds(400, 21, 134, 14);
-		pnl_quanlytuade.add(lblNewLabel_3);
+		btnThemTuaDe = new JButton("Thêm");
+		btnThemTuaDe.setFont(new Font("Arial", Font.PLAIN, 20));
+		pnChucNang.add(btnThemTuaDe);
+		btnThemTuaDe.setPreferredSize(new Dimension(100, 50));
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(544, 18, 86, 20);
-		pnl_quanlytuade.add(textField_2);
-		textField_2.setColumns(10);
+		btnSuaTuaDe = new JButton("Sửa");
+		btnSuaTuaDe.setFont(new Font("Arial", Font.PLAIN, 20));
+		pnChucNang.add(btnSuaTuaDe);
+		btnSuaTuaDe.setPreferredSize(new Dimension(100, 50));
 		
-		JLabel lblNewLabel_4 = new JLabel("file5");
-		lblNewLabel_4.setBounds(400, 61, 134, 14);
-		pnl_quanlytuade.add(lblNewLabel_4);
+		btnXoaTuaDe = new JButton("Xóa");
+		btnXoaTuaDe.setFont(new Font("Arial", Font.PLAIN, 20));
+		pnChucNang.add(btnXoaTuaDe);
+		btnXoaTuaDe.setPreferredSize(new Dimension(100, 50));
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(544, 61, 86, 20);
-		pnl_quanlytuade.add(textField_3);
-		textField_3.setColumns(10);
+		btnLuuTuaDe = new JButton("Lưu");
+		btnLuuTuaDe.setFont(new Font("Arial", Font.PLAIN, 20));
+		pnChucNang.add(btnLuuTuaDe);
+		btnLuuTuaDe.setPreferredSize(new Dimension(100, 50));
 		
-		JLabel lblNewLabel_5 = new JLabel("file6");
-		lblNewLabel_5.setBounds(400, 108, 134, 14);
-		pnl_quanlytuade.add(lblNewLabel_5);
 		
-		textField_4 = new JTextField();
-		textField_4.setBounds(544, 105, 86, 20);
-		pnl_quanlytuade.add(textField_4);
-		textField_4.setColumns(10);
+//		JPanel pnPhone = new JPanel();
+//		pnThongTin.add(pnPhone);
+//		
+//		JLabel lblPhone = new JLabel("Số điện thoại:");
+//		lblPhone.setFont(new Font("Tahoma", Font.PLAIN, 20));
+//		pnPhone.add(lblPhone);
+//		
+//		txtSoDienThoai = new JTextField();
+//		txtSoDienThoai.setFont(new Font("Tahoma", Font.PLAIN, 20));
+//		pnPhone.add(txtSoDienThoai);
+//		txtSoDienThoai.setColumns(30);
+//		lblDiaChi.setPreferredSize(lblTenKhachHang.getPreferredSize());
+//		lblPhone.setPreferredSize(lblTenKhachHang.getPreferredSize());
 		
-		JButton btnNewButton = new JButton("Th\u00EAm");
-		btnNewButton.setBounds(24, 158, 89, 23);
-		pnl_quanlytuade.add(btnNewButton);
+		JPanel pnDanhSachTuaDe = new JPanel();
+		pnDanhSachTuaDe.setBorder(null);
+		pnDanhSachThongTinTuaDe.add(pnDanhSachTuaDe, BorderLayout.CENTER);
 		
-		JButton btnNewButton_1 = new JButton("X\u00F3a");
-		btnNewButton_1.setBounds(163, 158, 89, 23);
-		pnl_quanlytuade.add(btnNewButton_1);
+		BorderLayout bl_pnDanhSachTuaDe = new BorderLayout();
+		pnDanhSachTuaDe.setLayout(bl_pnDanhSachTuaDe);
 		
-		JButton btnNewButton_2 = new JButton("S\u1EEDa");
-		btnNewButton_2.setBounds(301, 158, 89, 23);
-		pnl_quanlytuade.add(btnNewButton_2);
+		pnDanhSachThongTinTuaDe.add(pnDanhSachTuaDe,BorderLayout.CENTER);
 		
-		JButton btnNewButton_3 = new JButton("M\u1EDBi");
-		btnNewButton_3.setBounds(453, 158, 89, 23);
-		pnl_quanlytuade.add(btnNewButton_3);
+		JPanel pnTableTuaDe = new JPanel();
+		pnTableTuaDe.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0)), "Danh s\u00E1ch kh\u00E1ch h\u00E0ng", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		pnDanhSachTuaDe.add(pnTableTuaDe, BorderLayout.CENTER);
+		pnTableTuaDe.setLayout(new BorderLayout());
+		//tạo bảng
+		dtmTuaDe = new DefaultTableModel();
+		dtmTuaDe.addColumn("Id tựa đề");
+		dtmTuaDe.addColumn("Tên tựa đề");
+//		dtmTuaDe.addColumn("Địa chỉ");
+//		dtmTuaDe.addColumn("Số điện thoại");
+		tblTuaDe = new JTable(dtmTuaDe);
+		JScrollPane scTable = new JScrollPane(tblTuaDe,
+				JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 218, 680, 182);
-		pnl_quanlytuade.add(scrollPane);
+		pnTableTuaDe.add(scTable,BorderLayout.CENTER);
 		
-		tbl_qlTua = new JTable();
-		tbl_qlTua.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"New column", "New column", "New column", "New column", "New column"
-			}
-		));
-		scrollPane.setViewportView(tbl_qlTua);
+		JPanel pnTimTuaDe = new JPanel();
+		FlowLayout fl_pnTimTuaDe = (FlowLayout) pnTimTuaDe.getLayout();
+		fl_pnTimTuaDe.setAlignment(FlowLayout.LEFT);
+		pnDanhSachTuaDe.add(pnTimTuaDe, BorderLayout.NORTH);
+		
+		JLabel lblNhap = new JLabel("Nhập id tựa đề:");
+		lblNhap.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		pnTimTuaDe.add(lblNhap);
+		
+		txtNhapId = new JTextField();
+		txtNhapId.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		pnTimTuaDe.add(txtNhapId);
+		txtNhapId.setColumns(10);
+		
+		btnTimTuaDe = new JButton("Tìm kiếm");
+		btnTimTuaDe.setFont(new Font("Arial", Font.PLAIN, 20));
+		pnTimTuaDe.add(btnTimTuaDe);
+		
+		JPanel pnThoat = new JPanel();
+		FlowLayout flowLayout = (FlowLayout) pnThoat.getLayout();
+		flowLayout.setHgap(30);
+		flowLayout.setAlignment(FlowLayout.RIGHT);
+		pnDanhSachThongTinTuaDe.add(pnThoat, BorderLayout.SOUTH);
+		
+		btnDong = new JButton("Đóng");
+		btnDong.setFont(new Font("Arial", Font.PLAIN, 20));
+		pnThoat.add(btnDong);
+		btnDong.setPreferredSize(new Dimension(100, 50));
+		
+		dsTuaDe = tuaDeDAO.findAll();
+		hienDanhSachKhachHang(dsTuaDe);
+		ganSuKienChoButton();
+		
+		btnSuaTuaDe.setEnabled(false);
+		btnXoaTuaDe.setEnabled(false);
+		btnLuuTuaDe.setEnabled(false);
+		txtTenTuaDe.setEditable(false);
+//		txtDiaChi.setEditable(false);
+//		txtSoDienThoai.setEditable(false);
 		
 	}
+	private void hienDanhSachKhachHang(List<TuaDe> dsTuaDe) {
+		DefaultTableModel tableModel = (DefaultTableModel) tblTuaDe.getModel();
+		tableModel.setRowCount(0);
+		for(TuaDe td : dsTuaDe) {
+			tableModel.addRow(new Object[] {td.getId(),td.getTenTuaDe()});
+		}
+	}
+	private void ganSuKienChoButton() {
+		btnDong.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				closeUIListener.onCloseUI(e);
+			}
+		});
+		
+		tblTuaDe.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+			
+			@Override
+			public void valueChanged(ListSelectionEvent e) {
+				btnLuuTuaDe.setEnabled(false);
+				int select = tblTuaDe.getSelectedRow();
+				
+				if(select==-1)return;
+				
+				
+				hienThongTinKhachHang(dsTuaDe.get(select));
+				btnSuaTuaDe.setEnabled(true);
+				btnXoaTuaDe.setEnabled(true);
+				
+				txtTenTuaDe.setEditable(false);
+			}
+			
+		});
+		
+		btnThemTuaDe.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				xuLyThemKhachHang();
+			}
+		});
+		
+		btnSuaTuaDe.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				btnLuuTuaDe.setEnabled(true);
+				txtTenTuaDe.setEditable(true);
+				
+			}
+		});
+		
+		btnXoaTuaDe.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int selectIndex = -1;
+				selectIndex = tblTuaDe.getSelectedRow();
+				
+				if(selectIndex >=0 ) {
+					TuaDe tuade = dsTuaDe.get(selectIndex);
+					
+					int option = JOptionPane.showConfirmDialog(null, "Bạn có muốn xóa khách hàng này?", "Xác nhận yêu cầu", JOptionPane.YES_NO_OPTION);
+					
+					if(option == JOptionPane.YES_OPTION) {
+						
+						tuaDeDAO.deleteById(tuade.getId());
+						hienDanhSachKhachHang(tuaDeDAO.findAll());
+						JOptionPane.showMessageDialog(null, "Xóa khách hàng thành công!!!");
+					}
+					
+				}
+			}
+		});
+		
+		btnTimTuaDe.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(isValidInput(txtNhapId)) {
+					Long cusId = null;
+					try {
+						cusId = Long.valueOf(txtNhapId.getText());
+					} catch (NumberFormatException e2) {
+						hienThongBao("Mã khách hàng là số nguyên lớn hơn 0");
+						txtNhapId.requestFocus();
+						return;
+					}
+					
+					tuaDe = tuaDeDAO.findById(cusId);
+					hienThongTinKhachHang(tuaDe);
+					btnSuaTuaDe.setEnabled(true);
+					btnXoaTuaDe.setEnabled(true);
+				}
+			}
+		});
+		
+		btnXoaTuaDe.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(checkKhachHangDangThueDia()) {
+					
+				}
+			}
+		});
+	}
 	
+	protected void xuLyThemKhachHang() {
+		xoaTrangInput();
+		voHieuHoaButton(btnLuuTuaDe,btnSuaTuaDe,btnXoaTuaDe);
+		kichHoatTextField(txtTenTuaDe);
+	}
+	protected void xoaTrangInput() {
+		txtTenTuaDe.setText("");
+		txtTenTuaDe.requestFocus();
+		
+	}
+	protected boolean checkKhachHangDangThueDia() {
+		
+		return false;
+	}
+	protected boolean isValidInput(JTextField txt) {
+		if(txt.getText().trim().isEmpty()) {
+			hienThongBao("Mời nhập dữ liệu!");
+			txtNhapId.requestFocus();
+			return false;
+		}
+		return true;
+	}
+	private void hienThongBao(String string) {
+		JLabel label = new JLabel(string);
+		label.setFont(new Font("Arial", Font.BOLD, 18));
+		JOptionPane.showMessageDialog(this, label);
+	}
+	protected void hienThongTinKhachHang(TuaDe td) {
+		txtTenTuaDe.setText(td.getTenTuaDe());
+	}
+	public void setCloseUIListener(ICloseUIListener closeUIListener) {
+		this.closeUIListener = closeUIListener;
+	}
 	
-	public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndShowGUI(); 
-            }
-        });
-    }
-
-    private static void createAndShowGUI() {
-        System.out.println("Created GUI on EDT? "+
-        SwingUtilities.isEventDispatchThread());
-        JFrame f = new JFrame("Swing Paint Demo");
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        f.getContentPane().add(new PnlQLTuade());
-        f.setSize(800, 600);
-        f.setLocationRelativeTo(null);
-        f.setVisible(true);
-    }
 }

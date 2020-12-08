@@ -12,13 +12,16 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
+import com.group4.ui.panel.PnlBaoCaoTuaDe;
 import com.group4.ui.panel.PnlLateChargePayment;
 import com.group4.ui.panel.PnlManageDisk;
+import com.group4.ui.panel.PnlQLTuade;
 import com.group4.ui.panel.PnlQuanLyKhachHang;
 import com.group4.ui.panel.PnlRentDisk;
 import com.group4.ui.panel.PnlReservation;
 import com.group4.ui.panel.PnlThietLapGiaThueChoDia;
 import com.group4.ui.panel.PnlTraDia;
+import com.group4.ui.panel.PnlUpdateTimeRent;
 
 public class FrmMain extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -273,7 +276,38 @@ public class FrmMain extends JFrame {
 			}
 		});
 
-	
+		mntmRentalPerios.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				PnlUpdateTimeRent pnlUpdateTime = new PnlUpdateTimeRent();
+				openWorkUI(pnlUpdateTime);
+				pnlUpdateTime.setCloseUIListener(new ICloseUIListener() {
+					
+					@Override
+					public void onCloseUI(ActionEvent e) {
+						closeWorkUI(pnlUpdateTime);
+					}
+				});
+			}
+		});
+		mntmReportTitle.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				PnlBaoCaoTuaDe pnlBaocao = new PnlBaoCaoTuaDe();
+				openWorkUI(pnlBaocao);
+				pnlBaocao.setCloseUIListener(new ICloseUIListener() {
+					
+					@Override
+					public void onCloseUI(ActionEvent e) {
+						closeWorkUI(pnlBaocao);
+					}
+				});
+			}
+		});
 	}
 
 	private void closeWorkUI(JPanel panel) {

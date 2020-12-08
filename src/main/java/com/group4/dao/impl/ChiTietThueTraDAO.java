@@ -30,13 +30,13 @@ public class ChiTietThueTraDAO extends AbstractDAO<ChiTietThueTra, ChiTietThueTr
 	}
 	
 	@Override
-	public List<ChiTietThueTra> getDSChuaTraDiaTheoDia(Long khId) {
+	public ChiTietThueTra getDSChuaTraDiaTheoDia(Long khId) {
 		TypedQuery<ChiTietThueTra> query = em
 				.createQuery("select ct from ChiTietThueTra ct where ct.ngayTra is null ", ChiTietThueTra.class);
 
-		List<ChiTietThueTra> results = query.getResultList();
+		ChiTietThueTra results = query.getSingleResult();
 
-		return results.size() == 0 ? new ArrayList<ChiTietThueTra>() : results;
+		return results;
 	}
 	
 	@Override
