@@ -1,6 +1,7 @@
 package com.group4.ui;
 
-import static com.group4.ui.panel.UtilsLayout.*;
+import static com.group4.ui.panel.UtilsLayout.hienThongBao;
+import static com.group4.ui.panel.UtilsLayout.hienThongBaoXacNhan;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -17,8 +18,8 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import com.group4.model.TaiKhoanModel;
 import com.group4.ui.dialog.DlgLogin;
+import com.group4.ui.panel.PnlCustomerReportUI;
 import com.group4.ui.panel.PnlLateChargePayment;
 import com.group4.ui.panel.PnlManageDisk;
 import com.group4.ui.panel.PnlManagerTitle;
@@ -27,8 +28,6 @@ import com.group4.ui.panel.PnlRentDisk;
 import com.group4.ui.panel.PnlReservation;
 import com.group4.ui.panel.PnlThietLapGiaThueChoDia;
 import com.group4.ui.panel.PnlTraDia;
-
-import com.group4.ui.panel.PnlCustomerReportUI;
 
 public class FrmMain extends JFrame {
 	private static final long serialVersionUID = 1L;
