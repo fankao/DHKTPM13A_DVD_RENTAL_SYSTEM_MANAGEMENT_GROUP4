@@ -69,18 +69,6 @@ public class DlgSearchTitle extends JDialog {
 		pnlResult.setLayout(new BorderLayout(0, 0));
 
 		lstResultTitle = new JList<TuaDe>(new DefaultListModel<>());
-		lstResultTitle.setModel(new AbstractListModel() {
-			String[] values = new String[] { "Chiến tranh giữa các vì sao", "Liên minh huyền thoại",
-					"Du hành giữa các vì sao" };
-
-			public int getSize() {
-				return values.length;
-			}
-
-			public Object getElementAt(int index) {
-				return values[index];
-			}
-		});
 		lstResultTitle.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		lstResultTitle.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		pnlResult.add(lstResultTitle, BorderLayout.CENTER);
@@ -129,13 +117,11 @@ public class DlgSearchTitle extends JDialog {
 			public void keyPressed(KeyEvent e) {
 				String key = txtSearch.getText().toLowerCase().trim();
 				if(key.length() == 0) {
-					hienKetQuaTimKiem(new ArrayList<TuaDe>());
+					hienKetQuaTimKiem(tuaDeDAO.findAll());
 				}else {
 					List<TuaDe> list = tuaDeBUS.timKiemTuaDe(key);
 					hienKetQuaTimKiem(list);
 				}
-				
-				
 				super.keyPressed(e);
 			}
 		});
@@ -143,8 +129,11 @@ public class DlgSearchTitle extends JDialog {
 	}
 
 	protected void hienKetQuaTimKiem(List<TuaDe> list) {
-		
-		
+		DefaultListModel<TuaDe> model = (DefaultListModel<TuaDe>) lstResultTitle.getModel();
+		model.removeAllElements();
+		for (TuaDe tuaDe : list) {
+			model.addElement(tuaDe);
+		}
 	}
 
 	public TuaDe getTuaDe() {

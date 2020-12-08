@@ -36,11 +36,11 @@ public class DatTruocDiaBUS {
 		ChiTietDatGiu chiTietDatGiu = layChiTietDatGiuSomNhat(dia);
 		
 		if(chiTietDatGiu == null) {
-			return null;
+			dia.setTrangThai(TrangThaiDia.ON_SHEFT);
+		}else {
+			chiTietDatGiu.setDaGanDia(true);
+			dia.setTrangThai(TrangThaiDia.ON_HOLD);
 		}
-		
-		chiTietDatGiu.setDaGanDia(true);
-		dia.setTrangThai(TrangThaiDia.ON_HOLD);
 		
 		if(diaDAO.update(dia) ==null || chiTietDatGiuDAO.update(chiTietDatGiu) ==null) {
 			return null;

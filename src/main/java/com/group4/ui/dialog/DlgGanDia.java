@@ -1,5 +1,6 @@
 package com.group4.ui.dialog;
 import static com.group4.Injection.*;
+import static com.group4.ui.panel.UtilsLayout.*;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -11,20 +12,16 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 
-import com.group4.business.DatTruocDiaBUS;
-import com.group4.dao.IDiaDAO;
-import com.group4.dao.impl.DiaDAO;
 import com.group4.entities.ChiTietDatGiu;
 import com.group4.entities.Dia;
 import com.group4.entities.KhachHang;
 import com.group4.entities.TuaDe;
-import com.group4.test.TestingThanhToanPhiTreHan;
 import com.group4.ui.ICloseUIListener;
 import com.group4.ui.panel.PnlCustomerCommon;
 
@@ -32,8 +29,7 @@ public class DlgGanDia extends JDialog {
 	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
 	private ICloseUIListener closeUIListener;
-	private static DatTruocDiaBUS datTruocDiaBUS;
-
+	private ChiTietDatGiu chiTietDatGiu = null;
 
 	private JLabel lblDiskId;
 	private JLabel lblNewLabel_2;
@@ -43,6 +39,8 @@ public class DlgGanDia extends JDialog {
 	private JPanel pnlCustomer;
 	private JButton btnHuyGanDia;
 	private JButton btnClose;
+	private Dia diaGan;
+	
 
 	/**
 	 * Create the dialog.
@@ -134,6 +132,7 @@ public class DlgGanDia extends JDialog {
 		btnClose.setActionCommand("Cancel");
 		buttonPane.add(btnClose);
 		
+		
 		ganDiaChoKhachHang(dia);
 		ganSuKienChoButton();
 	}
@@ -152,7 +151,11 @@ public class DlgGanDia extends JDialog {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				xuLyHuyGanDia();
+				int confirm  = hienThongBaoXacNhan(DlgGanDia.this, "Thông báo xác nhận", "Xác nhận huỷ gán đĩa");
+				if(confirm == JOptionPane.NO_OPTION) {
+					return;
+				}
+				xuLyHuyGanDia(chiTietDatGiu);
 				
 			}
 		});
@@ -162,26 +165,31 @@ public class DlgGanDia extends JDialog {
 	/**
 	 * Xử lý huỷ gán đĩa
 	 */
-	protected void xuLyHuyGanDia() {
-		
+	protected void xuLyHuyGanDia(ChiTietDatGiu ctdg) {
+		chiTietDatGiuDAO.delete(ctdg);
+		this.dispose();
+		ganDiaChoKhachHang(diaGan);
 		
 	}
 
 	private void ganDiaChoKhachHang(Dia dia) {
-
 		if (dia == null) {
-			System.out.println("Dfskhfskjdfhjkds");
+			this.dispose();
 			return;
 		}
 
-		ChiTietDatGiu chiTietDatGiu = datTruocDiaBUS.ganDia(dia);
+		ChiTietDatGiu chiTietDatGiuR = datTruocDiaBUS.ganDia(dia);
 		if (chiTietDatGiu == null) {
 			this.dispose();
 			return;
 		}
+		
+		chiTietDatGiu = chiTietDatGiuR;
+		diaGan = dia;
+		
 		hienThongTinDia(dia);
-		hienThongTinTuaDe(chiTietDatGiu.getTuaDe());
-		hienThongTinKhachHang(chiTietDatGiu.getKhachHang());
+		hienThongTinTuaDe(chiTietDatGiuR.getTuaDe());
+		hienThongTinKhachHang(chiTietDatGiuR.getKhachHang());
 
 	}
 
@@ -206,15 +214,4 @@ public class DlgGanDia extends JDialog {
 		this.closeUIListener = closeUIListener;
 	}
 
-	public static void main(String[] args) {
-		SwingUtilities.invokeLater(new Runnable() {
-
-			@Override
-			public void run() {
-				TestingThanhToanPhiTreHan.main();
-				new DlgGanDia(diaDAO.findById(10L)).setVisible(true);
-
-			}
-		});
-	}
 }

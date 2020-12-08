@@ -32,6 +32,7 @@ import com.group4.entities.LoaiDia;
 import com.group4.entities.TrangThaiDia;
 import com.group4.entities.TuaDe;
 import com.group4.ui.ICloseUIListener;
+import com.group4.ui.dialog.DlgSearchTitle;
 
 import javax.swing.border.LineBorder;
 import java.awt.Color;
@@ -54,7 +55,6 @@ public class PnlManageDisk extends JPanel {
 	private JComboBox<LoaiDia> cmbDiskCategory;
 	private JButton btnSearchTitle;
 	private JButton btnAdd;
-	private JButton btnSave;
 	private JButton btnCancel;
 	private JButton btnClose;
 	private JTextField txtDiskId;
@@ -166,10 +166,6 @@ public class PnlManageDisk extends JPanel {
 		btnAdd = new JButton("Thêm đĩa");
 		btnAdd.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		pnlOperation.add(btnAdd);
-
-		btnSave = new JButton("Lưu đĩa");
-		btnSave.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		pnlOperation.add(btnSave);
 
 		btnCancel = new JButton("Huỷ");
 		btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -292,7 +288,7 @@ public class PnlManageDisk extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				int select = hienThongBaoXacNhan(PnlManageDisk.this, "Thông báo thoát chức năng",
 						"Xác nhận thoát chức năng quản lý đĩa ?");
-				if(select == JOptionPane.NO_OPTION) {
+				if (select == JOptionPane.NO_OPTION) {
 					return;
 				}
 				closeUIListener.onCloseUI(e);
@@ -306,7 +302,7 @@ public class PnlManageDisk extends JPanel {
 				if (isInputFieldNotBlank(PnlManageDisk.this, txtDiskId)) {
 					try {
 						Long diaId = Long.valueOf(txtDiskId.getText());
-						if(diaId == 0) {
+						if (diaId == 0) {
 							hienThongBao(PnlManageDisk.this, "Thông báo lỗi", "Mã đĩa phải là số nguyên lớn hơn 0",
 									JOptionPane.ERROR_MESSAGE);
 							txtDiskId.requestFocus();
@@ -351,33 +347,52 @@ public class PnlManageDisk extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(cmbDiskCategory != null && cmbTitleOfDisk != null) {
-					Dia dia = new Dia();
-					int indexLoaiDia = cmbDiskCategory.getSelectedIndex();
-					dia.setLoaiDia(cmbDiskCategory.getItemAt(indexLoaiDia));
-					int indexTuade = cmbTitleOfDisk.getSelectedIndex();
-					dia.setTuaDe((TuaDe) cmbTitleOfDisk.getItemAt(indexTuade));
-					dia.setTrangThai(TrangThaiDia.ON_SHEFT);
-					if(txtQuantity.getText().isEmpty()) {
-						hienThongBao(PnlManageDisk.this, "Thông báo lỗi", "Số lượng đĩa trống", JOptionPane.ERROR_MESSAGE);
-					}else if(txtQuantity.getText().matches("[a-zA-Z]")){
-						hienThongBao(PnlManageDisk.this, "Thông báo lỗi", "Vui lòng nhập số lượng đĩa là số", JOptionPane.ERROR_MESSAGE);
+				if (cmbDiskCategory != null && cmbTitleOfDisk != null) {
+					if (txtQuantity.getText().isEmpty()) {
+						hienThongBao(PnlManageDisk.this, "Thông báo lỗi", "Số lượng đĩa trống",
+								JOptionPane.ERROR_MESSAGE);
+					} else if (txtQuantity.getText().matches("[a-zA-Z]")) {
+						hienThongBao(PnlManageDisk.this, "Thông báo lỗi", "Vui lòng nhập số lượng đĩa là số",
+								JOptionPane.ERROR_MESSAGE);
 						txtQuantity.setText("");
-					}else if(Integer.parseInt(txtQuantity.getText())<=0){
-						hienThongBao(PnlManageDisk.this, "Thông báo lỗi", "Vui lòng nhập số lượng đĩa lớn hơn 0", JOptionPane.ERROR_MESSAGE);
+					} else if (Integer.parseInt(txtQuantity.getText()) <= 0) {
+						hienThongBao(PnlManageDisk.this, "Thông báo lỗi", "Vui lòng nhập số lượng đĩa lớn hơn 0",
+								JOptionPane.ERROR_MESSAGE);
 						txtQuantity.setText("");
-					}else {
+					} else {
 						int soLuongDia = Integer.parseInt(txtQuantity.getText());
-						for(int i=0; i< soLuongDia; i++) {
-							DiaDAO dao = new DiaDAO();
-							dao.create(dia);
+						TuaDe tuaDe = (TuaDe) cmbTitleOfDisk.getSelectedItem();
+						LoaiDia loaiDia = (LoaiDia) cmbDiskCategory.getSelectedItem();
+						for (int i = 0; i < soLuongDia; i++) {
+							Dia dia = new Dia();
+							dia.setLoaiDia(loaiDia);
+							dia.setTuaDe(tuaDe);
+							dia.setTrangThai(TrangThaiDia.ON_SHEFT);
+							diaDAO.create(dia);
 						}
-						hienThongBao(PnlManageDisk.this, "Thêm đĩa thành công", 
-														"Tựa đề: " + dia.getTuaDe() + ",\n Loại đĩa: " + dia.getLoaiDia() + "\n Số lượng đĩa:" + soLuongDia,
-														JOptionPane.INFORMATION_MESSAGE);
+						hienThongBao(
+								PnlManageDisk.this, "Thêm đĩa thành công", "Tựa đề: " + tuaDe.getTenTuaDe()
+										+ ",\n Loại đĩa: " + loaiDia.getTenLoaiDia() + ",\n Số lượng đĩa:" + soLuongDia,
+								JOptionPane.INFORMATION_MESSAGE);
 					}
-				}else {
-					hienThongBao(PnlManageDisk.this, "Thông báo lỗi", "Chưa chọn tưa đề hoặc loại đĩa", JOptionPane.ERROR_MESSAGE);
+				} else {
+					hienThongBao(PnlManageDisk.this, "Thông báo lỗi", "Chưa chọn tưa đề hoặc loại đĩa",
+							JOptionPane.ERROR_MESSAGE);
+				}
+
+			}
+		});
+
+		btnSearchTitle.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				DlgSearchTitle searchTitleDlg = new DlgSearchTitle();
+				searchTitleDlg.setLocationRelativeTo(null);
+				searchTitleDlg.setVisible(true);
+
+				if (searchTitleDlg.getTuaDe() != null) {
+					cmbTitleOfDisk.setSelectedItem(searchTitleDlg.getTuaDe());
 				}
 
 			}
@@ -397,7 +412,8 @@ public class PnlManageDisk extends JPanel {
 			return;
 		}
 
-		int select = hienThongBaoXacNhan(this, "Thông báo xác nhận", "Xác nhận xoá đĩa (mã đĩa: " + dia.getId() + ") ?");
+		int select = hienThongBaoXacNhan(this, "Thông báo xác nhận",
+				"Xác nhận xoá đĩa (mã đĩa: " + dia.getId() + ") ?");
 
 		if (select == JOptionPane.NO_OPTION) {
 			return;
@@ -457,11 +473,13 @@ public class PnlManageDisk extends JPanel {
 			comboBoxModel.addElement(loaiDia);
 		}
 	}
-	private List<TuaDe> getTuaDe(){
+
+	private List<TuaDe> getTuaDe() {
 		ITuaDeDAO dao = new TuaDeDAO();
 		return dao.findAll();
 	}
-	private List<LoaiDia> getLoaiDia(){
+
+	private List<LoaiDia> getLoaiDia() {
 		ILoaiDiaDAO dao = new LoaiDiaDAO();
 		return dao.findAll();
 	}
