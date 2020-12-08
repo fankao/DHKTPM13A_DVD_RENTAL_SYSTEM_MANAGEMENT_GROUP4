@@ -105,6 +105,7 @@ public class PnlCustomerReportUI extends JPanel {
 		panel.setLayout(null);
 
 		JScrollPane scrTreHan = new JScrollPane();
+
 		scrTreHan.setBounds(6, 18, 555, 193);
 		panel.add(scrTreHan);
 
@@ -258,7 +259,7 @@ public class PnlCustomerReportUI extends JPanel {
 
 				switch (select) {
 				case 1:
-
+					hienDanhSachKhachHang(khachHangDAO.findAll());
 					break;
 				case 2:
 

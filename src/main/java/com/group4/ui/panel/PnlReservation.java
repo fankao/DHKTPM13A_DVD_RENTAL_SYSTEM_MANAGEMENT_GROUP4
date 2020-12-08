@@ -144,6 +144,7 @@ public class PnlReservation extends JPanel {
 		btnClose.setFont(new Font("Tahoma", Font.PLAIN, 20));
 
 		btnSearchTitle = new JButton("Tìm kiếm tựa đề\r\n");
+		btnSearchTitle.setEnabled(false);
 		btnSearchTitle.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		pnlOperation.add(btnSearchTitle);
 
@@ -221,7 +222,7 @@ public class PnlReservation extends JPanel {
 				hienDanhSachDatGiu(datTruocDiaBUS.getDSDatBanSaoTheoKH(khachHangDatBanSao.getId()));
 
 				voHieuHoaButton(btnClose);
-				kichHoatButton(btnAccept, btnCancel);
+				kichHoatButton(btnAccept, btnCancel,btnSearchTitle);
 			}
 		});
 
@@ -267,12 +268,18 @@ public class PnlReservation extends JPanel {
 				searchTitleDlg.setVisible(true);
 
 				if (searchTitleDlg.getTuaDe() != null) {
+					List<TuaDe> dsTuaDeKHChuaDat = datTruocDiaBUS.getDSTuaDeKhachHangChuaDat(khachHangDatBanSao.getId());
+					
+					if (dsTuaDeKHChuaDat.contains(searchTitleDlg.getTuaDe())) {
+						hienThongBao(PnlReservation.this, "Thông báo lỗi", "Tựa đề này đã được đặt",
+								JOptionPane.ERROR_MESSAGE);
+						return;
+					}
 					cmbTitleOfDisk.setSelectedItem(searchTitleDlg.getTuaDe());
 				}
 
 			}
 		});
-
 		btnCancelReservation.addActionListener(new ActionListener() {
 
 			@Override
@@ -283,7 +290,9 @@ public class PnlReservation extends JPanel {
 				if (result) {
 					((DefaultListModel<ChiTietDatGiu>) lstReservation.getModel()).removeElement(ct);
 					hienDanhSachTuaDe(datTruocDiaBUS.getDSTuaDeKhachHangChuaDat(khachHangDatBanSao.getId()));
+					khachHangDatBanSao = null;
 				}
+
 			}
 		});
 
@@ -356,7 +365,7 @@ public class PnlReservation extends JPanel {
 		pnlTitleOfDisk.setVisible(false);
 		hienDanhSachDatGiu(new ArrayList<ChiTietDatGiu>());
 		kichHoatButton(btnClose);
-		voHieuHoaButton(btnAccept, btnCancel);
+		voHieuHoaButton(btnAccept, btnCancel,btnSearchTitle);
 	}
 
 }

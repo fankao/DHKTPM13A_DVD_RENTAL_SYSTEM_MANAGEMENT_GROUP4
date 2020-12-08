@@ -184,7 +184,7 @@ public class TestingThanhToanPhiTreHan {
 		ThueTraDiaBUS thueTraDiaBUS = new ThueTraDiaBUS();
 		thueTraDiaBUS.xuLyThueDia(kh1, new HashSet<Dia>(Arrays.asList(dia1, dia2, dia3, dia4, dia14, dia15, dia16)));
 		thueTraDiaBUS.xuLyThueDia(kh2, new HashSet<Dia>(Arrays.asList(dia10, dia6, dia20, dia22)));
-		thueTraDiaBUS.xuLyThueDia(kh3, new HashSet<Dia>(Arrays.asList(dia7, dia9, dia12,dia30)));
+		thueTraDiaBUS.xuLyThueDia(kh3, new HashSet<Dia>(Arrays.asList(dia7,dia5, dia9, dia12,dia30)));
 
 		// dữ liệu test thanh toán phí trễ hạn
 

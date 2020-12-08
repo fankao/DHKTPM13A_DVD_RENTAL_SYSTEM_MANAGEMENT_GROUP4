@@ -17,9 +17,16 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
+import com.group4.dao.impl.TaiKhoanDAO;
+import com.group4.model.TaiKhoanModel;
 import com.group4.ui.dialog.DlgLogin;
+
 import com.group4.ui.panel.PnlBaoCaoTuaDe;
+
 import com.group4.ui.panel.PnlCustomerReportUI;
 import com.group4.ui.panel.PnlLateChargePayment;
 import com.group4.ui.panel.PnlManageDisk;
@@ -29,6 +36,7 @@ import com.group4.ui.panel.PnlRentDisk;
 import com.group4.ui.panel.PnlReservation;
 import com.group4.ui.panel.PnlThietLapGiaThueChoDia;
 import com.group4.ui.panel.PnlTraDia;
+
 import com.group4.ui.panel.PnlUpdateTimeRent;
 
 public class FrmMain extends JFrame {
@@ -57,6 +65,7 @@ public class FrmMain extends JFrame {
 	private JMenuItem mntmLogout;
 	private JMenuItem mntmManagerTitle;
 	private JMenu mnAdmin;
+	private JMenu mnSettings;
 
 	public FrmMain(String title) {
 		super(title);
@@ -132,7 +141,7 @@ public class FrmMain extends JFrame {
 		mntmDisk.setFont(new Font("Segoe UI", Font.PLAIN, 20));
 		mnManage.add(mntmDisk);
 
-		JMenu mnSettings = new JMenu("Thiết lập");
+		mnSettings = new JMenu("Thiết lập");
 		mnSettings.setFont(new Font("Segoe UI", Font.PLAIN, 20));
 		mnManage.add(mnSettings);
 
@@ -168,8 +177,25 @@ public class FrmMain extends JFrame {
 		mntmLogout.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 		mnAdmin.add(mntmLogout);
 
+		if (TaiKhoanModel.admin == null) {
+			updateUIForNotAdmin();
+
+		} else {
+			mnAdmin.setText("Xin chào, " + TaiKhoanModel.admin.getUsername());
+			mntmLogout.setVisible(true);
+			mntmLogin.setVisible(false);
+		}
+
 		setEventForMenu();
 		setEventWhenClickClose();
+	}
+
+	private void updateUIForNotAdmin() {
+		mntmLogout.setVisible(false);
+		mntmDisk.setVisible(false);
+		mnReport.setVisible(false);
+		mnSettings.setVisible(false);
+		mntmTitleDisk.setVisible(false);
 	}
 
 	/**
@@ -294,6 +320,20 @@ public class FrmMain extends JFrame {
 				hienDialog(dlgLogin);
 			}
 		});
+		mntmLogout.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int confirm = hienThongBaoXacNhan(FrmMain.this, "Thông báo xác nhận",
+						"Xác nhận đăng xuất khỏi giao diện admin");
+				if (confirm == JOptionPane.NO_OPTION) {
+					return;
+				}
+				TaiKhoanModel.admin = null;
+				validateUI();
+
+			}
+		});
 
 		mntmRentalPerios.addActionListener(new ActionListener() {
 
@@ -327,6 +367,25 @@ public class FrmMain extends JFrame {
 				});
 			}
 		});
+	}
+
+	protected void validateUI() {
+		dispose();
+		try {
+			// UIManager.setLookAndFeel("com.jtattoo.plaf.mint.MintLookAndFeel");
+			UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
+		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
+				| UnsupportedLookAndFeelException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		SwingUtilities.invokeLater(new Runnable() {
+			@Override
+			public void run() {
+				new FrmMain("Hệ thống quản lý cho thuê băng đĩa").setVisible(true);
+			}
+		});
+
 	}
 
 	private void hienDialog(DlgLogin dlgLogin) {

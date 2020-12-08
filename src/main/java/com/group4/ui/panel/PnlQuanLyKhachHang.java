@@ -190,6 +190,7 @@ public class PnlQuanLyKhachHang extends JPanel {
 		dtmKhachHang.addColumn("Địa chỉ");
 		dtmKhachHang.addColumn("Số điện thoại");
 		tblKhachHang = new JTable(dtmKhachHang);
+		tblKhachHang.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		JScrollPane scTable = new JScrollPane(tblKhachHang, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
 				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 

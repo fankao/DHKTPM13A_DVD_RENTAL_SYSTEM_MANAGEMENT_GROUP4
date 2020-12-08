@@ -1,4 +1,5 @@
 package com.group4.ui.panel;
+
 import static com.group4.Injection.*;
 import static com.group4.ui.panel.UtilsLayout.isInputFieldNotBlank;
 import static com.group4.ui.panel.UtilsLayout.kichHoatButton;
@@ -50,6 +51,7 @@ import com.group4.entities.Dia;
 import com.group4.entities.KhachHang;
 import com.group4.entities.TrangThaiDia;
 import com.group4.ui.ICloseUIListener;
+import com.group4.ui.dialog.DlgGanDia;
 
 public class PnlTraDia extends JPanel {
 	private static final long serialVersionUID = 1L;
@@ -59,21 +61,11 @@ public class PnlTraDia extends JPanel {
 	private JTextField txtKHID;
 	private JButton btnXacNhan;
 	private JTable tblListKH;
-	private JLabel lbltuade;
-	private JLabel lblhotenKH;
-	private JLabel lblhiendcKH;
-	private JButton btnGanDia;
-	private JButton btnHuy;
 	private JButton btnThoat;
-	private JLabel lblngaydatKH;
 
-	
-	private JLabel lblhienSDTKH;
-	
 	private List<Dia> dsDiaTra = new ArrayList<Dia>();
 	private KhachHang khachHangTra;
-	
-	
+
 	public PnlTraDia() {
 		setBorder(new EmptyBorder(10, 10, 10, 10));
 		setSize(1270, 600);
@@ -122,97 +114,12 @@ public class PnlTraDia extends JPanel {
 		pnlCenter.setLayout(new BorderLayout(0, 0));
 
 		JPanel pnlTraDia = new JPanel();
-		pnlTraDia.setBorder(new CompoundBorder(new EmptyBorder(10, 0, 0, 20), new LineBorder(new Color(0, 0, 0), 2)));
 		pnlCenter.add(pnlTraDia, BorderLayout.CENTER);
 		pnlTraDia.setLayout(new BorderLayout(0, 0));
 
 		JPanel pnlGandia = new JPanel();
-		pnlGandia.setBorder(
-				new TitledBorder(new CompoundBorder(new LineBorder(new Color(0, 0, 0), 2), new EmptyBorder(5, 5, 5, 5)),
-						"G\u00E1n \u0110\u0129a", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		pnlTraDia.add(pnlGandia, BorderLayout.CENTER);
 		pnlGandia.setLayout(new BoxLayout(pnlGandia, BoxLayout.Y_AXIS));
-
-		JPanel pnltuade = new JPanel();
-		FlowLayout fl_pnltuade = (FlowLayout) pnltuade.getLayout();
-		fl_pnltuade.setAlignment(FlowLayout.LEFT);
-		pnlGandia.add(pnltuade);
-
-		JLabel lblTuadeTitle = new JLabel("Tựa Đề: ");
-		lblTuadeTitle.setFont(new Font("Dialog", Font.PLAIN, 20));
-		pnltuade.add(lblTuadeTitle);
-
-		lbltuade = new JLabel("Con Bò Cười");
-		lbltuade.setFont(new Font("Dialog", Font.BOLD, 20));
-		pnltuade.add(lbltuade);
-
-		JPanel pnlthontinhKH = new JPanel();
-		FlowLayout fl_pnlthontinhKH = (FlowLayout) pnlthontinhKH.getLayout();
-		fl_pnlthontinhKH.setAlignment(FlowLayout.LEFT);
-		pnlGandia.add(pnlthontinhKH);
-
-		JLabel lblHoten = new JLabel("Họ Tên: ");
-		lblHoten.setFont(new Font("Dialog", Font.PLAIN, 20));
-		pnlthontinhKH.add(lblHoten);
-
-		/* Ten KH */
-		lblhotenKH = new JLabel("Nguyen Van Vy");
-		lblhotenKH.setFont(new Font("Dialog", Font.BOLD, 20));
-		pnlthontinhKH.add(lblhotenKH);
-
-		Component horizontalGlue_2 = Box.createHorizontalGlue();
-		horizontalGlue_2.setPreferredSize(new Dimension(20, 0));
-		horizontalGlue_2.setMinimumSize(new Dimension(20, 0));
-		pnlthontinhKH.add(horizontalGlue_2);
-
-		JLabel lblSDTKH = new JLabel("Số Điện Thoại: ");
-		lblSDTKH.setFont(new Font("Dialog", Font.PLAIN, 20));
-		pnlthontinhKH.add(lblSDTKH);
-
-		/* SDT KH */
-		lblhienSDTKH = new JLabel("0924444659");
-		lblhienSDTKH.setFont(new Font("Dialog", Font.BOLD, 20));
-		pnlthontinhKH.add(lblhienSDTKH);
-
-		Component horizontalGlue_2_1 = Box.createHorizontalGlue();
-		horizontalGlue_2_1.setPreferredSize(new Dimension(20, 0));
-		horizontalGlue_2_1.setMinimumSize(new Dimension(20, 0));
-		pnlthontinhKH.add(horizontalGlue_2_1);
-
-		JLabel lblDCKH = new JLabel("Địa chỉ: ");
-		lblDCKH.setFont(new Font("Dialog", Font.PLAIN, 20));
-		pnlthontinhKH.add(lblDCKH);
-
-		/* SDT KH */
-		lblhiendcKH = new JLabel("Gò Vấp");
-		lblhiendcKH.setFont(new Font("Dialog", Font.BOLD, 20));
-		pnlthontinhKH.add(lblhiendcKH);
-
-		JPanel pnlNgayDatKH = new JPanel();
-		FlowLayout fl_pnlNgayDatKH = (FlowLayout) pnlNgayDatKH.getLayout();
-		fl_pnlNgayDatKH.setAlignment(FlowLayout.LEFT);
-		pnlGandia.add(pnlNgayDatKH);
-
-		JLabel lbl_ngaydat = new JLabel("Ngày Đặt Giữ: ");
-		lbl_ngaydat.setFont(new Font("Dialog", Font.PLAIN, 20));
-		pnlNgayDatKH.add(lbl_ngaydat);
-
-		/* Ten KH */
-		lblngaydatKH = new JLabel("15/05/2020");
-		lblngaydatKH.setFont(new Font("Dialog", Font.BOLD, 20));
-		pnlNgayDatKH.add(lblngaydatKH);
-
-		JPanel pnlButton = new JPanel();
-		FlowLayout fl_pnlbutton = (FlowLayout) pnlButton.getLayout();
-		fl_pnlbutton.setAlignment(FlowLayout.CENTER);
-		pnlGandia.add(pnlButton);
-
-		btnGanDia = new JButton("Gán Đĩa");
-		btnGanDia.setFont(new Font("Dialog", Font.PLAIN, 20));
-		btnHuy = new JButton("Hủy Bỏ");
-		btnHuy.setFont(new Font("Dialog", Font.PLAIN, 20));
-		pnlButton.add(btnGanDia);
-		pnlButton.add(btnHuy);
 
 		JPanel pnlThoat = new JPanel();
 		FlowLayout fl_pnlthoat = (FlowLayout) pnlThoat.getLayout();
@@ -225,17 +132,17 @@ public class PnlTraDia extends JPanel {
 
 		ganSuKienButton();
 	}
-	
+
 	/**
 	 * Thiết lập sự kiện cho button
 	 */
 	private void ganSuKienButton() {
-		
+
 		btnSearchDiaId.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (isInputFieldNotBlank(PnlTraDia.this,txtCustomerID)) {
+				if (isInputFieldNotBlank(PnlTraDia.this, txtCustomerID)) {
 					Long diskId = null;
 					try {
 						diskId = Long.valueOf(txtCustomerID.getText());
@@ -245,7 +152,7 @@ public class PnlTraDia extends JPanel {
 						return;
 					}
 					if (diskId == 0) {
-						hienThongBao("Thông Báo","Mã đĩa phải là số nguyên lớn hơn 0", JOptionPane.ERROR_MESSAGE);
+						hienThongBao("Thông Báo", "Mã đĩa phải là số nguyên lớn hơn 0", JOptionPane.ERROR_MESSAGE);
 						txtCustomerID.requestFocus();
 						return;
 					}
@@ -258,53 +165,45 @@ public class PnlTraDia extends JPanel {
 						return;
 					}
 					System.out.println("------------------------------------------------------");
-					System.out.println("dasdasds+"+ dsTraDia);
+					System.out.println("dasdasds+" + dsTraDia);
 					System.out.println("------------------------------------------------------");
-					
+
 					if (dsTraDia != null) {
-						Dia diaTra = diaDAO.findById(diskId);	
+						Dia diaTra = diaDAO.findById(diskId);
 						KhachHang kh = dsTraDia.getKhachHang();
-						
-						System.out.println("dasdsa"+dsTraDia.getKhachHang());
-						System.out.println("Day la Khach Hang"+kh.toString());
-						
-						
+
+						System.out.println("dasdsa" + dsTraDia.getKhachHang());
+						System.out.println("Day la Khach Hang" + kh.toString());
+
 						themDiaVaoDSTra(diaTra);
-						hienDSDiaTra(dsTraDia);	
-						
-						//update du lieu
+
+						// update du lieu
 						diaTra.setTrangThai(TrangThaiDia.ON_SHEFT);
 						diaDAO.update(diaTra);
-						
-						
+
 						dsTraDia.setNgayTra(LocalDate.now());
 						chiTietThueTraDAO.update(dsTraDia);
 
 						// so sanh ngay
 						// ngay tra it hon ngay hien tai
 						System.out.println(dsTraDia.getNgayToiHan().toString());
-						if(dsTraDia.getNgayToiHan().compareTo(LocalDate.now())<0){
+						if (dsTraDia.getNgayToiHan().compareTo(LocalDate.now()) < 0) {
 							themPhiTreHen(dsDiaTra);
 						}
-						// Khi ngay tra nho hon ngay toi han
-						else
-						{
-							hienThongBao("Thông báo","Bạn Không Phát Sinh Phí Trễ Hẹn", JOptionPane.ERROR_MESSAGE);
-						}
-						
-					}else
-					{
+						hienThongTinGanDia(diaTra);
+						txtCustomerID.setText("");
+
+					} else {
 						hienThongBao("Lỗi tìm kiếm", "Đĩa Chưa Được Thuê", JOptionPane.ERROR_MESSAGE);
 						txtCustomerID.requestFocus();
 						return;
 					}
-									
-				
+
 				}
 			}
-			
+
 		});
-		
+
 		btnThoat.addActionListener(new ActionListener() {
 
 			@Override
@@ -316,26 +215,26 @@ public class PnlTraDia extends JPanel {
 	}
 
 	/**
-	 * Hiện thông tin khách hàng theo mã Đĩa Trả
+	 * Hiện thông tin gán đĩa
 	 * 
-	 * @param khachHang: khách hàng cần hiện thông tin
+	 * @param diaTra
 	 */
-	private void hienDSDiaTra(ChiTietThueTra ct) {
-		// TODO Auto-generated method stub
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		
-//		for(ChiTietThueTra ct : dsTraDia)
-//		{
-		lbltuade.setText(ct.getDia().getTuaDe().getTenTuaDe().toString());
-		lblhotenKH.setText(ct.getKhachHang().getHoVaTen().toString());
-		lblhienSDTKH.setText(ct.getKhachHang().getSoDienThoai().toString());			
-		lblhiendcKH.setText(ct.getKhachHang().getDiaChi().toString());			
-		lblngaydatKH.setText(formatter.format(ct.getNgayToiHan()));
-//		}		
+	protected void hienThongTinGanDia(Dia diaTra) {
+		DlgGanDia dlgGanDia = new DlgGanDia(diaTra);
+		dlgGanDia.setCloseUIListener(new ICloseUIListener() {
+
+			@Override
+			public void onCloseUI(ActionEvent e) {
+				dlgGanDia.dispose();
+			}
+		});
+
+		dlgGanDia.setVisible(true);
+
 	}
-	
+
 	/**
-	 * Hiện thông báo	
+	 * Hiện thông báo
 	 * 
 	 * @param msg: thông báo cần hiển thị
 	 */
@@ -345,31 +244,32 @@ public class PnlTraDia extends JPanel {
 		JOptionPane.showMessageDialog(this, label, title, msgType);
 
 	}
+
 	/**
-	 * Thêm Phí Trễ Hẹn	
+	 * Thêm Phí Trễ Hẹn
 	 * 
-	 * @param 
+	 * @param
 	 */
 	private void themPhiTreHen(List<Dia> dsDiaTra) {
 		// TODO Auto-generated method stub
-		
+
 		double totalPrice = thueTraDiaBUS.tinhTongTienThueDia(new HashSet<Dia>(dsDiaTra));
-		
-		double phitrehen = 100;
-		
+
+		double phitrehen = dsDiaTra.get(dsDiaTra.size() - 1).getLoaiDia().getPhiTreHan();
+
 		double tongTien = totalPrice + phitrehen;
-		
+
 		String tongTienString = NumberFormat.getCurrencyInstance(new Locale("vi", "VN")).format(tongTien);
 
-		hienThongBao("Thêm Phí Trễ Hẹn","Phí Trễ Hẹn Lần Trước Là"+String.valueOf(totalPrice)+"Và Lần Này Là "+String.valueOf(phitrehen)+"-Tổng:"+tongTienString, JOptionPane.INFORMATION_MESSAGE);
+		hienThongBao("Thêm Phí Trễ Hẹn", " Phí Trễ Hẹn Lần Trước Là" + String.valueOf(totalPrice) + " Và Lần Này Là "
+				+ String.valueOf(phitrehen) + " -Tổng:" + tongTienString, JOptionPane.INFORMATION_MESSAGE);
 	}
-	
-	
-	private void returnDia(KhachHang kh, List<Dia> dsDiaThue,LocalDate ngaytra) {
-		thueTraDiaBUS.traDia(kh, new HashSet<Dia>(dsDiaThue),ngaytra);
+
+	private void returnDia(KhachHang kh, List<Dia> dsDiaThue, LocalDate ngaytra) {
+		thueTraDiaBUS.traDia(kh, new HashSet<Dia>(dsDiaThue), ngaytra);
 		hienThongBao("Thông báo", "Trả đĩa thành công", JOptionPane.INFORMATION_MESSAGE);
 	}
-	
+
 	/**
 	 * Đưa đĩa vào danh sách muốn thuê
 	 * 
@@ -378,7 +278,7 @@ public class PnlTraDia extends JPanel {
 	private void themDiaVaoDSTra(Dia diaTra) {
 		dsDiaTra.add(diaTra);
 	}
-	
+
 	public void setCloseUIListener(ICloseUIListener closeUIListener) {
 		this.closeUIListener = closeUIListener;
 	}
