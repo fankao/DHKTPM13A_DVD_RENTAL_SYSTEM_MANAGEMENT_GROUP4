@@ -1,5 +1,5 @@
 package com.group4.ui.dialog;
-
+import static com.group4.Injection.*;
 import static com.group4.ui.panel.UtilsLayout.*;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -36,10 +36,7 @@ import javax.swing.JPasswordField;
 public class DlgLogin extends JDialog {
 
 	private final JPanel pnMain = new JPanel();
-	private static ITaiKhoanDAO taiKhoanDAO;
-	static {
-		taiKhoanDAO = new TaiKhoanDAO();
-	}
+
 	
 	private JTextField txtTenTK;
 	private JPasswordField passwordField;

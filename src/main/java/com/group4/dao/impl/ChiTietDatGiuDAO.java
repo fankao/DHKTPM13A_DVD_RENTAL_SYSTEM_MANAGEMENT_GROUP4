@@ -18,7 +18,7 @@ public class ChiTietDatGiuDAO extends AbstractDAO<ChiTietDatGiu, ChiTietDatGiuID
 		TypedQuery<TuaDe> query = null;
 		try {
 			query = em.createQuery(
-					"select tuaDe from TuaDe tuaDe left join ChiTietDatGiu ct on ct.tuaDe.id = tuaDe.id where ct.tuaDe.id is null or ct.khachHang.id !=:khachHangId",
+					"select tuaDe from TuaDe tuaDe where not exists (select ct.tuaDe from ChiTietDatGiu ct where ct.tuaDe.id = tuaDe.id and ct.khachHang.id =: khachHangId)",
 					TuaDe.class).setParameter("khachHangId", khachHangId);
 		} catch (Exception e) {
 			logger.error("Lỗi truy vấn: " + e.getMessage());
@@ -54,8 +54,10 @@ public class ChiTietDatGiuDAO extends AbstractDAO<ChiTietDatGiu, ChiTietDatGiuID
 	public ChiTietDatGiu getCTDatGiuDauTien(Dia dia) {
 		TypedQuery<ChiTietDatGiu> query = null;
 		try {
-			query = em.createQuery("select ct from ChiTietDatGiu ct where ct.tuaDe.id =: tuaDeId order by ct.ngayDat asc",
-					ChiTietDatGiu.class).setParameter("tuaDeId", dia.getTuaDe().getId());
+			query = em.createQuery(
+					"select ct from ChiTietDatGiu ct where ct.tuaDe.id =: tuaDeId and ct.daGanDia =: daGanDia order by ct.ngayDat asc",
+					ChiTietDatGiu.class).setParameter("tuaDeId", dia.getTuaDe().getId())
+					.setParameter("daGanDia", false);
 		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
 			logger.error("Lỗi truy vấn: " + e.getMessage());

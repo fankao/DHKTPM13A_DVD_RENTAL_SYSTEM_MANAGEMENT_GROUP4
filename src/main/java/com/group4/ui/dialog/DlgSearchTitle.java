@@ -1,13 +1,18 @@
 package com.group4.ui.dialog;
-
+import static com.group4.Injection.*;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.AbstractListModel;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JList;
@@ -18,15 +23,17 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
+import com.group4.entities.TuaDe;
+
 public class DlgSearchTitle extends JDialog {
 	private static final long serialVersionUID = 1L;
-	private String tuaDe;
+	private TuaDe tuaDe;
 
 	private final JPanel contentPanel = new JPanel();
 	private JTextField txtSearch;
 	private JButton btnConfirm;
 	private JButton btnClose;
-	private JList<String> lstResultTitle;
+	private JList<TuaDe> lstResultTitle;
 
 	/**
 	 * Create the dialog.
@@ -61,7 +68,7 @@ public class DlgSearchTitle extends JDialog {
 		contentPanel.add(pnlResult, BorderLayout.CENTER);
 		pnlResult.setLayout(new BorderLayout(0, 0));
 
-		lstResultTitle = new JList<String>();
+		lstResultTitle = new JList<TuaDe>(new DefaultListModel<>());
 		lstResultTitle.setModel(new AbstractListModel() {
 			String[] values = new String[] { "Chiến tranh giữa các vì sao", "Liên minh huyền thoại",
 					"Du hành giữa các vì sao" };
@@ -111,10 +118,36 @@ public class DlgSearchTitle extends JDialog {
 				dispose();
 			}
 		});
+		
+		timKiemTuaDe();
 
 	}
 
-	public String getTuaDe() {
+	private void timKiemTuaDe() {
+		txtSearch.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				String key = txtSearch.getText().toLowerCase().trim();
+				if(key.length() == 0) {
+					hienKetQuaTimKiem(new ArrayList<TuaDe>());
+				}else {
+					List<TuaDe> list = tuaDeBUS.timKiemTuaDe(key);
+					hienKetQuaTimKiem(list);
+				}
+				
+				
+				super.keyPressed(e);
+			}
+		});
+		
+	}
+
+	protected void hienKetQuaTimKiem(List<TuaDe> list) {
+		
+		
+	}
+
+	public TuaDe getTuaDe() {
 		return tuaDe;
 	}
 

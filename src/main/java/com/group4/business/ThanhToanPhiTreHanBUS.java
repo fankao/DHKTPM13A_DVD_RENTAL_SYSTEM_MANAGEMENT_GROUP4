@@ -1,19 +1,19 @@
+
 package com.group4.business;
 
+import static com.group4.Injection.chiTietThueTraDAO;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.group4.dao.IChiTietThueTraDAO;
+import com.group4.dao.impl.ChiTietDatGiuDAO;
 import com.group4.dao.impl.ChiTietThueTraDAO;
+import com.group4.entities.ChiTietDatGiu;
 import com.group4.entities.ChiTietThueTra;
 
 public class ThanhToanPhiTreHanBUS {
-
-	private static IChiTietThueTraDAO chiTietThueTraDAO;
-
-	static {
-		chiTietThueTraDAO = new ChiTietThueTraDAO();
-	}
 
 	/**
 	 * UC005b: Lấy danh sách chi tiết thuê trả đã trễ hạn trả đĩa theo id khách hàng
@@ -23,9 +23,11 @@ public class ThanhToanPhiTreHanBUS {
 	 */
 	public List<ChiTietThueTra> getDSThueTraTreHanTheoKH(Long khachHangId) {
 		List<ChiTietThueTra> ds = chiTietThueTraDAO.getDSDaTraDiaTheoKH(khachHangId);
+		if (ds.size() == 0) {
+			return new ArrayList<ChiTietThueTra>();
+		}
 		return ds.stream().filter(x -> daTreHanTraDia(x) == true && x.isDaThanhToanPhiTreHan() == false)
 				.collect(Collectors.toList());
-
 	}
 
 	/**
@@ -37,7 +39,7 @@ public class ThanhToanPhiTreHanBUS {
 	public double tinhTongTienPhiTreHan(List<ChiTietThueTra> dsThueTraTreHan) {
 		double tongTien = 0.0;
 		for (ChiTietThueTra ct : dsThueTraTreHan) {
-			tongTien+=ct.getDia().phiTreHan();
+			tongTien += ct.getDia().phiTreHan();
 		}
 		return tongTien;
 	}
@@ -65,10 +67,7 @@ public class ThanhToanPhiTreHanBUS {
 	 * @return true: trễ hạn/ false: không trễ hạn
 	 */
 	private boolean daTreHanTraDia(ChiTietThueTra chiTietThueTra) {
-		// kiểm tra xem ngày trả đĩa có sau ngày thuê + số ngày thuê được quy định bởi
-		// loại đĩa không
-		boolean daTreHan = chiTietThueTra.getNgayTra()
-				.isAfter(chiTietThueTra.getNgayThue().plusDays(chiTietThueTra.getDia().getLoaiDia().getSoNgayThue()));
+		boolean daTreHan = chiTietThueTra.getNgayTra().isAfter(chiTietThueTra.getNgayToiHan());
 
 		return daTreHan;
 	}
@@ -83,6 +82,11 @@ public class ThanhToanPhiTreHanBUS {
 		chiTietThueTra.setDaThanhToanPhiTreHan(true);
 		return chiTietThueTraDAO.update(chiTietThueTra);
 
+	}
+	
+	public boolean xoaChiTietThueTra(ChiTietThueTra ct) {
+		ChiTietThueTraDAO dao = new ChiTietThueTraDAO();
+		return dao.delete(ct);
 	}
 
 }

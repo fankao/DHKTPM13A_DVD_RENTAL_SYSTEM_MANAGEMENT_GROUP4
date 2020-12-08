@@ -1,5 +1,5 @@
 package com.group4.ui.dialog;
-
+import static com.group4.Injection.*;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -26,10 +26,6 @@ public class DlgThongBaoPhiTreHan extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 
-	private static ThanhToanPhiTreHanBUS thanhToanPhiTreHanBUS;
-	static {
-		thanhToanPhiTreHanBUS = new ThanhToanPhiTreHanBUS();
-	}
 
 	private List<ChiTietThueTra> dsPhiTreHan;
 	private final JPanel contentPanel = new JPanel();

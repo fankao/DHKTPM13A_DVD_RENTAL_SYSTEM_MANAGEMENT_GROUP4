@@ -1,8 +1,8 @@
 package com.group4.ui;
 
-import static com.group4.ui.panel.UtilsLayout.*;
+import static com.group4.ui.panel.UtilsLayout.hienThongBao;
+import static com.group4.ui.panel.UtilsLayout.hienThongBaoXacNhan;
 
-import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,7 +11,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -21,6 +20,8 @@ import javax.swing.JPanel;
 
 import com.group4.ui.dialog.DlgLogin;
 import com.group4.ui.panel.PnlBaoCaoTuaDe;
+
+import com.group4.ui.panel.PnlCustomerReportUI;
 import com.group4.ui.panel.PnlLateChargePayment;
 import com.group4.ui.panel.PnlManageDisk;
 import com.group4.ui.panel.PnlManagerTitle;
@@ -29,6 +30,7 @@ import com.group4.ui.panel.PnlRentDisk;
 import com.group4.ui.panel.PnlReservation;
 import com.group4.ui.panel.PnlThietLapGiaThueChoDia;
 import com.group4.ui.panel.PnlTraDia;
+import com.group4.ui.panel.PnlUpdateTimeRent;
 
 public class FrmMain extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -56,13 +58,20 @@ public class FrmMain extends JFrame {
 	private JMenuItem mntmLogout;
 	private JMenuItem mntmManagerTitle;
 	private JMenu mnAdmin;
-	
-	private JDialog dlgDangNhap;
 
 	public FrmMain(String title) {
 		super(title);
 		buildFrame();
 		buildComponentUi();
+	}
+
+	/**
+	 * Tạo khung giao diện chính
+	 */
+	private void buildFrame() {
+		this.setSize(1280, 768);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		this.setLocationRelativeTo(null);
 	}
 
 	/**
@@ -192,6 +201,11 @@ public class FrmMain extends JFrame {
 		mnRentDisk.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				hienGDThueDia();
+				super.mouseClicked(e);
+			}
+
+			private void hienGDThueDia() {
 				PnlRentDisk pnlRentDisk = new PnlRentDisk();
 				openWorkUI(pnlRentDisk);
 				pnlRentDisk.setCloseUIListener(new ICloseUIListener() {
@@ -202,23 +216,13 @@ public class FrmMain extends JFrame {
 
 					}
 				});
-				super.mouseClicked(e);
 			}
 		});
 		// TODO: hiện giao diện trả đĩa
 		mnReturnDisk.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				PnlTraDia pnlTraDia = new PnlTraDia();
-				openWorkUI(pnlTraDia);
-				pnlTraDia.setCloseUIListener(new ICloseUIListener() {
-
-					@Override
-					public void onCloseUI(ActionEvent e) {
-						closeWorkUI(pnlTraDia);
-
-					}
-				});
+				hienGDTraDia();
 				super.mouseClicked(e);
 			}
 		});
@@ -227,18 +231,10 @@ public class FrmMain extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				PnlLateChargePayment pnlLateChargePayment = new PnlLateChargePayment(null);
-				openWorkUI(pnlLateChargePayment);
-				pnlLateChargePayment.setCloseUIListener(new ICloseUIListener() {
-
-					@Override
-					public void onCloseUI(ActionEvent e) {
-						closeWorkUI(pnlLateChargePayment);
-
-					}
-				});
+				hienGDThanhToanTreHan();
 
 			}
+
 		});
 
 		// hiện giao diện quản lý đĩa
@@ -246,33 +242,14 @@ public class FrmMain extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				PnlManageDisk pnlManageDisk = new PnlManageDisk();
-				openWorkUI(pnlManageDisk);
-				pnlManageDisk.setCloseUIListener(new ICloseUIListener() {
-
-					@Override
-					public void onCloseUI(ActionEvent e) {
-						closeWorkUI(pnlManageDisk);
-
-					}
-				});
+				hienGDDia();
 			}
 		});
-
 		mntmCustomer.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				PnlQuanLyKhachHang pnlQuanLyKhachHang = new PnlQuanLyKhachHang();
-				openWorkUI(pnlQuanLyKhachHang);
-				pnlQuanLyKhachHang.setCloseUIListener(new ICloseUIListener() {
-
-					@Override
-					public void onCloseUI(ActionEvent e) {
-						closeWorkUI(pnlQuanLyKhachHang);
-
-					}
-				});
+				hienGDKhachHang();
 
 			}
 		});
@@ -280,16 +257,7 @@ public class FrmMain extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				PnlReservation pnlReservation = new PnlReservation();
-				openWorkUI(pnlReservation);
-				pnlReservation.setCloseUIListener(new ICloseUIListener() {
-
-					@Override
-					public void onCloseUI(ActionEvent e) {
-						closeWorkUI(pnlReservation);
-
-					}
-				});
+				hienGDDatDia();
 
 			}
 		});
@@ -298,34 +266,28 @@ public class FrmMain extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				PnlThietLapGiaThueChoDia pnlThietLapGiaThueChoLoaiDia = new PnlThietLapGiaThueChoDia();
-				openWorkUI(pnlThietLapGiaThueChoLoaiDia);
-				pnlThietLapGiaThueChoLoaiDia.setCloseUIListener(new ICloseUIListener() {
-
-					@Override
-					public void onCloseUI(ActionEvent e) {
-						closeWorkUI(pnlThietLapGiaThueChoLoaiDia);
-					}
-				});
+				hienGDThietLapGiaThue();
 			}
 		});
 		mntmTitleDisk.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				PnlManagerTitle pnlManagerTitle = new PnlManagerTitle();
-				openWorkUI(pnlManagerTitle);
-				pnlManagerTitle.setCloseUIListener(new ICloseUIListener() {
-					
-					@Override
-					public void onCloseUI(ActionEvent e) {
-						closeWorkUI(pnlManagerTitle);
-					}
-				});
+				hienQuanLyTuaDe();
 			}
 		});
+
+		mntmReportCustomer.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				hienBaoCaoKhachHang();
+
+			}
+		});
+
 		mntmLogin.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -333,12 +295,45 @@ public class FrmMain extends JFrame {
 				hienDialog(dlgLogin);
 			}
 		});
-		
+
+		mntmRentalPerios.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				PnlUpdateTimeRent pnlUpdateTime = new PnlUpdateTimeRent();
+				openWorkUI(pnlUpdateTime);
+				pnlUpdateTime.setCloseUIListener(new ICloseUIListener() {
+
+					@Override
+					public void onCloseUI(ActionEvent e) {
+						closeWorkUI(pnlUpdateTime);
+					}
+				});
+			}
+		});
+		mntmReportTitle.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				PnlBaoCaoTuaDe pnlBaocao = new PnlBaoCaoTuaDe();
+				openWorkUI(pnlBaocao);
+				pnlBaocao.setCloseUIListener(new ICloseUIListener() {
+
+					@Override
+					public void onCloseUI(ActionEvent e) {
+						closeWorkUI(pnlBaocao);
+					}
+				});
+			}
+		});
 	}
-	
+
 	private void hienDialog(DlgLogin dlgLogin) {
 		dlgLogin.setVisible(true);
 	}
+
 	private void closeWorkUI(JPanel panel) {
 		getContentPane().remove(panel);
 		getContentPane().repaint();
@@ -351,7 +346,6 @@ public class FrmMain extends JFrame {
 		getContentPane().repaint();
 		getContentPane().validate();
 		enableMenu(false);
-
 	}
 
 	private void enableMenu(boolean isEnable) {
@@ -365,18 +359,111 @@ public class FrmMain extends JFrame {
 
 		if (isEnable == false) {
 			isProcessingBusiness = true;
-		}else {
+		} else {
 			isProcessingBusiness = false;
 		}
 	}
 
-	/**
-	 * Tạo khung giao diện chính
-	 */
-	private void buildFrame() {
-		this.setSize(1280, 768);
-		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		this.setLocationRelativeTo(null);
+	private void hienGDThanhToanTreHan() {
+		PnlLateChargePayment pnlLateChargePayment = new PnlLateChargePayment(null);
+		openWorkUI(pnlLateChargePayment);
+		pnlLateChargePayment.setCloseUIListener(new ICloseUIListener() {
+
+			@Override
+			public void onCloseUI(ActionEvent e) {
+				closeWorkUI(pnlLateChargePayment);
+
+			}
+		});
+	}
+
+	private void hienBaoCaoKhachHang() {
+		PnlCustomerReportUI customerReportUI = new PnlCustomerReportUI();
+		openWorkUI(customerReportUI);
+		customerReportUI.setCloseUIListener(new ICloseUIListener() {
+
+			@Override
+			public void onCloseUI(ActionEvent e) {
+				closeWorkUI(customerReportUI);
+
+			}
+		});
+	}
+
+	private void hienQuanLyTuaDe() {
+		PnlManagerTitle pnlManagerTitle = new PnlManagerTitle();
+		openWorkUI(pnlManagerTitle);
+		pnlManagerTitle.setCloseUIListener(new ICloseUIListener() {
+
+			@Override
+			public void onCloseUI(ActionEvent e) {
+				closeWorkUI(pnlManagerTitle);
+			}
+		});
+	}
+
+	private void hienGDThietLapGiaThue() {
+		PnlThietLapGiaThueChoDia pnlThietLapGiaThueChoLoaiDia = new PnlThietLapGiaThueChoDia();
+		openWorkUI(pnlThietLapGiaThueChoLoaiDia);
+		pnlThietLapGiaThueChoLoaiDia.setCloseUIListener(new ICloseUIListener() {
+
+			@Override
+			public void onCloseUI(ActionEvent e) {
+				closeWorkUI(pnlThietLapGiaThueChoLoaiDia);
+			}
+		});
+	}
+
+	private void hienGDDatDia() {
+		PnlReservation pnlReservation = new PnlReservation();
+		openWorkUI(pnlReservation);
+		pnlReservation.setCloseUIListener(new ICloseUIListener() {
+
+			@Override
+			public void onCloseUI(ActionEvent e) {
+				closeWorkUI(pnlReservation);
+
+			}
+		});
+	}
+
+	private void hienGDKhachHang() {
+		PnlQuanLyKhachHang pnlQuanLyKhachHang = new PnlQuanLyKhachHang();
+		openWorkUI(pnlQuanLyKhachHang);
+		pnlQuanLyKhachHang.setCloseUIListener(new ICloseUIListener() {
+
+			@Override
+			public void onCloseUI(ActionEvent e) {
+				closeWorkUI(pnlQuanLyKhachHang);
+
+			}
+		});
+	}
+
+	private void hienGDDia() {
+		PnlManageDisk pnlManageDisk = new PnlManageDisk();
+		openWorkUI(pnlManageDisk);
+		pnlManageDisk.setCloseUIListener(new ICloseUIListener() {
+
+			@Override
+			public void onCloseUI(ActionEvent e) {
+				closeWorkUI(pnlManageDisk);
+
+			}
+		});
+	}
+
+	private void hienGDTraDia() {
+		PnlTraDia pnlTraDia = new PnlTraDia();
+		openWorkUI(pnlTraDia);
+		pnlTraDia.setCloseUIListener(new ICloseUIListener() {
+
+			@Override
+			public void onCloseUI(ActionEvent e) {
+				closeWorkUI(pnlTraDia);
+
+			}
+		});
 	}
 
 }

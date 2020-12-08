@@ -1,5 +1,5 @@
 package com.group4.ui.panel;
-
+import static com.group4.Injection.*;
 import static com.group4.ui.panel.UtilsLayout.*;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -29,6 +29,7 @@ import com.group4.business.KhachHangBUS;
 import com.group4.dao.IKhachHangDAO;
 import com.group4.dao.impl.KhachHangDAO;
 import com.group4.entities.KhachHang;
+import com.group4.model.TaiKhoanModel;
 import com.group4.ui.ICloseUIListener;
 import javax.swing.SwingConstants;
 
@@ -40,14 +41,6 @@ public class PnlQuanLyKhachHang extends JPanel {
 	private ICloseUIListener closeUIListener;
 	private KhachHang khachHang = null;
 	private List<KhachHang> dsKH;
-
-	private static IKhachHangDAO khachHangDAO;
-	private static KhachHangBUS khachHangBUS;
-
-	static {
-		khachHangDAO = new KhachHangDAO();
-		khachHangBUS = new KhachHangBUS();
-	}
 
 	private JTextField txtTenKhachHang;
 	private JTextField txtDiaChi;
@@ -231,6 +224,10 @@ public class PnlQuanLyKhachHang extends JPanel {
 		btnDong.setFont(new Font("Arial", Font.PLAIN, 20));
 		pnThoat.add(btnDong);
 		btnDong.setPreferredSize(new Dimension(100, 50));
+		
+		if(TaiKhoanModel.admin == null) {
+			btnXoaKhachHang.setVisible(false);
+		}
 
 		voHieuHoaButton(btnSuaKhachHang, btnXoaKhachHang, btnLuuKhachHang, btnHuy);
 
@@ -438,6 +435,7 @@ public class PnlQuanLyKhachHang extends JPanel {
 			}
 
 		}
+		khachHang = null;
 
 	}
 
