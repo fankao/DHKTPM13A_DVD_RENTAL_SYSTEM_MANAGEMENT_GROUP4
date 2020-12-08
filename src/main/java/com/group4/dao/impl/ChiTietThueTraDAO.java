@@ -31,15 +31,15 @@ public class ChiTietThueTraDAO extends AbstractDAO<ChiTietThueTra, ChiTietThueTr
 	}
 
 	@Override
-	public List<ChiTietThueTra> getDSChuaTraDiaTheoDia(Long khId) {
+	public ChiTietThueTra getmotCTTTChuaTraDiaTheoDia(Long khId) {
 		TypedQuery<ChiTietThueTra> query = em
 				.createQuery("select ct from ChiTietThueTra ct where ct.ngayTra is null and ct.khachHang.id =:khId",
 						ChiTietThueTra.class)
 				.setParameter("khId", khId);
 
-		List<ChiTietThueTra> results = query.getResultList();
+		ChiTietThueTra results = query.getSingleResult();
 
-		return results.size() == 0 ? new ArrayList<ChiTietThueTra>() : results;
+		return results;
 	}
 
 	@Override
@@ -53,5 +53,18 @@ public class ChiTietThueTraDAO extends AbstractDAO<ChiTietThueTra, ChiTietThueTr
 
 		return results.size();
 	}
+
+	@Override
+	public List<ChiTietThueTra> getDSChuaTraDiaTheoDia(Long khId) {
+		TypedQuery<ChiTietThueTra> query = em
+				.createQuery("select ct from ChiTietThueTra ct where ct.ngayTra is null and ct.khachHang.id =:khId",
+						ChiTietThueTra.class)
+				.setParameter("khId", khId);
+
+		List<ChiTietThueTra> results = query.getResultList();
+
+		return results.size() == 0 ? new ArrayList<ChiTietThueTra>() : results;
+	}
+
 
 }

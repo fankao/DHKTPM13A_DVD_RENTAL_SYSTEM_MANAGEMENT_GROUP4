@@ -8,9 +8,13 @@ import com.group4.entities.ChiTietThueTraID;
 public interface IChiTietThueTraDAO extends IGenericDAO<ChiTietThueTra, ChiTietThueTraID> {
 
 	List<ChiTietThueTra> getDSDaTraDiaTheoKH(Long khId);
-
 	List<ChiTietThueTra> getDSChuaTraDiaTheoDia(Long khId);
 
 	int demSoDiaDaThue(Long id);
 
+	
+	ChiTietThueTra getmotCTTTChuaTraDiaTheoDia(Long diaID);
+	
+//	ChiTietThueTra getDSChuaTraDiaTheoDiavaKH(Long khId);
+	
 }
