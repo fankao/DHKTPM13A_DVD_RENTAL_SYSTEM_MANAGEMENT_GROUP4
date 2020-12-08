@@ -19,10 +19,12 @@ import com.group4.ui.ICloseUIListener;
 
 import javax.swing.JLabel;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.regex.Pattern;
 
 import javax.swing.BoxLayout;
 import javax.swing.JTextField;
@@ -47,19 +49,6 @@ public class DlgLogin extends JDialog {
 	private JDialog dlgLogin;
 	
 	private ICloseUIListener closeUIListener;
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		try {
-			DlgLogin dialog = new DlgLogin();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setLocationRelativeTo(null);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 
 	/**
 	 * Create the dialog.
@@ -177,10 +166,21 @@ public class DlgLogin extends JDialog {
 	}
 
 	private boolean isValidInput() {
-		if(!isInputFieldNotBlank(this,txtTenTK) && !isInputFieldNotBlank(this,passwordField)) {
+		if(!isInputFieldNotBlank(this,txtTenTK) || !isInputFieldNotBlank(this,passwordField)) {
 			return false;
 		}
-		
+		else {
+			String regex = "[0-9]{6}";
+			String pass = passwordField.getText();
+			if(!Pattern.matches(regex,pass)) {
+				hienThongBao(this, "Thông báo lỗi", 
+						"Password gồm 6 chữ số, vui lòng nhập lại", 
+						JOptionPane.ERROR_MESSAGE);
+				passwordField.requestFocus();
+				passwordField.selectAll();
+				return false;
+			}
+		}
 		
 		
 		return true;

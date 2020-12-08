@@ -20,6 +20,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import com.group4.ui.dialog.DlgLogin;
+import com.group4.ui.panel.PnlBaoCaoTuaDe;
 import com.group4.ui.panel.PnlLateChargePayment;
 import com.group4.ui.panel.PnlManageDisk;
 import com.group4.ui.panel.PnlManagerTitle;
@@ -332,6 +333,7 @@ public class FrmMain extends JFrame {
 				hienDialog(dlgLogin);
 			}
 		});
+		
 	}
 	
 	private void hienDialog(DlgLogin dlgLogin) {
