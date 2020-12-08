@@ -19,7 +19,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import com.group4.ui.dialog.DlgLogin;
+
 import com.group4.ui.panel.PnlBaoCaoTuaDe;
+
 import com.group4.ui.panel.PnlCustomerReportUI;
 import com.group4.ui.panel.PnlLateChargePayment;
 import com.group4.ui.panel.PnlManageDisk;
@@ -29,7 +31,9 @@ import com.group4.ui.panel.PnlRentDisk;
 import com.group4.ui.panel.PnlReservation;
 import com.group4.ui.panel.PnlThietLapGiaThueChoDia;
 import com.group4.ui.panel.PnlTraDia;
+
 import com.group4.ui.panel.PnlUpdateTimeRent;
+
 
 public class FrmMain extends JFrame {
 	private static final long serialVersionUID = 1L;

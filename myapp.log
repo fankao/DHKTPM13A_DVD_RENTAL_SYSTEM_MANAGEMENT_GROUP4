@@ -32355,3 +32355,39 @@ line 1:10: unexpected token: Dia
 2020-12-08 14:23:26 INFO  Dia:69 - Cập nhật thành công
 2020-12-08 14:23:26 INFO  ChiTietThueTra:69 - Cập nhật thành công
 2020-12-08 14:24:37 INFO  ChiTietThueTra:86 - Xoá thành công
+2020-12-08 14:31:49 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-08 14:31:49 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-08 14:31:49 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-08 14:31:51 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-08 14:31:51 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-08 14:31:51 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-08 14:31:51 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-08 14:31:51 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-08 14:31:52 WARN  JdbcEnvironmentInitiator:132 - HHH000342: Could not obtain connection to query metadata : null
+2020-12-08 14:31:52 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-08 14:31:52 WARN  SqlExceptionHelper:137 - SQL Error: 18456, SQLState: S0001
+2020-12-08 14:31:52 ERROR SqlExceptionHelper:142 - Login failed for user 'sa'. ClientConnectionId:f176e49c-bebd-416e-aa8b-e0f9ac0c236b
+2020-12-08 14:32:38 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-08 14:32:38 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-08 14:32:38 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-08 14:32:39 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-08 14:32:39 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-08 14:32:39 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-08 14:32:39 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-08 14:32:39 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-08 14:32:41 WARN  JdbcEnvironmentInitiator:132 - HHH000342: Could not obtain connection to query metadata : null
+2020-12-08 14:32:41 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-08 14:32:41 WARN  SqlExceptionHelper:137 - SQL Error: 18456, SQLState: S0001
+2020-12-08 14:32:41 ERROR SqlExceptionHelper:142 - Login failed for user 'sa'. ClientConnectionId:e0a89aa8-fc08-4046-9efe-b83ebd2389bb
+2020-12-08 14:33:02 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: dvd-rental-management]
+2020-12-08 14:33:03 INFO  Version:46 - HHH000412: Hibernate Core {5.4.3.Final}
+2020-12-08 14:33:03 INFO  Version:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-08 14:33:04 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-12-08 14:33:04 INFO  pooling:115 - HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB]
+2020-12-08 14:33:04 INFO  pooling:124 - HHH10001001: Connection properties: {user=sa, password=****}
+2020-12-08 14:33:04 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2020-12-08 14:33:04 INFO  DriverManagerConnectionProviderImpl:239 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-12-08 14:33:05 INFO  Dialect:158 - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+2020-12-08 14:33:07 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@77b9d0c7] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-12-08 14:33:07 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-08 14:33:10 INFO  TuaDe:36 - Số phần tử: 11
