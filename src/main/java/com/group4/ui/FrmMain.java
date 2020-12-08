@@ -19,6 +19,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import com.group4.ui.dialog.DlgLogin;
+
+import com.group4.ui.panel.PnlBaoCaoTuaDe;
+
 import com.group4.ui.panel.PnlCustomerReportUI;
 import com.group4.ui.panel.PnlLateChargePayment;
 import com.group4.ui.panel.PnlManageDisk;
@@ -28,6 +31,9 @@ import com.group4.ui.panel.PnlRentDisk;
 import com.group4.ui.panel.PnlReservation;
 import com.group4.ui.panel.PnlThietLapGiaThueChoDia;
 import com.group4.ui.panel.PnlTraDia;
+
+import com.group4.ui.panel.PnlUpdateTimeRent;
+
 
 public class FrmMain extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -165,7 +171,6 @@ public class FrmMain extends JFrame {
 		mntmLogout = new JMenuItem("Đăng xuất");
 		mntmLogout.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 		mnAdmin.add(mntmLogout);
-	
 
 		setEventForMenu();
 		setEventWhenClickClose();
@@ -243,7 +248,6 @@ public class FrmMain extends JFrame {
 				hienGDDia();
 			}
 		});
-
 		mntmCustomer.addActionListener(new ActionListener() {
 
 			@Override
@@ -294,6 +298,39 @@ public class FrmMain extends JFrame {
 				hienDialog(dlgLogin);
 			}
 		});
+
+		mntmRentalPerios.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				PnlUpdateTimeRent pnlUpdateTime = new PnlUpdateTimeRent();
+				openWorkUI(pnlUpdateTime);
+				pnlUpdateTime.setCloseUIListener(new ICloseUIListener() {
+
+					@Override
+					public void onCloseUI(ActionEvent e) {
+						closeWorkUI(pnlUpdateTime);
+					}
+				});
+			}
+		});
+		mntmReportTitle.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				PnlBaoCaoTuaDe pnlBaocao = new PnlBaoCaoTuaDe();
+				openWorkUI(pnlBaocao);
+				pnlBaocao.setCloseUIListener(new ICloseUIListener() {
+
+					@Override
+					public void onCloseUI(ActionEvent e) {
+						closeWorkUI(pnlBaocao);
+					}
+				});
+			}
+		});
 	}
 
 	private void hienDialog(DlgLogin dlgLogin) {
@@ -329,7 +366,7 @@ public class FrmMain extends JFrame {
 			isProcessingBusiness = false;
 		}
 	}
-	
+
 	private void hienGDThanhToanTreHan() {
 		PnlLateChargePayment pnlLateChargePayment = new PnlLateChargePayment(null);
 		openWorkUI(pnlLateChargePayment);

@@ -23,7 +23,7 @@ public class DVDRentalApplication {
 		/*
 		 * dữ liệu test trong trường hợp có phí trễ han
 		 */
-		//TestingThanhToanPhiTreHan.main();
+		TestingThanhToanPhiTreHan.main();
 
 		try {
 			// UIManager.setLookAndFeel("com.jtattoo.plaf.mint.MintLookAndFeel");
