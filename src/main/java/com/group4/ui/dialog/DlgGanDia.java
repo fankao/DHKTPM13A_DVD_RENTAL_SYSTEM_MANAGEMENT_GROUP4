@@ -179,7 +179,7 @@ public class DlgGanDia extends JDialog {
 		}
 
 		ChiTietDatGiu chiTietDatGiuR = datTruocDiaBUS.ganDia(dia);
-		if (chiTietDatGiu == null) {
+		if (chiTietDatGiuR == null) {
 			this.dispose();
 			return;
 		}
