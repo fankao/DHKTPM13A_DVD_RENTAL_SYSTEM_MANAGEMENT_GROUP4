@@ -12,10 +12,11 @@ public class DiaDAO extends AbstractDAO<Dia, Long> implements IDiaDAO {
 	public boolean checkDiaCoTrenKe(Long diaId) {
 		TypedQuery<Dia> query = null;
 		try {
-			query = em.createQuery("select d Dia d where dia.id =:diaId and dia.trangThai LIKE ? :trangThai", Dia.class)
-					.setParameter("diaId", diaId).setParameter("trangThai", TrangThaiDia.ON_SHEFT.name());
+			query = em.createQuery("select dia from Dia dia where dia.id =:diaId and dia.trangThai like :trangThai", Dia.class)
+					.setParameter("diaId", diaId).setParameter("trangThai", TrangThaiDia.ON_SHEFT);
 
 		} catch (Exception e) {
+			e.printStackTrace();
 			logger.error("Truy vấn thất bại: " + e.getMessage());
 		}
 

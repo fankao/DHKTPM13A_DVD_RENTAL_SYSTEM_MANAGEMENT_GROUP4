@@ -1,5 +1,7 @@
 package com.group4.dao.impl;
 
+import javax.persistence.TypedQuery;
+
 import com.group4.dao.ILoaiDiaDAO;
 import com.group4.entities.LoaiDia;
 

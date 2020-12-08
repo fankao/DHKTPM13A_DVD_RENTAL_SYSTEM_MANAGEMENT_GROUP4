@@ -93,7 +93,7 @@ public class TuaDe implements Serializable {
 
 	@Override
 	public String toString() {
-		return "TuaDe [id=" + id + ", tenTuaDe=" + tenTuaDe + "]";
+		return this.tenTuaDe;
 	}
 
 }

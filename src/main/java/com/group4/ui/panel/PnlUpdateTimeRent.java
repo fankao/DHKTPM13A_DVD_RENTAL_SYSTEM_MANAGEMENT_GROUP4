@@ -1,5 +1,5 @@
 package com.group4.ui.panel;
-
+import static com.group4.Injection.*;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -41,7 +41,7 @@ public class PnlUpdateTimeRent extends JPanel {
 				{null, null, null, null},
 			},
 			new String[] {
-				"STT", "ID", "Tua de", "So ngay thue"
+				"STT", "Mã đĩa", "Tựa đề", "Số ngày thuê"
 			}
 		));
 		table.setFont(new Font("Tahoma", Font.PLAIN, 14));

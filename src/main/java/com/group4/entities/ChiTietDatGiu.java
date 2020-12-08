@@ -1,5 +1,7 @@
 package com.group4.entities;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -7,20 +9,25 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 @Entity
 public class ChiTietDatGiu {
 	@EmbeddedId
 	private ChiTietDatGiuID id = new ChiTietDatGiuID();
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@MapsId("khachHangId")
 	@JoinColumn(name = "khachHangId")
 	private KhachHang khachHang;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@MapsId("tuaDeId")
 	@JoinColumn(name = "tuaDeId")
 	private TuaDe tuaDe;
+	
+	@CreationTimestamp
+	private LocalDateTime ngayDat;
 	
 	private boolean daGanDia;
 
@@ -58,6 +65,29 @@ public class ChiTietDatGiu {
 
 	public void setDaGanDia(boolean daGanDia) {
 		this.daGanDia = daGanDia;
+	}
+
+	public LocalDateTime getNgayDat() {
+		return ngayDat;
+	}
+
+	public void setNgayDat(LocalDateTime ngayDat) {
+		this.ngayDat = ngayDat;
+	}
+
+	public void datGiuDia(KhachHang kh, TuaDe tuaDe) {
+		this.setKhachHang(kh);
+		this.setTuaDe(tuaDe);
+		
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder(tuaDe.getTenTuaDe());
+		if(daGanDia) {
+			builder.append(" (Đã gán đĩa)");
+		}
+		return builder.toString();
 	}
 	
 	

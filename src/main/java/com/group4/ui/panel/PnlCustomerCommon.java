@@ -1,5 +1,5 @@
 package com.group4.ui.panel;
-
+import static com.group4.Injection.*;
 import static com.group4.ui.panel.UtilsLayout.*;
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -23,10 +23,6 @@ import com.group4.entities.KhachHang;
 
 public class PnlCustomerCommon extends JPanel {
 	private static final long serialVersionUID = 1L;
-	private static IKhachHangDAO khachHangDAO;
-	static {
-		khachHangDAO = new KhachHangDAO();
-	}
 
 	private ItemClickListener itemClickListener;
 
@@ -159,7 +155,7 @@ public class PnlCustomerCommon extends JPanel {
 	 * @param khachHang: khách hàng cần hiện thông tin
 	 */
 	private void hienThongTinKhachHang(KhachHang khachHang) {
-		txtCustomerID.setText(khachHang.getId()+"");
+		txtCustomerID.setText(khachHang.getId() + "");
 		lblCustomerName.setText(khachHang.getHoVaTen());
 		lblCustomerPhone.setText(khachHang.getSoDienThoai());
 		lblCustomerAddress.setText(khachHang.getDiaChi());
@@ -173,6 +169,15 @@ public class PnlCustomerCommon extends JPanel {
 	}
 
 	public void visibleCustomeInfo(boolean isVisible) {
+		if (isVisible == false) {
+			kichHoatTextField(txtCustomerID);
+			kichHoatButton(btnSearchCusId);
+			xoaTrang(txtCustomerID);
+		} else {
+			voHieuHoaTextField(txtCustomerID);
+
+			voHieuHoaButton(btnSearchCusId);
+		}
 		pnlCustomerInfo.setVisible(isVisible);
 
 	}

@@ -1,5 +1,5 @@
 package com.group4.ui.dialog;
-
+import static com.group4.Injection.*;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;

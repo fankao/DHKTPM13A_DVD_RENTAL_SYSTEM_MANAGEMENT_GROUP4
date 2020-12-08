@@ -1,29 +1,15 @@
 package com.group4.business;
-
-import static com.group4.ui.panel.UtilsLayout.isInputFieldNotBlank;
+import static com.group4.Injection.chiTietThueTraDAO;
 
 import java.time.LocalDate;
 import java.util.Set;
 
-import com.group4.dao.IChiTietThueTraDAO;
-import com.group4.dao.IDiaDAO;
-import com.group4.dao.impl.ChiTietThueTraDAO;
-import com.group4.dao.impl.DiaDAO;
 import com.group4.entities.ChiTietThueTra;
 import com.group4.entities.Dia;
 import com.group4.entities.KhachHang;
-import com.group4.ui.panel.PnlRentDisk;
-import com.group4.ui.panel.PnlTraDia;
 
 public class ThueTraDiaBUS {
-	private static IChiTietThueTraDAO chiTietThueTraDAO;
-	private static ThanhToanPhiTreHanBUS thanhToanPhiTreHanBUS;
-	private static IDiaDAO diaDAO;
-	static {
-		thanhToanPhiTreHanBUS = new ThanhToanPhiTreHanBUS();
-		chiTietThueTraDAO = new ChiTietThueTraDAO();
-		diaDAO = new DiaDAO();
-	}
+	
 
 	/**
 	 * Xử lý thuê đĩa

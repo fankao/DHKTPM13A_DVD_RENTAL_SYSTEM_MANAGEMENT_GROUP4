@@ -1,15 +1,29 @@
 package com.group4.ui.dialog;
-
+import static com.group4.Injection.*;
+import static com.group4.ui.panel.UtilsLayout.*;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 
-import javax.swing.JButton;
+import javax.swing.JButton;import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.text.html.HTMLDocument.HTMLReader.IsindexAction;
+
+import com.group4.dao.ITaiKhoanDAO;
+import com.group4.dao.impl.TaiKhoanDAO;
+import com.group4.entities.TaiKhoan;
+import com.group4.model.TaiKhoanModel;
+import com.group4.ui.ICloseUIListener;
+
 import javax.swing.JLabel;
+import javax.swing.JMenuItem;
+
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.BoxLayout;
 import javax.swing.JTextField;
 import javax.swing.GroupLayout;
@@ -20,9 +34,16 @@ import javax.swing.JPasswordField;
 public class DlgLogin extends JDialog {
 
 	private final JPanel pnMain = new JPanel();
+
+	
 	private JTextField txtTenTK;
 	private JPasswordField passwordField;
-
+	private JButton btnDangNhap;
+	private JButton btnThoat;
+	
+	private JDialog dlgLogin;
+	
+	private ICloseUIListener closeUIListener;
 	/**
 	 * Launch the application.
 	 */
@@ -30,6 +51,7 @@ public class DlgLogin extends JDialog {
 		try {
 			DlgLogin dialog = new DlgLogin();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setLocationRelativeTo(null);
 			dialog.setVisible(true);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -40,7 +62,8 @@ public class DlgLogin extends JDialog {
 	 * Create the dialog.
 	 */
 	public DlgLogin() {
-		setBounds(100, 100, 570, 390);
+		setSize(570,390);
+		setLocationRelativeTo(null);
 		getContentPane().setLayout(new BorderLayout());
 		{
 			JPanel pnTitle = new JPanel();
@@ -104,7 +127,7 @@ public class DlgLogin extends JDialog {
 			pnButton.setLayout(fl_pnButton);
 			getContentPane().add(pnButton, BorderLayout.SOUTH);
 			{
-				JButton btnDangNhap = new JButton("Đăng nhập");
+				btnDangNhap = new JButton("Đăng nhập");
 				btnDangNhap.setFont(new Font("Tahoma", Font.PLAIN, 20));
 				btnDangNhap.setActionCommand("OK");
 				pnButton.add(btnDangNhap);
@@ -112,7 +135,7 @@ public class DlgLogin extends JDialog {
 				getRootPane().setDefaultButton(btnDangNhap);
 			}
 			{
-				JButton btnThoat = new JButton("Thoát");
+				btnThoat = new JButton("Thoát");
 				btnThoat.setFont(new Font("Tahoma", Font.PLAIN, 20));
 				btnThoat.setActionCommand("Cancel");
 				pnButton.add(btnThoat);
@@ -120,5 +143,48 @@ public class DlgLogin extends JDialog {
 			}
 		}
 		
+		btnDangNhap.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				if(isValidInput()) {
+					String username = txtTenTK.getText();
+					String password = passwordField.getText();
+					dangNhap(username,password);
+				}
+				
+			}
+		});
+		
+		btnThoat.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				DlgLogin.this.dispose();
+			}
+		});
+		
+	}
+
+	protected void dangNhap(String username, String password) {
+		TaiKhoan taiKhoan = taiKhoanDAO.dangNhap(username, password);
+		//nêu đang nhập thành công
+		TaiKhoanModel.admin = taiKhoan;
+		
+	}
+
+	private boolean isValidInput() {
+		if(!isInputFieldNotBlank(this,txtTenTK) && !isInputFieldNotBlank(this,passwordField)) {
+			return false;
+		}
+		
+		
+		
+		return true;
+	}
+	
+	
+	public void setCloseUIListener(ICloseUIListener closeUIListener) {
+		this.closeUIListener = closeUIListener;
 	}
 }

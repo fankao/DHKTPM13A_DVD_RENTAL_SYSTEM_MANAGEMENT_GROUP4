@@ -1,5 +1,5 @@
 package com.group4.ui.panel;
-
+import static com.group4.Injection.*;
 import static com.group4.ui.panel.UtilsLayout.*;
 
 import java.awt.BorderLayout;
@@ -47,10 +47,6 @@ import com.group4.ui.panel.PnlCustomerCommon.ItemClickListener;
 public class PnlLateChargePayment extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private ICloseUIListener closeUIListener;
-	private static ThanhToanPhiTreHanBUS thanhToanPhiTreHanBUS;
-	static {
-		thanhToanPhiTreHanBUS = new ThanhToanPhiTreHanBUS();
-	}
 	private List<ChiTietThueTra> dsTreHan;
 	private List<ChiTietThueTra> dsThanhToanTreHan = new ArrayList<ChiTietThueTra>();
 	private KhachHang khachHangThanhToan;
@@ -196,6 +192,7 @@ public class PnlLateChargePayment extends JPanel {
 
 		if (ds != null) {
 			dsTreHan = thanhToanPhiTreHanBUS.getDSThueTraTreHanTheoKH(getKhachHang(ds).getId());
+			khachHangThanhToan = getKhachHang(dsTreHan);
 			hienDanhSachPhiTreHan(dsTreHan);
 		}
 
@@ -236,7 +233,14 @@ public class PnlLateChargePayment extends JPanel {
 
 			@Override
 			public void stateChanged(ChangeEvent e) {
-				chonPhiTreHanCanThanhToan((int) spnQuantity.getValue());
+				int soLuong = (int) spnQuantity.getValue();
+				if (soLuong < dsThanhToanTreHan.size()) {
+					tblLateCharges.setValueAt(false, dsThanhToanTreHan.size() - 1, 0);
+					dsThanhToanTreHan.remove(dsThanhToanTreHan.size() - 1);
+				} else {
+					chonPhiTreHanCanThanhToan(soLuong);
+				}
+
 				System.out.println("Số phí trễ hạn muốn trả: " + spnQuantity.getValue().toString());
 				hienTongTienThanhToanPhiTreHan(dsThanhToanTreHan);
 
@@ -386,7 +390,8 @@ public class PnlLateChargePayment extends JPanel {
 			@Override
 			public void onClick(ActionEvent e, KhachHang khachHang) {
 				khachHangThanhToan = khachHang;
-				hienChiTietPhiTreHan(khachHang);
+				System.out.println(khachHangThanhToan.getId());
+				hienChiTietPhiTreHan(khachHangThanhToan);
 
 			}
 
@@ -443,12 +448,20 @@ public class PnlLateChargePayment extends JPanel {
 	 * Huỷ thanh thanh toán phí trễ hạn
 	 */
 	private void huyThanhToanPhiTreHan() {
-
-		resetCacLuaChonThanhToan();
-
 		voHieuHoaButton(btnConfirm);
-		
-		resetDSPhiTreHan(dsTreHan);
+
+		if (dsThanhToanTreHan.size() == 0) {
+			dsTreHan.clear();
+			hienDanhSachPhiTreHan(dsTreHan);
+			pnlCustomerCommon.visibleCustomeInfo(false);
+			setVisibleCacLuaChonThanhToan(false);
+			voHieuHoaButton(btnCancel);
+			khachHangThanhToan = null;
+
+		} else {
+			resetCacLuaChonThanhToan();
+			resetDSPhiTreHan(dsTreHan);
+		}
 
 	}
 
@@ -474,6 +487,12 @@ public class PnlLateChargePayment extends JPanel {
 			resetDSPhiTreHan(dsTreHan);
 		}
 		resetCacLuaChonThanhToan();
+
+		voHieuHoaButton(btnConfirm);
+
+		if (dsTreHan.size() == 0) {
+			huyThanhToanPhiTreHan();
+		}
 	}
 
 	/**
@@ -484,7 +503,7 @@ public class PnlLateChargePayment extends JPanel {
 		spnQuantity.setEnabled(true);
 		chkSelectAll.setEnabled(true);
 		chonPhiTreHanCanThanhToan(0);
-	
+
 	}
 
 	/**
@@ -494,6 +513,14 @@ public class PnlLateChargePayment extends JPanel {
 	 */
 	private void hienChiTietPhiTreHan(KhachHang khachHang) {
 		dsTreHan = thanhToanPhiTreHanBUS.getDSThueTraTreHanTheoKH(khachHang.getId());
+
+		if (dsTreHan.size() == 0) {
+			hienThongBao(this, "Thông báo", "Khách hàng " + khachHang.getHoVaTen() + " chưa có phí trễ hạn",
+					JOptionPane.INFORMATION_MESSAGE);
+			pnlCustomerCommon.visibleCustomeInfo(false);
+			return;
+		}
+
 		hienDanhSachPhiTreHan(dsTreHan);
 
 		spnQuantity.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), Integer.valueOf(dsTreHan.size()),
