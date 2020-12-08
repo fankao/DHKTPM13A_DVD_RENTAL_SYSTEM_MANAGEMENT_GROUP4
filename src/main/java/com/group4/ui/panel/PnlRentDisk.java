@@ -1,5 +1,8 @@
 package com.group4.ui.panel;
-import static com.group4.Injection.*;
+
+import static com.group4.Injection.diaDAO;
+import static com.group4.Injection.thanhToanPhiTreHanBUS;
+import static com.group4.Injection.thueTraDiaBUS;
 import static com.group4.ui.panel.UtilsLayout.hienThongBao;
 import static com.group4.ui.panel.UtilsLayout.isInputFieldNotBlank;
 import static com.group4.ui.panel.UtilsLayout.kichHoatButton;
@@ -43,10 +46,6 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
-import com.group4.business.ThanhToanPhiTreHanBUS;
-import com.group4.business.ThueTraDiaBUS;
-import com.group4.dao.IDiaDAO;
-import com.group4.dao.impl.DiaDAO;
 import com.group4.entities.ChiTietThueTra;
 import com.group4.entities.Dia;
 import com.group4.entities.KhachHang;
@@ -297,14 +296,17 @@ public class PnlRentDisk extends JPanel {
 
 				try {
 					Long diaId = Long.valueOf(txtDiskID.getText());
+					if (diaId == 0) {
+						thongBaoLoiMaDia("Mã đĩa phải là số nguyên lớn hơn 0");
+					}
 					Dia diaThue = diaDAO.findById(diaId);
 					if (khongTheThueDia(diaThue)) {
 						thongBaoLoiMaDia("Đĩa này đã được thuê hoặc đặt giữ");
 						return;
 					}
-					
+
 					themDia(diaThue);
-					
+
 					kichHoatButton(btnConfirm);
 
 				} catch (NumberFormatException e2) {
@@ -314,15 +316,15 @@ public class PnlRentDisk extends JPanel {
 
 			}
 		});
-		
+
 		btnDeleteDisk.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Dia dia = dsDiaThue.get(tblListDisk.getSelectedRow());
 				tblListDisk.clearSelection();
 				xoaDiaKhoiDSThue(dia);
-				
+
 			}
 		});
 
@@ -370,6 +372,7 @@ public class PnlRentDisk extends JPanel {
 
 	/**
 	 * hiện thông báo lỗi
+	 * 
 	 * @param msg
 	 */
 	protected void thongBaoLoiMaDia(String msg) {
@@ -397,7 +400,7 @@ public class PnlRentDisk extends JPanel {
 
 		voHieuHoaTextField(txtDiskID);
 
-		voHieuHoaButton(btnCancel, btnConfirm, btnRentDisk);
+		voHieuHoaButton(btnCancel, btnConfirm, btnRentDisk,btnDeleteDisk);
 	}
 
 	/**
@@ -430,12 +433,12 @@ public class PnlRentDisk extends JPanel {
 	 * @param dia: đĩa muốn xoá, nếu dia = null thì xoá hết danh sách
 	 */
 	private void xoaDiaKhoiDSThue(Dia dia) {
-		if(dia == null) {
+		if (dia == null) {
 			dsDiaThue.clear();
 			voHieuHoaButton(btnConfirm);
 		}
 		dsDiaThue.remove(dia);
-		
+
 		hienDSDiaThue(dsDiaThue);
 	}
 
@@ -502,23 +505,22 @@ public class PnlRentDisk extends JPanel {
 		}
 
 	}
-	
+
 	/**
 	 * Thêm đĩa vào danh sách thuê
+	 * 
 	 * @param diaThue
 	 */
 	private void themDia(Dia diaThue) {
 		dsDiaThue.add(diaThue);
 
 		hienDSDiaThue(dsDiaThue);
-		
+
 		xoaTrang(txtDiskID);
 	}
 
 	public void setCloseUIListener(ICloseUIListener closeUIListener) {
 		this.closeUIListener = closeUIListener;
 	}
-
-
 
 }

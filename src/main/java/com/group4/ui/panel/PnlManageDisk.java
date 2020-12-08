@@ -306,6 +306,13 @@ public class PnlManageDisk extends JPanel {
 				if (isInputFieldNotBlank(PnlManageDisk.this, txtDiskId)) {
 					try {
 						Long diaId = Long.valueOf(txtDiskId.getText());
+						if(diaId == 0) {
+							hienThongBao(PnlManageDisk.this, "Thông báo lỗi", "Mã đĩa phải là số nguyên lớn hơn 0",
+									JOptionPane.ERROR_MESSAGE);
+							txtDiskId.requestFocus();
+							txtDiskId.selectAll();
+							return;
+						}
 						Dia dia = diaDAO.findById(diaId);
 						hienThongTinDia(dia);
 						voHieuHoaTextField(txtDiskId);
@@ -313,6 +320,8 @@ public class PnlManageDisk extends JPanel {
 					} catch (NumberFormatException e2) {
 						hienThongBao(PnlManageDisk.this, "Thông báo lỗi", "Mã đĩa phải là số nguyên lớn hơn 0",
 								JOptionPane.ERROR_MESSAGE);
+						txtDiskId.requestFocus();
+						txtDiskId.selectAll();
 					}
 				}
 

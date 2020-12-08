@@ -123,10 +123,20 @@ public class PnlCustomerCommon extends JPanel {
 					Long cusId = null;
 					try {
 						cusId = Long.valueOf(txtCustomerID.getText());
+						
+						if(cusId == 0) {
+							hienThongBao(PnlCustomerCommon.this, "Lỗi định dạng nhập liệu",
+									"Mã khách hàng phải là số nguyên lớn hơn 0", JOptionPane.ERROR_MESSAGE);
+							txtCustomerID.requestFocus();
+							txtCustomerID.selectAll();
+							return;
+						}
+						
 					} catch (NumberFormatException ex) {
 						hienThongBao(PnlCustomerCommon.this, "Lỗi định dạng nhập liệu",
 								"Mã khách hàng phải là số nguyên lớn hơn 0", JOptionPane.ERROR_MESSAGE);
 						txtCustomerID.requestFocus();
+						txtCustomerID.selectAll();
 						return;
 					}
 
