@@ -35,6 +35,8 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
@@ -47,11 +49,12 @@ import com.group4.entities.KhachHang;
 import com.group4.ui.ICloseUIListener;
 import com.group4.ui.panel.PnlCustomerCommon.ItemClickListener;
 
-public class PnlLateChargePayment extends JPanel {
+public class PnlLateChargePayment extends JPanel{
 	private static final long serialVersionUID = 1L;
 	private ICloseUIListener closeUIListener;
 	private List<ChiTietThueTra> dsTreHan;
 	private List<ChiTietThueTra> dsThanhToanTreHan = new ArrayList<ChiTietThueTra>();
+	private List<ChiTietThueTra> dsHuyTreHan = new ArrayList<ChiTietThueTra>();
 	private KhachHang khachHangThanhToan;
 	private JTable tblLateCharges;
 	private JLabel lblTotalPrice;
@@ -209,7 +212,7 @@ public class PnlLateChargePayment extends JPanel {
 
 		// gán sự kiện cho Button
 		ganSuKienChoButton();
-
+		
 		// Xử lý sự kiện chọn phí trễ hạn để thanh toán
 		ganSuKienChonCheckBoxTable();
 
@@ -218,7 +221,32 @@ public class PnlLateChargePayment extends JPanel {
 
 		// gán sự kiện cho JSpinner
 		ganSuKienChoJSpinner();
+		
+		// Xu ly huy phi tre hen
+		gansuKienHuyPhiTreHen();
+		
 
+	}
+	// gan su kien
+	private void gansuKienHuyPhiTreHen() {
+		// TODO Auto-generated method stub
+		tblLateCharges.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		tblLateCharges.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+					
+					@Override
+					public void valueChanged(ListSelectionEvent e) {
+						int select = tblLateCharges.getSelectedRow();
+						if (select != -1) {
+							
+							dsThanhToanTreHan.add(dsTreHan.get(select));
+						}
+						if (dsThanhToanTreHan.size() > 0) {
+							kichHoatButton(btnCancelLateChargePayment);
+						} else {		
+							voHieuHoaButton(btnConfirm);
+						}
+					}
+		});	
 	}
 
 	/**
@@ -255,10 +283,8 @@ public class PnlLateChargePayment extends JPanel {
 
 				if (dsThanhToanTreHan.size() > 0) {
 					kichHoatButton(btnConfirm);
-					kichHoatButton(btnCancelLateChargePayment);
 				} else {
 					voHieuHoaButton(btnConfirm);
-					voHieuHoaButton(btnCancelLateChargePayment);
 				}
 			}
 		});
@@ -319,7 +345,7 @@ public class PnlLateChargePayment extends JPanel {
 		dsThanhToanTreHan = new ArrayList<ChiTietThueTra>(dsTreHan);
 		spnQuantity.setEnabled(false);
 		kichHoatButton(btnConfirm);
-		kichHoatButton(btnCancelLateChargePayment);
+		voHieuHoaButton(btnCancelLateChargePayment);
 	}
 
 	/**
@@ -354,20 +380,19 @@ public class PnlLateChargePayment extends JPanel {
 				int select = tblLateCharges.getSelectedRow();
 				if (select == -1)
 					return;
-				System.out.println("Check box table is clicked");
+				System.out.println("Check box table is clicked: "+select+"");
 
 				if (((Boolean) tblLateCharges.getValueAt(select, e.getColumn())) == true) {
 					dsThanhToanTreHan.add(dsTreHan.get(select));
+					voHieuHoaButton(btnCancelLateChargePayment);
 				} else {
 					dsThanhToanTreHan.remove(select);
 				}
 
 				if (dsThanhToanTreHan.size() == 0) {
 					voHieuHoaButton(btnConfirm);
-					voHieuHoaButton(btnCancelLateChargePayment);
 				} else {
 					kichHoatButton(btnConfirm);
-					kichHoatButton(btnCancelLateChargePayment);
 				}
 
 				thietLapSoLuongPhiMuonTra(dsThanhToanTreHan.size());
@@ -496,14 +521,16 @@ public class PnlLateChargePayment extends JPanel {
 					dsTreHan = thanhToanPhiTreHanBUS.getDSThueTraTreHanTheoKH(khachHangThanhToan.getId());
 					hienThongBao(this, "Thông báo", "Hủy phí trễ hạn thành công", JOptionPane.INFORMATION_MESSAGE);
 					
-					((DefaultTableModel) tblLateCharges.getModel()).removeRow(selectIndex);
+					tblLateCharges.clearSelection();
+					((DefaultTableModel) tblLateCharges.getModel()).removeRow(selectIndex);		
+					
+					
 					hienDanhSachPhiTreHan(dsTreHan);
 					resetCacLuaChonThanhToan();
-					voHieuHoaButton(btnConfirm);
+					voHieuHoaButton(btnCancelLateChargePayment);
 
 					if (dsTreHan.size() == 0) {
 						huyThanhToanPhiTreHan();
-					
 					}
 					
 				}
@@ -625,5 +652,9 @@ public class PnlLateChargePayment extends JPanel {
 	public void setCloseUIListener(ICloseUIListener closeUIListener) {
 		this.closeUIListener = closeUIListener;
 	}
+
+		
+		
+
 
 }
