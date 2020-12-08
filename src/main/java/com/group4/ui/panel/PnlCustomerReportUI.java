@@ -259,7 +259,7 @@ public class PnlCustomerReportUI extends JPanel {
 
 				switch (select) {
 				case 1:
-
+					hienDanhSachKhachHang(khachHangDAO.findAll());
 					break;
 				case 2:
 

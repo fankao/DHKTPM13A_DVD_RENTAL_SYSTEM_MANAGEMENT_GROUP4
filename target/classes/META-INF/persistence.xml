@@ -24,7 +24,7 @@
 				value="jdbc:sqlserver://localhost:1433;databaseName=Nhom04_VideoRentalSystemDB" />
 			<property name="javax.persistence.jdbc.user" value="sa" />
 			<!-- đổi mật khẩu theo SQL của mình -->
-			<property name="javax.persistence.jdbc.password" value="sapassword" />
+			<property name="javax.persistence.jdbc.password" value="123" />
 			<property name="hibernate.show_sql" value="true" />
 
 			<property name="hibernate.hbm2ddl.auto" value="update" />
