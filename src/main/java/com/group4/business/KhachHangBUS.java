@@ -64,8 +64,7 @@ public class KhachHangBUS {
 	 * @return
 	 */
 	public List<ChiTietThueTra> getDSChiTietChuaTraDia(KhachHang khachHang) {
-		return khachHang.getDsChiTietThueTra().stream().filter(x -> x.getNgayTra() == null)
-				.collect(Collectors.toList());
+		return chiTietThueTraDAO.getDSNoPhiTreHan(khachHang.getId());
 	}
 
 }
