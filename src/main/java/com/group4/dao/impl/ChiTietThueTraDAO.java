@@ -3,6 +3,7 @@ package com.group4.dao.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import com.group4.dao.IChiTietThueTraDAO;
@@ -33,15 +34,26 @@ public class ChiTietThueTraDAO extends AbstractDAO<ChiTietThueTra, ChiTietThueTr
 	@Override
 	public ChiTietThueTra getmotCTTTChuaTraDiaTheoDia(Long khId) {
 		TypedQuery<ChiTietThueTra> query = em
-				.createQuery("select ct from ChiTietThueTra ct where ct.ngayTra is null and ct.khachHang.id =:khId",
+				.createQuery("select ct from ChiTietThueTra ct where ct.ngayTra is null and ct.dia.id =:khId",
 						ChiTietThueTra.class)
 				.setParameter("khId", khId);
 
 		ChiTietThueTra results = query.getSingleResult();
-
 		return results;
 	}
 
+	@Override
+	public ChiTietThueTra getmotCTTTDeXoa(Long khId) {
+		Query query = em
+				.createQuery("select ct from ChiTietThueTra ct where ct.khachHang.id =:khId",
+						ChiTietThueTra.class)
+				.setParameter("khId", khId);
+
+		ChiTietThueTra results = (ChiTietThueTra) query.getSingleResult();
+
+		return results;
+	}
+	
 	@Override
 	public int demSoDiaDaThue(Long id) {
 		TypedQuery<ChiTietThueTra> query = em
