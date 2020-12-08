@@ -245,10 +245,11 @@ public class PnlTraDia extends JPanel {
 						return;
 					}
 
-					List<ChiTietThueTra> dsTraDia = chiTietThueTraDAO.getDSChuaTraDiaTheoDia(diskId);
+					ChiTietThueTra dsTraDia = chiTietThueTraDAO.getmotCTTTChuaTraDiaTheoDia(diskId);
+
 					Dia diaTra = diaDAO.findById(diskId);	
-					KhachHang kh = dsTraDia.get(0).getKhachHang();
-					System.out.println("dasdsa"+dsTraDia.get(0).getKhachHang());
+					KhachHang kh = dsTraDia.getKhachHang();
+					System.out.println("dasdsa"+dsTraDia.getKhachHang());
 					System.out.println("Day la Khach Hang"+kh.toString());
 					khachHangTra = kh;
 					
@@ -260,25 +261,20 @@ public class PnlTraDia extends JPanel {
 					}
 					
 					themDiaVaoDSTra(diaTra);
-					hienDSDiaTra(dsTraDia);
-					// Tra Dia
-//					returnDia(khachHangTra,dsDiaTra,LocalDate.now());
-//					diaTra.setTrangThai(TrangThaiDia.ON_SHEFT);
-//					System.out.println("Trag Thai"+diaTra.getTrangThai());
-//					dsTraDia.get(0).setNgayTra(LocalDate.now());
-//					System.out.println("DS Tra Dia"+dsTraDia.get(0).getNgayTra());
-//					
+					hienDSDiaTra(dsTraDia);	
 					
+					//update du lieu
 					diaTra.setTrangThai(TrangThaiDia.ON_SHEFT);
 					diaDAO.update(diaTra);
 					
-//					ChiTietThueTra ct = thuetraDAO.getDSChuaTraDiaTheoDiavaKH(diaTra.getId());
-					dsTraDia.get(0).setNgayTra(LocalDate.now());
-					chiTietThueTraDAO.update(dsTraDia.get(0));
+
+					dsTraDia.setNgayTra(LocalDate.now());
+					chiTietThueTraDAO.update(dsTraDia);
+
 					
 					// ngay tra it hon ngay hien tai
-					System.out.println(dsTraDia.get(0).getNgayToiHan().toString());
-					if(dsTraDia.get(0).getNgayToiHan().compareTo(LocalDate.now())>0){
+					System.out.println(dsTraDia.getNgayToiHan().toString());
+					if(dsTraDia.getNgayToiHan().compareTo(LocalDate.now())>0){
 						themPhiTreHen(dsDiaTra);
 					}
 					
@@ -303,18 +299,18 @@ public class PnlTraDia extends JPanel {
 	 * 
 	 * @param khachHang: khách hàng cần hiện thông tin
 	 */
-	private void hienDSDiaTra(List<ChiTietThueTra> dsTraDia) {
+	private void hienDSDiaTra(ChiTietThueTra ct) {
 		// TODO Auto-generated method stub
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		
-		for(ChiTietThueTra ct : dsTraDia)
-		{
-			lbltuade.setText(ct.getDia().getTuaDe().getTenTuaDe().toString());
-			lblhotenKH.setText(ct.getKhachHang().getHoVaTen().toString());
-			lblhienSDTKH.setText(ct.getKhachHang().getSoDienThoai().toString());			
-			lblhiendcKH.setText(ct.getKhachHang().getDiaChi().toString());			
-			lblngaydatKH.setText(formatter.format(ct.getNgayToiHan()));
-		}		
+//		for(ChiTietThueTra ct : dsTraDia)
+//		{
+		lbltuade.setText(ct.getDia().getTuaDe().getTenTuaDe().toString());
+		lblhotenKH.setText(ct.getKhachHang().getHoVaTen().toString());
+		lblhienSDTKH.setText(ct.getKhachHang().getSoDienThoai().toString());			
+		lblhiendcKH.setText(ct.getKhachHang().getDiaChi().toString());			
+		lblngaydatKH.setText(formatter.format(ct.getNgayToiHan()));
+//		}		
 	}
 	
 	/**
