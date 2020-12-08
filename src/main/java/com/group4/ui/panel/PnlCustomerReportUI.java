@@ -66,7 +66,6 @@ public class PnlCustomerReportUI extends JPanel {
 		JScrollPane scrTreHan = new JScrollPane();
 		scrTreHan.setBounds(720, 189, 539, 240);
 		add(scrTreHan);
-		
 		tblDSTreHan = new JTable();
 		tblDSTreHan.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		tblDSTreHan.setModel(new DefaultTableModel(
