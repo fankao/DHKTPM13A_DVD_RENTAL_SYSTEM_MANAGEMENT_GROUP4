@@ -191,6 +191,7 @@ public class PnlTraDia extends JPanel {
 							themPhiTreHen(dsDiaTra);
 						}
 						hienThongTinGanDia(diaTra);
+						txtCustomerID.setText("");
 
 					} else {
 						hienThongBao("Lỗi tìm kiếm", "Đĩa Chưa Được Thuê", JOptionPane.ERROR_MESSAGE);
@@ -215,19 +216,21 @@ public class PnlTraDia extends JPanel {
 
 	/**
 	 * Hiện thông tin gán đĩa
+	 * 
 	 * @param diaTra
 	 */
 	protected void hienThongTinGanDia(Dia diaTra) {
 		DlgGanDia dlgGanDia = new DlgGanDia(diaTra);
-		dlgGanDia.setVisible(true);
 		dlgGanDia.setCloseUIListener(new ICloseUIListener() {
-			
+
 			@Override
 			public void onCloseUI(ActionEvent e) {
 				dlgGanDia.dispose();
 			}
 		});
-		
+
+		dlgGanDia.setVisible(true);
+
 	}
 
 	/**

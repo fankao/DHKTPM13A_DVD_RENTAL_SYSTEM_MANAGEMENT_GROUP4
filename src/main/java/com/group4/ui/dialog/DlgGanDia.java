@@ -1,4 +1,5 @@
 package com.group4.ui.dialog;
+
 import static com.group4.Injection.*;
 import static com.group4.ui.panel.UtilsLayout.*;
 import java.awt.BorderLayout;
@@ -40,7 +41,6 @@ public class DlgGanDia extends JDialog {
 	private JButton btnHuyGanDia;
 	private JButton btnClose;
 	private Dia diaGan;
-	
 
 	/**
 	 * Create the dialog.
@@ -123,7 +123,7 @@ public class DlgGanDia extends JDialog {
 		JPanel buttonPane = new JPanel();
 		buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 		getContentPane().add(buttonPane, BorderLayout.SOUTH);
-		
+
 		btnHuyGanDia = new JButton("Huỷ gán đĩa");
 		btnHuyGanDia.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		buttonPane.add(btnHuyGanDia);
@@ -131,35 +131,34 @@ public class DlgGanDia extends JDialog {
 		btnClose.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnClose.setActionCommand("Cancel");
 		buttonPane.add(btnClose);
-		
-		
+
 		ganDiaChoKhachHang(dia);
 		ganSuKienChoButton();
 	}
 
 	private void ganSuKienChoButton() {
 		btnClose.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				closeUIListener.onCloseUI(e);
-				
+
 			}
 		});
-		
-		 btnHuyGanDia.addActionListener(new ActionListener() {
-			
+
+		btnHuyGanDia.addActionListener(new ActionListener() {
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				int confirm  = hienThongBaoXacNhan(DlgGanDia.this, "Thông báo xác nhận", "Xác nhận huỷ gán đĩa");
-				if(confirm == JOptionPane.NO_OPTION) {
+				int confirm = hienThongBaoXacNhan(DlgGanDia.this, "Thông báo xác nhận", "Xác nhận huỷ gán đĩa");
+				if (confirm == JOptionPane.NO_OPTION) {
 					return;
 				}
 				xuLyHuyGanDia(chiTietDatGiu);
-				
+
 			}
 		});
-		
+
 	}
 
 	/**
@@ -167,9 +166,8 @@ public class DlgGanDia extends JDialog {
 	 */
 	protected void xuLyHuyGanDia(ChiTietDatGiu ctdg) {
 		chiTietDatGiuDAO.delete(ctdg);
-		this.dispose();
 		ganDiaChoKhachHang(diaGan);
-		
+
 	}
 
 	private void ganDiaChoKhachHang(Dia dia) {
@@ -183,10 +181,10 @@ public class DlgGanDia extends JDialog {
 			this.dispose();
 			return;
 		}
-		
+
 		chiTietDatGiu = chiTietDatGiuR;
 		diaGan = dia;
-		
+
 		hienThongTinDia(dia);
 		hienThongTinTuaDe(chiTietDatGiuR.getTuaDe());
 		hienThongTinKhachHang(chiTietDatGiuR.getKhachHang());
@@ -204,6 +202,10 @@ public class DlgGanDia extends JDialog {
 	}
 
 	private void hienThongTinKhachHang(KhachHang khachHang) {
+		pnlCustomer.removeAll();
+		pnlCustomer.validate();
+		pnlCustomer.repaint();
+		
 		pnlCustomerCommon = new PnlCustomerCommon(khachHang);
 		pnlCustomer.add(pnlCustomerCommon);
 		pnlCustomerCommon.setLayout(new BoxLayout(pnlCustomerCommon, BoxLayout.Y_AXIS));
