@@ -1,3 +1,4 @@
+
 package com.group4.business;
 
 import static com.group4.Injection.chiTietThueTraDAO;

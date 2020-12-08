@@ -42,7 +42,7 @@ public class PnlCustomerReportUI extends JPanel {
 	private String[] colName;
 	private String[][] dataKH;
 	private JTable tblDSKH;
-	private JTable tblDSTreHan;
+	private JTable tblDSDiaTreHan;
 	private JTable tblDSNoPhiTreHan;
 
 	private JComboBox cmbOption;
@@ -70,12 +70,12 @@ public class PnlCustomerReportUI extends JPanel {
 		panel_2.setBorder(
 				new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Danh s\u00E1ch kh\u00E1ch h\u00E0ng",
 						TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panel_2.setBounds(4, 153, 699, 389);
+		panel_2.setBounds(4, 153, 686, 389);
 		add(panel_2);
 		panel_2.setLayout(null);
 
 		JScrollPane scrDSKH = new JScrollPane();
-		scrDSKH.setBounds(6, 18, 681, 364);
+		scrDSKH.setBounds(6, 18, 665, 364);
 		panel_2.add(scrDSKH);
 
 		tblDSKH = new JTable(dataKH, colName);
@@ -95,64 +95,50 @@ public class PnlCustomerReportUI extends JPanel {
 		tblDSKH.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		scrDSKH.setViewportView(tblDSKH);
 
-		tblDSKH.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-
-			@Override
-			public void valueChanged(ListSelectionEvent e) {
-				int select = tblDSKH.getSelectedRow();
-				if (select == -1)
-					return;
-
-				KhachHang khachHang = khachHangDAO.findById(Long.valueOf(tblDSKH.getValueAt(select, 1).toString()));
-
-				hienThongTin(khachHang);
-
-			}
-		});
 
 		panel = new JPanel();
 		panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"),
 				"Danh s\u00E1ch \u0111\u0129a tr\u1EC5 h\u1EA1n", TitledBorder.LEADING, TitledBorder.TOP, null,
 				new Color(0, 0, 0)));
-		panel.setBounds(715, 152, 549, 217);
+		panel.setBounds(691, 153, 573, 216);
 		add(panel);
 		panel.setLayout(null);
 
 		JScrollPane scrTreHan = new JScrollPane();
-		scrTreHan.setBounds(6, 18, 531, 193);
+		scrTreHan.setBounds(6, 18, 555, 193);
 		panel.add(scrTreHan);
 
-		tblDSTreHan = new JTable();
-		tblDSTreHan.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		tblDSTreHan.setModel(new DefaultTableModel(
-				new Object[][] { { null, null, null, null }, { null, null, null, null }, }, new String[] { "ST",
+		tblDSDiaTreHan = new JTable();
+		tblDSDiaTreHan.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		tblDSDiaTreHan.setModel(
+				new DefaultTableModel(new Object[][] { { null, null, null }, { null, null, null }, }, new String[] {
 						"M\u00E3 \u0111\u0129a", "Ti\u00EAu \u0111\u1EC1", "Ng\u00E0y \u0111\u1EBFn h\u1EA1n" }));
-		tblDSTreHan.getColumnModel().getColumn(0).setPreferredWidth(46);
-		tblDSTreHan.getColumnModel().getColumn(2).setPreferredWidth(220);
-		tblDSTreHan.getColumnModel().getColumn(3).setPreferredWidth(94);
-		scrTreHan.setViewportView(tblDSTreHan);
+		tblDSDiaTreHan.getColumnModel().getColumn(1).setPreferredWidth(220);
+		tblDSDiaTreHan.getColumnModel().getColumn(2).setPreferredWidth(94);
+		scrTreHan.setViewportView(tblDSDiaTreHan);
 
 		panel_1 = new JPanel();
 		panel_1.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"),
 				"Danh s\u00E1ch n\u1EE3 ph\u00ED tr\u1EC5 h\u1EA1n", TitledBorder.LEADING, TitledBorder.TOP, null,
 				new Color(0, 0, 0)));
-		panel_1.setBounds(715, 377, 549, 165);
+		panel_1.setBounds(691, 377, 573, 165);
 		add(panel_1);
 		panel_1.setLayout(null);
 
 		JScrollPane scrDSNo = new JScrollPane();
-		scrDSNo.setBounds(6, 18, 531, 140);
+		scrDSNo.setBounds(6, 18, 555, 140);
 		panel_1.add(scrDSNo);
 
 		tblDSNoPhiTreHan = new JTable();
 		tblDSNoPhiTreHan.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		tblDSNoPhiTreHan.setModel(new DefaultTableModel(new Object[][] {},
-				new String[] { "STT", "M\u00E3 \u0111\u0129a", "T\u1EF1a \u0111\u1EC1",
-						"Ng\u00E0y \u0111\u1EBFn h\u1EA1n", "Ng\u00E0y tr\u1EA3 \u0111\u0129a",
-						"Ph\u00ED tr\u1EC5 h\u1EA1n" }));
-		tblDSNoPhiTreHan.getColumnModel().getColumn(2).setPreferredWidth(220);
-		tblDSNoPhiTreHan.getColumnModel().getColumn(3).setPreferredWidth(95);
-		tblDSNoPhiTreHan.getColumnModel().getColumn(4).setPreferredWidth(120);
+				new String[] { "M\u00E3 \u0111\u0129a", "T\u1EF1a \u0111\u1EC1", "Ng\u00E0y \u0111\u1EBFn h\u1EA1n",
+						"Ng\u00E0y tr\u1EA3 \u0111\u0129a", "Ph\u00ED tr\u1EC5 h\u1EA1n" }));
+		tblDSNoPhiTreHan.getColumnModel().getColumn(0).setPreferredWidth(50);
+		tblDSNoPhiTreHan.getColumnModel().getColumn(1).setPreferredWidth(220);
+		tblDSNoPhiTreHan.getColumnModel().getColumn(2).setPreferredWidth(100);
+		tblDSNoPhiTreHan.getColumnModel().getColumn(3).setPreferredWidth(120);
+		tblDSNoPhiTreHan.getColumnModel().getColumn(4).setPreferredWidth(90);
 		scrDSNo.setViewportView(tblDSNoPhiTreHan);
 
 		JLabel lblBaoCao = new JLabel("Ch\u1ECDn lo\u1EA1i b\u00E1o c\u00E1o:");
@@ -174,13 +160,33 @@ public class PnlCustomerReportUI extends JPanel {
 			}
 		});
 		btnClose.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnClose.setBounds(1161, 548, 97, 38);
+		btnClose.setBounds(1167, 555, 97, 38);
 		add(btnClose);
 
 		ganSuKienChonCombox();
+		
+		ganSuKienChoTable();
 
 		ganSuKienChoButton();
 
+	}
+
+	private void ganSuKienChoTable() {
+		tblDSKH.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+
+			@Override
+			public void valueChanged(ListSelectionEvent e) {
+				int select = tblDSKH.getSelectedRow();
+				if (select == -1)
+					return;
+
+				KhachHang khachHang = khachHangDAO.findById(Long.valueOf(tblDSKH.getValueAt(select, 1).toString()));
+
+				hienThongTin(khachHang);
+
+			}
+		});
+		
 	}
 
 	/**
@@ -196,35 +202,35 @@ public class PnlCustomerReportUI extends JPanel {
 
 	/**
 	 * Danh sách phí trễ hạn
+	 * 
 	 * @param dsThueTraTreHanTheoKH
 	 */
 	private void hienThongTinPhiTreHan(List<ChiTietThueTra> dsThueTraTreHanTheoKH) {
 		DefaultTableModel tableModel = (DefaultTableModel) tblDSNoPhiTreHan.getModel();
 		tableModel.setRowCount(0);
-		int index = 1;
 		for (ChiTietThueTra chiTietThueTra : dsThueTraTreHanTheoKH) {
-			tableModel.addRow(new Object[] { index++, chiTietThueTra.getDia().getId(),
-					chiTietThueTra.getDia().getTuaDe(), chiTietThueTra.getNgayToiHan(), chiTietThueTra.getNgayTra() });
+			tableModel.addRow(new Object[] {chiTietThueTra.getDia().getId(),
+					chiTietThueTra.getDia().getTuaDe(), chiTietThueTra.getNgayToiHan(), 
+					chiTietThueTra.getNgayTra(),
+					chiTietThueTra.getDia().getLoaiDia().getPhiTreHan() });
 		}
 
 	}
 
 	/**
 	 * Danh sách đĩa chưa trả
+	 * 
 	 * @param list
 	 */
 	private void hienDSDiaChuaTra(List<ChiTietThueTra> list) {
-		DefaultTableModel tableModel = (DefaultTableModel) tblDSTreHan.getModel();
+		DefaultTableModel tableModel = (DefaultTableModel) tblDSDiaTreHan.getModel();
 		tableModel.setRowCount(0);
-		int index = 1;
 		for (ChiTietThueTra chiTietThueTra : list) {
-			tableModel
-					.addRow(new Object[] { index++, chiTietThueTra.getDia().getId(), chiTietThueTra.getDia().getTuaDe(),
-							chiTietThueTra.getNgayToiHan(), chiTietThueTra.getDia().getLoaiDia().getPhiTreHan() });
+			tableModel.addRow(new Object[] {chiTietThueTra.getDia().getId(),
+					chiTietThueTra.getDia().getTuaDe(), chiTietThueTra.getNgayToiHan() });
 		}
 
 	}
-
 
 	private void ganSuKienChoButton() {
 		btnClose.addActionListener(new ActionListener() {
@@ -272,6 +278,7 @@ public class PnlCustomerReportUI extends JPanel {
 
 	/**
 	 * Hiện danh sách khách hàng
+	 * 
 	 * @param dsKhachHangCoPhiTreHan
 	 */
 	private void hienDanhSachKhachHang(List<KhachHang> dsKhachHangCoPhiTreHan) {
