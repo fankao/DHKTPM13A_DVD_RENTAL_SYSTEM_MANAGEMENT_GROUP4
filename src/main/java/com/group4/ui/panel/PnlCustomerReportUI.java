@@ -1,6 +1,9 @@
 package com.group4.ui.panel;
-import static com.group4.Injection.*;
-import static com.group4.ui.panel.UtilsLayout.hienThongBao;
+
+import static com.group4.Injection.khachHangBUS;
+import static com.group4.Injection.khachHangDAO;
+import static com.group4.Injection.thanhToanPhiTreHanBUS;
+import static com.group4.ui.panel.UtilsLayout.*;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -25,9 +28,6 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
-import com.group4.business.KhachHangBUS;
-import com.group4.business.ThanhToanPhiTreHanBUS;
-import com.group4.dao.impl.KhachHangDAO;
 import com.group4.entities.ChiTietThueTra;
 import com.group4.entities.KhachHang;
 import com.group4.ui.ICloseUIListener;
@@ -38,7 +38,6 @@ public class PnlCustomerReportUI extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 	private ICloseUIListener closeUIListener;
-
 
 	private String[] colName;
 	private String[][] dataKH;
@@ -177,8 +176,6 @@ public class PnlCustomerReportUI extends JPanel {
 		btnClose.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnClose.setBounds(1161, 548, 97, 38);
 		add(btnClose);
-		
-		
 
 		ganSuKienChonCombox();
 
@@ -186,47 +183,59 @@ public class PnlCustomerReportUI extends JPanel {
 
 	}
 
-
-
 	/**
 	 * Hiện thông tin phí trễ hạn của khách hàng
 	 * 
 	 * @param khachHang khác hàng được chọn
 	 */
 	protected void hienThongTin(KhachHang khachHang) {
-		System.out.println(khachHang.getDsChiTietThueTra().size());
 		hienDSDiaChuaTra(khachHangBUS.getDSChiTietChuaTraDia(khachHang));
 		hienThongTinPhiTreHan(thanhToanPhiTreHanBUS.getDSThueTraTreHanTheoKH(khachHang.getId()));
 
 	}
 
+	/**
+	 * Danh sách phí trễ hạn
+	 * @param dsThueTraTreHanTheoKH
+	 */
 	private void hienThongTinPhiTreHan(List<ChiTietThueTra> dsThueTraTreHanTheoKH) {
-		DefaultTableModel tableModel = (DefaultTableModel) tblDSTreHan.getModel();
+		DefaultTableModel tableModel = (DefaultTableModel) tblDSNoPhiTreHan.getModel();
 		tableModel.setRowCount(0);
 		int index = 1;
 		for (ChiTietThueTra chiTietThueTra : dsThueTraTreHanTheoKH) {
 			tableModel.addRow(new Object[] { index++, chiTietThueTra.getDia().getId(),
-					chiTietThueTra.getDia().getTuaDe(), chiTietThueTra.getNgayToiHan() });
+					chiTietThueTra.getDia().getTuaDe(), chiTietThueTra.getNgayToiHan(), chiTietThueTra.getNgayTra() });
 		}
 
 	}
 
+	/**
+	 * Danh sách đĩa chưa trả
+	 * @param list
+	 */
 	private void hienDSDiaChuaTra(List<ChiTietThueTra> list) {
 		DefaultTableModel tableModel = (DefaultTableModel) tblDSTreHan.getModel();
 		tableModel.setRowCount(0);
 		int index = 1;
 		for (ChiTietThueTra chiTietThueTra : list) {
-			tableModel.addRow(new Object[] { index++, chiTietThueTra.getDia().getId(),
-					chiTietThueTra.getDia().getTuaDe(), chiTietThueTra.getNgayToiHan() });
+			tableModel
+					.addRow(new Object[] { index++, chiTietThueTra.getDia().getId(), chiTietThueTra.getDia().getTuaDe(),
+							chiTietThueTra.getNgayToiHan(), chiTietThueTra.getDia().getLoaiDia().getPhiTreHan() });
 		}
 
 	}
+
 
 	private void ganSuKienChoButton() {
 		btnClose.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				int confirm = hienThongBaoXacNhan(PnlCustomerReportUI.this, "Thông báo xác nhận",
+						"Xác nhận thoát chức năng ?");
+				if (confirm == JOptionPane.NO_OPTION) {
+					return;
+				}
 				closeUIListener.onCloseUI(e);
 
 			}
@@ -261,6 +270,10 @@ public class PnlCustomerReportUI extends JPanel {
 		});
 	}
 
+	/**
+	 * Hiện danh sách khách hàng
+	 * @param dsKhachHangCoPhiTreHan
+	 */
 	private void hienDanhSachKhachHang(List<KhachHang> dsKhachHangCoPhiTreHan) {
 
 		if (dsKhachHangCoPhiTreHan.size() == 0) {

@@ -1,5 +1,7 @@
 package com.group4.ui.panel;
-import static com.group4.Injection.*;
+import static com.group4.Injection.diaDAO;
+import static com.group4.Injection.thanhToanPhiTreHanBUS;
+import static com.group4.Injection.thueTraDiaBUS;
 import static com.group4.ui.panel.UtilsLayout.hienThongBao;
 import static com.group4.ui.panel.UtilsLayout.isInputFieldNotBlank;
 import static com.group4.ui.panel.UtilsLayout.kichHoatButton;
@@ -43,10 +45,6 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
-import com.group4.business.ThanhToanPhiTreHanBUS;
-import com.group4.business.ThueTraDiaBUS;
-import com.group4.dao.IDiaDAO;
-import com.group4.dao.impl.DiaDAO;
 import com.group4.entities.ChiTietThueTra;
 import com.group4.entities.Dia;
 import com.group4.entities.KhachHang;
