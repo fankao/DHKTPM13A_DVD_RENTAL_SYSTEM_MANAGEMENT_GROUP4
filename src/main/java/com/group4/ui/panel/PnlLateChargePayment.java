@@ -44,6 +44,7 @@ import com.group4.entities.ChiTietDatGiu;
 import com.group4.entities.ChiTietThueTra;
 import com.group4.entities.ChiTietThueTraID;
 import com.group4.entities.KhachHang;
+import com.group4.model.TaiKhoanModel;
 import com.group4.ui.ICloseUIListener;
 import com.group4.ui.panel.PnlCustomerCommon.ItemClickListener;
 
@@ -198,6 +199,10 @@ public class PnlLateChargePayment extends JPanel {
 		btnClose = new JButton("Thoát");
 		btnClose.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		panel_2.add(btnClose);
+		
+		if(TaiKhoanModel.admin == null) {
+			btnCancelLateChargePayment.setVisible(false);
+		}
 
 		if (ds != null) {
 			dsTreHan = thanhToanPhiTreHanBUS.getDSThueTraTreHanTheoKH(getKhachHang(ds).getId());

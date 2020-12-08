@@ -33,6 +33,7 @@ import com.group4.business.TuaDeBUS;
 import com.group4.dao.ITuaDeDAO;
 import com.group4.dao.impl.TuaDeDAO;
 import com.group4.entities.TuaDe;
+import com.group4.model.TaiKhoanModel;
 import com.group4.ui.ICloseUIListener;
 
 import javax.swing.JList;
@@ -162,6 +163,11 @@ public class PnlManagerTitle extends JPanel {
 		listTuaDe = new JList<TuaDe>(modelListTuaDe);
 		listTuaDe.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		pnRight.add(listTuaDe);
+		
+		if(TaiKhoanModel.admin !=null) {
+			btnXoa.setVisible(false);	
+			btnThem.setVisible(false);
+		}
 
 		voHieuHoaButton(btnSua, btnXoa, btnHuy, btnLuu);
 		voHieuHoaTextField(txtTenTuaDe);
