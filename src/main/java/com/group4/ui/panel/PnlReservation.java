@@ -36,6 +36,7 @@ import com.group4.business.DatTruocDiaBUS;
 import com.group4.entities.ChiTietDatGiu;
 import com.group4.entities.KhachHang;
 import com.group4.entities.TuaDe;
+import com.group4.model.TaiKhoanModel;
 import com.group4.ui.ICloseUIListener;
 import com.group4.ui.dialog.DlgSearchTitle;
 import com.group4.ui.panel.PnlCustomerCommon.ItemClickListener;
@@ -173,6 +174,10 @@ public class PnlReservation extends JPanel {
 		pnlCustomerCommon = new PnlCustomerCommon(null);
 		pnlCustomer.add(pnlCustomerCommon);
 		pnlCustomerCommon.setLayout(new BoxLayout(pnlCustomerCommon, BoxLayout.Y_AXIS));
+		
+		if(TaiKhoanModel.admin == null) {
+			btnCancelReservation.setVisible(false);
+		}
 
 		ganSuKienChoButton();
 		ganSuKienChoList();
