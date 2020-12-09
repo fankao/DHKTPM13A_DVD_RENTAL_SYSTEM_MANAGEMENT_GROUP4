@@ -286,7 +286,12 @@ public class PnlQuanLyKhachHang extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				closeUIListener.onCloseUI(e);
+				int confirm = hienThongBaoXacNhan(PnlQuanLyKhachHang.this, "Xác nhận thoát",
+						"Xác nhận thoát chức năng thanh toán phí trễ hạn ?");
+				if (confirm == JOptionPane.YES_OPTION) {
+					closeUIListener.onCloseUI(e);
+					
+				}
 			}
 		});
 
@@ -303,7 +308,7 @@ public class PnlQuanLyKhachHang extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (isValidInput()) {
-					String name = txtDiaChi.getText();
+					String name = txtTenKhachHang.getText();
 					String phone = txtSoDienThoai.getText();
 					String address = txtDiaChi.getText();
 					if (khachHang != null) {
