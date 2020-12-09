@@ -59,8 +59,8 @@ public class PnlUpdateTimeRent extends JPanel {
 	public PnlUpdateTimeRent() {
 		setLayout(null);
 		
-		JLabel lblHeader = new JLabel("Thiet lap thoi gian thue dia");
-		lblHeader.setFont(new Font("Tahoma", Font.BOLD, 20));
+		JLabel lblHeader = new JLabel("THIẾT LẬP THỜI GIAN THUÊ CHO LOẠI ĐĨA");
+		lblHeader.setFont(new Font("Tahoma", Font.BOLD, 30));
 		lblHeader.setBounds(573, 26, 319, 72);
 		add(lblHeader);
 		

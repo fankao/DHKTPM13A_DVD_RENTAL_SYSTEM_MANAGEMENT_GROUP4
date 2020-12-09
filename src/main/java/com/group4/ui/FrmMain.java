@@ -80,6 +80,7 @@ public class FrmMain extends JFrame {
 		this.setSize(1280, 768);
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		this.setLocationRelativeTo(null);
+		this.setResizable(false);
 	}
 
 	/**

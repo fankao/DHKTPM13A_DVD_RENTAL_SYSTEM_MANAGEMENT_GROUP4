@@ -81,7 +81,7 @@ public class PnlManageDisk extends JPanel {
 		add(pnlNorth, BorderLayout.NORTH);
 
 		JLabel lblTitle = new JLabel("QUẢN LÝ THÔNG TIN ĐĨA");
-		lblTitle.setFont(new Font("Tahoma", Font.BOLD, 25));
+		lblTitle.setFont(new Font("Tahoma", Font.BOLD, 30));
 		pnlNorth.add(lblTitle);
 
 		JPanel pnlCenter = new JPanel();

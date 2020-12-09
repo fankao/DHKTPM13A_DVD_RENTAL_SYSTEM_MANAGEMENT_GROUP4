@@ -68,7 +68,7 @@ public class PnlManagerTitle extends JPanel {
 		add(pnTitle, BorderLayout.NORTH);
 
 		JLabel lblTitle = new JLabel("QUẢN LÝ TỰA ĐỀ");
-		lblTitle.setFont(new Font("Arial", Font.BOLD, 32));
+		lblTitle.setFont(new Font("Arial", Font.BOLD, 30));
 		pnTitle.add(lblTitle);
 
 		JPanel pnMain = new JPanel();

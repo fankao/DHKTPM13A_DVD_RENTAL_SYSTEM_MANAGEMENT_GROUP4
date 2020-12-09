@@ -88,7 +88,7 @@ public class PnlRentDisk extends JPanel {
 		add(pnlTitle, BorderLayout.NORTH);
 
 		JLabel lblTitle = new JLabel("THUÊ ĐĨA");
-		lblTitle.setFont(new Font("Tahoma", Font.BOLD, 25));
+		lblTitle.setFont(new Font("Tahoma", Font.BOLD, 30));
 		pnlTitle.add(lblTitle);
 
 		JPanel pnlMain = new JPanel();
@@ -464,6 +464,7 @@ public class PnlRentDisk extends JPanel {
 	private void thueDia(KhachHang kh, List<Dia> dsDiaThue) {
 		thueTraDiaBUS.xuLyThueDia(khachHangThueDia, new HashSet<Dia>(dsDiaThue));
 		hienThongBao(this, "Thông báo", "Thuê đĩa thành công", JOptionPane.INFORMATION_MESSAGE);
+		voHieuHoaButton(btnConfirm);
 	}
 
 	/**

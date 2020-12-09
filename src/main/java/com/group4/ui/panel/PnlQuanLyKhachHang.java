@@ -1,4 +1,5 @@
 package com.group4.ui.panel;
+
 import static com.group4.Injection.*;
 import static com.group4.ui.panel.UtilsLayout.*;
 import java.awt.BorderLayout;
@@ -71,7 +72,7 @@ public class PnlQuanLyKhachHang extends JPanel {
 
 		JLabel lblTitle = new JLabel("QU\u1EA2N L\u00DD KH\u00C1CH H\u00C0NG");
 		lblTitle.setForeground(Color.BLACK);
-		lblTitle.setFont(new Font("Arial", Font.BOLD, 32));
+		lblTitle.setFont(new Font("Arial", Font.BOLD, 30));
 		pnTitle.add(lblTitle);
 
 		JPanel pnDanhSachThongTinKH = new JPanel();
@@ -224,8 +225,8 @@ public class PnlQuanLyKhachHang extends JPanel {
 		btnDong.setFont(new Font("Arial", Font.PLAIN, 20));
 		pnThoat.add(btnDong);
 		btnDong.setPreferredSize(new Dimension(100, 50));
-		
-		if(TaiKhoanModel.admin == null) {
+
+		if (TaiKhoanModel.admin == null) {
 			btnXoaKhachHang.setVisible(false);
 		}
 
@@ -248,14 +249,14 @@ public class PnlQuanLyKhachHang extends JPanel {
 
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
-				btnLuuKhachHang.setEnabled(false);
 				int select = tblKhachHang.getSelectedRow();
 
 				if (select == -1)
 					return;
 
-				hienThongTinKhachHang(dsKH.get(select));
-				voHieuHoaButton(btnThemKhachHang);
+				khachHang = dsKH.get(select);
+				hienThongTinKhachHang(khachHang);
+				voHieuHoaButton(btnThemKhachHang,btnLuuKhachHang);
 				kichHoatButton(btnSuaKhachHang, btnXoaKhachHang, btnHuy);
 				voHieuHoaTextField(txtTenKhachHang, txtSoDienThoai, txtDiaChi);
 			}

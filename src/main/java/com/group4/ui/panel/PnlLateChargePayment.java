@@ -74,10 +74,10 @@ public class PnlLateChargePayment extends JPanel{
 		setLayout(new BorderLayout(0, 0));
 		setSize(1270, 600);
 		JLabel lbl_tieude = new JLabel("THANH TO\u00C1N PH\u00CD TR\u1EC4 H\u1EA0N");
-		lbl_tieude.setFont(new Font("Tahoma", Font.BOLD, 24));
+		lbl_tieude.setFont(new Font("Tahoma", Font.BOLD, 30));
 		lbl_tieude.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl_tieude.setBackground(Color.LIGHT_GRAY);
-		lbl_tieude.setForeground(new Color(160, 82, 45));
+		lbl_tieude.setForeground(Color.BLACK);
 		add(lbl_tieude, BorderLayout.NORTH);
 
 		JPanel pnl_main = new JPanel();
