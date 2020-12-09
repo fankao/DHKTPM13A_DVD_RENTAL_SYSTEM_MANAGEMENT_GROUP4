@@ -151,7 +151,7 @@ public class PnlCustomerReportUI extends JPanel {
 		cmbOption.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		cmbOption.setModel(new DefaultComboBoxModel(new String[] { "-- Chọn loại báo cáo --", "Tất cả khách hàng",
 				"Khách hàng có đĩa trễ hạn", "Khách hàng có phí trễ hạn" }));
-		cmbOption.setBounds(182, 109, 172, 32);
+		cmbOption.setBounds(182, 109, 261, 32);
 		add(cmbOption);
 
 		btnClose = new JButton("Thoát");

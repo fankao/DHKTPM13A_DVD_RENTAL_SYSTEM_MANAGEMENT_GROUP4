@@ -71,7 +71,7 @@ public class PnlQuanLyKhachHang extends JPanel {
 
 		JLabel lblTitle = new JLabel("QU\u1EA2N L\u00DD KH\u00C1CH H\u00C0NG");
 		lblTitle.setForeground(Color.BLACK);
-		lblTitle.setFont(new Font("Arial", Font.BOLD, 32));
+		lblTitle.setFont(new Font("Arial", Font.BOLD, 30));
 		pnTitle.add(lblTitle);
 
 		JPanel pnDanhSachThongTinKH = new JPanel();

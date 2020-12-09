@@ -71,7 +71,7 @@ public class PnlReservation extends JPanel {
 		add(pnlTitle, BorderLayout.NORTH);
 
 		JLabel lblTitle = new JLabel("ĐẶT TRƯỚC ĐĨA");
-		lblTitle.setFont(new Font("Dialog", Font.BOLD, 26));
+		lblTitle.setFont(new Font("Dialog", Font.BOLD, 30));
 		pnlTitle.add(lblTitle);
 
 		JPanel panel = new JPanel();
