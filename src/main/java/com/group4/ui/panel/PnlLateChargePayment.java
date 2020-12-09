@@ -241,14 +241,13 @@ public class PnlLateChargePayment extends JPanel{
 					@Override
 					public void valueChanged(ListSelectionEvent e) {
 						int select = tblLateCharges.getSelectedRow();
-						if (select != -1) {
-							
-							dsThanhToanTreHan.add(dsTreHan.get(select));
+						if (select != -1) {							
+							dsHuyTreHan.add(dsTreHan.get(select));
 						}
-						if (dsThanhToanTreHan.size() > 0) {
-							kichHoatButton(btnCancelLateChargePayment);
+						if (dsHuyTreHan.size() == 0) {
+							voHieuHoaButton(btnCancelLateChargePayment);
 						} else {		
-							voHieuHoaButton(btnConfirm);
+							kichHoatButton(btnCancelLateChargePayment);
 						}
 					}
 		});	
@@ -288,8 +287,10 @@ public class PnlLateChargePayment extends JPanel{
 
 				if (dsThanhToanTreHan.size() > 0) {
 					kichHoatButton(btnConfirm);
+					voHieuHoaButton(btnCancelLateChargePayment);
 				} else {
 					voHieuHoaButton(btnConfirm);
+					voHieuHoaButton(btnCancelLateChargePayment);
 				}
 			}
 		});
@@ -386,18 +387,21 @@ public class PnlLateChargePayment extends JPanel{
 				if (select == -1)
 					return;
 				System.out.println("Check box table is clicked: "+select+"");
-
 				if (((Boolean) tblLateCharges.getValueAt(select, e.getColumn())) == true) {
 					dsThanhToanTreHan.add(dsTreHan.get(select));
-					voHieuHoaButton(btnCancelLateChargePayment);
+					dsHuyTreHan.remove(dsTreHan.get(select));
+					if (dsHuyTreHan.size() == 0) {
+						voHieuHoaButton(btnCancelLateChargePayment);
+					}
 				} else {
 					dsThanhToanTreHan.remove(select);
 				}
-
+				
 				if (dsThanhToanTreHan.size() == 0) {
 					voHieuHoaButton(btnConfirm);
 				} else {
 					kichHoatButton(btnConfirm);
+					voHieuHoaButton(btnCancelLateChargePayment);
 				}
 
 				thietLapSoLuongPhiMuonTra(dsThanhToanTreHan.size());
@@ -446,13 +450,11 @@ public class PnlLateChargePayment extends JPanel{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (dsThanhToanTreHan.size() == 0) {
+				if (dsHuyTreHan.size() == 0) {
 					hienThongBao(PnlLateChargePayment.this, "Thông báo", "Chưa chọn phí trễ hạn cần hủy",
 							JOptionPane.WARNING_MESSAGE);
 					return;
 				}
-
-				
 					thucHienHuyPhiTreHan();
 
 			}
@@ -474,6 +476,7 @@ public class PnlLateChargePayment extends JPanel{
 						"Xác nhận thanh toán phí trễ hạn ?");
 				if (select == JOptionPane.YES_OPTION) {
 					thucHienThanhToanPhiTreHan();
+					voHieuHoaButton(btnCancelLateChargePayment);
 				}
 
 			}
