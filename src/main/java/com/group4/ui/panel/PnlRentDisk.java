@@ -464,6 +464,7 @@ public class PnlRentDisk extends JPanel {
 	private void thueDia(KhachHang kh, List<Dia> dsDiaThue) {
 		thueTraDiaBUS.xuLyThueDia(khachHangThueDia, new HashSet<Dia>(dsDiaThue));
 		hienThongBao(this, "Thông báo", "Thuê đĩa thành công", JOptionPane.INFORMATION_MESSAGE);
+		voHieuHoaButton(btnConfirm);
 	}
 
 	/**

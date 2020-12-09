@@ -1,4 +1,5 @@
 package com.group4.ui.panel;
+
 import static com.group4.Injection.*;
 import static com.group4.ui.panel.UtilsLayout.*;
 import java.awt.BorderLayout;
@@ -224,8 +225,8 @@ public class PnlQuanLyKhachHang extends JPanel {
 		btnDong.setFont(new Font("Arial", Font.PLAIN, 20));
 		pnThoat.add(btnDong);
 		btnDong.setPreferredSize(new Dimension(100, 50));
-		
-		if(TaiKhoanModel.admin == null) {
+
+		if (TaiKhoanModel.admin == null) {
 			btnXoaKhachHang.setVisible(false);
 		}
 
@@ -248,14 +249,14 @@ public class PnlQuanLyKhachHang extends JPanel {
 
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
-				btnLuuKhachHang.setEnabled(false);
 				int select = tblKhachHang.getSelectedRow();
 
 				if (select == -1)
 					return;
 
-				hienThongTinKhachHang(dsKH.get(select));
-				voHieuHoaButton(btnThemKhachHang);
+				khachHang = dsKH.get(select);
+				hienThongTinKhachHang(khachHang);
+				voHieuHoaButton(btnThemKhachHang,btnLuuKhachHang);
 				kichHoatButton(btnSuaKhachHang, btnXoaKhachHang, btnHuy);
 				voHieuHoaTextField(txtTenKhachHang, txtSoDienThoai, txtDiaChi);
 			}
